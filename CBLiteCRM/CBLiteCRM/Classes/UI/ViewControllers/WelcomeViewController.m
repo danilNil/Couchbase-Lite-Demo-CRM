@@ -8,6 +8,7 @@
 
 #import "WelcomeViewController.h"
 #import "UIView+Activity.h"
+#import "UIAlertView+Helper.h"
 #import "AppDelegate.h"
 
 //Data
@@ -43,6 +44,7 @@
 - (void) onEpicFail
 {
     dispatch_async(dispatch_get_main_queue(), ^{
+        [UIAlertView showErrorMessage:@"Authentification failed"];
         [self.view hideActivity];
     });
 }

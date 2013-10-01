@@ -77,7 +77,7 @@
     _authenticator.syncManager = self;
 }
 
-
+	
 #pragma mark - Callbacks
 
 - (NSError*) runBeforeSyncStartWithUserID: (NSString *)userID andUserData: (NSDictionary *)userData {
@@ -202,14 +202,17 @@
 - (void) setupNewUser:(void (^)(NSError* error))complete {
     if (_userID) return;
     [_authenticator getCredentials: ^(NSString *userID, NSDictionary *userData){
-        if (_userID) complete([NSError errorWithDomain:@"User auth" message:@"auth error"]);
-        // Give the app a chance to tag documents with userID before sync starts
-        NSError *error = [self runBeforeSyncStartWithUserID: userID andUserData: userData];
-        if (error) {
-            NSLog(@"error preparing for sync %@", error);
-        } else {
-            _userID = userID;
-            complete(nil);
+        if (!_userID){
+            complete([NSError errorWithDomain:@"User auth" message:@"auth error"]);
+        }else{
+            // Give the app a chance to tag documents with userID before sync starts
+            NSError *error = [self runBeforeSyncStartWithUserID: userID andUserData: userData];
+            if (error) {
+                NSLog(@"error preparing for sync %@", error);
+            } else {
+                _userID = userID;
+                complete(nil);
+            }
         }
     }];
 }
