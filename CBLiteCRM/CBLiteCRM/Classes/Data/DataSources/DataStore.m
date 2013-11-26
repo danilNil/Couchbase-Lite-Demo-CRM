@@ -54,10 +54,13 @@ static DataStore* sInstance;
 
 #if kFakeDataBase
 - (void) createFakeUsers {
-    User* profile = [self profileWithUsername: kExampleUserName];
-    if (!profile) {
-        profile = [User createInDatabase: _database
-                                   withUsername: kExampleUserName];
+    NSArray *array = @[kExampleUserName, @"DaveMarkus@mail.com", @"MichaelMarkulli@mail.com", @"EugeneVolnov@mail.com"];
+    for (NSString *email in array) {
+        User* profile = [self profileWithUsername: email];
+        if (!profile) {
+            profile = [User createInDatabase: _database
+                                withUsername: email];
+        }
     }
 }
 #endif
