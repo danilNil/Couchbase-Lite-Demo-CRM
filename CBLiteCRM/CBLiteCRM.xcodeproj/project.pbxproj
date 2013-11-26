@@ -32,6 +32,7 @@
 		831FFD2A184444FC00C7CB22 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 831FFD27184444FC00C7CB22 /* SystemConfiguration.framework */; };
 		831FFD2C1844451500C7CB22 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 831FFD2B1844451500C7CB22 /* libsqlite3.dylib */; };
 		831FFD2E1844451F00C7CB22 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 831FFD2D1844451F00C7CB22 /* libz.dylib */; };
+		831FFD3118444A6100C7CB22 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 831FFD3018444A6100C7CB22 /* User.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,8 @@
 		831FFD27184444FC00C7CB22 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		831FFD2B1844451500C7CB22 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		831FFD2D1844451F00C7CB22 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		831FFD2F18444A6100C7CB22 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		831FFD3018444A6100C7CB22 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -245,6 +248,8 @@
 		831FFD221844422000C7CB22 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				831FFD2F18444A6100C7CB22 /* User.h */,
+				831FFD3018444A6100C7CB22 /* User.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -348,6 +353,7 @@
 			files = (
 				831FFD1018443AA300C7CB22 /* AppDelegate.m in Sources */,
 				831FFD1D18443DB300C7CB22 /* CustomersViewController.m in Sources */,
+				831FFD3118444A6100C7CB22 /* User.m in Sources */,
 				831FFD1A18443DA200C7CB22 /* ContactsViewController.m in Sources */,
 				831FFCE01844364900C7CB22 /* main.m in Sources */,
 				831FFD2018443DD500C7CB22 /* OpportunitiesViewController.m in Sources */,
@@ -574,6 +580,7 @@
 				831FFD041844364900C7CB22 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		831FFD051844364900C7CB22 /* Build configuration list for PBXNativeTarget "CBLiteCRMTests" */ = {
 			isa = XCConfigurationList;
@@ -582,6 +589,7 @@
 				831FFD071844364900C7CB22 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
