@@ -8,6 +8,9 @@
 
 #import "WelcomeViewController.h"
 
+//Data
+#import "User.h"
+#import "DataStore.h"
 @interface WelcomeViewController ()
 
 @end
@@ -25,5 +28,16 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (IBAction)personaLogin:(id)sender {
+    [self loginWithUserName:kExampleUserName];
+}
+
+- (void)loginWithUserName:(NSString*) username{
+    if([[DataStore sharedInstance] profileWithUsername:username])
+        [self performSegueWithIdentifier:@"pushMenuController" sender:self];
+}
+
+
 
 @end

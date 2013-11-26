@@ -14,7 +14,7 @@
 @property (nonatomic, readonly) User* user;
 
 /** The local logged-in user's username. */
-@property (nonatomic, copy) NSString* username;
+@property (nonatomic, strong) NSString* username;
 
 /** Gets a UserProfile for a user given their username. */
 - (User*) profileWithUsername: (NSString*)username;

@@ -19,7 +19,9 @@ static DataStore* sInstance;
         NSAssert(!sInstance, @"Cannot create more than one DataStore");
         sInstance = self;
         _database = database;
-        self.username = [[NSUserDefaults standardUserDefaults] stringForKey: @"UserName"];
+        NSString* savedUserName = [[NSUserDefaults standardUserDefaults] stringForKey: @"UserName"];
+        if(savedUserName)
+            self.username = savedUserName;
 
         [_database.modelFactory registerClass: [User class] forDocumentType: kUserDocType];
 
@@ -63,8 +65,8 @@ static DataStore* sInstance;
 
 - (void) setUsername:(NSString *)username {
     if (![username isEqualToString: self.username]) {
-        NSLog(@"Setting chat username to '%@'", username);
-        self.username = [username copy];
+        NSLog(@"Setting username to '%@'", username);
+        _username = username;
         [[NSUserDefaults standardUserDefaults] setObject: username forKey: @"UserName"];
 
         User* myProfile = [self profileWithUsername: self.username];
