@@ -48,12 +48,18 @@ NSString *kSalesPersonCell = @"SalesPersonCell";
 }
 
 - (void)setChecked:(BOOL)_checked {
-    checked = _checked;
-    salesPerson.approved = checked;
+    NSError *err;
+    self.salesPerson.approved = _checked;
+    if ([self.salesPerson save:&err]) {
+        checked = _checked;
+
     if (_checked == YES)
         [checkmark setTitle:@"√" forState:UIControlStateNormal];
     else
         [checkmark setTitle:@"X" forState:UIControlStateNormal];
+    } else {
+        self.salesPerson.approved = checked;
+    }
 }
 
 - (void)setSalesPerson:(SalesPerson *)_salesPerson
