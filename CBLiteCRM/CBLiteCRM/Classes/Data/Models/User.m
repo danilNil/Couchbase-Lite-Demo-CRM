@@ -7,12 +7,16 @@
 //
 
 #import "User.h"
-static NSString* const kUserDocType = @"user";
 @implementation User
 
 + (NSString*) docIDForUsername: (NSString*)username {
     return [NSString stringWithFormat:@"%@:%@",kUserDocType,username];
 }
+
++ (NSString*) usernameFromDocID: (NSString*)docID{
+    return [docID substringFromIndex: kUserDocType.length+1];
+}
+
 
 - (NSString*) email {
     NSString* email = [self getValueOfProperty: @"email"];

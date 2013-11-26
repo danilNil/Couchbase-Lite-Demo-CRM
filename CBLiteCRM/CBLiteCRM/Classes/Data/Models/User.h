@@ -16,5 +16,6 @@
 /** Creates a new UserProfile, presumably for the local logged-in user. */
 + (User*) createInDatabase: (CBLDatabase*)database
                      withUsername: (NSString*)username;
-
++ (NSString*) usernameFromDocID: (NSString*)docID;
++ (NSString*) docIDForUsername: (NSString*)username;
 @end

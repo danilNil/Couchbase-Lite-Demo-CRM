@@ -7,6 +7,11 @@
 //
 
 #import "AppDelegate.h"
+#import "DataStore.h"
+
+@interface AppDelegate()
+    @property (readonly) DataStore* dataStore;
+@end
 
 @implementation AppDelegate
 
@@ -18,6 +23,7 @@
     // create a database
     NSError *error;
     self.database = [manager createDatabaseNamed: @"crm-database" error: &error];
+    _dataStore = [[DataStore alloc] initWithDatabase: _database];
     if (error) {
         NSLog(@"data base creation error: %@", error);
     }
