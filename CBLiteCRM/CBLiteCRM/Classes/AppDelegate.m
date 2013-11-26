@@ -12,7 +12,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    // create a shared instance of CBLManager
+    CBLManager *manager = [CBLManager sharedInstance];
+    
+    // create a database
+    NSError *error;
+    self.database = [manager createDatabaseNamed: @"crm-database" error: &error];
+    if (error) {
+        NSLog(@"data base creation error: %@", error);
+    }
     return YES;
 }
 							

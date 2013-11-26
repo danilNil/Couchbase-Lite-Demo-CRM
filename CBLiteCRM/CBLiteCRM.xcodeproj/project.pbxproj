@@ -26,6 +26,12 @@
 		831FFD1A18443DA200C7CB22 /* ContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 831FFD1918443DA200C7CB22 /* ContactsViewController.m */; };
 		831FFD1D18443DB300C7CB22 /* CustomersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 831FFD1C18443DB300C7CB22 /* CustomersViewController.m */; };
 		831FFD2018443DD500C7CB22 /* OpportunitiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 831FFD1F18443DD500C7CB22 /* OpportunitiesViewController.m */; };
+		831FFD241844448D00C7CB22 /* CouchbaseLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 831FFD231844448D00C7CB22 /* CouchbaseLite.framework */; };
+		831FFD28184444FC00C7CB22 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 831FFD25184444FC00C7CB22 /* CFNetwork.framework */; };
+		831FFD29184444FC00C7CB22 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 831FFD26184444FC00C7CB22 /* Security.framework */; };
+		831FFD2A184444FC00C7CB22 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 831FFD27184444FC00C7CB22 /* SystemConfiguration.framework */; };
+		831FFD2C1844451500C7CB22 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 831FFD2B1844451500C7CB22 /* libsqlite3.dylib */; };
+		831FFD2E1844451F00C7CB22 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 831FFD2D1844451F00C7CB22 /* libz.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +74,12 @@
 		831FFD1C18443DB300C7CB22 /* CustomersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomersViewController.m; sourceTree = "<group>"; };
 		831FFD1E18443DD500C7CB22 /* OpportunitiesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpportunitiesViewController.h; sourceTree = "<group>"; };
 		831FFD1F18443DD500C7CB22 /* OpportunitiesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpportunitiesViewController.m; sourceTree = "<group>"; };
+		831FFD231844448D00C7CB22 /* CouchbaseLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CouchbaseLite.framework; sourceTree = "<group>"; };
+		831FFD25184444FC00C7CB22 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		831FFD26184444FC00C7CB22 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		831FFD27184444FC00C7CB22 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		831FFD2B1844451500C7CB22 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		831FFD2D1844451F00C7CB22 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,9 +87,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				831FFD2E1844451F00C7CB22 /* libz.dylib in Frameworks */,
+				831FFD2C1844451500C7CB22 /* libsqlite3.dylib in Frameworks */,
 				831FFCD61844364900C7CB22 /* CoreGraphics.framework in Frameworks */,
+				831FFD2A184444FC00C7CB22 /* SystemConfiguration.framework in Frameworks */,
 				831FFCD81844364900C7CB22 /* UIKit.framework in Frameworks */,
+				831FFD241844448D00C7CB22 /* CouchbaseLite.framework in Frameworks */,
 				831FFCD41844364900C7CB22 /* Foundation.framework in Frameworks */,
+				831FFD29184444FC00C7CB22 /* Security.framework in Frameworks */,
+				831FFD28184444FC00C7CB22 /* CFNetwork.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,6 +134,12 @@
 		831FFCD21844364900C7CB22 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				831FFD2D1844451F00C7CB22 /* libz.dylib */,
+				831FFD2B1844451500C7CB22 /* libsqlite3.dylib */,
+				831FFD25184444FC00C7CB22 /* CFNetwork.framework */,
+				831FFD26184444FC00C7CB22 /* Security.framework */,
+				831FFD27184444FC00C7CB22 /* SystemConfiguration.framework */,
+				831FFD231844448D00C7CB22 /* CouchbaseLite.framework */,
 				831FFCD31844364900C7CB22 /* Foundation.framework */,
 				831FFCD51844364900C7CB22 /* CoreGraphics.framework */,
 				831FFCD71844364900C7CB22 /* UIKit.framework */,
@@ -456,10 +480,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/danil/Documents/Al\\ Digit/Projects/Couchbase\\ project/Couchbase-Lite-Demo-CRM/CBLiteCRM",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CBLiteCRM/CBLiteCRM-Prefix.pch";
 				INFOPLIST_FILE = "CBLiteCRM/CBLiteCRM-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -470,10 +499,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/danil/Documents/Al\\ Digit/Projects/Couchbase\\ project/Couchbase-Lite-Demo-CRM/CBLiteCRM",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CBLiteCRM/CBLiteCRM-Prefix.pch";
 				INFOPLIST_FILE = "CBLiteCRM/CBLiteCRM-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
