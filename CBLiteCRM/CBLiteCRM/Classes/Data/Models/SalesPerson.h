@@ -10,4 +10,9 @@
 
 @interface SalesPerson : CBLModel
 
+@property (strong) NSString* name;
+@property (strong) NSString* email;
+@property (strong) NSString* phoneNumber;
+@property bool approved;
+
 @end

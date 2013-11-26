@@ -36,6 +36,8 @@
 		831FFD341844542F00C7CB22 /* DataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 831FFD331844542F00C7CB22 /* DataStore.m */; };
 		831FFD3E18446BC300C7CB22 /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = 831FFD3D18446BC200C7CB22 /* Contact.m */; };
 		831FFD4118446C5500C7CB22 /* SalesPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 831FFD4018446C5500C7CB22 /* SalesPerson.m */; };
+		831FFD4418446EAC00C7CB22 /* Customer.m in Sources */ = {isa = PBXBuildFile; fileRef = 831FFD4318446EAC00C7CB22 /* Customer.m */; };
+		831FFD471844702F00C7CB22 /* Opportunity.m in Sources */ = {isa = PBXBuildFile; fileRef = 831FFD461844702E00C7CB22 /* Opportunity.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +95,10 @@
 		831FFD3D18446BC200C7CB22 /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contact.m; sourceTree = "<group>"; };
 		831FFD3F18446C5500C7CB22 /* SalesPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SalesPerson.h; sourceTree = "<group>"; };
 		831FFD4018446C5500C7CB22 /* SalesPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SalesPerson.m; sourceTree = "<group>"; };
+		831FFD4218446EAC00C7CB22 /* Customer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Customer.h; sourceTree = "<group>"; };
+		831FFD4318446EAC00C7CB22 /* Customer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Customer.m; sourceTree = "<group>"; };
+		831FFD451844702E00C7CB22 /* Opportunity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Opportunity.h; sourceTree = "<group>"; };
+		831FFD461844702E00C7CB22 /* Opportunity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Opportunity.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -267,6 +273,10 @@
 				831FFD3D18446BC200C7CB22 /* Contact.m */,
 				831FFD3F18446C5500C7CB22 /* SalesPerson.h */,
 				831FFD4018446C5500C7CB22 /* SalesPerson.m */,
+				831FFD4218446EAC00C7CB22 /* Customer.h */,
+				831FFD4318446EAC00C7CB22 /* Customer.m */,
+				831FFD451844702E00C7CB22 /* Opportunity.h */,
+				831FFD461844702E00C7CB22 /* Opportunity.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -377,6 +387,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				831FFD1018443AA300C7CB22 /* AppDelegate.m in Sources */,
+				831FFD471844702F00C7CB22 /* Opportunity.m in Sources */,
 				831FFD1D18443DB300C7CB22 /* CustomersViewController.m in Sources */,
 				831FFD3118444A6100C7CB22 /* User.m in Sources */,
 				831FFD4118446C5500C7CB22 /* SalesPerson.m in Sources */,
@@ -386,6 +397,7 @@
 				831FFD2018443DD500C7CB22 /* OpportunitiesViewController.m in Sources */,
 				831FFD3E18446BC300C7CB22 /* Contact.m in Sources */,
 				831FFD1118443AA300C7CB22 /* WelcomeViewController.m in Sources */,
+				831FFD4418446EAC00C7CB22 /* Customer.m in Sources */,
 				831FFD1418443B0700C7CB22 /* MenuViewController.m in Sources */,
 				831FFD1718443D9000C7CB22 /* SalesViewController.m in Sources */,
 			);

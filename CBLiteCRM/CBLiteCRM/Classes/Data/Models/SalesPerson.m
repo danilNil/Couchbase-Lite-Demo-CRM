@@ -9,5 +9,5 @@
 #import "SalesPerson.h"
 
 @implementation SalesPerson
-
+@dynamic name, phoneNumber, email, approved;
 @end
