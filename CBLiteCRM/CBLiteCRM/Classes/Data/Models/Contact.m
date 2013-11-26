@@ -9,5 +9,5 @@
 #import "Contact.h"
 
 @implementation Contact
-@dynamic customer, name, position, phoneNumber, email, address, opportunitees, photo;
+@dynamic customer, name, position, phoneNumber, email, address, opportunities, photo;
 @end

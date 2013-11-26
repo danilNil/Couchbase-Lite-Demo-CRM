@@ -7,6 +7,7 @@
 //
 
 #import "SalesPersonOptionsViewController.h"
+#import "SalesPerson.h"
 
 @interface SalesPersonOptionsViewController ()
 
@@ -37,7 +38,7 @@
     [super didReceiveMemoryWarning];
 }
 
-- (void)setUser:(User *)user
+- (void)setUser:(SalesPerson *)user
 {
     _user = user;
     _name.text = user.email;

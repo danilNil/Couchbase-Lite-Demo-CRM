@@ -1,4 +1,4 @@
-@class User;
+@class SalesPerson;
 
 @interface DataStore : NSObject
 
@@ -11,13 +11,13 @@
 // USERS:
 
 /** The local logged-in user */
-@property (nonatomic, readonly) User* user;
+@property (nonatomic, readonly) SalesPerson* user;
 
 /** The local logged-in user's username. */
 @property (nonatomic, strong) NSString* username;
 
 /** Gets a UserProfile for a user given their username. */
-- (User*) profileWithUsername: (NSString*)username;
+- (SalesPerson*) profileWithUsername: (NSString*)username;
 
 @property (readonly) CBLQuery* allUsersQuery;
 @property (readonly) NSArray* allOtherUsers;    /**< UserProfile objects of other users */

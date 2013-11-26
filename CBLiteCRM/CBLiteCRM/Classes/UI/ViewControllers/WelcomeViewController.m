@@ -9,7 +9,6 @@
 #import "WelcomeViewController.h"
 
 //Data
-#import "User.h"
 #import "DataStore.h"
 @interface WelcomeViewController ()
 

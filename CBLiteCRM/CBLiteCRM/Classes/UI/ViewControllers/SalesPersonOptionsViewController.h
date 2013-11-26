@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "User.h"
 
+@class SalesPerson;
 @interface SalesPersonOptionsViewController : UIViewController
 
-@property (nonatomic, unsafe_unretained) User *user;
+@property (nonatomic, unsafe_unretained) SalesPerson *user;
 
 @end

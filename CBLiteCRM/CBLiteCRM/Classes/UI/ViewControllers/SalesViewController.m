@@ -8,7 +8,7 @@
 
 #import "SalesViewController.h"
 #import "DataStore.h"
-#import "User.h"
+#import "SalesPerson.h"
 #import "SalesPersonOptionsViewController.h"
 
 @interface SalesViewController ()
@@ -56,7 +56,7 @@
         cell = [tableView dequeueReusableCellWithIdentifier:@"SalesPersonHeaderCell"];
     } else if (indexPath.row > 0) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"PersonCell"];
-        User *user = (self.sales_persons)[indexPath.row - 1];
+        SalesPerson *user = (self.sales_persons)[indexPath.row - 1];
         cell.textLabel.text = user.email;
 //        cell.textLabel.text = user.username;
 //        cell.detailTextLabel.text = user.email;

@@ -10,9 +10,15 @@
 
 @interface SalesPerson : CBLModel
 
-@property (strong) NSString* name;
+@property (strong) NSString* username;
 @property (strong) NSString* email;
 @property (strong) NSString* phoneNumber;
 @property bool approved;
+
+
++ (SalesPerson*) createInDatabase: (CBLDatabase*)database
+              withUsername: (NSString*)username;
++ (NSString*) usernameFromDocID: (NSString*)docID;
++ (NSString*) docIDForUsername: (NSString*)username;
 
 @end

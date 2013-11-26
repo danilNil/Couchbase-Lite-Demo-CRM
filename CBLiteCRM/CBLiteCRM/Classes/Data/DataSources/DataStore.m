@@ -1,6 +1,6 @@
 
 #import "DataStore.h"
-#import "User.h"
+#import "SalesPerson.h"
 
 @interface DataStore(){
     CBLView* _usersView;
@@ -23,12 +23,12 @@ static DataStore* sInstance;
         if(savedUserName)
             self.username = savedUserName;
 
-        [_database.modelFactory registerClass: [User class] forDocumentType: kUserDocType];
+        [_database.modelFactory registerClass: [SalesPerson class] forDocumentType: kUserDocType];
 
         _usersView = [_database viewNamed: @"usersByName"];
         [_usersView setMapBlock: MAPBLOCK({
             if ([doc[@"type"] isEqualToString: kUserDocType]) {
-                NSString* name = [User usernameFromDocID: doc[@"_id"]];
+                NSString* name = [SalesPerson usernameFromDocID: doc[@"_id"]];
                 if (name)
                     emit(name.lowercaseString, name);
             }
@@ -56,9 +56,9 @@ static DataStore* sInstance;
 - (void) createFakeUsers {
     NSArray *array = @[kExampleUserName, @"DaveMarkus@mail.com", @"MichaelMarkulli@mail.com", @"EugeneVolnov@mail.com"];
     for (NSString *email in array) {
-        User* profile = [self profileWithUsername: email];
+        SalesPerson* profile = [self profileWithUsername: email];
         if (!profile) {
-            profile = [User createInDatabase: _database
+            profile = [SalesPerson createInDatabase: _database
                                 withUsername: email];
         }
     }
@@ -72,9 +72,9 @@ static DataStore* sInstance;
         _username = username;
         [[NSUserDefaults standardUserDefaults] setObject: username forKey: @"UserName"];
 
-        User* myProfile = [self profileWithUsername: self.username];
+        SalesPerson* myProfile = [self profileWithUsername: self.username];
         if (!myProfile) {
-            myProfile = [User createInDatabase: _database
+            myProfile = [SalesPerson createInDatabase: _database
                                          withUsername: self.username];
             NSLog(@"Created user profile %@", myProfile);
         }
@@ -82,24 +82,24 @@ static DataStore* sInstance;
 }
 
 
-- (User*) user {
+- (SalesPerson*) user {
     if (!self.username)
         return nil;
-    User* user = [self profileWithUsername: self.username];
+    SalesPerson* user = [self profileWithUsername: self.username];
     if (!user) {
-        user = [User createInDatabase: _database
+        user = [SalesPerson createInDatabase: _database
                                 withUsername: self.username];
     }
     return user;
 }
 
 
-- (User*) profileWithUsername: (NSString*)username {
-    NSString* docID = [User docIDForUsername: username];
+- (SalesPerson*) profileWithUsername: (NSString*)username {
+    NSString* docID = [SalesPerson docIDForUsername: username];
     CBLDocument* doc = [self.database documentWithID: docID];
     if (!doc.currentRevisionID)
         return nil;
-    return [User modelForDocument: doc];
+    return [SalesPerson modelForDocument: doc];
 }
 
 - (CBLQuery*) allUsersQuery {
@@ -109,7 +109,7 @@ static DataStore* sInstance;
 - (NSArray*) allOtherUsers {
     NSMutableArray* users = [NSMutableArray array];
     for (CBLQueryRow* row in self.allUsersQuery.rows.allObjects) {
-        User* user = [User modelForDocument: row.document];
+        SalesPerson* user = [SalesPerson modelForDocument: row.document];
         if (![user.username isEqualToString: self.username])
             [users addObject: user];
     }
