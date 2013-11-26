@@ -39,6 +39,9 @@
 		831FFD4418446EAC00C7CB22 /* Customer.m in Sources */ = {isa = PBXBuildFile; fileRef = 831FFD4318446EAC00C7CB22 /* Customer.m */; };
 		831FFD471844702F00C7CB22 /* Opportunity.m in Sources */ = {isa = PBXBuildFile; fileRef = 831FFD461844702E00C7CB22 /* Opportunity.m */; };
 		831FFD4B1844A78C00C7CB22 /* ContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 831FFD4A1844A78C00C7CB22 /* ContactCell.m */; };
+		831FFD4E1844ADF800C7CB22 /* ContactDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 831FFD4D1844ADF800C7CB22 /* ContactDetailsViewController.m */; };
+		831FFD521844B03B00C7CB22 /* TextFieldsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 831FFD511844B03B00C7CB22 /* TextFieldsViewController.m */; };
+		831FFD561844B7CD00C7CB22 /* Avatar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 831FFD551844B7CD00C7CB22 /* Avatar@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +105,11 @@
 		831FFD461844702E00C7CB22 /* Opportunity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Opportunity.m; sourceTree = "<group>"; };
 		831FFD491844A78C00C7CB22 /* ContactCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactCell.h; sourceTree = "<group>"; };
 		831FFD4A1844A78C00C7CB22 /* ContactCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactCell.m; sourceTree = "<group>"; };
+		831FFD4C1844ADF800C7CB22 /* ContactDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactDetailsViewController.h; sourceTree = "<group>"; };
+		831FFD4D1844ADF800C7CB22 /* ContactDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactDetailsViewController.m; sourceTree = "<group>"; };
+		831FFD501844B03B00C7CB22 /* TextFieldsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TextFieldsViewController.h; path = ../../../../../../../../ProfileCode/profilecode/ProfileCode/Classes/UI/ViewControllers/Base/TextFieldsViewController.h; sourceTree = "<group>"; };
+		831FFD511844B03B00C7CB22 /* TextFieldsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TextFieldsViewController.m; path = ../../../../../../../../ProfileCode/profilecode/ProfileCode/Classes/UI/ViewControllers/Base/TextFieldsViewController.m; sourceTree = "<group>"; };
+		831FFD551844B7CD00C7CB22 /* Avatar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Avatar@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +183,7 @@
 			children = (
 				831FFD0818443AA300C7CB22 /* Classes */,
 				831FFCE51844364900C7CB22 /* Main.storyboard */,
+				831FFD531844B7BE00C7CB22 /* Resources */,
 				831FFCEB1844364900C7CB22 /* Images.xcassets */,
 				831FFCDA1844364900C7CB22 /* Supporting Files */,
 			);
@@ -243,6 +252,7 @@
 		831FFD0D18443AA300C7CB22 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				831FFD4F1844B03200C7CB22 /* Base */,
 				831FFD0E18443AA300C7CB22 /* WelcomeViewController.h */,
 				831FFD0F18443AA300C7CB22 /* WelcomeViewController.m */,
 				831FFD1218443B0700C7CB22 /* MenuViewController.h */,
@@ -257,6 +267,8 @@
 				831FFD1F18443DD500C7CB22 /* OpportunitiesViewController.m */,
 				449204D0184478590036D3A9 /* SalesPersonOptionsViewController.h */,
 				449204D1184478590036D3A9 /* SalesPersonOptionsViewController.m */,
+				831FFD4C1844ADF800C7CB22 /* ContactDetailsViewController.h */,
+				831FFD4D1844ADF800C7CB22 /* ContactDetailsViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -300,6 +312,31 @@
 				831FFD4A1844A78C00C7CB22 /* ContactCell.m */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		831FFD4F1844B03200C7CB22 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				831FFD501844B03B00C7CB22 /* TextFieldsViewController.h */,
+				831FFD511844B03B00C7CB22 /* TextFieldsViewController.m */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		831FFD531844B7BE00C7CB22 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				831FFD541844B7BE00C7CB22 /* Images */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		831FFD541844B7BE00C7CB22 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				831FFD551844B7CD00C7CB22 /* Avatar@2x.png */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -379,6 +416,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				831FFCEC1844364900C7CB22 /* Images.xcassets in Resources */,
+				831FFD561844B7CD00C7CB22 /* Avatar@2x.png in Resources */,
 				831FFCDE1844364900C7CB22 /* InfoPlist.strings in Resources */,
 				831FFCE71844364900C7CB22 /* Main.storyboard in Resources */,
 			);
@@ -404,11 +442,13 @@
 				831FFD471844702F00C7CB22 /* Opportunity.m in Sources */,
 				831FFD1D18443DB300C7CB22 /* CustomersViewController.m in Sources */,
 				831FFD4118446C5500C7CB22 /* SalesPerson.m in Sources */,
+				831FFD521844B03B00C7CB22 /* TextFieldsViewController.m in Sources */,
 				831FFD1A18443DA200C7CB22 /* ContactsViewController.m in Sources */,
 				831FFCE01844364900C7CB22 /* main.m in Sources */,
 				449204D2184478590036D3A9 /* SalesPersonOptionsViewController.m in Sources */,
 				831FFD341844542F00C7CB22 /* DataStore.m in Sources */,
 				831FFD2018443DD500C7CB22 /* OpportunitiesViewController.m in Sources */,
+				831FFD4E1844ADF800C7CB22 /* ContactDetailsViewController.m in Sources */,
 				831FFD3E18446BC300C7CB22 /* Contact.m in Sources */,
 				831FFD1118443AA300C7CB22 /* WelcomeViewController.m in Sources */,
 				831FFD4418446EAC00C7CB22 /* Customer.m in Sources */,
@@ -543,6 +583,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",
+					"/Users/danil/Documents/Al\\ Digit/Projects/Couchbase\\ project/Couchbase-Lite-Demo-CRM/CBLiteCRM",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CBLiteCRM/CBLiteCRM-Prefix.pch";
@@ -562,6 +603,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",
+					"/Users/danil/Documents/Al\\ Digit/Projects/Couchbase\\ project/Couchbase-Lite-Demo-CRM/CBLiteCRM",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CBLiteCRM/CBLiteCRM-Prefix.pch";
