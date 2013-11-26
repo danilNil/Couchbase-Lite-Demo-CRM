@@ -11,9 +11,7 @@
 #import "SalesPerson.h"
 #import "SalesPersonOptionsViewController.h"
 #import "SalesPerson.h"
-
-NSString *kSalesPersonHeaderCell = @"SalesPersonHeaderCell";
-NSString *kPersonCell = @"PersonCell";
+#import "SalesPersonCell.h"
 
 @interface SalesViewController () <UISearchBarDelegate, UISearchDisplayDelegate>
 
@@ -47,33 +45,26 @@ NSString *kPersonCell = @"PersonCell";
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (tableView == self.searchDisplayController.searchResultsTableView)
-        return self.filteredSalesPersons.count + 1;
+        return self.filteredSalesPersons.count;
     else
-        return self.salesPersons.count + 1;
+        return self.salesPersons.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell;
-
-    if (indexPath.row == 0) {
-        cell = [tableView dequeueReusableCellWithIdentifier:kSalesPersonHeaderCell];
-        if (!cell)
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kSalesPersonHeaderCell];
-    } else if (indexPath.row > 0) {
-        cell = [tableView dequeueReusableCellWithIdentifier:kPersonCell];
-        if (!cell)
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:kPersonCell];
-        SalesPerson *salesPerson;
-        if (tableView == self.searchDisplayController.searchResultsTableView)
-            salesPerson = (self.filteredSalesPersons)[indexPath.row - 1];
-        else
-            salesPerson = (self.salesPersons)[indexPath.row - 1];
-        cell.textLabel.text = salesPerson.email;
-//        cell.textLabel.text = user.username;
-//        cell.detailTextLabel.text = user.email;
-        cell.detailTextLabel.text = @"";
-    }
+    SalesPersonCell *cell;
+    cell = [tableView dequeueReusableCellWithIdentifier:kSalesPersonCell];
+    if (!cell)
+        cell = [[SalesPersonCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:kSalesPersonCell];
+    SalesPerson *salesPerson;
+    if (tableView == self.searchDisplayController.searchResultsTableView)
+        salesPerson = (self.filteredSalesPersons)[indexPath.row];
+    else
+        salesPerson = (self.salesPersons)[indexPath.row];
+    cell.name.text = salesPerson.email;
+//    cell.textLabel.text = user.username;
+//    cell.detailTextLabel.text = user.email;
+//    cell.detailTextLabel.text = @"";
     return cell;
 }
 
@@ -88,10 +79,10 @@ NSString *kPersonCell = @"PersonCell";
     SalesPersonOptionsViewController *salesPersonOptionsViewController = [segue destinationViewController];
     if(sender == self.searchDisplayController.searchResultsTableView) {
         NSIndexPath *indexPath = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
-        salesPersonOptionsViewController.salesPerson = filteredSalesPersons[indexPath.row - 1];
+        salesPersonOptionsViewController.salesPerson = filteredSalesPersons[indexPath.row];
     } else {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        salesPersonOptionsViewController.salesPerson = salesPersons[indexPath.row - 1];
+        salesPersonOptionsViewController.salesPerson = salesPersons[indexPath.row];
     }
 }
 

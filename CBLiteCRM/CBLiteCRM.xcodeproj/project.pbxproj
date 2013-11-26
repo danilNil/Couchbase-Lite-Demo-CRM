@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		449204CF18445EB30036D3A9 /* CouchbaseLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 449204CE18445EB30036D3A9 /* CouchbaseLite.framework */; };
 		449204D2184478590036D3A9 /* SalesPersonOptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 449204D1184478590036D3A9 /* SalesPersonOptionsViewController.m */; };
+		449204DB1844A7800036D3A9 /* SalesPersonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 449204DA1844A7800036D3A9 /* SalesPersonCell.m */; };
 		831FFCD41844364900C7CB22 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 831FFCD31844364900C7CB22 /* Foundation.framework */; };
 		831FFCD61844364900C7CB22 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 831FFCD51844364900C7CB22 /* CoreGraphics.framework */; };
 		831FFCD81844364900C7CB22 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 831FFCD71844364900C7CB22 /* UIKit.framework */; };
@@ -54,6 +55,8 @@
 		449204CE18445EB30036D3A9 /* CouchbaseLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CouchbaseLite.framework; sourceTree = "<group>"; };
 		449204D0184478590036D3A9 /* SalesPersonOptionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SalesPersonOptionsViewController.h; sourceTree = "<group>"; };
 		449204D1184478590036D3A9 /* SalesPersonOptionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SalesPersonOptionsViewController.m; sourceTree = "<group>"; };
+		449204D91844A7800036D3A9 /* SalesPersonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SalesPersonCell.h; sourceTree = "<group>"; };
+		449204DA1844A7800036D3A9 /* SalesPersonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SalesPersonCell.m; sourceTree = "<group>"; };
 		831FFCD01844364900C7CB22 /* CBLiteCRM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CBLiteCRM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		831FFCD31844364900C7CB22 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		831FFCD51844364900C7CB22 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -131,6 +134,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		449204D81844A75C0036D3A9 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				449204D91844A7800036D3A9 /* SalesPersonCell.h */,
+				449204DA1844A7800036D3A9 /* SalesPersonCell.m */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		831FFCC71844364900C7CB22 = {
 			isa = PBXGroup;
 			children = (
@@ -231,6 +243,7 @@
 		831FFD0C18443AA300C7CB22 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				449204D81844A75C0036D3A9 /* Cells */,
 				831FFD0D18443AA300C7CB22 /* ViewControllers */,
 			);
 			path = UI;
@@ -396,6 +409,7 @@
 				831FFD341844542F00C7CB22 /* DataStore.m in Sources */,
 				831FFD2018443DD500C7CB22 /* OpportunitiesViewController.m in Sources */,
 				831FFD3E18446BC300C7CB22 /* Contact.m in Sources */,
+				449204DB1844A7800036D3A9 /* SalesPersonCell.m in Sources */,
 				831FFD1118443AA300C7CB22 /* WelcomeViewController.m in Sources */,
 				831FFD4418446EAC00C7CB22 /* Customer.m in Sources */,
 				831FFD1418443B0700C7CB22 /* MenuViewController.m in Sources */,
