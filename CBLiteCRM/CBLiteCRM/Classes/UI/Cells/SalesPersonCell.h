@@ -8,9 +8,11 @@
 
 extern NSString *kSalesPersonCell;
 
+@class SalesPerson;
+
 @interface SalesPersonCell : UITableViewCell
 
-@property (strong, nonatomic) IBOutlet UILabel *name;
+@property (weak, nonatomic) SalesPerson *salesPerson;
 
 @property (nonatomic) BOOL checked;
 

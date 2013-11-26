@@ -7,17 +7,19 @@
 //
 
 #import "SalesPersonCell.h"
+#import "SalesPerson.h"
 
 NSString *kSalesPersonCell = @"SalesPersonCell";
 
 @interface SalesPersonCell ()
 
+@property (strong, nonatomic) IBOutlet UILabel *name;
 @property (strong, nonatomic) IBOutlet UIButton *checkmark;
 
 @end
 
 @implementation SalesPersonCell
-@synthesize checkmark, checked;
+@synthesize name, checkmark, checked, salesPerson;
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
@@ -47,10 +49,18 @@ NSString *kSalesPersonCell = @"SalesPersonCell";
 
 - (void)setChecked:(BOOL)_checked {
     checked = _checked;
+    salesPerson.approved = checked;
     if (_checked == YES)
         [checkmark setTitle:@"√" forState:UIControlStateNormal];
     else
         [checkmark setTitle:@"X" forState:UIControlStateNormal];
+}
+
+- (void)setSalesPerson:(SalesPerson *)_salesPerson
+{
+    salesPerson = _salesPerson;
+    name.text = salesPerson.email;
+    self.checked = salesPerson.approved;
 }
 
 @end

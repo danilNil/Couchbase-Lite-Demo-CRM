@@ -61,7 +61,7 @@
         salesPerson = (self.filteredSalesPersons)[indexPath.row];
     else
         salesPerson = (self.salesPersons)[indexPath.row];
-    cell.name.text = salesPerson.email;
+    cell.salesPerson = salesPerson;
 //    cell.textLabel.text = user.username;
 //    cell.detailTextLabel.text = user.email;
 //    cell.detailTextLabel.text = @"";
