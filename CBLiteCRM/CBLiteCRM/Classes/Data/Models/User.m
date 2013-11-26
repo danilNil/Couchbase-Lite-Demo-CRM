@@ -8,6 +8,7 @@
 
 #import "User.h"
 @implementation User
+@dynamic email, username;
 
 + (NSString*) docIDForUsername: (NSString*)username {
     return [NSString stringWithFormat:@"%@:%@",kUserDocType,username];
@@ -15,18 +16,6 @@
 
 + (NSString*) usernameFromDocID: (NSString*)docID{
     return [docID substringFromIndex: kUserDocType.length+1];
-}
-
-
-- (NSString*) email {
-    NSString* email = [self getValueOfProperty: @"email"];
-    if (!email) {
-        // If no explicit email, assume the username is a valid email if it contains an "@":
-        NSString* username = self.username;
-        if ([username rangeOfString: @"@"].length > 0)
-            email = username;
-    }
-    return email;
 }
 
 + (User*) createInDatabase: (CBLDatabase*)database

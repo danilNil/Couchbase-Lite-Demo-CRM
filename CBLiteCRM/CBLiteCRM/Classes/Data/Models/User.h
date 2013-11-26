@@ -6,12 +6,10 @@
 //  Copyright (c) 2013 Danil. All rights reserved.
 //
 
-#import <CouchbaseLite/CouchbaseLite.h>
-
 @interface User : CBLModel
 
-@property (readonly) NSString* username;
-@property (readonly, copy) NSString* email;
+@property (readonly, strong) NSString* username;
+@property (readonly, strong) NSString* email;
 
 /** Creates a new UserProfile, presumably for the local logged-in user. */
 + (User*) createInDatabase: (CBLDatabase*)database
