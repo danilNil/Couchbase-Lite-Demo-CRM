@@ -8,8 +8,8 @@
 
 @interface User : CBLModel
 
-@property (readonly) NSString* username;
-@property (readonly, copy) NSString* email;
+@property (readonly, strong) NSString* username;
+@property (readonly, strong) NSString* email;
 
 /** Creates a new UserProfile, presumably for the local logged-in user. */
 + (User*) createInDatabase: (CBLDatabase*)database
