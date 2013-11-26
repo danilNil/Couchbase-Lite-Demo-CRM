@@ -10,6 +10,7 @@
 #import "DataStore.h"
 #import "SalesPerson.h"
 #import "SalesPersonOptionsViewController.h"
+#import "SalesPerson.h"
 
 @interface SalesViewController ()
 <
@@ -17,7 +18,7 @@ UISearchBarDelegate,
 UISearchDisplayDelegate
 >
 {
-    __weak User *selectedUser;
+    __weak SalesPerson *selectedUser;
 }
 
 @property (nonatomic, strong) NSArray *salesPersons;
@@ -72,8 +73,9 @@ UISearchDisplayDelegate
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+-(NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     selectedUser = self.salesPersons[indexPath.row - 1];
+    return indexPath;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -81,7 +83,6 @@ UISearchDisplayDelegate
     SalesPersonOptionsViewController *salesPersonOptionsViewController = [segue destinationViewController];
     salesPersonOptionsViewController.user = selectedUser;
 }
-
 
 #pragma mark - Search
 
