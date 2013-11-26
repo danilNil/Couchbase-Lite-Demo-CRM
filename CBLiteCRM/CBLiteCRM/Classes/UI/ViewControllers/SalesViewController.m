@@ -12,8 +12,15 @@
 #import "SalesPersonOptionsViewController.h"
 
 @interface SalesViewController ()
+<
+UISearchBarDelegate,
+UISearchDisplayDelegate
+>
+{
+    __weak User *selectedUser;
+}
 
-@property (nonatomic, unsafe_unretained) NSArray *sales_persons;
+@property (nonatomic, strong) NSArray *salesPersons;
 @end
 
 @implementation SalesViewController
@@ -29,7 +36,7 @@
 {
     [super viewDidLoad];
 
-    self.sales_persons = [[DataStore sharedInstance] allOtherUsers];
+    self.salesPersons = [[DataStore sharedInstance] allOtherUsers];
 }
 
 - (void)didReceiveMemoryWarning
@@ -46,7 +53,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.sales_persons count] + 1;
+    return [self.salesPersons count] + 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -56,7 +63,7 @@
         cell = [tableView dequeueReusableCellWithIdentifier:@"SalesPersonHeaderCell"];
     } else if (indexPath.row > 0) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"PersonCell"];
-        SalesPerson *user = (self.sales_persons)[indexPath.row - 1];
+        SalesPerson *user = (self.salesPersons)[indexPath.row - 1];
         cell.textLabel.text = user.email;
 //        cell.textLabel.text = user.username;
 //        cell.detailTextLabel.text = user.email;
@@ -66,10 +73,17 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row > 0) {
-        SalesPersonOptionsViewController *salesPersonOptionsViewController = self.navigationController.viewControllers[2];
-        salesPersonOptionsViewController.user = [[DataStore sharedInstance] allOtherUsers][indexPath.row - 1];
-    }
+    selectedUser = self.salesPersons[indexPath.row - 1];
 }
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    SalesPersonOptionsViewController *salesPersonOptionsViewController = [segue destinationViewController];
+    salesPersonOptionsViewController.user = selectedUser;
+}
+
+
+#pragma mark - Search
+
 
 @end
