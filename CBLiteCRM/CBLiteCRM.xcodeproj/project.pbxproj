@@ -38,6 +38,7 @@
 		831FFD4118446C5500C7CB22 /* SalesPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 831FFD4018446C5500C7CB22 /* SalesPerson.m */; };
 		831FFD4418446EAC00C7CB22 /* Customer.m in Sources */ = {isa = PBXBuildFile; fileRef = 831FFD4318446EAC00C7CB22 /* Customer.m */; };
 		831FFD471844702F00C7CB22 /* Opportunity.m in Sources */ = {isa = PBXBuildFile; fileRef = 831FFD461844702E00C7CB22 /* Opportunity.m */; };
+		831FFD4B1844A78C00C7CB22 /* ContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 831FFD4A1844A78C00C7CB22 /* ContactCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,8 @@
 		831FFD4318446EAC00C7CB22 /* Customer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Customer.m; sourceTree = "<group>"; };
 		831FFD451844702E00C7CB22 /* Opportunity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Opportunity.h; sourceTree = "<group>"; };
 		831FFD461844702E00C7CB22 /* Opportunity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Opportunity.m; sourceTree = "<group>"; };
+		831FFD491844A78C00C7CB22 /* ContactCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactCell.h; sourceTree = "<group>"; };
+		831FFD4A1844A78C00C7CB22 /* ContactCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,6 +234,7 @@
 		831FFD0C18443AA300C7CB22 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				831FFD481844A75000C7CB22 /* Cells */,
 				831FFD0D18443AA300C7CB22 /* ViewControllers */,
 			);
 			path = UI;
@@ -287,6 +291,15 @@
 				831FFD37184454A900C7CB22 /* Constants.h */,
 			);
 			path = Defines;
+			sourceTree = "<group>";
+		};
+		831FFD481844A75000C7CB22 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				831FFD491844A78C00C7CB22 /* ContactCell.h */,
+				831FFD4A1844A78C00C7CB22 /* ContactCell.m */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -386,6 +399,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				831FFD4B1844A78C00C7CB22 /* ContactCell.m in Sources */,
 				831FFD1018443AA300C7CB22 /* AppDelegate.m in Sources */,
 				831FFD471844702F00C7CB22 /* Opportunity.m in Sources */,
 				831FFD1D18443DB300C7CB22 /* CustomersViewController.m in Sources */,
