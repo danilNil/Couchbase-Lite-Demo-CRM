@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  SalesViewController.h
 //  CBLiteCRM
 //
 //  Created by Danil on 26/11/13.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface SalesViewController : UIViewController
 
 @end

@@ -6,13 +6,13 @@
 //  Copyright (c) 2013 Danil. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "WelcomeViewController.h"
 
-@interface ViewController ()
+@interface WelcomeViewController ()
 
 @end
 
-@implementation ViewController
+@implementation WelcomeViewController
 
 - (void)viewDidLoad
 {
