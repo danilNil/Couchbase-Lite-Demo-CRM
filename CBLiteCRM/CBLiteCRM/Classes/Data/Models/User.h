@@ -6,8 +6,6 @@
 //  Copyright (c) 2013 Danil. All rights reserved.
 //
 
-#import <CouchbaseLite/CouchbaseLite.h>
-
 @interface User : CBLModel
 
 @property (readonly) NSString* username;
