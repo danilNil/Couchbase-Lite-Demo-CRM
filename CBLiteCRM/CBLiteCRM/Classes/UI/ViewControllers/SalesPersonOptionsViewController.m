@@ -24,24 +24,14 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-}
-
 -(void)viewWillAppear:(BOOL)animated
 {
     [self loadUserData];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-}
-
 - (void)loadUserData
 {
-    _name.text = self.user.email;
+    _name.text = self.salesPerson.email;
     [_name sizeToFit];
 }
 

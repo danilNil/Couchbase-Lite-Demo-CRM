@@ -190,7 +190,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="thM-Fv-BNK" kind="push" id="iL1-QC-L5a"/>
+                                    <segue destination="thM-Fv-BNK" kind="push" identifier="SalesPersonOptions" id="iL1-QC-L5a"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

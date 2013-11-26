@@ -6,6 +6,9 @@
 //  Copyright (c) 2013 Danil. All rights reserved.
 //
 
+extern NSString *kSalesPersonHeaderCell;
+extern NSString *kPersonCell;
+
 @interface SalesViewController : UITableViewController
 
 @end
