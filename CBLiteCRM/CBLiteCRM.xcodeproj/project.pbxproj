@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		449204CF18445EB30036D3A9 /* CouchbaseLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 449204CE18445EB30036D3A9 /* CouchbaseLite.framework */; };
+		449204D2184478590036D3A9 /* SalesPersonOptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 449204D1184478590036D3A9 /* SalesPersonOptionsViewController.m */; };
 		831FFCD41844364900C7CB22 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 831FFCD31844364900C7CB22 /* Foundation.framework */; };
 		831FFCD61844364900C7CB22 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 831FFCD51844364900C7CB22 /* CoreGraphics.framework */; };
 		831FFCD81844364900C7CB22 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 831FFCD71844364900C7CB22 /* UIKit.framework */; };
@@ -48,6 +49,8 @@
 
 /* Begin PBXFileReference section */
 		449204CE18445EB30036D3A9 /* CouchbaseLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CouchbaseLite.framework; sourceTree = "<group>"; };
+		449204D0184478590036D3A9 /* SalesPersonOptionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SalesPersonOptionsViewController.h; sourceTree = "<group>"; };
+		449204D1184478590036D3A9 /* SalesPersonOptionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SalesPersonOptionsViewController.m; sourceTree = "<group>"; };
 		831FFCD01844364900C7CB22 /* CBLiteCRM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CBLiteCRM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		831FFCD31844364900C7CB22 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		831FFCD51844364900C7CB22 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -239,6 +242,8 @@
 				831FFD1C18443DB300C7CB22 /* CustomersViewController.m */,
 				831FFD1E18443DD500C7CB22 /* OpportunitiesViewController.h */,
 				831FFD1F18443DD500C7CB22 /* OpportunitiesViewController.m */,
+				449204D0184478590036D3A9 /* SalesPersonOptionsViewController.h */,
+				449204D1184478590036D3A9 /* SalesPersonOptionsViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -371,6 +376,7 @@
 				831FFD3118444A6100C7CB22 /* User.m in Sources */,
 				831FFD1A18443DA200C7CB22 /* ContactsViewController.m in Sources */,
 				831FFCE01844364900C7CB22 /* main.m in Sources */,
+				449204D2184478590036D3A9 /* SalesPersonOptionsViewController.m in Sources */,
 				831FFD341844542F00C7CB22 /* DataStore.m in Sources */,
 				831FFD2018443DD500C7CB22 /* OpportunitiesViewController.m in Sources */,
 				831FFD1118443AA300C7CB22 /* WelcomeViewController.m in Sources */,
