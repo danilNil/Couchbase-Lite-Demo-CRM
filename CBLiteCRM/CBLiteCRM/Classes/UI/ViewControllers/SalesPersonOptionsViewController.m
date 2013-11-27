@@ -12,44 +12,19 @@
 @interface SalesPersonOptionsViewController ()
 
 @property (strong, nonatomic) IBOutlet UILabel *name;
-@property (strong, nonatomic) IBOutlet UIButton *viewAppointments;
-@property (strong, nonatomic) IBOutlet UIButton *personLocation;
-@property (strong, nonatomic) IBOutlet UIButton *scheduleMeeting;
 
 @end
 
 @implementation SalesPersonOptionsViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (void)viewWillAppear:(BOOL)animated
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {}
-    return self;
+    [self loadUserData];
 }
 
-- (void)viewDidLoad
+- (void)loadUserData
 {
-    [super viewDidLoad];
-    self.user = _user;
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-}
-
-- (void)setUser:(SalesPerson *)user
-{
-    _user = user;
-    _name.text = user.email;
-    [_name sizeToFit];
-
-    [_personLocation setTitle:[NSString stringWithFormat:@"%@ Location", _user.email] forState:UIControlStateNormal];
-    CGSize sz = [_personLocation sizeThatFits:CGSizeMake(CGFLOAT_MAX, _personLocation.frame.size.height)];
-    _personLocation.frame = CGRectMake(self.view.frame.size.width / 2. - sz.width / 2., _personLocation.frame.origin.y, sz.width, _personLocation.frame.size.height);
-    [self.view setNeedsDisplay];
-    [self.view layoutSubviews];
-    [self.view layoutIfNeeded];
+    self.name.text = self.salesPerson.email;
 }
 
 @end

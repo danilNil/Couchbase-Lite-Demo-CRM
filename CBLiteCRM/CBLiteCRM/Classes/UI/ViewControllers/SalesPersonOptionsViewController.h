@@ -11,6 +11,6 @@
 @class SalesPerson;
 @interface SalesPersonOptionsViewController : UIViewController
 
-@property (nonatomic, unsafe_unretained) SalesPerson *user;
+@property (nonatomic, unsafe_unretained) SalesPerson *salesPerson;
 
 @end

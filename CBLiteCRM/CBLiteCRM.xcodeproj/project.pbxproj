@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		447A2C491845D5E9008786AF /* SalesPersonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 447A2C471845D5E9008786AF /* SalesPersonCell.m */; };
+		447A2C4A1845D5E9008786AF /* SalesPersonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 447A2C481845D5E9008786AF /* SalesPersonCell.xib */; };
 		449204CF18445EB30036D3A9 /* CouchbaseLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 449204CE18445EB30036D3A9 /* CouchbaseLite.framework */; };
 		449204D2184478590036D3A9 /* SalesPersonOptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 449204D1184478590036D3A9 /* SalesPersonOptionsViewController.m */; };
 		831FFCD41844364900C7CB22 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 831FFCD31844364900C7CB22 /* Foundation.framework */; };
@@ -55,6 +57,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		447A2C461845D5E9008786AF /* SalesPersonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SalesPersonCell.h; sourceTree = "<group>"; };
+		447A2C471845D5E9008786AF /* SalesPersonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SalesPersonCell.m; sourceTree = "<group>"; };
+		447A2C481845D5E9008786AF /* SalesPersonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SalesPersonCell.xib; sourceTree = "<group>"; };
 		449204CE18445EB30036D3A9 /* CouchbaseLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CouchbaseLite.framework; sourceTree = "<group>"; };
 		449204D0184478590036D3A9 /* SalesPersonOptionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SalesPersonOptionsViewController.h; sourceTree = "<group>"; };
 		449204D1184478590036D3A9 /* SalesPersonOptionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SalesPersonOptionsViewController.m; sourceTree = "<group>"; };
@@ -308,6 +313,9 @@
 		831FFD481844A75000C7CB22 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				447A2C461845D5E9008786AF /* SalesPersonCell.h */,
+				447A2C471845D5E9008786AF /* SalesPersonCell.m */,
+				447A2C481845D5E9008786AF /* SalesPersonCell.xib */,
 				831FFD491844A78C00C7CB22 /* ContactCell.h */,
 				831FFD4A1844A78C00C7CB22 /* ContactCell.m */,
 			);
@@ -419,6 +427,7 @@
 				831FFD561844B7CD00C7CB22 /* Avatar@2x.png in Resources */,
 				831FFCDE1844364900C7CB22 /* InfoPlist.strings in Resources */,
 				831FFCE71844364900C7CB22 /* Main.storyboard in Resources */,
+				447A2C4A1845D5E9008786AF /* SalesPersonCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,6 +449,7 @@
 				831FFD4B1844A78C00C7CB22 /* ContactCell.m in Sources */,
 				831FFD1018443AA300C7CB22 /* AppDelegate.m in Sources */,
 				831FFD471844702F00C7CB22 /* Opportunity.m in Sources */,
+				447A2C491845D5E9008786AF /* SalesPersonCell.m in Sources */,
 				831FFD1D18443DB300C7CB22 /* CustomersViewController.m in Sources */,
 				831FFD4118446C5500C7CB22 /* SalesPerson.m in Sources */,
 				831FFD1A18443DA200C7CB22 /* ContactsViewController.m in Sources */,

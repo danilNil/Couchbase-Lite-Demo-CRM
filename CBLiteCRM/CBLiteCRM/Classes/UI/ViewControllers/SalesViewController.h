@@ -6,8 +6,6 @@
 //  Copyright (c) 2013 Danil. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
 @interface SalesViewController : UITableViewController
 
 @end
