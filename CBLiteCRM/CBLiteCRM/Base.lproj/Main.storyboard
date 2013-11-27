@@ -307,7 +307,6 @@
                                         <connections>
                                             <outlet property="avatar" destination="u9S-dp-4vB" id="vZK-Uu-VRh"/>
                                             <outlet property="name" destination="AZg-1U-AY2" id="0LB-f7-n90"/>
-                                            <segue destination="Xt6-34-7OD" kind="modal" modalTransitionStyle="coverVertical" id="hae-ck-HiL"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -321,7 +320,7 @@
                     <navigationItem key="navigationItem" title="Contacts" id="t7W-IU-ncD">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="7A6-WE-VXB">
                             <connections>
-                                <segue destination="Xt6-34-7OD" kind="modal" modalTransitionStyle="coverVertical" id="8iL-TI-t2K"/>
+                                <segue destination="Xt6-34-7OD" kind="modal" identifier="presentContactDetails" modalTransitionStyle="coverVertical" id="8iL-TI-t2K"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -528,7 +527,4 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="hae-ck-HiL"/>
-    </inferredMetricsTieBreakers>
 </document>

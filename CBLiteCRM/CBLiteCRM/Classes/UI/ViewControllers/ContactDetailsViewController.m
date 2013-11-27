@@ -26,10 +26,21 @@
     [super viewDidLoad];
     [self.baseScrollView setContentSize:self.contentView.frame.size];
     NSLog(@"content size: %@", NSStringFromCGSize(self.baseScrollView.contentSize));
+    [self loadInfo];
 }
 
+- (void)loadInfo{
+    if(self.currentContact){
+        self.nameField.text = self.currentContact.name;
+        self.positionField.text = self.currentContact.position;
+        self.phoneField.text = self.currentContact.phoneNumber;
+        self.mailField.text = self.currentContact.email;
+        self.addressField.text = self.currentContact.address;
+    }
+}
 
 - (IBAction)back:(id)sender {
+    self.currentContact = nil;
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
