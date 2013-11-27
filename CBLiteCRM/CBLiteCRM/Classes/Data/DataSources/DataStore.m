@@ -1,6 +1,7 @@
 
 #import "DataStore.h"
 #import "SalesPerson.h"
+#import "Contact.h"
 
 @interface DataStore(){
     CBLView* _usersView;
@@ -114,6 +115,23 @@ static DataStore* sInstance;
             [users addObject: user];
     }
     return users;
+}
+
+#pragma mark - CONTACTS:
+
+- (Contact*) createContactWithMailOrReturnExist: (NSString*)mail{
+    Contact* ct = [self contactWithMail:mail];
+    if(!ct)
+        ct = [Contact createInDatabase:self.database withUsername:mail];
+    return ct;
+}
+
+- (Contact*) contactWithMail: (NSString*)mail{
+    NSString* docID = [Contact docIDForUsername: mail];
+    CBLDocument* doc = [self.database documentWithID: docID];
+    if (!doc.currentRevisionID)
+        return nil;
+    return [Contact modelForDocument: doc];
 }
 
 @end

@@ -9,11 +9,17 @@
 @class Customer;
 @interface Contact : CBLModel
 @property (strong) Customer* customer;
-@property (readonly, strong) NSString* name;
-@property (readonly, strong) NSString* position;
-@property (readonly, strong) NSString* phoneNumber;
+@property (strong) NSString* name;
+@property (strong) NSString* position;
+@property (strong) NSString* phoneNumber;
 @property (readonly, strong) NSString* email;
-@property (readonly, strong) NSString* address;
-@property (readonly, strong) NSArray* opportunities;
+@property (strong) NSString* address;
+@property (strong) NSArray* opportunities;
 @property CBLAttachment* photo;
+
++ (Contact*) createInDatabase: (CBLDatabase*)database
+                 withUsername: (NSString*)username;
++ (NSString*) usernameFromDocID: (NSString*)docID;
++ (NSString*) docIDForUsername: (NSString*)username;
+
 @end

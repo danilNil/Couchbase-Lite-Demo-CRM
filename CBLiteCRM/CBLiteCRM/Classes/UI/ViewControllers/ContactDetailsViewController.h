@@ -7,7 +7,7 @@
 //
 
 #import "TextFieldsViewController.h"
-
+@class Contact;
 @interface ContactDetailsViewController : TextFieldsViewController
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
 @property (weak, nonatomic) IBOutlet UITextField *companyField;
@@ -17,6 +17,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *addressField;
 @property (weak, nonatomic) IBOutlet UIImageView *photoView;
 @property (weak, nonatomic) IBOutlet UIView *contentView;
+
+@property (strong, nonatomic) Contact *currentContact;
 
 - (IBAction)back:(id)sender;
 - (IBAction)saveItem:(id)sender;

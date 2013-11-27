@@ -1,4 +1,4 @@
-@class SalesPerson;
+@class SalesPerson, Contact;
 
 @interface DataStore : NSObject
 
@@ -18,8 +18,10 @@
 
 /** Gets a UserProfile for a user given their username. */
 - (SalesPerson*) profileWithUsername: (NSString*)username;
-
 @property (readonly) CBLQuery* allUsersQuery;
 @property (readonly) NSArray* allOtherUsers;    /**< UserProfile objects of other users */
+
+- (Contact*) createContactWithMailOrReturnExist: (NSString*)mail;
+- (Contact*) contactWithMail: (NSString*)mail;
 
 @end
