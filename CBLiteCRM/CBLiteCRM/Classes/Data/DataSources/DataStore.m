@@ -5,6 +5,7 @@
 
 @interface DataStore(){
     CBLView* _usersView;
+    CBLView* _contactsView;
 }
 
 @end
@@ -25,11 +26,21 @@ static DataStore* sInstance;
             self.username = savedUserName;
 
         [_database.modelFactory registerClass: [SalesPerson class] forDocumentType: kUserDocType];
+        [_database.modelFactory registerClass: [Contact class] forDocumentType: kContactDocType];
 
         _usersView = [_database viewNamed: @"usersByName"];
         [_usersView setMapBlock: MAPBLOCK({
             if ([doc[@"type"] isEqualToString: kUserDocType]) {
                 NSString* name = [SalesPerson usernameFromDocID: doc[@"_id"]];
+                if (name)
+                    emit(name.lowercaseString, name);
+            }
+        }) version: @"1"];
+        
+        _contactsView = [_database viewNamed: @"contactsByName"];
+        [_contactsView setMapBlock: MAPBLOCK({
+            if ([doc[@"type"] isEqualToString: kContactDocType]) {
+                NSString* name = [Contact usernameFromDocID: doc[@"_id"]];
                 if (name)
                     emit(name.lowercaseString, name);
             }
@@ -132,6 +143,13 @@ static DataStore* sInstance;
     if (!doc.currentRevisionID)
         return nil;
     return [Contact modelForDocument: doc];
+}
+
+
+- (CBLQuery*) queryContacts {
+    CBLQuery* query = [_contactsView query];
+    query.descending = YES;
+    return query;
 }
 
 @end

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ContactsViewController : UIViewController
+@interface ContactsViewController : UIViewController<UITableViewDelegate>
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
