@@ -13,10 +13,11 @@
 #import "SalesPerson.h"
 #import "SalesPersonCell.h"
 
-@interface SalesViewController () <UISearchBarDelegate, UISearchDisplayDelegate>
+@interface SalesViewController () <UISearchBarDelegate, UISearchDisplayDelegate, CBLUITableDelegate>
 
+@property (nonatomic, strong) CBLUITableSource* dataSource;
 @property (nonatomic, strong) NSMutableArray *filteredSalesPersons;
-@property (nonatomic, strong) NSArray *salesPersons;
+
 @end
 
 @implementation SalesViewController
@@ -25,10 +26,17 @@
 {
     [super viewDidLoad];
 
-    self.salesPersons = [[DataStore sharedInstance] allOtherUsers];
-    self.filteredSalesPersons = [NSMutableArray arrayWithCapacity:self.salesPersons.count];
     [self.searchDisplayController.searchResultsTableView registerClass:[SalesPersonCell class] forCellReuseIdentifier:kSalesPersonCell];
     [self.tableView registerClass:[SalesPersonCell class] forCellReuseIdentifier:kSalesPersonCell];
+    self.dataSource = [CBLUITableSource new];
+    self.dataSource.tableView = self.tableView;
+    self.tableView.dataSource = self.dataSource;
+    [self updateQuery];
+    self.filteredSalesPersons = [NSMutableArray arrayWithCapacity:self.dataSource.rows.count];
+}
+
+- (void) updateQuery {
+    self.dataSource.query = [[[DataStore sharedInstance] allUsersQuery] asLiveQuery];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -38,28 +46,30 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (tableView == self.searchDisplayController.searchResultsTableView)
-        return self.filteredSalesPersons.count;
-    else
-        return self.salesPersons.count;
+    return self.filteredSalesPersons.count;
+}
+
+- (UITableViewCell *)couchTableSource:(CBLUITableSource*)source cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    SalesPersonCell *cell = [self.tableView dequeueReusableCellWithIdentifier:kSalesPersonCell];
+    CBLQueryRow *row = [self.dataSource rowAtIndex:indexPath.row];
+    SalesPerson *salesPerson = [SalesPerson modelForDocument: row.document];
+    cell.salesPerson = salesPerson;
+    return cell;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     SalesPersonCell *cell = [tableView dequeueReusableCellWithIdentifier:kSalesPersonCell];
     SalesPerson *salesPerson;
-    if (tableView == self.searchDisplayController.searchResultsTableView)
-        salesPerson = self.filteredSalesPersons[indexPath.row];
-    else
-        salesPerson = self.salesPersons[indexPath.row];
+    salesPerson = self.filteredSalesPersons[indexPath.row];
     cell.salesPerson = salesPerson;
-
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self performSegueWithIdentifier:@"SalesPersonOptions" sender:tableView];
+    [self performSegueWithIdentifier:@"presentSalesPersonOptions" sender:tableView];
 }
 
 #pragma mark - Segue
@@ -70,16 +80,20 @@
         salesPersonOptionsViewController.salesPerson = self.filteredSalesPersons[indexPath.row];
     } else {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        salesPersonOptionsViewController.salesPerson = self.salesPersons[indexPath.row];
+        CBLQueryRow *row = [self.dataSource rowAtIndex:indexPath.row];
+        SalesPerson *salesPerson = [SalesPerson modelForDocument: row.document];
+        salesPersonOptionsViewController.salesPerson = salesPerson;
     }
 }
 
 #pragma mark Content Filtering
 - (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope {
     [self.filteredSalesPersons removeAllObjects];
-
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.email contains[c] %@", searchText];
-    self.filteredSalesPersons = [NSMutableArray arrayWithArray:[self.salesPersons filteredArrayUsingPredicate:predicate]];
+    for (CBLQueryRow* row in self.dataSource.rows) {
+        SalesPerson *salesPerson = [SalesPerson modelForDocument:row.document];
+        if ([salesPerson.email rangeOfString:searchText options:NSCaseInsensitiveSearch].location != NSNotFound)
+            [self.filteredSalesPersons addObject:salesPerson];
+    }
 }
 
 #pragma mark - UISearchDisplayController Delegate Methods

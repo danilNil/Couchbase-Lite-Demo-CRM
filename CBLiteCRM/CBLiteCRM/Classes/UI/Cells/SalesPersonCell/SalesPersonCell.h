@@ -15,7 +15,7 @@ extern NSString *kSalesPersonCell;
 @property (strong, nonatomic) IBOutlet UILabel *name;
 @property (strong, nonatomic) IBOutlet UIButton *checkmark;
 
-@property (weak, nonatomic) SalesPerson *salesPerson;
+@property (strong, nonatomic) SalesPerson *salesPerson;
 
 @property (nonatomic) BOOL checked;
 
