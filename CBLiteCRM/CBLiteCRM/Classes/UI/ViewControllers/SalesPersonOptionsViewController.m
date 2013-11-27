@@ -17,22 +17,14 @@
 
 @implementation SalesPersonOptionsViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {}
-    return self;
-}
-
--(void)viewWillAppear:(BOOL)animated
+- (void)viewWillAppear:(BOOL)animated
 {
     [self loadUserData];
 }
 
 - (void)loadUserData
 {
-    _name.text = self.salesPerson.email;
-    [_name sizeToFit];
+    self.name.text = self.salesPerson.email;
 }
 
 @end

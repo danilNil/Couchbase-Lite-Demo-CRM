@@ -13,25 +13,18 @@ NSString *kSalesPersonCell = @"SalesPersonCell";
 
 @interface SalesPersonCell ()
 
-@property (strong, nonatomic) IBOutlet UILabel *name;
-@property (strong, nonatomic) IBOutlet UIButton *checkmark;
-
 @end
 
 @implementation SalesPersonCell
-@synthesize name, checkmark, checked, salesPerson;
-
-- (id)initWithCoder:(NSCoder *)aDecoder
-{
-    self = [super initWithCoder:aDecoder];
-    if (self) {}
-    return self;
-}
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {}
+    if (self) {
+        self = [[[NSBundle mainBundle] loadNibNamed:@"SalesPersonCell" owner:self options:nil] lastObject];
+        [self.checkmark setTitle:@"√" forState:UIControlStateSelected];
+        [self.checkmark setTitle:@"X" forState:UIControlStateNormal];
+    }
     return self;
 }
 
@@ -41,31 +34,30 @@ NSString *kSalesPersonCell = @"SalesPersonCell";
 }
 
 - (IBAction)checkmarkTapped:(id)sender {
-    if ([checkmark.titleLabel.text isEqualToString:@"X"])
+    if (!self.checkmark.selected)
         self.checked = YES;
     else
         self.checked = NO;
 }
 
-- (void)setChecked:(BOOL)_checked {
+- (void)setChecked:(BOOL)checked {
+    self.salesPerson.approved = checked;
     NSError *err;
-    self.salesPerson.approved = _checked;
     if ([self.salesPerson save:&err]) {
-        checked = _checked;
-
-    if (_checked == YES)
-        [checkmark setTitle:@"√" forState:UIControlStateNormal];
-    else
-        [checkmark setTitle:@"X" forState:UIControlStateNormal];
+        _checked = checked;
+        if (checked == YES)
+            [self.checkmark setSelected:YES];
+        else
+            [self.checkmark setSelected:NO];
     } else {
-        self.salesPerson.approved = checked;
+        self.salesPerson.approved = _checked;
     }
 }
 
-- (void)setSalesPerson:(SalesPerson *)_salesPerson
+- (void)setSalesPerson:(SalesPerson *)salesPerson
 {
-    salesPerson = _salesPerson;
-    name.text = salesPerson.email;
+    _salesPerson = salesPerson;
+    self.name.text = salesPerson.email;
     self.checked = salesPerson.approved;
 }
 

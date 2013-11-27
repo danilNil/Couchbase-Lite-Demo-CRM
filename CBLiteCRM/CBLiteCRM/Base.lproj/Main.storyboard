@@ -141,41 +141,6 @@
                                 <outlet property="delegate" destination="LBm-wF-h6Y" id="rsa-xt-IGM"/>
                             </connections>
                         </searchBar>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SalesPersonCell" id="bCL-QG-gpl" customClass="SalesPersonCell">
-                                <rect key="frame" x="0.0" y="130" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bCL-QG-gpl" id="O5f-fA-Ag9">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="18U-LV-M7O">
-                                            <rect key="frame" x="15" y="3" width="261" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rxt-yS-VhP">
-                                            <rect key="frame" x="284" y="7" width="30" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                            <state key="normal" title="X">
-                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="checkmarkTapped:" destination="bCL-QG-gpl" eventType="touchUpInside" id="p2h-9O-MZl"/>
-                                            </connections>
-                                        </button>
-                                    </subviews>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="checkmark" destination="rxt-yS-VhP" id="8rK-yB-ywv"/>
-                                    <outlet property="name" destination="18U-LV-M7O" id="Tzw-Cm-D0d"/>
-                                    <segue destination="thM-Fv-BNK" kind="push" identifier="SalesPersonOptions" id="iL1-QC-L5a"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="LBm-wF-h6Y" id="58y-Pb-G3f"/>
                             <outlet property="delegate" destination="LBm-wF-h6Y" id="XfX-kj-lw3"/>
@@ -184,6 +149,7 @@
                     <navigationItem key="navigationItem" title="Sales Person" id="yJg-gA-6G3"/>
                     <connections>
                         <outlet property="searchDisplayController" destination="bjJ-iH-njp" id="nN4-PG-LYl"/>
+                        <segue destination="thM-Fv-BNK" kind="push" identifier="SalesPersonOptions" id="OaH-To-fdp"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Km3-KL-TaS" userLabel="First Responder" sceneMemberID="firstResponder"/>

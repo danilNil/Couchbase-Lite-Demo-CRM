@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		444370001845A54800F2F360 /* SalesPersonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44436FFF1845A54800F2F360 /* SalesPersonCell.xib */; };
 		449204CF18445EB30036D3A9 /* CouchbaseLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 449204CE18445EB30036D3A9 /* CouchbaseLite.framework */; };
 		449204D2184478590036D3A9 /* SalesPersonOptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 449204D1184478590036D3A9 /* SalesPersonOptionsViewController.m */; };
 		449204DB1844A7800036D3A9 /* SalesPersonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 449204DA1844A7800036D3A9 /* SalesPersonCell.m */; };
@@ -52,6 +53,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		44436FFF1845A54800F2F360 /* SalesPersonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SalesPersonCell.xib; sourceTree = "<group>"; };
 		449204CE18445EB30036D3A9 /* CouchbaseLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CouchbaseLite.framework; sourceTree = "<group>"; };
 		449204D0184478590036D3A9 /* SalesPersonOptionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SalesPersonOptionsViewController.h; sourceTree = "<group>"; };
 		449204D1184478590036D3A9 /* SalesPersonOptionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SalesPersonOptionsViewController.m; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 			children = (
 				449204D91844A7800036D3A9 /* SalesPersonCell.h */,
 				449204DA1844A7800036D3A9 /* SalesPersonCell.m */,
+				44436FFF1845A54800F2F360 /* SalesPersonCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -381,6 +384,7 @@
 				831FFCEC1844364900C7CB22 /* Images.xcassets in Resources */,
 				831FFCDE1844364900C7CB22 /* InfoPlist.strings in Resources */,
 				831FFCE71844364900C7CB22 /* Main.storyboard in Resources */,
+				444370001845A54800F2F360 /* SalesPersonCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -20,14 +20,6 @@
 @end
 
 @implementation SalesViewController
-@synthesize salesPersons, filteredSalesPersons;
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {}
-    return self;
-}
 
 - (void)viewDidLoad
 {
@@ -35,6 +27,8 @@
 
     self.salesPersons = [[DataStore sharedInstance] allOtherUsers];
     self.filteredSalesPersons = [NSMutableArray arrayWithCapacity:self.salesPersons.count];
+    [self.searchDisplayController.searchResultsTableView registerClass:[SalesPersonCell class] forCellReuseIdentifier:kSalesPersonCell];
+    [self.tableView registerClass:[SalesPersonCell class] forCellReuseIdentifier:kSalesPersonCell];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -52,15 +46,12 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    SalesPersonCell *cell;
-    cell = [tableView dequeueReusableCellWithIdentifier:kSalesPersonCell];
-    if (!cell)
-        cell = [[SalesPersonCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:kSalesPersonCell];
+    SalesPersonCell *cell = [tableView dequeueReusableCellWithIdentifier:kSalesPersonCell];
     SalesPerson *salesPerson;
     if (tableView == self.searchDisplayController.searchResultsTableView)
-        salesPerson = (self.filteredSalesPersons)[indexPath.row];
+        salesPerson = self.filteredSalesPersons[indexPath.row];
     else
-        salesPerson = (self.salesPersons)[indexPath.row];
+        salesPerson = self.salesPersons[indexPath.row];
     cell.salesPerson = salesPerson;
 
     return cell;
@@ -68,8 +59,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(tableView == self.searchDisplayController.searchResultsTableView)
-        [self performSegueWithIdentifier:@"SalesPersonOptions" sender:tableView];
+    [self performSegueWithIdentifier:@"SalesPersonOptions" sender:tableView];
 }
 
 #pragma mark - Segue
@@ -77,10 +67,10 @@
     SalesPersonOptionsViewController *salesPersonOptionsViewController = [segue destinationViewController];
     if(sender == self.searchDisplayController.searchResultsTableView) {
         NSIndexPath *indexPath = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
-        salesPersonOptionsViewController.salesPerson = filteredSalesPersons[indexPath.row];
+        salesPersonOptionsViewController.salesPerson = self.filteredSalesPersons[indexPath.row];
     } else {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        salesPersonOptionsViewController.salesPerson = salesPersons[indexPath.row];
+        salesPersonOptionsViewController.salesPerson = self.salesPersons[indexPath.row];
     }
 }
 
@@ -89,7 +79,7 @@
     [self.filteredSalesPersons removeAllObjects];
 
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.email contains[c] %@", searchText];
-    filteredSalesPersons = [NSMutableArray arrayWithArray:[salesPersons filteredArrayUsingPredicate:predicate]];
+    self.filteredSalesPersons = [NSMutableArray arrayWithArray:[self.salesPersons filteredArrayUsingPredicate:predicate]];
 }
 
 #pragma mark - UISearchDisplayController Delegate Methods
@@ -103,6 +93,10 @@
     [self filterContentForSearchText:self.searchDisplayController.searchBar.text scope:
      [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:searchOption]];
     return YES;
+}
+
+- (void)searchDisplayController:(UISearchDisplayController *)controller willHideSearchResultsTableView:(UITableView *)tableView {
+    [self.tableView reloadData];
 }
 
 @end
