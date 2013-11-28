@@ -25,4 +25,5 @@
 - (Contact*) createContactWithMailOrReturnExist: (NSString*)mail;
 - (Contact*) contactWithMail: (NSString*)mail;
 - (CBLQuery*) queryContacts;
+- (CBLQuery*) queryOpportunities;
 @end

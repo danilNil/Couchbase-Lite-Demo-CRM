@@ -9,6 +9,7 @@
     CBLView* _salesPersonsView;
     CBLView* _contactsView;
     CBLView* _customersView;
+    CBLView* _opportView;
 }
 
 @end
@@ -45,6 +46,15 @@ static DataStore* sInstance;
         [_contactsView setMapBlock: MAPBLOCK({
             if ([doc[@"type"] isEqualToString: kContactDocType]) {
                 NSString* name = [Contact usernameFromDocID: doc[@"_id"]];
+                if (name)
+                    emit(name.lowercaseString, name);
+            }
+        }) version: @"1"];
+        
+        _opportView = [_database viewNamed: @"oppByName"];
+        [_opportView setMapBlock: MAPBLOCK({
+            if ([doc[@"type"] isEqualToString: kOpportDocType]) {
+                NSString* name = [Opportunity titleFromDocID: doc[@"_id"]];
                 if (name)
                     emit(name.lowercaseString, name);
             }
@@ -215,6 +225,12 @@ static DataStore* sInstance;
     return [Opportunity modelForDocument: doc];
 }
 
+
+- (CBLQuery*) queryOpportunities {
+    CBLQuery* query = [_opportView query];
+    query.descending = YES;
+    return query;
+}
 
 
 @end
