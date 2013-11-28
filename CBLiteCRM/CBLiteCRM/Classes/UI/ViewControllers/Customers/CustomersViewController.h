@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Danil. All rights reserved.
 //
 
-@interface CustomersViewController : UIViewController<UITableViewDelegate>
+@interface CustomersViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
