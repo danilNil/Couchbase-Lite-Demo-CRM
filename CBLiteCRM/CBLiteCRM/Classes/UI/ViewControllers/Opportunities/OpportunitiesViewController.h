@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface OpportunitiesViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end

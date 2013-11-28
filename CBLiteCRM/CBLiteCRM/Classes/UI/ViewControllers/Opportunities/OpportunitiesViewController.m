@@ -7,32 +7,27 @@
 //
 
 #import "OpportunitiesViewController.h"
+#import "DataStore.h"
 
-@interface OpportunitiesViewController ()
+@interface OpportunitiesViewController (){
+    CBLUITableSource* dataSource;
+}
 
 @end
 
 @implementation OpportunitiesViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    dataSource = [CBLUITableSource new];
+    dataSource.tableView = self.tableView;
+    self.tableView.dataSource = dataSource;
+    [self updateQuery];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void) updateQuery {
+    dataSource.query = [[[DataStore sharedInstance] queryOpportunities] asLiveQuery];
 }
 
 @end
