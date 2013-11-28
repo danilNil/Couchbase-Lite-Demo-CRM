@@ -27,7 +27,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    CBLQuery* query = [[DataStore sharedInstance] allCustomersQuery];
+//    CBLQuery* query = [[DataStore sharedInstance] allCustomersQuery];
 }
 
 @end
