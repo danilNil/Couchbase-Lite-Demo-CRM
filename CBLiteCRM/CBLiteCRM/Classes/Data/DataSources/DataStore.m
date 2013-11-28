@@ -92,12 +92,12 @@ static DataStore* sInstance;
 }
 
 - (void) createFakeCustomers {
-    NSArray *array = @[@"Acme", @"Orange", @"Montansa", @"GreyButter"];
-    for (NSString *name in array) {
-        Customer* customer = [self customerWithMail: name];
+    NSArray *array = @[@"Acme@mail.com", @"Orange@mail.com", @"Montansa@mail.com", @"GreyButter@mail.com"];
+    for (NSString *mail in array) {
+        Customer* customer = [self customerWithMail: mail];
         if (!customer) {
             customer = [Customer createInDatabase: _database
-                                       withCustomerMail: name];
+                                       withCustomerMail: mail];
         }
     }
 }

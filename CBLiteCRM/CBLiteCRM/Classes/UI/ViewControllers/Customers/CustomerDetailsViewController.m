@@ -30,6 +30,7 @@
         self.phoneField.text = cm.phone;
         self.mailField.text = cm.email;
         self.addressField.text = cm.address;
+        self.URLField.text = cm.websiteUrl;
     }
 }
 
