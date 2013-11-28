@@ -14,4 +14,9 @@
 @property float winProbability;
 @property int salesStage;
 @property (readonly, strong) NSArray* contacts;
+@property (strong) NSString* title;
++ (NSString*)docIDForTitle:(NSString*)title;
++ (NSString*) titleFromDocID: (NSString*)docID;
++ (Opportunity*) createInDatabase: (CBLDatabase*)database
+                        withTitle: (NSString*)title;
 @end
