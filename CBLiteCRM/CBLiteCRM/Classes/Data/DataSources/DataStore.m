@@ -2,10 +2,12 @@
 #import "DataStore.h"
 #import "SalesPerson.h"
 #import "Contact.h"
+#import "Customer.h"
 
 @interface DataStore(){
-    CBLView* _usersView;
+    CBLView* _salesPersonsView;
     CBLView* _contactsView;
+    CBLView* _customersView;
 }
 
 @end
@@ -25,12 +27,13 @@ static DataStore* sInstance;
         if(savedUserName)
             self.username = savedUserName;
 
-        [_database.modelFactory registerClass: [SalesPerson class] forDocumentType: kUserDocType];
+        [_database.modelFactory registerClass: [SalesPerson class] forDocumentType: kSalesPersonDocType];
         [_database.modelFactory registerClass: [Contact class] forDocumentType: kContactDocType];
+        [_database.modelFactory registerClass:[Customer class] forDocumentType: kCustomerDocType];
 
-        _usersView = [_database viewNamed: @"usersByName"];
-        [_usersView setMapBlock: MAPBLOCK({
-            if ([doc[@"type"] isEqualToString: kUserDocType]) {
+        _salesPersonsView = [_database viewNamed: @"salesPersonsByName"];
+        [_salesPersonsView setMapBlock: MAPBLOCK({
+            if ([doc[@"type"] isEqualToString: kSalesPersonDocType]) {
                 NSString* name = [SalesPerson usernameFromDocID: doc[@"_id"]];
                 if (name)
                     emit(name.lowercaseString, name);
@@ -46,8 +49,18 @@ static DataStore* sInstance;
             }
         }) version: @"1"];
 
+        _customersView = [_database viewNamed:@"customersByName"];
+        [_customersView setMapBlock: MAPBLOCK({
+            if ([doc[@"type"] isEqualToString: kCustomerDocType]) {
+                NSString* name = [Customer usernameFromDocID: doc[@"_id"]];
+                if (name)
+                    emit(name.lowercaseString, name);
+            }
+        }) version: @"1"];
+
 #if kFakeDataBase
         [self createFakeUsers];
+        [self createFakeCustomers];
 #endif
 
     }
@@ -75,6 +88,18 @@ static DataStore* sInstance;
         }
     }
 }
+
+- (void) createFakeCustomers {
+    NSArray *array = @[@"Acme", @"Orange", @"Montansa", @"GreyButter"];
+    for (NSString *name in array) {
+        Customer* customer = [self customerWithName: name];
+        if (!customer) {
+            customer = [Customer createInDatabase: _database
+                                       withCustomerName: name];
+        }
+    }
+}
+
 #endif
 
 
@@ -115,7 +140,7 @@ static DataStore* sInstance;
 }
 
 - (CBLQuery*) allUsersQuery {
-    return [_usersView query];
+    return [_salesPersonsView query];
 }
 
 - (NSArray*) allOtherUsers {
@@ -126,6 +151,20 @@ static DataStore* sInstance;
             [users addObject: user];
     }
     return users;
+}
+
+#pragma mark - CUSTOMER:
+
+- (Customer*) customerWithName: (NSString*)name {
+    NSString* docID = [Customer docIDForUsername: name];
+    CBLDocument* doc = [self.database documentWithID: docID];
+    if (!doc.currentRevisionID)
+        return nil;
+    return [Customer modelForDocument: doc];
+}
+
+- (CBLQuery*) allCustomersQuery {
+    return [_customersView query];
 }
 
 #pragma mark - CONTACTS:

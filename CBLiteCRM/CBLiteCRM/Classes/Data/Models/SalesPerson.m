@@ -12,11 +12,11 @@
 @dynamic username, phoneNumber, email, approved;
 
 + (NSString*) docIDForUsername: (NSString*)username {
-    return [NSString stringWithFormat:@"%@:%@",kUserDocType,username];
+    return [NSString stringWithFormat:@"%@:%@",kSalesPersonDocType,username];
 }
 
 + (NSString*) usernameFromDocID: (NSString*)docID{
-    return [docID substringFromIndex: kUserDocType.length+1];
+    return [docID substringFromIndex: kSalesPersonDocType.length+1];
 }
 
 + (SalesPerson*) createInDatabase: (CBLDatabase*)database
@@ -26,7 +26,7 @@
     CBLDocument* doc = [database documentWithID: docID];
     SalesPerson* profile = [SalesPerson modelForDocument: doc];
     
-    [profile setValue: kUserDocType ofProperty: @"type"];
+    [profile setValue: kSalesPersonDocType ofProperty: @"type"];
     
     NSRange at = [username rangeOfString: @"@"];
     if (at.length > 0) {

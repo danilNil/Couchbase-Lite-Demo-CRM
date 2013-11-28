@@ -15,4 +15,10 @@
 @property (strong) NSString* email;
 @property (strong) NSString* websiteUrl;
 @property (strong) NSString* address;
+
++ (NSString*) docIDForUsername: (NSString*)username;
++ (NSString*) usernameFromDocID: (NSString*)docID;
++ (Customer*) createInDatabase: (CBLDatabase*)database
+              withCustomerName: (NSString*)customerName;
+
 @end

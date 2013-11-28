@@ -9,8 +9,10 @@
 #ifndef CBLiteCRM_Constants_h
 #define CBLiteCRM_Constants_h
 
-static NSString* const kUserDocType = @"user";
+static NSString* const kSalesPersonDocType = @"salesperson";
 static NSString* const kContactDocType = @"contact";
+static NSString* const kCustomerDocType = @"customer";
+
 
 #define kFakeDataBase 1
 

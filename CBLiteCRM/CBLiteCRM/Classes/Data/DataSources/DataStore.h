@@ -20,6 +20,7 @@
 - (SalesPerson*) profileWithUsername: (NSString*)username;
 @property (readonly) CBLQuery* allUsersQuery;
 @property (readonly) NSArray* allOtherUsers;    /**< UserProfile objects of other users */
+@property (readonly) CBLQuery* allCustomersQuery;
 
 - (Contact*) createContactWithMailOrReturnExist: (NSString*)mail;
 - (Contact*) contactWithMail: (NSString*)mail;
