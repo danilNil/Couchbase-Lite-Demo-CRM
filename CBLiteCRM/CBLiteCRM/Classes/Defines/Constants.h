@@ -10,6 +10,7 @@
 #define CBLiteCRM_Constants_h
 
 static NSString* const kSalesPersonDocType = @"salesperson";
+static NSString* const kOpportDocType = @"opportunity";
 static NSString* const kContactDocType = @"contact";
 static NSString* const kCustomerDocType = @"customer";
 

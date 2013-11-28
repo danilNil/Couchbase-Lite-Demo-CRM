@@ -3,6 +3,7 @@
 #import "SalesPerson.h"
 #import "Contact.h"
 #import "Customer.h"
+#import "Opportunity.h"
 
 @interface DataStore(){
     CBLView* _salesPersonsView;
@@ -61,6 +62,7 @@ static DataStore* sInstance;
 #if kFakeDataBase
         [self createFakeUsers];
         [self createFakeCustomers];
+        [self createFakeOpportunities];
 #endif
 
     }
@@ -190,5 +192,29 @@ static DataStore* sInstance;
     query.descending = YES;
     return query;
 }
+
+#pragma mark - OPPURTUNITIES:
+#if kFakeDataBase
+- (void) createFakeOpportunities {
+    NSArray *array = @[@"OPP1", @"OPP2", @"OPP3", @"OPP4"];
+    for (NSString *title in array) {
+        Opportunity* profile = [self opportunityWithTitle:title];
+        if (!profile) {
+            profile = [Opportunity createInDatabase: _database
+                                       withTitle: title];
+        }
+    }
+}
+#endif
+
+- (Opportunity*) opportunityWithTitle: (NSString*)title {
+    NSString* docID = [Opportunity docIDForTitle: title];
+    CBLDocument* doc = [self.database documentWithID: docID];
+    if (!doc.currentRevisionID)
+        return nil;
+    return [Opportunity modelForDocument: doc];
+}
+
+
 
 @end

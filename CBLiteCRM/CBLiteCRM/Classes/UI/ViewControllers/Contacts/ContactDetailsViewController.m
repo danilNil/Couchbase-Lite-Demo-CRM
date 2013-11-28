@@ -6,7 +6,9 @@
 //  Copyright (c) 2013 Danil. All rights reserved.
 //
 
+//UI
 #import "ContactDetailsViewController.h"
+#import "ImagePickerAngel.h"
 
 //Data
 #import "DataStore.h"
@@ -15,6 +17,8 @@
 
 @interface ContactDetailsViewController (){
     UIImage* selectedImage;
+    UITapGestureRecognizer* photoTapRecognizer;
+    ImagePickerAngel * imagePickerAngel;
 }
 
 @end
@@ -25,18 +29,49 @@
 {
     [super viewDidLoad];
     [self.baseScrollView setContentSize:self.contentView.frame.size];
-    NSLog(@"content size: %@", NSStringFromCGSize(self.baseScrollView.contentSize));
-    [self loadInfo];
+    if(!photoTapRecognizer){
+        photoTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapOnPhoto)];
+        [self.photoView addGestureRecognizer:photoTapRecognizer];
+        self.photoView.userInteractionEnabled = YES;
+    }
+    [self loadInfoForContact:self.currentContact];
 }
 
-- (void)loadInfo{
-    if(self.currentContact){
-        self.nameField.text = self.currentContact.name;
-        self.positionField.text = self.currentContact.position;
-        self.phoneField.text = self.currentContact.phoneNumber;
-        self.mailField.text = self.currentContact.email;
-        self.addressField.text = self.currentContact.address;
+- (void)loadInfoForContact:(Contact*)ct{
+    if(ct){
+        self.nameField.text = ct.name;
+        self.positionField.text = ct.position;
+        self.phoneField.text = ct.phoneNumber;
+        self.mailField.text = ct.email;
+        self.addressField.text = ct.address;
+        [self updatePhotoWithContact:ct];
     }
+}
+- (void)updatePhotoWithContact:(Contact*)ct{
+    UIImage* img = [self imageFromAttachment:[ct attachmentNamed:@"photo"]];
+    if(img)
+        self.photoView.image = img;
+}
+
+- (void)didTapOnPhoto{
+    if([self.currentContact attachmentNames].count==0)
+        [self pickNewImage];
+}
+
+- (void) pickNewImage
+{
+    if(!imagePickerAngel) {
+        imagePickerAngel = [ImagePickerAngel new];
+        imagePickerAngel.parentViewController = self;
+    }
+    imagePickerAngel.onPickedImage = [self createOnPickedImageBlock];
+    [imagePickerAngel presentImagePicker];
+}
+
+- (ImagePickerAngelBlock) createOnPickedImageBlock
+{
+    __weak typeof(self) weakSelf = self;
+    return ^(UIImage * image) { weakSelf.photoView.image = image; selectedImage = image;};
 }
 
 - (IBAction)back:(id)sender {
@@ -82,7 +117,10 @@
 }
 
 - (CBLAttachment*)attachmentFromPhoto:(UIImage*)image{
-    return nil;
+    return [[CBLAttachment alloc] initWithContentType:@"image/png" body:UIImagePNGRepresentation(image)];
+}
+- (UIImage*)imageFromAttachment:(CBLAttachment*)attach{
+    return [UIImage imageWithData:attach.body];
 }
 
 #pragma mark - UITextFieldDelegate

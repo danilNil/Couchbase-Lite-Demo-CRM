@@ -44,6 +44,10 @@
 		831FFD4418446EAC00C7CB22 /* Customer.m in Sources */ = {isa = PBXBuildFile; fileRef = 831FFD4318446EAC00C7CB22 /* Customer.m */; };
 		831FFD471844702F00C7CB22 /* Opportunity.m in Sources */ = {isa = PBXBuildFile; fileRef = 831FFD461844702E00C7CB22 /* Opportunity.m */; };
 		831FFD561844B7CD00C7CB22 /* Avatar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 831FFD551844B7CD00C7CB22 /* Avatar@2x.png */; };
+		83CEAADD1846EC240002D040 /* ImagePickerAngel.m in Sources */ = {isa = PBXBuildFile; fileRef = 83CEAADC1846EC240002D040 /* ImagePickerAngel.m */; };
+		83CEAAE31846ECE10002D040 /* ActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 83CEAAE01846ECE10002D040 /* ActionSheet.m */; };
+		83CEAAE41846ECE10002D040 /* Alert.m in Sources */ = {isa = PBXBuildFile; fileRef = 83CEAAE21846ECE10002D040 /* Alert.m */; };
+		83CEAAE71846ED0F0002D040 /* UIActionSheet+ButtonState.m in Sources */ = {isa = PBXBuildFile; fileRef = 83CEAAE61846ED0F0002D040 /* UIActionSheet+ButtonState.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +119,14 @@
 		831FFD451844702E00C7CB22 /* Opportunity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Opportunity.h; sourceTree = "<group>"; };
 		831FFD461844702E00C7CB22 /* Opportunity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Opportunity.m; sourceTree = "<group>"; };
 		831FFD551844B7CD00C7CB22 /* Avatar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Avatar@2x.png"; sourceTree = "<group>"; };
+		83CEAADB1846EC240002D040 /* ImagePickerAngel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagePickerAngel.h; sourceTree = "<group>"; };
+		83CEAADC1846EC240002D040 /* ImagePickerAngel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagePickerAngel.m; sourceTree = "<group>"; };
+		83CEAADF1846ECE10002D040 /* ActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheet.h; sourceTree = "<group>"; };
+		83CEAAE01846ECE10002D040 /* ActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheet.m; sourceTree = "<group>"; };
+		83CEAAE11846ECE10002D040 /* Alert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Alert.h; sourceTree = "<group>"; };
+		83CEAAE21846ECE10002D040 /* Alert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Alert.m; sourceTree = "<group>"; };
+		83CEAAE51846ED0F0002D040 /* UIActionSheet+ButtonState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActionSheet+ButtonState.h"; sourceTree = "<group>"; };
+		83CEAAE61846ED0F0002D040 /* UIActionSheet+ButtonState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActionSheet+ButtonState.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -313,6 +325,7 @@
 			children = (
 				831FFD0918443AA300C7CB22 /* AppDelegate.h */,
 				831FFD0A18443AA300C7CB22 /* AppDelegate.m */,
+				83CEAADA1846EC240002D040 /* Helpers */,
 				831FFD35184454A900C7CB22 /* Defines */,
 				831FFD0B18443AA300C7CB22 /* Data */,
 				831FFD0C18443AA300C7CB22 /* UI */,
@@ -393,6 +406,29 @@
 				831FFD551844B7CD00C7CB22 /* Avatar@2x.png */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		83CEAADA1846EC240002D040 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				83CEAAE51846ED0F0002D040 /* UIActionSheet+ButtonState.h */,
+				83CEAAE61846ED0F0002D040 /* UIActionSheet+ButtonState.m */,
+				83CEAADE1846ECE10002D040 /* AlertBuilder */,
+				83CEAADB1846EC240002D040 /* ImagePickerAngel.h */,
+				83CEAADC1846EC240002D040 /* ImagePickerAngel.m */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		83CEAADE1846ECE10002D040 /* AlertBuilder */ = {
+			isa = PBXGroup;
+			children = (
+				83CEAADF1846ECE10002D040 /* ActionSheet.h */,
+				83CEAAE01846ECE10002D040 /* ActionSheet.m */,
+				83CEAAE11846ECE10002D040 /* Alert.h */,
+				83CEAAE21846ECE10002D040 /* Alert.m */,
+			);
+			path = AlertBuilder;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -495,6 +531,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				447A2C641845D808008786AF /* ContactDetailsViewController.m in Sources */,
+				83CEAAE71846ED0F0002D040 /* UIActionSheet+ButtonState.m in Sources */,
 				447A2C681845D808008786AF /* OpportunitiesViewController.m in Sources */,
 				447A2C651845D808008786AF /* ContactsViewController.m in Sources */,
 				447A2C6A1845D808008786AF /* SalesViewController.m in Sources */,
@@ -505,11 +542,14 @@
 				831FFD4118446C5500C7CB22 /* SalesPerson.m in Sources */,
 				447A2C661845D808008786AF /* CustomersViewController.m in Sources */,
 				447A2C6B1845D808008786AF /* WelcomeViewController.m in Sources */,
+				83CEAAE31846ECE10002D040 /* ActionSheet.m in Sources */,
+				83CEAADD1846EC240002D040 /* ImagePickerAngel.m in Sources */,
 				831FFCE01844364900C7CB22 /* main.m in Sources */,
 				831FFD341844542F00C7CB22 /* DataStore.m in Sources */,
 				447A2C741845F214008786AF /* SalesPersonCell.m in Sources */,
 				831FFD3E18446BC300C7CB22 /* Contact.m in Sources */,
 				447A2C671845D808008786AF /* MenuViewController.m in Sources */,
+				83CEAAE41846ECE10002D040 /* Alert.m in Sources */,
 				447A2C631845D808008786AF /* TextFieldsViewController.m in Sources */,
 				831FFD4418446EAC00C7CB22 /* Customer.m in Sources */,
 			);
