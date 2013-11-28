@@ -190,10 +190,10 @@
 		447A2C4F1845D808008786AF /* Contacts */ = {
 			isa = PBXGroup;
 			children = (
-				447A2C501845D808008786AF /* ContactDetailsViewController.h */,
-				447A2C511845D808008786AF /* ContactDetailsViewController.m */,
 				447A2C521845D808008786AF /* ContactsViewController.h */,
 				447A2C531845D808008786AF /* ContactsViewController.m */,
+				447A2C501845D808008786AF /* ContactDetailsViewController.h */,
+				447A2C511845D808008786AF /* ContactDetailsViewController.m */,
 			);
 			path = Contacts;
 			sourceTree = "<group>";

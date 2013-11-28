@@ -49,8 +49,7 @@
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
-- (IBAction)deleteItem:(id)sender {
-}
+- (IBAction)deleteItem:(id)sender {}
 
 - (void)updateInfoForCustomer:(Customer*)cm{
     cm.companyName = self.companyNameField.text;
