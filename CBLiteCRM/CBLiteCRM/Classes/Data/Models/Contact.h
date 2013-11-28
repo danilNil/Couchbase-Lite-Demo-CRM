@@ -15,7 +15,6 @@
 @property (readonly, strong) NSString* email;
 @property (strong) NSString* address;
 @property (strong) NSArray* opportunities;
-@property CBLAttachment* photo;
 
 + (Contact*) createInDatabase: (CBLDatabase*)database
                  withUsername: (NSString*)username;
