@@ -20,6 +20,7 @@
 		447A2C741845F214008786AF /* SalesPersonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 447A2C711845F214008786AF /* SalesPersonCell.m */; };
 		447A2C751845F214008786AF /* SalesPersonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 447A2C721845F214008786AF /* SalesPersonCell.xib */; };
 		449204CF18445EB30036D3A9 /* CouchbaseLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 449204CE18445EB30036D3A9 /* CouchbaseLite.framework */; };
+		44D6DAF7184718920097262E /* CustomerDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44D6DAF6184718920097262E /* CustomerDetailsViewController.m */; };
 		831FFCD41844364900C7CB22 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 831FFCD31844364900C7CB22 /* Foundation.framework */; };
 		831FFCD61844364900C7CB22 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 831FFCD51844364900C7CB22 /* CoreGraphics.framework */; };
 		831FFCD81844364900C7CB22 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 831FFCD71844364900C7CB22 /* UIKit.framework */; };
@@ -85,6 +86,8 @@
 		447A2C711845F214008786AF /* SalesPersonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SalesPersonCell.m; sourceTree = "<group>"; };
 		447A2C721845F214008786AF /* SalesPersonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SalesPersonCell.xib; sourceTree = "<group>"; };
 		449204CE18445EB30036D3A9 /* CouchbaseLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CouchbaseLite.framework; sourceTree = "<group>"; };
+		44D6DAF5184718920097262E /* CustomerDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerDetailsViewController.h; sourceTree = "<group>"; };
+		44D6DAF6184718920097262E /* CustomerDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerDetailsViewController.m; sourceTree = "<group>"; };
 		831FFCD01844364900C7CB22 /* CBLiteCRM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CBLiteCRM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		831FFCD31844364900C7CB22 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		831FFCD51844364900C7CB22 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -200,6 +203,8 @@
 			children = (
 				447A2C551845D808008786AF /* CustomersViewController.h */,
 				447A2C561845D808008786AF /* CustomersViewController.m */,
+				44D6DAF5184718920097262E /* CustomerDetailsViewController.h */,
+				44D6DAF6184718920097262E /* CustomerDetailsViewController.m */,
 			);
 			path = Customers;
 			sourceTree = "<group>";
@@ -551,6 +556,7 @@
 				447A2C671845D808008786AF /* MenuViewController.m in Sources */,
 				83CEAAE41846ECE10002D040 /* Alert.m in Sources */,
 				447A2C631845D808008786AF /* TextFieldsViewController.m in Sources */,
+				44D6DAF7184718920097262E /* CustomerDetailsViewController.m in Sources */,
 				831FFD4418446EAC00C7CB22 /* Customer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

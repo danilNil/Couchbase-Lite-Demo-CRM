@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CustomersViewController : UIViewController
+@interface CustomersViewController : UIViewController<UITableViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
 
 @end

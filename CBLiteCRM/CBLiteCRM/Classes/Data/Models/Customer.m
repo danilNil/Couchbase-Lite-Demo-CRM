@@ -20,17 +20,17 @@
 }
 
 + (Customer*) createInDatabase: (CBLDatabase*)database
-                 withCustomerName: (NSString*)customerName
+                 withCustomerMail: (NSString*)mail
 {
-    NSString* docID = [self docIDForUsername: customerName];
+    NSString* docID = [self docIDForUsername: mail];
     CBLDocument* doc = [database documentWithID: docID];
     Customer* customer = [Customer modelForDocument: doc];
 
     [customer setValue: kCustomerDocType ofProperty: @"type"];
 
-    NSRange at = [customerName rangeOfString: @"@"];
+    NSRange at = [mail rangeOfString: @"@"];
     if (at.length > 0) {
-        [customer setValue: customerName ofProperty: @"companyName"];
+        [customer setValue: mail ofProperty: @"email"];
     }
 
     NSError* error;
