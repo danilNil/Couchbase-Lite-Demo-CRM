@@ -12,28 +12,19 @@
 @dynamic customer, name, position, phoneNumber, email, address, opportunities;
 
 
-+ (NSString*) docIDForUsername: (NSString*)username {
-    return [NSString stringWithFormat:@"%@:%@",kContactDocType,username];
++ (NSString*) docIDForEmail: (NSString*)mail {
+    return [super docIDForUniqueField:mail forDocType:kContactDocType];
 }
 
-+ (NSString*) usernameFromDocID: (NSString*)docID{
-    return [docID substringFromIndex: kContactDocType.length+1];
++ (NSString*) emailFromDocID: (NSString*)docID{
+    return [super uniqueFieldFromDocID:docID forDocType:kContactDocType];
 }
 
 + (Contact*) createInDatabase: (CBLDatabase*)database
-                     withUsername: (NSString*)username
+                     withEmail: (NSString*)mail
 {
-    NSString* docID = [self docIDForUsername: username];
-    CBLDocument* doc = [database documentWithID: docID];
-    Contact* profile = [Contact modelForDocument: doc];
-    
-    [profile setValue: kContactDocType ofProperty: @"type"];
-    
-    NSRange at = [username rangeOfString: @"@"];
-    if (at.length > 0) {
-        [profile setValue: username ofProperty: @"email"];
-    }
-    
+    Contact* profile = [super createInDatabase:database withUniqueField:mail andDocType:kContactDocType];
+    [profile setValue: mail ofProperty: @"email"];
     NSError* error;
     if (![profile save: &error])
         return nil;

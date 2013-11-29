@@ -9,6 +9,7 @@
 #import "BaseModel.h"
 
 @implementation BaseModel
+@dynamic uniqueField,docType;
 
 + (id) createInDatabase: (CBLDatabase*)database
         withUniqueField: (NSString*)uniqueField
@@ -18,8 +19,9 @@
     BaseModel* newModel = [[self class] modelForDocument: doc];
     
     [newModel setValue:docType ofProperty: @"type"];
-    newModel.docType = docType;
-    newModel.uniqueField = uniqueField;
+    [newModel setValue:docType ofProperty:@"docType"];
+    [newModel setValue:uniqueField ofProperty:@"uniqueField"];
+
     NSError* error;
     if (![newModel save: &error])
         return nil;
@@ -29,6 +31,7 @@
 + (NSString*) uniqueFieldFromDocID: (NSString*)docID forDocType:(NSString*)docType{
     return [docID substringFromIndex:docType.length+1];
 }
+
 + (NSString*) docIDForUniqueField: (NSString*)uniqueValue forDocType:(NSString*)docType{
     return [NSString stringWithFormat:@"%@:%@",docType,uniqueValue];
 }

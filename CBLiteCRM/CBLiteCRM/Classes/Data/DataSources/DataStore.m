@@ -45,7 +45,7 @@ static DataStore* sInstance;
         _contactsView = [_database viewNamed: @"contactsByName"];
         [_contactsView setMapBlock: MAPBLOCK({
             if ([doc[@"type"] isEqualToString: kContactDocType]) {
-                NSString* name = [Contact usernameFromDocID: doc[@"_id"]];
+                NSString* name = [Contact emailFromDocID: doc[@"_id"]];
                 if (name)
                     emit(name.lowercaseString, name);
             }
@@ -191,12 +191,12 @@ static DataStore* sInstance;
 - (Contact*) createContactWithMailOrReturnExist: (NSString*)mail{
     Contact* ct = [self contactWithMail:mail];
     if(!ct)
-        ct = [Contact createInDatabase:self.database withUsername:mail];
+        ct = [Contact createInDatabase:self.database withEmail:mail];
     return ct;
 }
 
 - (Contact*) contactWithMail: (NSString*)mail{
-    NSString* docID = [Contact docIDForUsername: mail];
+    NSString* docID = [Contact docIDForEmail: mail];
     CBLDocument* doc = [self.database documentWithID: docID];
     if (!doc.currentRevisionID)
         return nil;
