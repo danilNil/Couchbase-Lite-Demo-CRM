@@ -7,6 +7,7 @@
 //
 
 #import "OpportunityDetailesViewController.h"
+#import "ContactsViewController.h"
 
 @interface OpportunityDetailesViewController ()
 
@@ -35,6 +36,16 @@
 }
 
 - (IBAction)changeCustomer:(id)sender {
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if([segue.destinationViewController isKindOfClass:[UINavigationController class]]){
+        UINavigationController* navc = (UINavigationController*)segue.destinationViewController;
+        if([navc.topViewController isKindOfClass:[ContactsViewController class]]){
+            ContactsViewController* vc = (ContactsViewController*)navc.topViewController;
+            vc.filteredOpp = self.currentOpport;
+        }
+    }
 }
 
 #pragma mark - UITextFieldDelegate

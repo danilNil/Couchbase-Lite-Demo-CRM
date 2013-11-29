@@ -29,7 +29,11 @@
 }
 
 - (void) updateQuery {
-    dataSource.query = [[[DataStore sharedInstance] queryContacts] asLiveQuery];
+    if(!self.filteredOpp)
+        dataSource.query = [[[DataStore sharedInstance] queryContacts] asLiveQuery];
+    else{
+        dataSource.query = [[[DataStore sharedInstance] queryContactsByOpport:self.filteredOpp] asLiveQuery];
+    }
 }
 
 // Called when a row is selected/touched.

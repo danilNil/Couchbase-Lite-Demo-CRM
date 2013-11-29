@@ -40,6 +40,7 @@ static DataStore* sInstance;
         [_database.modelFactory registerClass: [SalesPerson class] forDocumentType: kSalesPersonDocType];
         [_database.modelFactory registerClass: [Contact class] forDocumentType: kContactDocType];
         [_database.modelFactory registerClass:[Customer class] forDocumentType: kCustomerDocType];
+        [_database.modelFactory registerClass:[Opportunity class] forDocumentType: kOpportDocType];
 
         _salesPersonsView = [_database viewNamed: @"salesPersonsByName"];
         [_salesPersonsView setMapBlock: MAPBLOCK({
@@ -268,6 +269,12 @@ static DataStore* sInstance;
 
 
 - (CBLQuery*) queryContacts {
+    CBLQuery* query = [_contactsView query];
+    query.descending = YES;
+    return query;
+}
+
+- (CBLQuery*) queryContactsByOpport:(Opportunity*)opp {
     CBLQuery* query = [_contactsView query];
     query.descending = YES;
     return query;
