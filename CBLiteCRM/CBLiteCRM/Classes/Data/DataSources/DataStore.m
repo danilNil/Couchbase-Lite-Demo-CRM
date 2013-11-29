@@ -275,8 +275,21 @@ static DataStore* sInstance;
 }
 
 - (CBLQuery*) queryContactsByOpport:(Opportunity*)opp {
-    CBLQuery* query = [_contactsView query];
-    query.descending = YES;
+    
+    CBLView* view = [self.database viewNamed: @"contactsByOpport"];
+    [view setMapBlock: MAPBLOCK({
+        if ([doc[@"type"] isEqualToString: kContactDocType]) {
+            NSString* name = [Contact emailFromDocID: doc[@"_id"]];
+            NSString* opportList = doc[@"opportunities"];
+            emit(@[opportList], name);
+        }
+    }) reduceBlock: nil version: @"1"];
+    
+    CBLQuery* query = [view query];
+    NSLog(@"!need to implement fetching for many-to-many relationship");
+//    NSString* myListId = opp.document.documentID;
+//    query.startKey = @[myListId, @{}];
+//    query.endKey = @[myListId];
     return query;
 }
 
