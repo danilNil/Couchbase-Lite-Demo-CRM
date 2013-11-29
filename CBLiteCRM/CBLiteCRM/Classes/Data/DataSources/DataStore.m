@@ -107,7 +107,7 @@ static DataStore* sInstance;
         Customer* customer = [self customerWithMail: mail];
         if (!customer) {
             customer = [Customer createInDatabase: _database
-                                       withCustomerMail: mail];
+                                       withCustomerName: mail];
         }
     }
 }
@@ -170,7 +170,7 @@ static DataStore* sInstance;
 - (Customer*) createCustomerWithMailOrReturnExist: (NSString*)mail{
     Customer* cm = [self customerWithMail: mail];
     if(!cm)
-        cm = [Customer createInDatabase:self.database withCustomerMail:mail];
+        cm = [Customer createInDatabase:self.database withCustomerName:mail];
     return cm;
 }
 

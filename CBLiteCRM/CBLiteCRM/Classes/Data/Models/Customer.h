@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 Danil. All rights reserved.
 //
 
-#import <CouchbaseLite/CouchbaseLite.h>
+#import "BaseModel.h"
 
-@interface Customer : CBLModel
+@interface Customer : BaseModel
 @property (strong) NSString* companyName;
 @property (strong) NSString* industry;
 @property (strong) NSString* phone;
@@ -19,6 +19,6 @@
 + (NSString*) docIDForUsername: (NSString*)username;
 + (NSString*) usernameFromDocID: (NSString*)docID;
 + (Customer*) createInDatabase: (CBLDatabase*)database
-              withCustomerMail: (NSString*)mail;
+              withCustomerName: (NSString*)name;
 
 @end

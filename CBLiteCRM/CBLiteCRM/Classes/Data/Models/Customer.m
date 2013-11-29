@@ -11,28 +11,23 @@
 @implementation Customer
 @dynamic companyName, industry, phone, email, websiteUrl, address;
 
++ (NSString*) docType{
+    return kCustomerDocType;
+}
+
 + (NSString*) docIDForUsername: (NSString*)username {
-    return [NSString stringWithFormat:@"%@:%@",kCustomerDocType,username];
+    return [super docIDForUniqueField:username forDocType:[self docType]];
 }
 
 + (NSString*) usernameFromDocID: (NSString*)docID{
-    return [docID substringFromIndex: kCustomerDocType.length+1];
+    return [super uniqueFieldFromDocID:docID forDocType:[self docType]];
 }
 
 + (Customer*) createInDatabase: (CBLDatabase*)database
-                 withCustomerMail: (NSString*)mail
+                 withCustomerName: (NSString*)name
 {
-    NSString* docID = [self docIDForUsername: mail];
-    CBLDocument* doc = [database documentWithID: docID];
-    Customer* customer = [Customer modelForDocument: doc];
-
-    [customer setValue: kCustomerDocType ofProperty: @"type"];
-
-    NSRange at = [mail rangeOfString: @"@"];
-    if (at.length > 0) {
-        [customer setValue: mail ofProperty: @"email"];
-    }
-
+    Customer* customer = [super createInDatabase:database withUniqueField:name andDocType:[self docType]];
+   [customer setValue:name ofProperty: @"companyName"];
     NSError* error;
     if (![customer save: &error])
         return nil;
