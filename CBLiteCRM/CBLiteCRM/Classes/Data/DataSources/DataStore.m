@@ -70,7 +70,8 @@ static DataStore* sInstance;
         }) version: @"1"];
 
 #if kFakeDataBase
-        [self createFakeUsers];
+        [self createFakeSalesPersons];
+        [self createFakeContacts];
         [self createFakeCustomers];
         [self createFakeOpportunities];
 #endif
@@ -90,13 +91,24 @@ static DataStore* sInstance;
 
 
 #if kFakeDataBase
-- (void) createFakeUsers {
+- (void) createFakeSalesPersons {
     NSArray *array = @[kExampleUserName, @"DaveMarkus@mail.com", @"MichaelMarkulli@mail.com", @"EugeneVolnov@mail.com"];
     for (NSString *email in array) {
         SalesPerson* profile = [self profileWithUsername: email];
         if (!profile) {
             profile = [SalesPerson createInDatabase: _database
                                 withEmail: email];
+        }
+    }
+}
+
+- (void) createFakeContacts {
+    NSArray *array = @[@"Tovarish@mail.com", @"Sestra@mail.com", @"Brat@mail.com"];
+    for (NSString *email in array) {
+        Contact* contact = [self contactWithMail: email];
+        if (!contact) {
+            contact = [Contact createInDatabase: _database
+                                          withEmail: email];
         }
     }
 }

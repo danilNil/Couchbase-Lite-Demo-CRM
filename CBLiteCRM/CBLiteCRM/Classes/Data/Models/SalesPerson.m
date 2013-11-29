@@ -12,7 +12,7 @@
 @dynamic username, phoneNumber, email, approved;
 
 + (NSString*) docType{
-    return kContactDocType;
+    return kSalesPersonDocType;
 }
 
 + (NSString*) docIDForEmail: (NSString*)mail {
