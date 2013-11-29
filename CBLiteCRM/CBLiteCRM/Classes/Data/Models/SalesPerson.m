@@ -11,27 +11,25 @@
 @implementation SalesPerson
 @dynamic username, phoneNumber, email, approved;
 
-+ (NSString*) docIDForUsername: (NSString*)username {
-    return [NSString stringWithFormat:@"%@:%@",kSalesPersonDocType,username];
++ (NSString*) docType{
+    return kContactDocType;
 }
 
-+ (NSString*) usernameFromDocID: (NSString*)docID{
-    return [docID substringFromIndex: kSalesPersonDocType.length+1];
++ (NSString*) docIDForEmail: (NSString*)mail {
+    return [super docIDForUniqueField:mail forDocType:[self docType]];
 }
+
++ (NSString*) emailFromDocID: (NSString*)docID{
+    return [super uniqueFieldFromDocID:docID forDocType:[self docType]];
+}
+
 
 + (SalesPerson*) createInDatabase: (CBLDatabase*)database
-              withUsername: (NSString*)username
+              withEmail: (NSString*)mail
 {
-    NSString* docID = [self docIDForUsername: username];
-    CBLDocument* doc = [database documentWithID: docID];
-    SalesPerson* profile = [SalesPerson modelForDocument: doc];
-    
-    [profile setValue: kSalesPersonDocType ofProperty: @"type"];
-    
-    NSRange at = [username rangeOfString: @"@"];
-    if (at.length > 0) {
-        [profile setValue: username ofProperty: @"email"];
-    }
+
+    SalesPerson* profile = [super createInDatabase:database withUniqueField:mail andDocType:[self docType]];
+    [profile setValue: mail ofProperty: @"email"];
     
     NSError* error;
     if (![profile save: &error])

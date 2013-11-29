@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 Danil. All rights reserved.
 //
 
-#import <CouchbaseLite/CouchbaseLite.h>
+#import "BaseModel.h"
 
-@interface SalesPerson : CBLModel
+@interface SalesPerson : BaseModel
 
 @property (strong) NSString* username;
 @property (strong) NSString* email;
@@ -17,8 +17,8 @@
 
 
 + (SalesPerson*) createInDatabase: (CBLDatabase*)database
-              withUsername: (NSString*)username;
-+ (NSString*) usernameFromDocID: (NSString*)docID;
-+ (NSString*) docIDForUsername: (NSString*)username;
+              withEmail: (NSString*)mail;
++ (NSString*) emailFromDocID: (NSString*)docID;
++ (NSString*) docIDForEmail: (NSString*)mail;
 
 @end

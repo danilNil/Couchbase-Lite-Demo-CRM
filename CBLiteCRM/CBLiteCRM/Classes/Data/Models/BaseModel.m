@@ -19,7 +19,6 @@
     BaseModel* newModel = [[self class] modelForDocument: doc];
     
     [newModel setValue:docType ofProperty: @"type"];
-    [newModel setValue:docType ofProperty:@"docType"];
     [newModel setValue:uniqueField ofProperty:@"uniqueField"];
 
     NSError* error;
@@ -36,5 +35,9 @@
     return [NSString stringWithFormat:@"%@:%@",docType,uniqueValue];
 }
 
++ (NSString*) docType{
+    NSAssert(YES, @"implement doc type in your class");
+    return nil;
+}
 
 @end

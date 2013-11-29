@@ -36,7 +36,7 @@ static DataStore* sInstance;
         _salesPersonsView = [_database viewNamed: @"salesPersonsByName"];
         [_salesPersonsView setMapBlock: MAPBLOCK({
             if ([doc[@"type"] isEqualToString: kSalesPersonDocType]) {
-                NSString* name = [SalesPerson usernameFromDocID: doc[@"_id"]];
+                NSString* name = [SalesPerson emailFromDocID: doc[@"_id"]];
                 if (name)
                     emit(name.lowercaseString, name);
             }
@@ -96,7 +96,7 @@ static DataStore* sInstance;
         SalesPerson* profile = [self profileWithUsername: email];
         if (!profile) {
             profile = [SalesPerson createInDatabase: _database
-                                withUsername: email];
+                                withEmail: email];
         }
     }
 }
@@ -124,7 +124,7 @@ static DataStore* sInstance;
         SalesPerson* myProfile = [self profileWithUsername: self.username];
         if (!myProfile) {
             myProfile = [SalesPerson createInDatabase: _database
-                                         withUsername: self.username];
+                                         withEmail: self.username];
             NSLog(@"Created user profile %@", myProfile);
         }
     }
@@ -137,14 +137,14 @@ static DataStore* sInstance;
     SalesPerson* user = [self profileWithUsername: self.username];
     if (!user) {
         user = [SalesPerson createInDatabase: _database
-                                withUsername: self.username];
+                                withEmail: self.username];
     }
     return user;
 }
 
 
 - (SalesPerson*) profileWithUsername: (NSString*)username {
-    NSString* docID = [SalesPerson docIDForUsername: username];
+    NSString* docID = [SalesPerson docIDForEmail: username];
     CBLDocument* doc = [self.database documentWithID: docID];
     if (!doc.currentRevisionID)
         return nil;
