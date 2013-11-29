@@ -7,6 +7,10 @@
 //
 
 #import "ContactCell.h"
+#import "Contact.h"
+#import "Customer.h"
+
+NSString *kContactCellIdentifier = @"ContactCell";
 
 @implementation ContactCell
 
@@ -14,7 +18,7 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        // Initialization code
+        self = [[[NSBundle mainBundle] loadNibNamed:@"ContactCell" owner:self options:nil] lastObject];
     }
     return self;
 }
@@ -22,8 +26,16 @@
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
+}
 
-    // Configure the view for the selected state
+- (void)setContact:(Contact *)contact {
+    _contact = contact;
+    NSData *photoData = [[contact attachmentNamed:@"photo"] body];
+    UIImage *photo = [UIImage imageWithData:photoData];
+    [self.avatar setImage:photo];
+    self.name.text = contact.email;
+    self.company.text = contact.customer.companyName;
+    self.position.text = contact.position;
 }
 
 @end

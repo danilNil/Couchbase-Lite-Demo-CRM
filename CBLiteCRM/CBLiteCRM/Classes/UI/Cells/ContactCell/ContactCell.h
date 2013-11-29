@@ -6,8 +6,17 @@
 //  Copyright (c) 2013 Danil. All rights reserved.
 //
 
+@class Contact;
+
+extern NSString *kContactCellIdentifier;
+
 @interface ContactCell : UITableViewCell
+
 @property (weak, nonatomic) IBOutlet UIImageView *avatar;
 @property (weak, nonatomic) IBOutlet UILabel *name;
+@property (weak, nonatomic) IBOutlet UILabel *company;
+@property (weak, nonatomic) IBOutlet UILabel *position;
+
+@property (nonatomic, strong) Contact *contact;
 
 @end
