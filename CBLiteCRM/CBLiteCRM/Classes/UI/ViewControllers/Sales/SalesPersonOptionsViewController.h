@@ -6,11 +6,13 @@
 //  Copyright (c) 2013 Danil. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
 @class SalesPerson;
 @interface SalesPersonOptionsViewController : UIViewController
 
 @property (nonatomic, unsafe_unretained) SalesPerson *salesPerson;
+
+@property (weak, nonatomic) IBOutlet UITextField *nameField;
+@property (weak, nonatomic) IBOutlet UITextField *phoneField;
+@property (weak, nonatomic) IBOutlet UITextField *mailField;
 
 @end
