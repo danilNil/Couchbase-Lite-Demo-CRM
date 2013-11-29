@@ -11,22 +11,23 @@
 @implementation Opportunity
 @dynamic customer, creationDate, revenueSize, winProbability, salesStage, contacts;
 
+
++ (NSString*) docType{
+    return kOpportDocType;
+}
+
 + (NSString*)docIDForTitle:(NSString*)title{
-    return [NSString stringWithFormat:@"%@:%@",kOpportDocType,title];
+    return [super docIDForUniqueField:title forDocType:[self docType]];
 }
 
 + (NSString*) titleFromDocID: (NSString*)docID{
-    return [docID substringFromIndex: kOpportDocType.length+1];
+    return [super uniqueFieldFromDocID:docID forDocType:[self docType]];
 }
 
 + (Opportunity*) createInDatabase: (CBLDatabase*)database
                      withTitle: (NSString*)title
 {
-    NSString* docID = [self docIDForTitle:title];
-    CBLDocument* doc = [database documentWithID: docID];
-    Opportunity* opp = [Opportunity modelForDocument: doc];
-    
-    [opp setValue: kOpportDocType ofProperty: @"type"];
+    Opportunity* opp = [super createInDatabase:database withUniqueField:title andDocType:[self docType]];
     [opp setValue: title ofProperty: @"title"];
     
     NSError* error;

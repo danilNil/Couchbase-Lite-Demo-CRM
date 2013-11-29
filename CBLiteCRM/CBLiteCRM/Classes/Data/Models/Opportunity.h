@@ -6,8 +6,10 @@
 //  Copyright (c) 2013 Danil. All rights reserved.
 //
 
+#import "BaseModel.h"
+
 @class Customer;
-@interface Opportunity : CBLModel
+@interface Opportunity : BaseModel
 @property (strong) Customer* customer;
 @property (strong) NSDate* creationDate;
 @property long long revenueSize;
