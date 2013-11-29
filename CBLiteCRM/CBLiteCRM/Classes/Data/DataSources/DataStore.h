@@ -1,4 +1,4 @@
-@class SalesPerson, Contact;
+@class SalesPerson, Contact, Customer;
 
 @interface DataStore : NSObject
 
@@ -26,4 +26,7 @@
 - (Contact*) contactWithMail: (NSString*)mail;
 - (CBLQuery*) queryContacts;
 - (CBLQuery*) queryOpportunities;
+
+- (Customer*) createCustomerWithMailOrReturnExist: (NSString*)name;
+
 @end

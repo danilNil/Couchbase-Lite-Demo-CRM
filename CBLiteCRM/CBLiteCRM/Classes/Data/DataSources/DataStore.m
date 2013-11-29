@@ -102,12 +102,12 @@ static DataStore* sInstance;
 }
 
 - (void) createFakeCustomers {
-    NSArray *array = @[@"Acme", @"Orange", @"Montansa", @"GreyButter"];
-    for (NSString *name in array) {
-        Customer* customer = [self customerWithName: name];
+    NSArray *array = @[@"Acme@mail.com", @"Orange@mail.com", @"Montansa@mail.com", @"GreyButter@mail.com"];
+    for (NSString *mail in array) {
+        Customer* customer = [self customerWithMail: mail];
         if (!customer) {
             customer = [Customer createInDatabase: _database
-                                       withCustomerName: name];
+                                       withCustomerMail: mail];
         }
     }
 }
@@ -167,8 +167,15 @@ static DataStore* sInstance;
 
 #pragma mark - CUSTOMER:
 
-- (Customer*) customerWithName: (NSString*)name {
-    NSString* docID = [Customer docIDForUsername: name];
+- (Customer*) createCustomerWithMailOrReturnExist: (NSString*)mail{
+    Customer* cm = [self customerWithMail: mail];
+    if(!cm)
+        cm = [Customer createInDatabase:self.database withCustomerMail:mail];
+    return cm;
+}
+
+- (Customer*) customerWithMail: (NSString*)mail {
+    NSString* docID = [Customer docIDForUsername: mail];
     CBLDocument* doc = [self.database documentWithID: docID];
     if (!doc.currentRevisionID)
         return nil;
