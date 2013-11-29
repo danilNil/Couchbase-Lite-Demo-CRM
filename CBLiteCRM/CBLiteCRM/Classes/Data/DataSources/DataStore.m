@@ -5,6 +5,14 @@
 #import "Customer.h"
 #import "Opportunity.h"
 
+#if kFakeDataBase
+
+NSString *kName = @"name";
+NSString *kEmail = @"email";
+NSString *kPhone = @"phone";
+
+#endif
+
 @interface DataStore(){
     CBLView* _salesPersonsView;
     CBLView* _contactsView;
@@ -92,14 +100,34 @@ static DataStore* sInstance;
 
 #if kFakeDataBase
 - (void) createFakeSalesPersons {
-    NSArray *array = @[kExampleUserName, @"DaveMarkus@mail.com", @"MichaelMarkulli@mail.com", @"EugeneVolnov@mail.com"];
-    for (NSString *email in array) {
-        SalesPerson* profile = [self profileWithUsername: email];
+    for (NSDictionary *dict in [self getFakeSalesPersonsDictionary]) {
+        SalesPerson* profile = [self profileWithUsername: [dict objectForKey:kEmail]];
         if (!profile) {
             profile = [SalesPerson createInDatabase: _database
-                                withEmail: email];
+                                withEmail: [dict objectForKey:kEmail]];
+            profile.phoneNumber = [dict objectForKey:kPhone];
+            profile.username = [dict objectForKey:kName];
         }
     }
+}
+
+- (NSArray*)getFakeSalesPersonsDictionary {
+    return @[[NSDictionary dictionaryWithObjectsAndKeys:
+              kExampleUserName, kEmail,
+              @"+8 321 2490", kPhone,
+              @"Archibald", kName, nil],
+             [NSDictionary dictionaryWithObjectsAndKeys:
+              @"DaveMarkus@mail.com", kEmail,
+              @"+3 634 2983", kPhone,
+              @"Dave", kName, nil],
+             [NSDictionary dictionaryWithObjectsAndKeys:
+              @"MichaelMarkulli@mail.com", kEmail,
+              @"+4 623 1234", kPhone,
+              @"Michael", kName, nil],
+             [NSDictionary dictionaryWithObjectsAndKeys:
+              @"EugeneVolnov@mail.com", kEmail,
+              @"+2 132 9162", kPhone,
+              @"Eugene", kName, nil]];
 }
 
 - (void) createFakeContacts {
@@ -114,14 +142,37 @@ static DataStore* sInstance;
 }
 
 - (void) createFakeCustomers {
-    NSArray *array = @[@"Acme@mail.com", @"Orange@mail.com", @"Montansa@mail.com", @"GreyButter@mail.com"];
-    for (NSString *mail in array) {
-        Customer* customer = [self customerWithMail: mail];
+    for (NSDictionary *dict in [self getFakeCustomersDictionary]) {
+        Customer* customer = [self customerWithName: [dict objectForKey:kName]];
         if (!customer) {
             customer = [Customer createInDatabase: _database
-                                       withCustomerName: mail];
+                                       withCustomerName: [dict objectForKey:kName]];
+            customer.email = [dict objectForKey:kEmail];
+            customer.phone = [dict objectForKey:kPhone];
+            NSError* error;
+            if (![customer save:&error])
+                NSLog(@"%@", error);
         }
     }
+}
+
+- (NSArray*)getFakeCustomersDictionary {
+    return @[[NSDictionary dictionaryWithObjectsAndKeys:
+              @"Acme@mail.com", kEmail,
+              @"+3 456 8490", kPhone,
+              @"Gerald", kName, nil],
+             [NSDictionary dictionaryWithObjectsAndKeys:
+              @"Orange@mail.com", kEmail,
+              @"+3 654 0983", kPhone,
+              @"Pauloktus", kName, nil],
+             [NSDictionary dictionaryWithObjectsAndKeys:
+              @"Montansa@mail.com", kEmail,
+              @"+4 613 1234", kPhone,
+              @"Franky", kName, nil],
+             [NSDictionary dictionaryWithObjectsAndKeys:
+              @"GreyButter@mail.com", kEmail,
+              @"+1 111 9122", kPhone,
+              @"Vito", kName, nil]];
 }
 
 #endif
@@ -179,15 +230,15 @@ static DataStore* sInstance;
 
 #pragma mark - CUSTOMER:
 
-- (Customer*) createCustomerWithMailOrReturnExist: (NSString*)mail{
-    Customer* cm = [self customerWithMail: mail];
+- (Customer*) createCustomerWithMailOrReturnExist: (NSString*)name{
+    Customer* cm = [self customerWithName: name];
     if(!cm)
-        cm = [Customer createInDatabase:self.database withCustomerName:mail];
+        cm = [Customer createInDatabase:self.database withCustomerName:name];
     return cm;
 }
 
-- (Customer*) customerWithMail: (NSString*)mail {
-    NSString* docID = [Customer docIDForUsername: mail];
+- (Customer*) customerWithName: (NSString*)name {
+    NSString* docID = [Customer docIDForUsername: name];
     CBLDocument* doc = [self.database documentWithID: docID];
     if (!doc.currentRevisionID)
         return nil;
