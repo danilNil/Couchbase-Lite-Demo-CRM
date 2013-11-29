@@ -22,6 +22,8 @@
 		449204CF18445EB30036D3A9 /* CouchbaseLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 449204CE18445EB30036D3A9 /* CouchbaseLite.framework */; };
 		44D6DAF7184718920097262E /* CustomerDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44D6DAF6184718920097262E /* CustomerDetailsViewController.m */; };
 		830D51AC1848570900044A19 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 830D51AB1848570900044A19 /* BaseModel.m */; };
+		830D51B01848968800044A19 /* OpportunityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 830D51AF1848968800044A19 /* OpportunityCell.m */; };
+		830D51B31848973900044A19 /* OpportunityDetailesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 830D51B21848973900044A19 /* OpportunityDetailesViewController.m */; };
 		831FFCD41844364900C7CB22 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 831FFCD31844364900C7CB22 /* Foundation.framework */; };
 		831FFCD61844364900C7CB22 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 831FFCD51844364900C7CB22 /* CoreGraphics.framework */; };
 		831FFCD81844364900C7CB22 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 831FFCD71844364900C7CB22 /* UIKit.framework */; };
@@ -91,6 +93,10 @@
 		44D6DAF6184718920097262E /* CustomerDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerDetailsViewController.m; sourceTree = "<group>"; };
 		830D51AA1848570900044A19 /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
 		830D51AB1848570900044A19 /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
+		830D51AE1848968800044A19 /* OpportunityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpportunityCell.h; sourceTree = "<group>"; };
+		830D51AF1848968800044A19 /* OpportunityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpportunityCell.m; sourceTree = "<group>"; };
+		830D51B11848973900044A19 /* OpportunityDetailesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpportunityDetailesViewController.h; sourceTree = "<group>"; };
+		830D51B21848973900044A19 /* OpportunityDetailesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpportunityDetailesViewController.m; sourceTree = "<group>"; };
 		831FFCD01844364900C7CB22 /* CBLiteCRM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CBLiteCRM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		831FFCD31844364900C7CB22 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		831FFCD51844364900C7CB22 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -217,6 +223,8 @@
 			children = (
 				447A2C5A1845D808008786AF /* OpportunitiesViewController.h */,
 				447A2C5B1845D808008786AF /* OpportunitiesViewController.m */,
+				830D51B11848973900044A19 /* OpportunityDetailesViewController.h */,
+				830D51B21848973900044A19 /* OpportunityDetailesViewController.m */,
 			);
 			path = Opportunities;
 			sourceTree = "<group>";
@@ -249,6 +257,15 @@
 				447A2C721845F214008786AF /* SalesPersonCell.xib */,
 			);
 			path = SalesPersonCell;
+			sourceTree = "<group>";
+		};
+		830D51AD1848967200044A19 /* OpportunityCell */ = {
+			isa = PBXGroup;
+			children = (
+				830D51AE1848968800044A19 /* OpportunityCell.h */,
+				830D51AF1848968800044A19 /* OpportunityCell.m */,
+			);
+			path = OpportunityCell;
 			sourceTree = "<group>";
 		};
 		831FFCC71844364900C7CB22 = {
@@ -396,6 +413,7 @@
 		831FFD481844A75000C7CB22 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				830D51AD1848967200044A19 /* OpportunityCell */,
 				447A2C6C1845F214008786AF /* ContactCell */,
 				447A2C6F1845F214008786AF /* SalesPersonCell */,
 			);
@@ -550,6 +568,7 @@
 				447A2C731845F214008786AF /* ContactCell.m in Sources */,
 				831FFD471844702F00C7CB22 /* Opportunity.m in Sources */,
 				831FFD4118446C5500C7CB22 /* SalesPerson.m in Sources */,
+				830D51B01848968800044A19 /* OpportunityCell.m in Sources */,
 				447A2C661845D808008786AF /* CustomersViewController.m in Sources */,
 				447A2C6B1845D808008786AF /* WelcomeViewController.m in Sources */,
 				83CEAAE31846ECE10002D040 /* ActionSheet.m in Sources */,
@@ -564,6 +583,7 @@
 				447A2C631845D808008786AF /* TextFieldsViewController.m in Sources */,
 				44D6DAF7184718920097262E /* CustomerDetailsViewController.m in Sources */,
 				831FFD4418446EAC00C7CB22 /* Customer.m in Sources */,
+				830D51B31848973900044A19 /* OpportunityDetailesViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
