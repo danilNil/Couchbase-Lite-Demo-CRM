@@ -607,6 +607,7 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="showContacts:" destination="tN3-ye-q8X" eventType="touchUpInside" id="ozX-f6-Fzn"/>
+                                                    <segue destination="r3k-yU-N28" kind="push" id="c67-th-zEq"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="MnG-pZ-lRp">
@@ -845,6 +846,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="c67-th-zEq"/>
         <segue reference="zHw-JE-Ekg"/>
     </inferredMetricsTieBreakers>
 </document>
