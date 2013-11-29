@@ -535,8 +535,110 @@
                     <view key="view" contentMode="scaleToFill" id="2h2-ke-Ape">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3Tq-TI-Tm3">
+                                <rect key="frame" x="0.0" y="67" width="320" height="501"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" id="qKj-wr-JUC">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="326"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="opportunity name" textAlignment="center" minimumFontSize="17" id="eUD-c5-Dk5">
+                                                <rect key="frame" x="20" y="10" width="280" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="tN3-ye-q8X" id="eE2-QD-mBa"/>
+                                                </connections>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="stage" textAlignment="center" minimumFontSize="17" id="8Hz-8A-88H">
+                                                <rect key="frame" x="20" y="48" width="280" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="tN3-ye-q8X" id="yBe-km-a26"/>
+                                                </connections>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="creation date" textAlignment="center" minimumFontSize="17" id="3pF-gR-KXa">
+                                                <rect key="frame" x="20" y="86" width="280" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="tN3-ye-q8X" id="ig2-3c-Fgq"/>
+                                                </connections>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="revenue size" textAlignment="center" minimumFontSize="17" id="q54-bn-r8A">
+                                                <rect key="frame" x="20" y="124" width="280" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="tN3-ye-q8X" id="oOi-op-8qd"/>
+                                                </connections>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="win probability" textAlignment="center" minimumFontSize="17" id="8xy-VZ-6oJ">
+                                                <rect key="frame" x="20" y="162" width="280" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="tN3-ye-q8X" id="FOP-Rx-X8z"/>
+                                                </connections>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="customer" textAlignment="center" minimumFontSize="17" id="bL3-Ut-32T">
+                                                <rect key="frame" x="20" y="200" width="280" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="tN3-ye-q8X" id="Mju-e7-dsu"/>
+                                                </connections>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="m4S-Rf-q8k">
+                                                <rect key="frame" x="20" y="250" width="280" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="0.80574247259999998" alpha="1" colorSpace="calibratedWhite"/>
+                                                <state key="normal" title="show contacts">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="showContacts:" destination="tN3-ye-q8X" eventType="touchUpInside" id="ozX-f6-Fzn"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="MnG-pZ-lRp">
+                                                <rect key="frame" x="20" y="288" width="280" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="0.80574247259999998" alpha="1" colorSpace="calibratedWhite"/>
+                                                <state key="normal" title="delete">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="deleteItem:" destination="tN3-ye-q8X" eventType="touchUpInside" id="Rkg-8Q-kWo"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="6KV-qq-ehq">
+                                                <rect key="frame" x="20" y="200" width="280" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="changeCustomer:" destination="tN3-ye-q8X" eventType="touchUpInside" id="ndV-TV-5fb"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Details" id="rs4-Bj-CoV">
                         <barButtonItem key="leftBarButtonItem" title="Back" id="pTa-HC-10n">
                             <connections>
@@ -549,6 +651,16 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="baseScrollView" destination="3Tq-TI-Tm3" id="Qwx-Vh-ZoA"/>
+                        <outlet property="contentView" destination="qKj-wr-JUC" id="Z1w-QP-eVy"/>
+                        <outlet property="customerField" destination="bL3-Ut-32T" id="ykL-88-MFg"/>
+                        <outlet property="dateField" destination="3pF-gR-KXa" id="yJf-nx-lj4"/>
+                        <outlet property="nameField" destination="eUD-c5-Dk5" id="lxP-YS-YBC"/>
+                        <outlet property="revenueField" destination="q54-bn-r8A" id="ofH-l6-8lo"/>
+                        <outlet property="stageField" destination="8Hz-8A-88H" id="9IC-oA-Dgv"/>
+                        <outlet property="winField" destination="8xy-VZ-6oJ" id="DyI-Qp-7us"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dzf-aQ-KNO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

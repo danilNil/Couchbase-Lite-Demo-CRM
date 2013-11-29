@@ -17,7 +17,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    [self.baseScrollView setContentSize:self.contentView.frame.size];
 }
 
 - (IBAction)back:(id)sender {
@@ -26,5 +26,20 @@
 }
 
 - (IBAction)saveItem:(id)sender {
+}
+
+- (IBAction)showContacts:(id)sender {
+}
+
+- (IBAction)deleteItem:(id)sender {
+}
+
+- (IBAction)changeCustomer:(id)sender {
+}
+
+#pragma mark - UITextFieldDelegate
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+    return YES;
 }
 @end
