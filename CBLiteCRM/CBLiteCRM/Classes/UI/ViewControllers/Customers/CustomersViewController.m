@@ -78,7 +78,7 @@ UISearchDisplayDelegate
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if([segue.destinationViewController isKindOfClass:[CustomerDetailsViewController class]]){
+    if([segue.destinationViewController isKindOfClass:[CustomerDetailsViewController class]] && [sender isKindOfClass:[CustomersViewController class]]){
         CustomerDetailsViewController* vc = segue.destinationViewController;
         Customer *customer;
         if (self.filteredCustomers.count == 0) {
