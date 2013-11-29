@@ -41,9 +41,12 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if([segue.destinationViewController isKindOfClass:[ContactDetailsViewController class]]){
-        ContactDetailsViewController* vc = segue.destinationViewController;
-        vc.currentContact = selectedContact;
+    if([segue.destinationViewController isKindOfClass:[UINavigationController class]]){
+        UINavigationController* navc = (UINavigationController*)segue.destinationViewController;
+        if([navc.topViewController isKindOfClass:[ContactDetailsViewController class]]){
+            ContactDetailsViewController* vc = (ContactDetailsViewController*)navc.topViewController;
+            vc.currentContact = selectedContact;
+        }
     }
 }
 

@@ -9,6 +9,7 @@
 //UI
 #import "ContactDetailsViewController.h"
 #import "ImagePickerAngel.h"
+#import "CustomersViewController.h"
 
 //Data
 #import "DataStore.h"
