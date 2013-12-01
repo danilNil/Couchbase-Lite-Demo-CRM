@@ -15,6 +15,13 @@
 
 @implementation SalesPersonOptionsViewController
 
+- (void)viewDidLoad
+{
+    self.nameField.enabled = NO;
+    self.phoneField.enabled = NO;
+    self.mailField.enabled = NO;
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [self loadUserData];
