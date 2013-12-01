@@ -68,7 +68,7 @@ UISearchDisplayDelegate
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CustomerCell"];
     }
     Customer *customer = self.filteredCustomers[indexPath.row];
-    cell.textLabel.text = customer.email;
+    cell.textLabel.text = customer.companyName;
     return cell;
 }
 
