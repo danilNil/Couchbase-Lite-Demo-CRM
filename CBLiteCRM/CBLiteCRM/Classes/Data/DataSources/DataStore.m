@@ -141,6 +141,9 @@ static DataStore* sInstance;
             contact.phoneNumber = [dict objectForKey:kPhone];
             contact.name = [dict objectForKey:kName];
             contact.position = [dict objectForKey:kPosition];
+            NSError *error;
+            if (![contact save:&error])
+                NSLog(@"%@", error);
         }
     }
 }
