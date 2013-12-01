@@ -96,7 +96,7 @@ UISearchDisplayDelegate
     [self.filteredCustomers removeAllObjects];
     for (CBLQueryRow* row in dataSource.rows) {
         Customer *customer = [Customer modelForDocument:row.document];
-        if ([customer.email rangeOfString:searchText options:NSCaseInsensitiveSearch].location != NSNotFound)
+        if ([customer.companyName rangeOfString:searchText options:NSCaseInsensitiveSearch].location != NSNotFound)
             [self.filteredCustomers addObject:customer];
     }
 }
