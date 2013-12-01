@@ -10,6 +10,8 @@
 NSString *kName = @"name";
 NSString *kEmail = @"email";
 NSString *kPhone = @"phone";
+NSString *kPosition = @"position";
+NSString *kCompanyName = @"companyName";
 
 #endif
 
@@ -132,14 +134,46 @@ static DataStore* sInstance;
 }
 
 - (void) createFakeContacts {
-    NSArray *array = @[@"Tovarish@mail.com", @"Sestra@mail.com", @"Brat@mail.com"];
-    for (NSString *email in array) {
-        Contact* contact = [self contactWithMail: email];
+    for (NSDictionary *dict in [self getFakeContactsDictionary]) {
+        Contact* contact = [self contactWithMail: [dict objectForKey:kEmail]];
         if (!contact) {
             contact = [Contact createInDatabase: _database
-                                          withEmail: email];
+                                          withEmail: [dict objectForKey:kEmail]];
+            contact.phoneNumber = [dict objectForKey:kPhone];
+            contact.name = [dict objectForKey:kName];
+            contact.position = [dict objectForKey:kPosition];
+            NSError *error;
+            if (![contact save:&error])
+                NSLog(@"%@", error);
         }
     }
+}
+
+- (NSArray*)getFakeContactsDictionary {
+    return @[[NSDictionary dictionaryWithObjectsAndKeys:
+              kExampleUserName, kEmail,
+              @"+8 321 2490", kPhone,
+              @"Archibald", kName,
+              @"Sales consultant", kPosition,
+              @"Thomson Reuters", kCompanyName, nil],
+             [NSDictionary dictionaryWithObjectsAndKeys:
+              @"Tovarish@mail.com", kEmail,
+              @"+3 634 2983", kPhone,
+              @"Dave", kName,
+              @"Presales consultant", kPosition,
+              @"Brittish Telecommunications", kCompanyName, nil],
+             [NSDictionary dictionaryWithObjectsAndKeys:
+              @"Sestra@mail.com", kEmail,
+              @"+4 623 1234", kPhone,
+              @"Michael", kName,
+              @"SOA", kPosition,
+              @"Monitise", kCompanyName, nil],
+             [NSDictionary dictionaryWithObjectsAndKeys:
+              @"Brat@mail.com", kEmail,
+              @"+2 132 9162", kPhone,
+              @"Eugene", kName,
+              @"Lead developer", kPosition,
+              @"Hewlett-Packard", kCompanyName, nil]];
 }
 
 - (void) createFakeCustomers {

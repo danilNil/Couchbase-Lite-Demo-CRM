@@ -68,7 +68,7 @@ UISearchDisplayDelegate
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CustomerCell"];
     }
     Customer *customer = self.filteredCustomers[indexPath.row];
-    cell.textLabel.text = customer.email;
+    cell.textLabel.text = customer.companyName;
     return cell;
 }
 
@@ -96,7 +96,7 @@ UISearchDisplayDelegate
     [self.filteredCustomers removeAllObjects];
     for (CBLQueryRow* row in dataSource.rows) {
         Customer *customer = [Customer modelForDocument:row.document];
-        if ([customer.email rangeOfString:searchText options:NSCaseInsensitiveSearch].location != NSNotFound)
+        if ([customer.companyName rangeOfString:searchText options:NSCaseInsensitiveSearch].location != NSNotFound)
             [self.filteredCustomers addObject:customer];
     }
 }

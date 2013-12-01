@@ -11,11 +11,16 @@
 
 @interface SalesPersonOptionsViewController ()
 
-@property (strong, nonatomic) IBOutlet UILabel *name;
-
 @end
 
 @implementation SalesPersonOptionsViewController
+
+- (void)viewDidLoad
+{
+    self.nameField.enabled = NO;
+    self.phoneField.enabled = NO;
+    self.mailField.enabled = NO;
+}
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -24,7 +29,10 @@
 
 - (void)loadUserData
 {
-    self.name.text = self.salesPerson.email;
+    [self.navigationItem setTitle:self.salesPerson.username];
+    self.nameField.text = self.salesPerson.username;
+    self.phoneField.text = self.salesPerson.phoneNumber;
+    self.mailField.text = self.salesPerson.email;
 }
 
 @end
