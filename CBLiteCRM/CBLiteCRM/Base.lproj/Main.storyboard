@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <scenes>
         <!--Welcome View Controller-->
@@ -66,7 +66,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="LBm-wF-h6Y" kind="push" id="HPz-sP-JuO"/>
+                                    <segue destination="xUM-Pc-30e" kind="push" id="IAZ-tD-KEp"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="v6c-Vo-TjJ">
@@ -118,44 +118,52 @@
             <point key="canvasLocation" x="555" y="2"/>
         </scene>
         <!--Sales View Controller - Sales Person-->
-        <scene sceneID="Wbw-GK-fSa">
+        <scene sceneID="zQg-tN-zT5">
             <objects>
-                <tableViewController id="LBm-wF-h6Y" customClass="SalesViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="PFW-Pz-PTv">
+                <viewController id="xUM-Pc-30e" customClass="SalesViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Esp-6r-yuJ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" id="5LI-ZM-v7y">
-                            <rect key="frame" x="0.0" y="64" width="320" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <textInputTraits key="textInputTraits"/>
-                            <connections>
-                                <outlet property="delegate" destination="LBm-wF-h6Y" id="rsa-xt-IGM"/>
-                            </connections>
-                        </searchBar>
-                        <connections>
-                            <outlet property="dataSource" destination="LBm-wF-h6Y" id="58y-Pb-G3f"/>
-                            <outlet property="delegate" destination="LBm-wF-h6Y" id="XfX-kj-lw3"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Sales Person" id="yJg-gA-6G3"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="PFW-Pz-PTv">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <searchBar key="tableHeaderView" contentMode="redraw" id="5LI-ZM-v7y">
+                                    <rect key="frame" x="0.0" y="64" width="320" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="bjJ-iH-njp" id="ErF-LI-Lgt"/>
+                                    </connections>
+                                </searchBar>
+                                <connections>
+                                    <outlet property="dataSource" destination="xUM-Pc-30e" id="KDq-qb-tSP"/>
+                                    <outlet property="delegate" destination="xUM-Pc-30e" id="kNj-7l-LKV"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Sales Person" id="BEL-0B-KFB"/>
                     <connections>
-                        <outlet property="searchDisplayController" destination="bjJ-iH-njp" id="nN4-PG-LYl"/>
-                        <segue destination="thM-Fv-BNK" kind="push" identifier="presentSalesPersonOptions" id="OaH-To-fdp"/>
+                        <outlet property="searchDisplayController" destination="bjJ-iH-njp" id="WWH-rL-Gcl"/>
+                        <outlet property="tableView" destination="PFW-Pz-PTv" id="yjI-Mp-y6H"/>
+                        <segue destination="thM-Fv-BNK" kind="push" identifier="presentSalesPersonOptions" id="n1X-48-bJc"/>
                     </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Km3-KL-TaS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uxg-Bj-QbQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <searchDisplayController id="bjJ-iH-njp">
                     <connections>
-                        <outlet property="delegate" destination="LBm-wF-h6Y" id="5SV-jd-oru"/>
+                        <outlet property="delegate" destination="xUM-Pc-30e" id="SDj-Pv-aNm"/>
                         <outlet property="searchBar" destination="5LI-ZM-v7y" id="XxY-36-Yzt"/>
-                        <outlet property="searchContentsController" destination="LBm-wF-h6Y" id="rf8-O8-MpF"/>
-                        <outlet property="searchResultsDataSource" destination="LBm-wF-h6Y" id="jpg-23-Hs9"/>
-                        <outlet property="searchResultsDelegate" destination="LBm-wF-h6Y" id="4TJ-xz-0Lc"/>
+                        <outlet property="searchContentsController" destination="xUM-Pc-30e" id="KNq-tN-eCi"/>
+                        <outlet property="searchResultsDataSource" destination="xUM-Pc-30e" id="Fal-it-0EK"/>
+                        <outlet property="searchResultsDelegate" destination="xUM-Pc-30e" id="UTk-Kr-p47"/>
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="1087" y="-430"/>
+            <point key="canvasLocation" x="1092" y="-430"/>
         </scene>
         <!--Sales Person Options View Controller-->
         <scene sceneID="cKc-Z1-Fuf">
@@ -233,7 +241,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="02H-qr-bZC">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="392"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <searchBar key="tableHeaderView" contentMode="redraw" id="JEN-lx-y2A">
@@ -687,7 +695,7 @@
             <objects>
                 <viewController id="TLO-se-8qL" customClass="CustomerDetailsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tu8-9C-AcH">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="zcc-Uy-RjL">
@@ -708,7 +716,7 @@
                                 </items>
                             </toolbar>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="HSp-Q5-DoW">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" heightSizable="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" id="6NZ-5w-naS">
@@ -861,7 +869,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="c67-th-zEq"/>
-        <segue reference="zHw-JE-Ekg"/>
+        <segue reference="kYh-Yl-Qka"/>
+        <segue reference="HKR-Id-rJ9"/>
     </inferredMetricsTieBreakers>
 </document>

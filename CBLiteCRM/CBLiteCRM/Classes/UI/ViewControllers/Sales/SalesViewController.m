@@ -35,7 +35,8 @@
     self.filteredSalesPersons = [NSMutableArray arrayWithCapacity:self.dataSource.rows.count];
 }
 
-- (void) updateQuery {
+- (void) updateQuery
+{
     self.dataSource.query = [[[DataStore sharedInstance] allUsersQuery] asLiveQuery];
 }
 
@@ -87,7 +88,8 @@
 }
 
 #pragma mark Content Filtering
-- (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope {
+- (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope
+{
     [self.filteredSalesPersons removeAllObjects];
     for (CBLQueryRow* row in self.dataSource.rows) {
         SalesPerson *salesPerson = [SalesPerson modelForDocument:row.document];
@@ -97,19 +99,22 @@
 }
 
 #pragma mark - UISearchDisplayController Delegate Methods
-- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
+{
     [self filterContentForSearchText:searchString scope:
      [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:[self.searchDisplayController.searchBar selectedScopeButtonIndex]]];
     return YES;
 }
 
-- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption {
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption
+{
     [self filterContentForSearchText:self.searchDisplayController.searchBar.text scope:
      [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:searchOption]];
     return YES;
 }
 
-- (void)searchDisplayController:(UISearchDisplayController *)controller willHideSearchResultsTableView:(UITableView *)tableView {
+- (void)searchDisplayController:(UISearchDisplayController *)controller willHideSearchResultsTableView:(UITableView *)tableView
+{
     [self.tableView reloadData];
 }
 

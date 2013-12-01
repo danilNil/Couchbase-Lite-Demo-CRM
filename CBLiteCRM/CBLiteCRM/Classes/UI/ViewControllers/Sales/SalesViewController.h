@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 Danil. All rights reserved.
 //
 
-@interface SalesViewController : UITableViewController
+@interface SalesViewController : UIViewController
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
