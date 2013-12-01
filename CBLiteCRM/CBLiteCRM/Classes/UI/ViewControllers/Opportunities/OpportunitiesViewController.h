@@ -6,9 +6,8 @@
 //  Copyright (c) 2013 Danil. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "FilteringViewController.h"
 
-@interface OpportunitiesViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@interface OpportunitiesViewController : FilteringViewController
 
 @end

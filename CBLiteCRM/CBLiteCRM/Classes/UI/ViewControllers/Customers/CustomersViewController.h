@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 Danil. All rights reserved.
 //
 
-@interface CustomersViewController : UIViewController
+#import "FilteringViewController.h"
 
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@interface CustomersViewController : FilteringViewController
 
 @end
