@@ -195,7 +195,7 @@
                                 <rect key="frame" x="105" y="128" width="200" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                 <connections>
                                     <outlet property="delegate" destination="thM-Fv-BNK" id="CWq-nX-7kD"/>
                                 </connections>
@@ -210,7 +210,7 @@
                                 <rect key="frame" x="105" y="166" width="200" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                 <connections>
                                     <outlet property="delegate" destination="thM-Fv-BNK" id="6Yz-Fl-rj5"/>
                                 </connections>
@@ -359,7 +359,7 @@
                                                 <rect key="frame" x="105" y="319" width="200" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="Xt6-34-7OD" id="XEi-bi-PYH"/>
                                                 </connections>
@@ -374,7 +374,7 @@
                                                 <rect key="frame" x="105" y="352" width="200" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="Xt6-34-7OD" id="yNd-N1-uyH"/>
                                                 </connections>
@@ -703,7 +703,7 @@
                                                 <rect key="frame" x="105" y="96" width="200" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="TLO-se-8qL" id="1iX-bj-kjp"/>
                                                 </connections>
@@ -718,7 +718,7 @@
                                                 <rect key="frame" x="105" y="134" width="200" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="TLO-se-8qL" id="bkX-A6-2i3"/>
                                                 </connections>
@@ -759,7 +759,7 @@
                                                 <rect key="frame" x="105" y="172" width="200" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="URL"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="TLO-se-8qL" id="bPs-NI-jnd"/>
                                                 </connections>
