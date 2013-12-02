@@ -28,6 +28,7 @@
                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
+                        <state key="selected" title="√"/>
                         <connections>
                             <action selector="checkmarkTapped:" destination="dgF-Iy-4FS" eventType="touchUpInside" id="SA6-u0-ji2"/>
                         </connections>

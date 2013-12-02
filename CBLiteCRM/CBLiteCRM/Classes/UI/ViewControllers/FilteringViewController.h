@@ -17,4 +17,6 @@ UISearchDisplayDelegate
 @property (strong, nonatomic) NSMutableArray *filteredSource;
 @property (nonatomic, strong) CBLUITableSource* dataSource;
 
+@property (nonatomic, strong) NSString *cellIdentifier;
+
 @end

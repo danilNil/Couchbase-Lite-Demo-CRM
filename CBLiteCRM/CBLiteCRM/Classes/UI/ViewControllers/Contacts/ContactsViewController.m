@@ -18,13 +18,6 @@
 
 @implementation ContactsViewController
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    [self.tableView registerClass:[ContactCell class] forCellReuseIdentifier:kContactCellIdentifier];
-    [self.searchDisplayController.searchResultsTableView registerClass:[ContactCell class] forCellReuseIdentifier:kContactCellIdentifier];
-}
-
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 

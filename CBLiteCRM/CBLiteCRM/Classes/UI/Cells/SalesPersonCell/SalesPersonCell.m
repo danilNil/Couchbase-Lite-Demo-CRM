@@ -17,17 +17,6 @@ NSString *kSalesPersonCell = @"SalesPersonCell";
 
 @implementation SalesPersonCell
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
-{
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-        self = [[[NSBundle mainBundle] loadNibNamed:@"SalesPersonCell" owner:self options:nil] lastObject];
-        [self.checkmark setTitle:@"√" forState:UIControlStateSelected];
-        [self.checkmark setTitle:@"X" forState:UIControlStateNormal];
-    }
-    return self;
-}
-
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];

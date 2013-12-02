@@ -19,14 +19,6 @@
 
 @implementation SalesViewController
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-
-    [self.searchDisplayController.searchResultsTableView registerClass:[SalesPersonCell class] forCellReuseIdentifier:kSalesPersonCell];
-    [self.tableView registerClass:[SalesPersonCell class] forCellReuseIdentifier:kSalesPersonCell];
-}
-
 - (void) updateQuery
 {
     self.dataSource.query = [[[DataStore sharedInstance] allUsersQuery] asLiveQuery];

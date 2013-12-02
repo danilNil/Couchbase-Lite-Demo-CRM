@@ -28,7 +28,12 @@ CBLUITableDelegate
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
+    if (self.cellIdentifier) {
+        [self.searchDisplayController.searchResultsTableView registerNib:[UINib nibWithNibName:self.cellIdentifier bundle:[NSBundle mainBundle]]  forCellReuseIdentifier:self.cellIdentifier];
+        [self.tableView registerNib:[UINib nibWithNibName:self.cellIdentifier bundle:[NSBundle mainBundle]]  forCellReuseIdentifier:self.cellIdentifier];
+    }
+
     self.dataSource = [CBLUITableSource new];
     self.dataSource.tableView = self.tableView;
     self.tableView.dataSource = self.dataSource;
