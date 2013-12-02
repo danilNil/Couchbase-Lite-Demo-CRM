@@ -91,7 +91,13 @@
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
-- (IBAction)deleteItem:(id)sender {
+- (IBAction)deleteItem:(id)sender
+{
+    NSError *error;
+    if (![self.currentContact deleteDocument:&error])
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil] show];
+    else
+        [self dismissViewControllerAnimated:YES completion:^{}];
 }
 
 - (void)updateInfoForContact:(Contact*)ct{
@@ -104,8 +110,7 @@
     if(selectedImage)
         [ct addAttachment:[self attachmentFromPhoto:selectedImage] named:@"photo"];
     NSError* error;
-    [ct save:&error];
-    if(error)
+    if(![ct save:&error])
         NSLog(@"error in save contact: %@", error);
 }
 
