@@ -9,6 +9,10 @@
 #import "OpportunityDetailesViewController.h"
 #import "ContactsViewController.h"
 
+//Data
+#import "Opportunity.h"
+#import "Customer.h"
+
 @interface OpportunityDetailesViewController ()
 
 @end
@@ -19,6 +23,22 @@
 {
     [super viewDidLoad];
     [self.baseScrollView setContentSize:self.contentView.frame.size];
+    [self updateInfo];
+}
+
+- (void)updateInfo{
+    self.nameField.text = self.currentOpport.title;
+    self.stageField.text = self.currentOpport.salesStage;
+    self.dateField.text = [self stringFromDate:self.currentOpport.creationDate];
+    if([self.currentOpport getValueOfProperty:@"revenueSize"])
+        self.revenueField.text = [NSString stringWithFormat:@"%lli",self.currentOpport.revenueSize];
+    if([self.currentOpport getValueOfProperty:@"winProbability"])
+        self.winField.text =[NSString stringWithFormat:@"%f",self.currentOpport.winProbability];
+    self.customerField.text = self.currentOpport.customer.companyName;
+}
+
+- (NSString*)stringFromDate:(NSDate*)date{
+    return nil;
 }
 
 - (IBAction)back:(id)sender {

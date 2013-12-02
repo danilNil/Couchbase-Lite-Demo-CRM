@@ -9,7 +9,7 @@
 #import "Opportunity.h"
 
 @implementation Opportunity
-@dynamic customer, creationDate, revenueSize, winProbability, salesStage, contacts;
+@dynamic customer, creationDate, revenueSize, winProbability, salesStage, contacts, title;
 
 
 + (NSString*) docType{
