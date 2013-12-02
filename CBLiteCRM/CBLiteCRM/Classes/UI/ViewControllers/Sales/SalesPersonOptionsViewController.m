@@ -44,4 +44,14 @@
         [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (IBAction)delete:(id)sender
+{
+    NSError *error;
+    if (![self.salesPerson deleteDocument:&error])
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil] show];
+    else
+        [self.navigationController popViewControllerAnimated:YES];
+
+}
+
 @end
