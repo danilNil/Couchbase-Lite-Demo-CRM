@@ -110,6 +110,9 @@ static DataStore* sInstance;
                                 withEmail: [dict objectForKey:kEmail]];
             profile.phoneNumber = [dict objectForKey:kPhone];
             profile.username = [dict objectForKey:kName];
+            NSError *error;
+            if (![profile save:&error])
+                [[[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil] show];
         }
     }
 }

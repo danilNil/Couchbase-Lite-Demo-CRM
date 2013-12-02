@@ -11,7 +11,7 @@
 @interface SalesPerson : BaseModel
 
 @property (strong) NSString* username;
-@property (strong) NSString* email;
+@property (strong, readonly) NSString* email;
 @property (strong) NSString* phoneNumber;
 @property bool approved;
 

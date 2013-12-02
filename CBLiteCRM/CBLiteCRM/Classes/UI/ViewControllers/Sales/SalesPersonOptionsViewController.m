@@ -17,8 +17,6 @@
 
 - (void)viewDidLoad
 {
-    self.nameField.enabled = NO;
-    self.phoneField.enabled = NO;
     self.mailField.enabled = NO;
 }
 
@@ -33,6 +31,17 @@
     self.nameField.text = self.salesPerson.username;
     self.phoneField.text = self.salesPerson.phoneNumber;
     self.mailField.text = self.salesPerson.email;
+}
+
+- (IBAction)save:(id)sender
+{
+    self.salesPerson.username = self.nameField.text;
+    self.salesPerson.phoneNumber = self.phoneField.text;
+    NSError *error;
+    if (![self.salesPerson save:&error])
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil] show];
+    else
+        [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

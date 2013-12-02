@@ -224,7 +224,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="jVX-LX-Luz"/>
+                    <navigationItem key="navigationItem" id="jVX-LX-Luz">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="VuY-Nq-XnW">
+                            <connections>
+                                <action selector="save:" destination="thM-Fv-BNK" id="AD7-gy-LWD"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="mailField" destination="9pn-dD-UzG" id="cvQ-3i-B3x"/>
                         <outlet property="nameField" destination="sNp-72-yPS" id="PGx-wy-ZoS"/>
@@ -908,7 +914,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="HKR-Id-rJ9"/>
         <segue reference="KZr-Gj-Zuk"/>
+        <segue reference="zHw-JE-Ekg"/>
     </inferredMetricsTieBreakers>
 </document>
