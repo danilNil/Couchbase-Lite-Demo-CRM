@@ -268,7 +268,7 @@ static DataStore* sInstance;
 
 #pragma mark - CUSTOMER:
 
-- (Customer*) createCustomerWithMailOrReturnExist: (NSString*)name{
+- (Customer*) createCustomerWithNameOrReturnExist: (NSString*)name{
     Customer* cm = [self customerWithName: name];
     if(!cm)
         cm = [Customer createInDatabase:self.database withCustomerName:name];

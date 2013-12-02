@@ -31,6 +31,7 @@
         self.mailField.text = cm.email;
         self.addressField.text = cm.address;
         self.URLField.text = cm.websiteUrl;
+        self.companyNameField.enabled = NO;
     }
 }
 
@@ -40,10 +41,10 @@
 }
 
 - (IBAction)saveItem:(id)sender {
-    if(self.mailField.text && ![self.mailField.text isEqualToString:@""]){
+    if(self.companyNameField.text && ![self.companyNameField.text isEqualToString:@""]){
         Customer* newCustomer = self.currentCustomer;
         if(!newCustomer)
-            newCustomer = [[DataStore sharedInstance] createCustomerWithMailOrReturnExist:self.mailField.text];
+            newCustomer = [[DataStore sharedInstance] createCustomerWithNameOrReturnExist:self.companyNameField.text];
         [self updateInfoForCustomer:newCustomer];
     }
     [self dismissViewControllerAnimated:YES completion:NULL];
@@ -59,14 +60,13 @@
 }
 
 - (void)updateInfoForCustomer:(Customer*)cm{
-    cm.companyName = self.companyNameField.text;
     cm.industry = self.industryField.text;
     cm.phone = self.phoneField.text;
     cm.address = self.addressField.text;
     cm.websiteUrl = self.URLField.text;
+    cm.email = self.mailField.text;
     NSError* error;
-    [cm save:&error];
-    if(error)
+    if(![cm save:&error])
         NSLog(@"error in save customer: %@", error);
 }
 
