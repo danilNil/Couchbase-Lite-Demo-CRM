@@ -49,7 +49,14 @@
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
-- (IBAction)deleteItem:(id)sender {}
+- (IBAction)deleteItem:(id)sender {
+    NSError *error;
+    if ([self.currentCustomer deleteDocument:&error]) {
+        [self  dismissViewControllerAnimated:YES completion:^{}];
+    } else {
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:Nil cancelButtonTitle:@"ok" otherButtonTitles: nil] show];
+    }
+}
 
 - (void)updateInfoForCustomer:(Customer*)cm{
     cm.companyName = self.companyNameField.text;
