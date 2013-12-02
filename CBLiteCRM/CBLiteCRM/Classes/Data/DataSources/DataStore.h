@@ -30,4 +30,5 @@
 
 - (Customer*) createCustomerWithNameOrReturnExist: (NSString*)name;
 
+- (SalesPerson*)createSalesPersonWithMailOrReturnExist: (NSString*)mail;
 @end

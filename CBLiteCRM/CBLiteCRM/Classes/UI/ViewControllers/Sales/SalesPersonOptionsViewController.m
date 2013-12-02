@@ -9,6 +9,7 @@
 #import "SalesPersonOptionsViewController.h"
 #import "SalesPerson.h"
 
+#import "DataStore.h"
 @interface SalesPersonOptionsViewController ()
 
 @end
@@ -27,18 +28,33 @@
 
 - (void)loadUserData
 {
-    [self.navigationItem setTitle:self.salesPerson.username];
-    self.nameField.text = self.salesPerson.username;
-    self.phoneField.text = self.salesPerson.phoneNumber;
-    self.mailField.text = self.salesPerson.email;
+    self.mailField.enabled = !self.salesPerson;
+    if (self.salesPerson) {
+        [self.navigationItem setTitle:self.salesPerson.username];
+        self.nameField.text = self.salesPerson.username;
+        self.phoneField.text = self.salesPerson.phoneNumber;
+        self.mailField.text = self.salesPerson.email;
+    } else {
+        [self.navigationItem setTitle:@"New Sales Person"];
+    }
 }
 
 - (IBAction)save:(id)sender
 {
-    self.salesPerson.username = self.nameField.text;
-    self.salesPerson.phoneNumber = self.phoneField.text;
+    if(![self.mailField.text isEqualToString:@""]){
+        SalesPerson* newSalesPerson = self.salesPerson;
+        if(!newSalesPerson)
+            newSalesPerson = [[DataStore sharedInstance] createSalesPersonWithMailOrReturnExist:self.mailField.text];
+        [self updateInfoForSalesPerson:newSalesPerson];
+    }
+}
+
+- (void)updateInfoForSalesPerson:(SalesPerson*)sp
+{
+    sp.username = self.nameField.text;
+    sp.phoneNumber = self.phoneField.text;
     NSError *error;
-    if (![self.salesPerson save:&error])
+    if (![sp save:&error])
         [[[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil] show];
     else
         [self.navigationController popViewControllerAnimated:YES];

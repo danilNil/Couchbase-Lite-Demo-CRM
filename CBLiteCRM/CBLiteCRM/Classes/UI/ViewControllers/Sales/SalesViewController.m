@@ -53,7 +53,7 @@
     if(sender == self.searchDisplayController.searchResultsTableView) {
         NSIndexPath *indexPath = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
         salesPersonOptionsViewController.salesPerson = self.filteredSource[indexPath.row];
-    } else {
+    } else if (sender == self.tableView) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         CBLQueryRow *row = [self.dataSource rowAtIndex:indexPath.row];
         SalesPerson *salesPerson = [SalesPerson modelForDocument: row.document];
