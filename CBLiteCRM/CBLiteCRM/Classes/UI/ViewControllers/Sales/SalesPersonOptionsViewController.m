@@ -34,19 +34,12 @@
         self.nameField.text = self.salesPerson.username;
         self.phoneField.text = self.salesPerson.phoneNumber;
         self.mailField.text = self.salesPerson.email;
-    } else {
-        [self.navigationItem setTitle:@"New Sales Person"];
     }
 }
 
 - (IBAction)save:(id)sender
 {
-    if(![self.mailField.text isEqualToString:@""]){
-        SalesPerson* newSalesPerson = self.salesPerson;
-        if(!newSalesPerson)
-            newSalesPerson = [[DataStore sharedInstance] createSalesPersonWithMailOrReturnExist:self.mailField.text];
-        [self updateInfoForSalesPerson:newSalesPerson];
-    }
+    [self updateInfoForSalesPerson:self.salesPerson];
 }
 
 - (void)updateInfoForSalesPerson:(SalesPerson*)sp

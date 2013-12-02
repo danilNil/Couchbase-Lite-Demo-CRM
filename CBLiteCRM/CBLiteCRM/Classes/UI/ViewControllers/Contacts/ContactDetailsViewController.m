@@ -39,6 +39,7 @@
 }
 
 - (void)loadInfoForContact:(Contact*)ct{
+    self.mailField.enabled = !ct;
     if(ct){
         self.nameField.text = ct.name;
         self.positionField.text = ct.position;

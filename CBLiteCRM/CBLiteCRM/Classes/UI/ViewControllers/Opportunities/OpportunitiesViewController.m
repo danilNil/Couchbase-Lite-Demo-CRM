@@ -26,14 +26,17 @@
 
 #pragma mark - Segue
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if([segue.destinationViewController isKindOfClass:[UINavigationController class]]){
+    if([segue.destinationViewController isKindOfClass:[UINavigationController class]] && [sender isKindOfClass:[UITableView class]]){
         UINavigationController* navc = (UINavigationController*)segue.destinationViewController;
-        if([navc.topViewController isKindOfClass:[OpportunityDetailesViewController class]]){
-            OpportunityDetailesViewController* vc = (OpportunityDetailesViewController*)navc.topViewController;
+        Opportunity *opp;
+        OpportunityDetailesViewController* vc = (OpportunityDetailesViewController*)navc.topViewController;
+        if([navc.topViewController isKindOfClass:[OpportunityDetailesViewController class]] && sender == self.tableView){
             CBLQueryRow *row = [self.dataSource rowAtIndex:[self.tableView indexPathForSelectedRow].row];
-            Opportunity *opp = [Opportunity modelForDocument: row.document];
-            vc.currentOpport = opp;
+            opp = [Opportunity modelForDocument: row.document];
+        } else {
+            opp = self.filteredSource[[self.searchDisplayController.searchResultsTableView indexPathForSelectedRow].row];
         }
+        vc.currentOpport = opp;
     }
 }
 

@@ -39,7 +39,7 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if([segue.destinationViewController isKindOfClass:[CustomerDetailsViewController class]] && [sender isKindOfClass:[CustomersViewController class]]){
+    if([segue.destinationViewController isKindOfClass:[CustomerDetailsViewController class]] && sender == self){
         CustomerDetailsViewController* vc = segue.destinationViewController;
         Customer *customer;
         if (self.filteredSource.count == 0){

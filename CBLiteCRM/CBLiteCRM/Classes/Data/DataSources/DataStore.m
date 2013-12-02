@@ -330,24 +330,6 @@ static DataStore* sInstance;
     return query;
 }
 
-#pragma mark - SALES PERSON
-
--(SalesPerson *)createSalesPersonWithMailOrReturnExist:(NSString *)mail
-{
-    SalesPerson* sp = [self salesPersonWithMail:mail];
-    if(!sp)
-        sp = [SalesPerson createInDatabase:self.database withEmail:mail];
-    return sp;
-}
-
-- (SalesPerson*) salesPersonWithMail: (NSString*)mail{
-    NSString* docID = [SalesPerson docIDForEmail: mail];
-    CBLDocument* doc = [self.database documentWithID: docID];
-    if (!doc.currentRevisionID)
-        return nil;
-    return [SalesPerson modelForDocument: doc];
-}
-
 #pragma mark - OPPURTUNITIES:
 #if kFakeDataBase
 - (void) createFakeOpportunities {
@@ -377,5 +359,20 @@ static DataStore* sInstance;
     return query;
 }
 
+-(Opportunity *)createOpportunityWithTitleOrReturnExist:(NSString *)title
+{
+    Opportunity* opp = [self opportunityWithTitle:title];
+    if(!opp)
+        opp = [Opportunity createInDatabase:self.database withTitle:title];
+    return opp;
+}
+
+- (Opportunity*) opporunityWithTitle: (NSString*)title{
+    NSString* docID = [Opportunity docIDForTitle:title];
+    CBLDocument* doc = [self.database documentWithID: docID];
+    if (!doc.currentRevisionID)
+        return nil;
+    return [Opportunity modelForDocument:doc];
+}
 
 @end
