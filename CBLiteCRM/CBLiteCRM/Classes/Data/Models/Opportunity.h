@@ -14,7 +14,7 @@
 @property (strong) NSDate* creationDate;
 @property long long revenueSize;
 @property float winProbability;
-@property int salesStage;
+@property (strong) NSString* salesStage;
 @property (readonly, strong) NSArray* contacts;
 @property (strong) NSString* title;
 + (NSString*)docIDForTitle:(NSString*)title;
