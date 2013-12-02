@@ -463,6 +463,7 @@
         <scene sceneID="cuA-kl-VxA">
             <objects>
                 <navigationController definesPresentationContext="YES" id="CtH-25-1f3" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="B1m-KF-O9O"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="dR0-Ff-5PC">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -472,7 +473,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fF2-nJ-Obm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1443" y="244"/>
+            <point key="canvasLocation" x="1382" y="235"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jTM-kM-nf1">
@@ -881,6 +882,7 @@
                     <connections>
                         <outlet property="searchDisplayController" destination="Lbo-1f-2Cz" id="n5t-8H-9lo"/>
                         <outlet property="tableView" destination="7sA-pP-vLf" id="I1a-Gg-VDq"/>
+                        <segue destination="CtH-25-1f3" kind="modal" identifier="presentContactDetails" id="T5o-RN-c3U"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JQ3-BF-pyg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -894,7 +896,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="1092" y="250"/>
+            <point key="canvasLocation" x="1005" y="235"/>
         </scene>
     </scenes>
     <resources>
@@ -907,6 +909,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="HKR-Id-rJ9"/>
-        <segue reference="rju-Nc-jGo"/>
+        <segue reference="KZr-Gj-Zuk"/>
     </inferredMetricsTieBreakers>
 </document>
