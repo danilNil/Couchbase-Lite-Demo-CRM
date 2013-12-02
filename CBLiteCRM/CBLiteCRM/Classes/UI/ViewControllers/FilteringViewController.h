@@ -8,9 +8,8 @@
 
 @interface FilteringViewController : UIViewController
 
-@property Class cellClass;
-@property (nonatomic, strong) NSString *cellIdentifier;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *filteredSource;
+@property (nonatomic, strong) CBLUITableSource* dataSource;
 
 @end

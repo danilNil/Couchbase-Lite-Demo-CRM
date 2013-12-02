@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <scenes>
         <!--Welcome View Controller-->
@@ -146,9 +146,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Sales Person" id="BEL-0B-KFB"/>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="cellIdentifier" value="SalesPersonCell"/>
-                    </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="searchDisplayController" destination="bjJ-iH-njp" id="WWH-rL-Gcl"/>
                         <outlet property="tableView" destination="PFW-Pz-PTv" id="yjI-Mp-y6H"/>
@@ -314,9 +311,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="cellIdentifier" value="ContactCell"/>
-                    </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="tableView" destination="PQj-RN-jgp" id="Kz3-dZ-z3l"/>
                     </connections>

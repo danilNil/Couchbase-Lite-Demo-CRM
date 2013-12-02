@@ -17,11 +17,6 @@ UITableViewDelegate,
 UISearchBarDelegate,
 UISearchDisplayDelegate
 >
-{
-    CBLUITableSource* dataSource;
-}
-
-@property (nonatomic, strong) NSMutableArray *filteredCustomers;
 
 @end
 
@@ -39,16 +34,11 @@ UISearchDisplayDelegate
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    dataSource = [CBLUITableSource new];
-    dataSource.tableView = self.tableView;
-    self.tableView.dataSource = dataSource;
-    [self updateQuery];
-    self.filteredCustomers = [NSMutableArray arrayWithCapacity:dataSource.rows.count];
 }
 
 - (void) updateQuery
 {
-    dataSource.query = [[[DataStore sharedInstance] allCustomersQuery] asLiveQuery];
+    self.dataSource.query = [[[DataStore sharedInstance] allCustomersQuery] asLiveQuery];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -58,16 +48,16 @@ UISearchDisplayDelegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.filteredCustomers.count;
+    return self.filteredSource.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CustomerCell"];
-    if (!cell) {
+    if (!cell)
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CustomerCell"];
-    }
-    Customer *customer = self.filteredCustomers[indexPath.row];
+
+    Customer *customer = self.filteredSource[indexPath.row];
     cell.textLabel.text = customer.companyName;
     return cell;
 }
@@ -81,11 +71,11 @@ UISearchDisplayDelegate
     if([segue.destinationViewController isKindOfClass:[CustomerDetailsViewController class]] && [sender isKindOfClass:[CustomersViewController class]]){
         CustomerDetailsViewController* vc = segue.destinationViewController;
         Customer *customer;
-        if (self.filteredCustomers.count == 0) {
-            CBLQueryRow *row = [dataSource rowAtIndex:[self.tableView indexPathForSelectedRow].row];
+        if (self.filteredSource.count == 0) {
+            CBLQueryRow *row = [self.dataSource rowAtIndex:[self.tableView indexPathForSelectedRow].row];
             customer = [Customer modelForDocument: row.document];
         } else {
-            customer = self.filteredCustomers[[self.searchDisplayController.searchResultsTableView indexPathForSelectedRow].row];
+            customer = self.filteredSource[[self.searchDisplayController.searchResultsTableView indexPathForSelectedRow].row];
         }
         vc.currentCustomer = customer;
     }
@@ -93,11 +83,11 @@ UISearchDisplayDelegate
 
 #pragma mark Content Filtering
 - (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope {
-    [self.filteredCustomers removeAllObjects];
-    for (CBLQueryRow* row in dataSource.rows) {
+    [self.filteredSource removeAllObjects];
+    for (CBLQueryRow* row in self.dataSource.rows) {
         Customer *customer = [Customer modelForDocument:row.document];
         if ([customer.companyName rangeOfString:searchText options:NSCaseInsensitiveSearch].location != NSNotFound)
-            [self.filteredCustomers addObject:customer];
+            [self.filteredSource addObject:customer];
     }
 }
 

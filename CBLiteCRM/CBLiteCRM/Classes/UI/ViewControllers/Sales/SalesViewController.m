@@ -16,7 +16,6 @@
 @interface SalesViewController () <UISearchBarDelegate, UISearchDisplayDelegate, CBLUITableDelegate>
 
 @property (nonatomic, strong) CBLUITableSource* dataSource;
-@property (nonatomic, strong) NSMutableArray *filteredSalesPersons;
 
 @end
 
@@ -28,11 +27,7 @@
 
     [self.searchDisplayController.searchResultsTableView registerClass:[SalesPersonCell class] forCellReuseIdentifier:kSalesPersonCell];
     [self.tableView registerClass:[SalesPersonCell class] forCellReuseIdentifier:kSalesPersonCell];
-    self.dataSource = [CBLUITableSource new];
-    self.dataSource.tableView = self.tableView;
-    self.tableView.dataSource = self.dataSource;
-    [self updateQuery];
-    self.filteredSalesPersons = [NSMutableArray arrayWithCapacity:self.dataSource.rows.count];
+
 }
 
 - (void) updateQuery
@@ -47,7 +42,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.filteredSalesPersons.count;
+    return self.filteredSource.count;
 }
 
 - (UITableViewCell *)couchTableSource:(CBLUITableSource*)source cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -63,7 +58,7 @@
 {
     SalesPersonCell *cell = [tableView dequeueReusableCellWithIdentifier:kSalesPersonCell];
     SalesPerson *salesPerson;
-    salesPerson = self.filteredSalesPersons[indexPath.row];
+    salesPerson = self.filteredSource[indexPath.row];
     cell.salesPerson = salesPerson;
     return cell;
 }
@@ -78,7 +73,7 @@
     SalesPersonOptionsViewController *salesPersonOptionsViewController = [segue destinationViewController];
     if(sender == self.searchDisplayController.searchResultsTableView) {
         NSIndexPath *indexPath = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
-        salesPersonOptionsViewController.salesPerson = self.filteredSalesPersons[indexPath.row];
+        salesPersonOptionsViewController.salesPerson = self.filteredSource[indexPath.row];
     } else {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         CBLQueryRow *row = [self.dataSource rowAtIndex:indexPath.row];
@@ -90,11 +85,11 @@
 #pragma mark Content Filtering
 - (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope
 {
-    [self.filteredSalesPersons removeAllObjects];
+    [self.filteredSource removeAllObjects];
     for (CBLQueryRow* row in self.dataSource.rows) {
         SalesPerson *salesPerson = [SalesPerson modelForDocument:row.document];
         if ([salesPerson.email rangeOfString:searchText options:NSCaseInsensitiveSearch].location != NSNotFound)
-            [self.filteredSalesPersons addObject:salesPerson];
+            [self.filteredSource addObject:salesPerson];
     }
 }
 
