@@ -19,12 +19,6 @@
 
 @implementation OpportunitiesViewController
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-//    self.tableView.tableHeaderView = self.searchDisplayController.searchBar;
-}
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self performSegueWithIdentifier:@"opportDetails" sender:tableView];
