@@ -7,7 +7,9 @@
 //
 
 #import "FilteringViewController.h"
-
+@class Opportunity, Customer;
 @interface CustomersViewController : FilteringViewController
+@property (nonatomic) BOOL chooser;
+@property (nonatomic, copy) void (^onSelectCustomer)(Customer * customer);
 
 @end

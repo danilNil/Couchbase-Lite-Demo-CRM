@@ -20,7 +20,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *customerField;
 - (IBAction)back:(id)sender;
 - (IBAction)saveItem:(id)sender;
-- (IBAction)showContacts:(id)sender;
 - (IBAction)deleteItem:(id)sender;
-- (IBAction)changeCustomer:(id)sender;
+- (IBAction)customerDetails:(id)sender;
 @end

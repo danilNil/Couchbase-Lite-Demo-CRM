@@ -8,6 +8,8 @@
 
 #import "OpportunityDetailesViewController.h"
 #import "ContactsViewController.h"
+#import "CustomersViewController.h"
+#import "CustomerDetailsViewController.h"
 
 //Data
 #import "Opportunity.h"
@@ -47,15 +49,18 @@
 }
 
 - (IBAction)saveItem:(id)sender {
-}
-
-- (IBAction)showContacts:(id)sender {
+    NSError* err;
+    [self.currentOpport save:&err];
+    if(err)
+        NSLog(@"save opp err: %@", err);
 }
 
 - (IBAction)deleteItem:(id)sender {
 }
 
-- (IBAction)changeCustomer:(id)sender {
+- (IBAction)customerDetails:(id)sender{
+    if(self.currentOpport.customer)
+        [self performSegueWithIdentifier:@"presentMyCustomer" sender:self];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
@@ -65,6 +70,16 @@
             ContactsViewController* vc = (ContactsViewController*)navc.topViewController;
             vc.filteredOpp = self.currentOpport;
         }
+    }else if([segue.destinationViewController isKindOfClass:[CustomersViewController class]]){
+        CustomersViewController* vc = (CustomersViewController*)segue.destinationViewController;
+        vc.chooser = YES;
+        [vc setOnSelectCustomer:^(Customer *cust) {
+            self.currentOpport.customer = cust;
+            self.customerField.text = cust.companyName;
+        }];
+    }else if([segue.destinationViewController isKindOfClass:[CustomerDetailsViewController class]]){
+        CustomerDetailsViewController* vc = segue.destinationViewController;
+        vc.currentCustomer = self.currentOpport.customer;
     }
 }
 

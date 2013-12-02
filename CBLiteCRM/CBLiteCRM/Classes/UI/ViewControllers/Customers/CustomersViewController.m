@@ -17,9 +17,24 @@
 
 @implementation CustomersViewController
 
+-(void)viewDidLoad{
+    [super viewDidLoad];
+    [self updateUIForState:self.chooser];
+}
+
+- (void)updateUIForState:(BOOL)chooser{
+    if(chooser)
+        self.navigationController.navigationItem.rightBarButtonItem.enabled = NO;
+}
+
 - (void) updateQuery
 {
     self.dataSource.query = [[[DataStore sharedInstance] allCustomersQuery] asLiveQuery];
+}
+
+- (void)didChooseCustomer:(Customer*)cust{
+    self.onSelectCustomer(cust);
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -35,7 +50,11 @@
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self performSegueWithIdentifier:@"presentCustomerDetails" sender:self];
+    if(self.chooser && self.onSelectCustomer){
+        CBLQueryRow *row = [self.dataSource rowAtIndex:indexPath.row];
+        [self didChooseCustomer:[Customer modelForDocument: row.document]];
+    }else
+        [self performSegueWithIdentifier:@"presentCustomerDetails" sender:self];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{

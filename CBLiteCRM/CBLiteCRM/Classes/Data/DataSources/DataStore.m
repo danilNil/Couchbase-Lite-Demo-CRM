@@ -284,6 +284,23 @@ static DataStore* sInstance;
     return [_customersView query];
 }
 
+- (CBLQuery*) queryCustomersByOpport:(Opportunity*)opp {
+    CBLView* view = [self.database viewNamed: @"customersByOpport"];
+    [view setMapBlock: MAPBLOCK({
+        if ([doc[@"type"] isEqualToString: kCustomerDocType]) {
+            NSString* name = [Customer usernameFromDocID: doc[@"_id"]];
+            emit(name.lowercaseString, name);
+        }
+    }) reduceBlock: nil version: @"1"];
+    
+    CBLQuery* query = [view query];
+    NSLog(@"!need to implement fetching for one-to-many relationship");
+    //    NSString* myListId = opp.document.documentID;
+    //    query.startKey = @[myListId, @{}];
+    //    query.endKey = @[myListId];
+    return query;
+}
+
 #pragma mark - CONTACTS:
 
 - (Contact*) createContactWithMailOrReturnExist: (NSString*)mail{
