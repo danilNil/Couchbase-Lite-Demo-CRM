@@ -22,6 +22,7 @@
 {
     [super viewDidLoad];
     [self.tableView registerClass:[ContactCell class] forCellReuseIdentifier:kContactCellIdentifier];
+    [self.searchDisplayController.searchResultsTableView registerClass:[ContactCell class] forCellReuseIdentifier:kContactCellIdentifier];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -36,6 +37,15 @@
         self.dataSource.query = [[[DataStore sharedInstance] queryContacts] asLiveQuery];
     else
         self.dataSource.query = [[[DataStore sharedInstance] queryContactsByOpport:self.filteredOpp] asLiveQuery];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    ContactCell *cell = [tableView dequeueReusableCellWithIdentifier:kContactCellIdentifier forIndexPath:indexPath];
+    Contact *contact;
+    contact = self.filteredSource[indexPath.row];
+    cell.contact = contact;
+    return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -60,6 +70,16 @@
             CBLQueryRow *row = [self.dataSource rowAtIndex:[self.tableView indexPathForSelectedRow].row];
             vc.currentContact = [Contact modelForDocument: row.document];
         }
+    }
+}
+
+#pragma mark Content Filtering
+- (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope {
+    [self.filteredSource removeAllObjects];
+    for (CBLQueryRow* row in self.dataSource.rows) {
+        Contact *contact = [Contact modelForDocument:row.document];
+        if ([contact.email rangeOfString:searchText options:NSCaseInsensitiveSearch].location != NSNotFound)
+            [self.filteredSource addObject:contact];
     }
 }
 

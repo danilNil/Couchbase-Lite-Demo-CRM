@@ -88,7 +88,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="r3k-yU-N28" kind="push" id="kYh-Yl-Qka"/>
+                                    <segue destination="hp4-NH-ICy" kind="push" id="rju-Nc-jGo"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="uYR-2i-ili">
@@ -99,7 +99,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="afB-t1-jN8" kind="push" id="fzM-S7-Bo1"/>
+                                    <segue destination="5ij-MH-fTa" kind="push" id="oD6-Gt-h5e"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -283,41 +283,6 @@
                 </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="1087" y="-1107"/>
-        </scene>
-        <!--Contacts View Controller - Contacts-->
-        <scene sceneID="DPv-iq-l6N">
-            <objects>
-                <viewController id="r3k-yU-N28" customClass="ContactsViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="0ef-Qz-POu">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="PQj-RN-jgp">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="r3k-yU-N28" id="mrM-yu-do1"/>
-                                    <outlet property="delegate" destination="r3k-yU-N28" id="mhS-EE-S6P"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Contacts" id="t7W-IU-ncD">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="7A6-WE-VXB">
-                            <connections>
-                                <segue destination="CtH-25-1f3" kind="modal" identifier="presentContactDetails" id="dSs-Ug-jpP"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="tableView" destination="PQj-RN-jgp" id="Kz3-dZ-z3l"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="TZa-80-lM5" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1079" y="244"/>
         </scene>
         <!--Contact Details View Controller - Details-->
         <scene sceneID="XBv-Uk-B3a">
@@ -504,36 +469,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fF2-nJ-Obm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1443" y="236"/>
-        </scene>
-        <!--Opportunities View Controller - Opportunities-->
-        <scene sceneID="iRF-bD-EDe">
-            <objects>
-                <viewController id="afB-t1-jN8" customClass="OpportunitiesViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="iJ1-Uh-oIz">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="A5p-wd-FAt">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="delegate" destination="afB-t1-jN8" id="C7V-la-oDX"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Opportunities" id="qV0-Gn-ssM"/>
-                    <connections>
-                        <outlet property="tableView" destination="A5p-wd-FAt" id="0p8-WT-lxp"/>
-                        <segue destination="jaT-9R-O01" kind="modal" identifier="opportDetails" id="BoT-Zu-Tv4"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xAr-bU-JvU" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1073" y="1005"/>
+            <point key="canvasLocation" x="1443" y="244"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jTM-kM-nf1">
@@ -630,7 +566,7 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="showContacts:" destination="tN3-ye-q8X" eventType="touchUpInside" id="ozX-f6-Fzn"/>
-                                                    <segue destination="r3k-yU-N28" kind="push" id="c67-th-zEq"/>
+                                                    <segue destination="hp4-NH-ICy" kind="push" id="KZr-Gj-Zuk"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="MnG-pZ-lRp">
@@ -859,6 +795,101 @@
             </objects>
             <point key="canvasLocation" x="1514" y="-1107"/>
         </scene>
+        <!--Opportunities View Controller - Opportunities-->
+        <scene sceneID="5kX-lH-IT9">
+            <objects>
+                <viewController id="5ij-MH-fTa" customClass="OpportunitiesViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QVE-ke-xLM">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="gjX-Dh-tYu">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <searchBar key="tableHeaderView" contentMode="redraw" id="Sgb-jp-9VB">
+                                    <rect key="frame" x="0.0" y="64" width="320" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="bjJ-iH-njp" id="0Xf-gT-P3x"/>
+                                    </connections>
+                                </searchBar>
+                                <connections>
+                                    <outlet property="dataSource" destination="5ij-MH-fTa" id="vG1-iy-alE"/>
+                                    <outlet property="delegate" destination="5ij-MH-fTa" id="jnR-fk-IML"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Opportunities" id="quF-yz-X0E"/>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="7Yo-Im-PNS" id="g7f-9z-f9z"/>
+                        <outlet property="tableView" destination="gjX-Dh-tYu" id="vqD-w8-We0"/>
+                        <segue destination="jaT-9R-O01" kind="modal" identifier="opportDetails" id="oNZ-Bg-OAD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ikc-FO-AhF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="7Yo-Im-PNS">
+                    <connections>
+                        <outlet property="delegate" destination="5ij-MH-fTa" id="saw-bN-TZc"/>
+                        <outlet property="searchBar" destination="Sgb-jp-9VB" id="lrn-FE-XEX"/>
+                        <outlet property="searchContentsController" destination="5ij-MH-fTa" id="gCb-6z-fUI"/>
+                        <outlet property="searchResultsDataSource" destination="5ij-MH-fTa" id="Tuo-dl-abT"/>
+                        <outlet property="searchResultsDelegate" destination="5ij-MH-fTa" id="ocZ-Fs-dK9"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="1074" y="1005"/>
+        </scene>
+        <!--Contacts View Controller - Contacts-->
+        <scene sceneID="P8Y-bZ-Adv">
+            <objects>
+                <viewController id="hp4-NH-ICy" customClass="ContactsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="J7L-OQ-RIA">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="7sA-pP-vLf">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <searchBar key="tableHeaderView" contentMode="redraw" id="vkm-r4-6ex">
+                                    <rect key="frame" x="0.0" y="64" width="320" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="bjJ-iH-njp" id="qXW-3C-wJE"/>
+                                    </connections>
+                                </searchBar>
+                                <connections>
+                                    <outlet property="dataSource" destination="hp4-NH-ICy" id="njp-4D-GWz"/>
+                                    <outlet property="delegate" destination="hp4-NH-ICy" id="DWK-uL-pZ3"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Contacts" id="NZa-Iw-Wvs"/>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="Lbo-1f-2Cz" id="n5t-8H-9lo"/>
+                        <outlet property="tableView" destination="7sA-pP-vLf" id="I1a-Gg-VDq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JQ3-BF-pyg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="Lbo-1f-2Cz">
+                    <connections>
+                        <outlet property="delegate" destination="hp4-NH-ICy" id="p0j-Pe-emA"/>
+                        <outlet property="searchBar" destination="vkm-r4-6ex" id="I2c-a6-KyC"/>
+                        <outlet property="searchContentsController" destination="hp4-NH-ICy" id="IVd-9h-MNp"/>
+                        <outlet property="searchResultsDataSource" destination="hp4-NH-ICy" id="31i-42-Rq0"/>
+                        <outlet property="searchResultsDelegate" destination="hp4-NH-ICy" id="Fdt-oH-RHf"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="1092" y="250"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Avatar.png" width="68" height="68"/>
@@ -869,7 +900,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="kYh-Yl-Qka"/>
         <segue reference="HKR-Id-rJ9"/>
+        <segue reference="rju-Nc-jGo"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -47,14 +47,6 @@ CBLUITableDelegate
     return self.filteredSource.count;
 }
 
-//- (UITableViewCell *)couchTableSource:(CBLUITableSource *)source cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    ContactCell *cell = [self.tableView dequeueReusableCellWithIdentifier:kContactCellIdentifier];
-//    CBLQueryRow *row = [self.dataSource rowAtIndex:indexPath.row];
-//    Contact *contact = [Contact modelForDocument: row.document];
-//    cell.contact = contact;
-//    return cell;
-//}
-
 #pragma mark Content Filtering
 - (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope {}
 

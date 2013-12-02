@@ -25,7 +25,6 @@
 
     [self.searchDisplayController.searchResultsTableView registerClass:[SalesPersonCell class] forCellReuseIdentifier:kSalesPersonCell];
     [self.tableView registerClass:[SalesPersonCell class] forCellReuseIdentifier:kSalesPersonCell];
-
 }
 
 - (void) updateQuery

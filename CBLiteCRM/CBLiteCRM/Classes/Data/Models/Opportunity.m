@@ -29,7 +29,7 @@
 {
     Opportunity* opp = [super createInDatabase:database withUniqueField:title andDocType:[self docType]];
     [opp setValue: title ofProperty: @"title"];
-    
+
     NSError* error;
     if (![opp save: &error])
         return nil;
