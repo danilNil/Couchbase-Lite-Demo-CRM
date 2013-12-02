@@ -46,17 +46,20 @@
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
-- (IBAction)saveItem:(id)sender {
+- (IBAction)saveItem:(id)sender {}
+
+- (IBAction)showContacts:(id)sender {}
+
+- (IBAction)deleteItem:(id)sender
+{
+    NSError *error;
+    if (![self.currentOpport deleteDocument:&error])
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil] show];
+    else
+        [self dismissViewControllerAnimated:YES completion:^{}];
 }
 
-- (IBAction)showContacts:(id)sender {
-}
-
-- (IBAction)deleteItem:(id)sender {
-}
-
-- (IBAction)changeCustomer:(id)sender {
-}
+- (IBAction)changeCustomer:(id)sender {}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if([segue.destinationViewController isKindOfClass:[UINavigationController class]]){
