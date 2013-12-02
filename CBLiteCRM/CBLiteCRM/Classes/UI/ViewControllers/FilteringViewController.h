@@ -6,7 +6,12 @@
 //  Copyright (c) 2013 Danil. All rights reserved.
 //
 
-@interface FilteringViewController : UIViewController
+@interface FilteringViewController : UIViewController 
+<
+UITableViewDelegate,
+UISearchBarDelegate,
+UISearchDisplayDelegate
+>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *filteredSource;

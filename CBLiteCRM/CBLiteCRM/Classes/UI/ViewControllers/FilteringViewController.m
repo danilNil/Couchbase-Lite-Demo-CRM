@@ -9,7 +9,9 @@
 #import "FilteringViewController.h"
 
 @interface FilteringViewController ()
-
+<
+CBLUITableDelegate
+>
 @end
 
 @implementation FilteringViewController
@@ -21,10 +23,7 @@
     return self;
 }
 
-- (void)updateQuery
-{
-    
-}
+- (void)updateQuery{}
 
 - (void)viewDidLoad
 {
@@ -37,6 +36,17 @@
     self.filteredSource = [NSMutableArray arrayWithCapacity:self.dataSource.rows.count];
 }
 
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.filteredSource.count;
+}
+
 //- (UITableViewCell *)couchTableSource:(CBLUITableSource *)source cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 //    ContactCell *cell = [self.tableView dequeueReusableCellWithIdentifier:kContactCellIdentifier];
 //    CBLQueryRow *row = [self.dataSource rowAtIndex:indexPath.row];
@@ -45,5 +55,24 @@
 //    return cell;
 //}
 
+#pragma mark Content Filtering
+- (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope {}
+
+#pragma mark - UISearchDisplayController Delegate Methods
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
+    [self filterContentForSearchText:searchString scope:
+     [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:[self.searchDisplayController.searchBar selectedScopeButtonIndex]]];
+    return YES;
+}
+
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption {
+    [self filterContentForSearchText:self.searchDisplayController.searchBar.text scope:
+     [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:searchOption]];
+    return YES;
+}
+
+- (void)searchDisplayController:(UISearchDisplayController *)controller willHideSearchResultsTableView:(UITableView *)tableView {
+    [self.tableView reloadData];
+}
 
 @end

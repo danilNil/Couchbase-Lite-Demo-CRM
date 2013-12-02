@@ -12,43 +12,14 @@
 #import "Customer.h"
 
 @interface CustomersViewController ()
-<
-UITableViewDelegate,
-UISearchBarDelegate,
-UISearchDisplayDelegate
->
 
 @end
 
 @implementation CustomersViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-
-    }
-    return self;
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-}
-
 - (void) updateQuery
 {
     self.dataSource.query = [[[DataStore sharedInstance] allCustomersQuery] asLiveQuery];
-}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return self.filteredSource.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -71,7 +42,7 @@ UISearchDisplayDelegate
     if([segue.destinationViewController isKindOfClass:[CustomerDetailsViewController class]] && [sender isKindOfClass:[CustomersViewController class]]){
         CustomerDetailsViewController* vc = segue.destinationViewController;
         Customer *customer;
-        if (self.filteredSource.count == 0) {
+        if (self.filteredSource.count == 0){
             CBLQueryRow *row = [self.dataSource rowAtIndex:[self.tableView indexPathForSelectedRow].row];
             customer = [Customer modelForDocument: row.document];
         } else {
@@ -90,23 +61,5 @@ UISearchDisplayDelegate
             [self.filteredSource addObject:customer];
     }
 }
-
-#pragma mark - UISearchDisplayController Delegate Methods
-- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
-    [self filterContentForSearchText:searchString scope:
-     [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:[self.searchDisplayController.searchBar selectedScopeButtonIndex]]];
-    return YES;
-}
-
-- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption {
-    [self filterContentForSearchText:self.searchDisplayController.searchBar.text scope:
-     [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:searchOption]];
-    return YES;
-}
-
-- (void)searchDisplayController:(UISearchDisplayController *)controller willHideSearchResultsTableView:(UITableView *)tableView {
-    [self.tableView reloadData];
-}
-
 
 @end

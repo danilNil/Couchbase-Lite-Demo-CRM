@@ -13,29 +13,14 @@
 #import "DataStore.h"
 #import "Opportunity.h"
 
-@interface OpportunitiesViewController (){
-    CBLUITableSource* dataSource;
-    Opportunity* selectedOpport;
-}
+@interface OpportunitiesViewController ()
 
 @end
 
 @implementation OpportunitiesViewController
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    dataSource = [CBLUITableSource new];
-    dataSource.tableView = self.tableView;
-    self.tableView.dataSource = dataSource;
-    [self updateQuery];
-}
-
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CBLQueryRow *row = [dataSource rowAtIndex:indexPath.row];
-    selectedOpport = [Opportunity modelForDocument: row.document];
     [self performSegueWithIdentifier:@"opportDetails" sender:tableView];
 }
 
@@ -45,13 +30,15 @@
         UINavigationController* navc = (UINavigationController*)segue.destinationViewController;
         if([navc.topViewController isKindOfClass:[OpportunityDetailesViewController class]]){
             OpportunityDetailesViewController* vc = (OpportunityDetailesViewController*)navc.topViewController;
-            vc.currentOpport = selectedOpport;
+            CBLQueryRow *row = [self.dataSource rowAtIndex:[self.tableView indexPathForSelectedRow].row];
+            vc.currentOpport = [Opportunity modelForDocument: row.document];
         }
     }
 }
 
-- (void) updateQuery {
-    dataSource.query = [[[DataStore sharedInstance] queryOpportunities] asLiveQuery];
+- (void) updateQuery
+{
+    self.dataSource.query = [[[DataStore sharedInstance] queryOpportunities] asLiveQuery];
 }
 
 @end

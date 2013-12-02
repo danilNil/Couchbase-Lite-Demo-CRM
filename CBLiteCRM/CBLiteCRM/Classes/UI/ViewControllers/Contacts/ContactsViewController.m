@@ -13,12 +13,7 @@
 #import "ContactCell.h"
 
 @interface ContactsViewController ()
-<
-CBLUITableDelegate
->
-{
-    Contact* selectedContact;
-}
+
 @end
 
 @implementation ContactsViewController
@@ -30,24 +25,26 @@ CBLUITableDelegate
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+
     [self.tableView reloadData];
 }
 
-- (void) updateQuery {
+- (void) updateQuery
+{
     if(!self.filteredOpp)
         self.dataSource.query = [[[DataStore sharedInstance] queryContacts] asLiveQuery];
     else
         self.dataSource.query = [[[DataStore sharedInstance] queryContactsByOpport:self.filteredOpp] asLiveQuery];
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    CBLQueryRow *row = [self.dataSource rowAtIndex:indexPath.row];
-    selectedContact = [Contact modelForDocument: row.document];
-    
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
     [self performSegueWithIdentifier:@"presentContactDetails" sender:self];
 }
 
-- (UITableViewCell *)couchTableSource:(CBLUITableSource *)source cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)couchTableSource:(CBLUITableSource *)source cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     ContactCell *cell = [self.tableView dequeueReusableCellWithIdentifier:kContactCellIdentifier];
     CBLQueryRow *row = [self.dataSource rowAtIndex:indexPath.row];
     Contact *contact = [Contact modelForDocument: row.document];
@@ -60,7 +57,8 @@ CBLUITableDelegate
         UINavigationController* navc = (UINavigationController*)segue.destinationViewController;
         if([navc.topViewController isKindOfClass:[ContactDetailsViewController class]]){
             ContactDetailsViewController* vc = (ContactDetailsViewController*)navc.topViewController;
-            vc.currentContact = selectedContact;
+            CBLQueryRow *row = [self.dataSource rowAtIndex:[self.tableView indexPathForSelectedRow].row];
+            vc.currentContact = [Contact modelForDocument: row.document];
         }
     }
 }

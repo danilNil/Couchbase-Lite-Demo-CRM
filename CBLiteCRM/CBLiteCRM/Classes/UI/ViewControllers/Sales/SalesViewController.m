@@ -13,9 +13,7 @@
 #import "SalesPerson.h"
 #import "SalesPersonCell.h"
 
-@interface SalesViewController () <UISearchBarDelegate, UISearchDisplayDelegate, CBLUITableDelegate>
-
-@property (nonatomic, strong) CBLUITableSource* dataSource;
+@interface SalesViewController ()
 
 @end
 
@@ -33,16 +31,6 @@
 - (void) updateQuery
 {
     self.dataSource.query = [[[DataStore sharedInstance] allUsersQuery] asLiveQuery];
-}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return self.filteredSource.count;
 }
 
 - (UITableViewCell *)couchTableSource:(CBLUITableSource*)source cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -91,26 +79,6 @@
         if ([salesPerson.email rangeOfString:searchText options:NSCaseInsensitiveSearch].location != NSNotFound)
             [self.filteredSource addObject:salesPerson];
     }
-}
-
-#pragma mark - UISearchDisplayController Delegate Methods
-- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
-{
-    [self filterContentForSearchText:searchString scope:
-     [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:[self.searchDisplayController.searchBar selectedScopeButtonIndex]]];
-    return YES;
-}
-
-- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption
-{
-    [self filterContentForSearchText:self.searchDisplayController.searchBar.text scope:
-     [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:searchOption]];
-    return YES;
-}
-
-- (void)searchDisplayController:(UISearchDisplayController *)controller willHideSearchResultsTableView:(UITableView *)tableView
-{
-    [self.tableView reloadData];
 }
 
 @end
