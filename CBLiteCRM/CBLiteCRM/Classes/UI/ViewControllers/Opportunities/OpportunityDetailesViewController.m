@@ -18,10 +18,9 @@
 #import "DataStore.h"
 
 @interface OpportunityDetailesViewController ()
-<
-DictPickerViewDelegate
->
+<DictPickerViewDelegate>
 {
+    UIDatePicker *creationDatePicker;
     DictPickerView *stagePicker;
 }
 @end
@@ -31,14 +30,30 @@ DictPickerViewDelegate
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self setupStagePickerWithStage:@"New"];
-    [self.stageField setInputAccessoryView:[self toolBar]];
+
+    [self setupStagePicker];
+    [self setStageFieldInputView];
+
     [self.baseScrollView setContentSize:self.contentView.frame.size];
     [self loadInfoForOpportunity:self.currentOpport];
 }
 
-- (NSString*)stringFromDate:(NSDate*)date{
-    return nil;
+- (void)setStageFieldInputView
+{
+    creationDatePicker = [UIDatePicker new];
+    creationDatePicker.datePickerMode = UIDatePickerModeDate;
+    creationDatePicker.date = [NSDate date];
+    [creationDatePicker addTarget:self action:@selector(dateFieldChange) forControlEvents:UIControlEventValueChanged];
+    [self.dateField setInputView:creationDatePicker];
+    [self.dateField setInputAccessoryView:[self toolBar]];
+}
+
+- (NSString*)stringFromDate:(NSDate*)date
+{
+    NSDateFormatter *df = [NSDateFormatter new];
+    df.dateStyle = NSDateFormatterMediumStyle;
+    NSString *dateString = [df stringFromDate:date];
+    return dateString;
 }
 
 - (IBAction)back:(id)sender {
@@ -64,20 +79,29 @@ DictPickerViewDelegate
 
 - (void)loadInfoForOpportunity:(Opportunity*)opp {
     self.nameField.enabled = !opp;
-    self.nameField.text = opp.title;
-    self.stageField.text = opp.salesStage;
-    self.dateField.text = [self stringFromDate:opp.creationDate];
-    if([opp getValueOfProperty:@"revenueSize"])
-        self.revenueField.text = [NSString stringWithFormat:@"%lli",opp.revenueSize];
-    if([opp getValueOfProperty:@"winProbability"])
-        self.winField.text =[NSString stringWithFormat:@"%f",opp.winProbability];
-    self.customerField.text = opp.customer.companyName;
+    if (opp) {
+        self.nameField.text = opp.title;
+        if (opp.salesStage) {
+            self.stageField.text = opp.salesStage;
+            ((DictPickerView*)self.stageField.inputView).selectedItemName = opp.salesStage;
+        }
+        if (opp.creationDate) {
+            self.dateField.text = [self stringFromDate:opp.creationDate];
+            creationDatePicker.date = opp.creationDate;
+        }
+        if([opp getValueOfProperty:@"revenueSize"])
+            self.revenueField.text = [NSString stringWithFormat:@"%lli",opp.revenueSize];
+        if([opp getValueOfProperty:@"winProbability"])
+            self.winField.text =[NSString stringWithFormat:@"%f",opp.winProbability];
+        self.customerField.text = opp.customer.companyName;
+    }
 }
 
 - (void)updateInfoForOpportunity:(Opportunity*)opp
 {
     opp.title = self.nameField.text;
     opp.salesStage = self.stageField.text;
+    opp.creationDate = creationDatePicker.date;
 }
 
 - (IBAction)customerDetails:(id)sender{
@@ -86,6 +110,14 @@ DictPickerViewDelegate
 }
 
 - (IBAction)showContacts:(id)sender {}
+
+- (void)dateFieldChange
+{
+    NSDateFormatter *df = [NSDateFormatter new];
+    df.dateStyle = NSDateFormatterMediumStyle;
+    self.dateField.text = [NSString stringWithFormat:@"%@",
+                      [df stringFromDate:creationDatePicker.date]];
+}
 
 - (IBAction)deleteItem:(id)sender
 {
@@ -98,15 +130,18 @@ DictPickerViewDelegate
 
 - (IBAction)changeCustomer:(id)sender {}
 
-- (void)setupStagePickerWithStage:(NSString*)stage {
+- (void)setupStagePicker
+{
     stagePicker = [DictPickerView new];
     stagePicker.itemNames = @[@"New", @"In Progress", @"Finished"];
     stagePicker.pickerDelegate = self;
-    [stagePicker setSelectedItemName:stage];
+    [stagePicker setSelectedItemName:stagePicker.itemNames.firstObject];
     self.stageField.inputView = stagePicker;
+    [self.stageField setInputAccessoryView:[self toolBar]];
 }
 
-- (void)itemPicker:(id)picker didSelectItemWithName:(NSString *)name{
+- (void)itemPicker:(id)picker didSelectItemWithName:(NSString *)name
+{
     if(picker == stagePicker) {
         self.stageField.text = name;
     }
@@ -123,8 +158,8 @@ DictPickerViewDelegate
 
     UIBarButtonItem *done = [[UIBarButtonItem alloc] initWithTitle: NSLocalizedString(@"done", nil)
                                                              style: UIBarButtonItemStyleBordered
-                                                            target: self.stageField
-                                                            action: @selector(resignFirstResponder)];
+                                                            target: self
+                                                            action: @selector(done)];
     [toolbar setItems: @[flex, done]];
     return toolbar;
 }
@@ -146,6 +181,17 @@ DictPickerViewDelegate
     }else if([segue.destinationViewController isKindOfClass:[CustomerDetailsViewController class]]){
         CustomerDetailsViewController* vc = segue.destinationViewController;
         vc.currentCustomer = self.currentOpport.customer;
+    }
+}
+
+- (void)done
+{
+    if ([self.stageField isFirstResponder]) {
+        self.stageField.text = stagePicker.selectedItemName;
+        [self.stageField resignFirstResponder];
+    } else if ([self.dateField isFirstResponder]) {
+        self.dateField.text = [self stringFromDate:creationDatePicker.date];
+        [self.dateField resignFirstResponder];
     }
 }
 
