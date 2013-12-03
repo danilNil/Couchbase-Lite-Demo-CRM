@@ -19,6 +19,7 @@
 		447A2C731845F214008786AF /* ContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 447A2C6E1845F214008786AF /* ContactCell.m */; };
 		447A2C741845F214008786AF /* SalesPersonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 447A2C711845F214008786AF /* SalesPersonCell.m */; };
 		447A2C751845F214008786AF /* SalesPersonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 447A2C721845F214008786AF /* SalesPersonCell.xib */; };
+		448980C0184D9AD2000D9B5A /* DictPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 448980BF184D9AD2000D9B5A /* DictPickerView.m */; };
 		449204CF18445EB30036D3A9 /* CouchbaseLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 449204CE18445EB30036D3A9 /* CouchbaseLite.framework */; };
 		44CABE1D18487FF30060263F /* ContactCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44CABE1C18487FF30060263F /* ContactCell.xib */; };
 		44D6DAF7184718920097262E /* CustomerDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44D6DAF6184718920097262E /* CustomerDetailsViewController.m */; };
@@ -90,6 +91,8 @@
 		447A2C701845F214008786AF /* SalesPersonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SalesPersonCell.h; sourceTree = "<group>"; };
 		447A2C711845F214008786AF /* SalesPersonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SalesPersonCell.m; sourceTree = "<group>"; };
 		447A2C721845F214008786AF /* SalesPersonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SalesPersonCell.xib; sourceTree = "<group>"; };
+		448980BE184D9AD2000D9B5A /* DictPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DictPickerView.h; sourceTree = "<group>"; };
+		448980BF184D9AD2000D9B5A /* DictPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DictPickerView.m; sourceTree = "<group>"; };
 		449204CE18445EB30036D3A9 /* CouchbaseLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CouchbaseLite.framework; sourceTree = "<group>"; };
 		44CABE1C18487FF30060263F /* ContactCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactCell.xib; sourceTree = "<group>"; };
 		44D6DAF5184718920097262E /* CustomerDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerDetailsViewController.h; sourceTree = "<group>"; };
@@ -197,6 +200,8 @@
 		447A2C4C1845D808008786AF /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				448980BE184D9AD2000D9B5A /* DictPickerView.h */,
+				448980BF184D9AD2000D9B5A /* DictPickerView.m */,
 				447A2C4D1845D808008786AF /* TextFieldsViewController.h */,
 				447A2C4E1845D808008786AF /* TextFieldsViewController.m */,
 			);
@@ -567,6 +572,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				448980C0184D9AD2000D9B5A /* DictPickerView.m in Sources */,
 				447A2C641845D808008786AF /* ContactDetailsViewController.m in Sources */,
 				83CEAAE71846ED0F0002D040 /* UIActionSheet+ButtonState.m in Sources */,
 				447A2C681845D808008786AF /* OpportunitiesViewController.m in Sources */,

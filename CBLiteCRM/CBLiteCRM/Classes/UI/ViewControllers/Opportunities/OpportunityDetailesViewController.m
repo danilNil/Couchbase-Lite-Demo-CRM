@@ -10,6 +10,7 @@
 #import "ContactsViewController.h"
 #import "CustomersViewController.h"
 #import "CustomerDetailsViewController.h"
+#import "DictPickerView.h"
 
 //Data
 #import "Opportunity.h"
@@ -17,7 +18,12 @@
 #import "DataStore.h"
 
 @interface OpportunityDetailesViewController ()
-
+<
+DictPickerViewDelegate
+>
+{
+    DictPickerView *stagePicker;
+}
 @end
 
 @implementation OpportunityDetailesViewController
@@ -25,6 +31,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self setupStagePickerWithStage:@"New"];
+    [self.stageField setInputAccessoryView:[self toolBar]];
     [self.baseScrollView setContentSize:self.contentView.frame.size];
     [self loadInfoForOpportunity:self.currentOpport];
 }
@@ -89,6 +97,37 @@
 }
 
 - (IBAction)changeCustomer:(id)sender {}
+
+- (void)setupStagePickerWithStage:(NSString*)stage {
+    stagePicker = [DictPickerView new];
+    stagePicker.itemNames = @[@"New", @"In Progress", @"Finished"];
+    stagePicker.pickerDelegate = self;
+    [stagePicker setSelectedItemName:stage];
+    self.stageField.inputView = stagePicker;
+}
+
+- (void)itemPicker:(id)picker didSelectItemWithName:(NSString *)name{
+    if(picker == stagePicker) {
+        self.stageField.text = name;
+    }
+}
+
+- (UIToolbar*) toolBar
+{
+    UIToolbar *toolbar = [UIToolbar new];
+    toolbar.barStyle = UIBarStyleBlackTranslucent;
+    [toolbar sizeToFit];
+    UIBarButtonItem *flex = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemFlexibleSpace
+                                                                          target: self
+                                                                          action: nil];
+
+    UIBarButtonItem *done = [[UIBarButtonItem alloc] initWithTitle: NSLocalizedString(@"done", nil)
+                                                             style: UIBarButtonItemStyleBordered
+                                                            target: self.stageField
+                                                            action: @selector(resignFirstResponder)];
+    [toolbar setItems: @[flex, done]];
+    return toolbar;
+}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if([segue.destinationViewController isKindOfClass:[UINavigationController class]]){
