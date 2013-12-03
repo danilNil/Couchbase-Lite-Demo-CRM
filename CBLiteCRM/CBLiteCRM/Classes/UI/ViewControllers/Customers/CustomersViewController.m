@@ -74,9 +74,9 @@
 #pragma mark Content Filtering
 - (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope {
     [self.filteredSource removeAllObjects];
-    CBLQuery* query =[[DataStore sharedInstance] fullTextContactsSearchForText:searchText];
-
-    for (CBLQueryRow* row in query.rows) {
+    CBLQuery* query =[[DataStore sharedInstance] fullTextCustomerSearchForText:searchText];
+    for (CBLFullTextQueryRow* row in [query rows]) {
+        NSLog(@"Title: %@", row.value);  // the map fn emits the post title as the value
         Customer *customer = [Customer modelForDocument:row.document];
         [self.filteredSource addObject:customer];
     }

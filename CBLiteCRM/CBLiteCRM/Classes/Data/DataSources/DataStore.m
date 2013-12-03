@@ -13,6 +13,7 @@ NSString *kPhone = @"phone";
 NSString *kPosition = @"position";
 NSString *kCompanyName = @"companyName";
 static NSString* const kFTSContacts = @"fullTextSearchContacts";
+static NSString* const kFTSCustomers = @"fullTextSearchCustomers";
 #endif
 
 @interface DataStore(){
@@ -20,6 +21,8 @@ static NSString* const kFTSContacts = @"fullTextSearchContacts";
     CBLView* _contactsView;
     CBLView* _customersView;
     CBLView* _opportView;
+    CBLView* _ftsCustomer;
+    CBLView* _ftsContact;
 }
 
 @end
@@ -80,14 +83,23 @@ static DataStore* sInstance;
             }
         }) version: @"1"];
 
-        CBLView* view = [self.database viewNamed: kFTSContacts];
+        _ftsContact = [self.database viewNamed: kFTSContacts];
         
-        [view setMapBlock: MAPBLOCK({
+        [_ftsContact setMapBlock: MAPBLOCK({
             if (doc[@"type"] == kContactDocType) {
                 NSString* body = doc[@"email"];
                 emit(CBLTextKey(body), doc[@"email"]);
             }
         }) reduceBlock: NULL version: @"1"];
+        
+        _ftsCustomer = [self.database viewNamed: kFTSCustomers];
+        
+        [_ftsCustomer setMapBlock: MAPBLOCK({
+            if (doc[@"type"] == kCustomerDocType) {
+                NSString* companyName = doc[@"companyName"];
+                emit(CBLTextKey(companyName), doc[@"email"]);
+            }
+        }) reduceBlock: NULL version: @"2"];
         
 #if kFakeDataBase
         [self createFakeSalesPersons];
@@ -277,6 +289,12 @@ static DataStore* sInstance;
 
 #pragma mark - CUSTOMER:
 
+- (CBLQuery*) fullTextCustomerSearchForText:(NSString*)text{
+    CBLQuery* query = [_ftsCustomer query];
+    query.fullTextQuery = text;
+    return query;
+}
+
 - (Customer*) createCustomerWithNameOrReturnExist: (NSString*)name{
     Customer* cm = [self customerWithName: name];
     if(!cm)
@@ -316,7 +334,7 @@ static DataStore* sInstance;
 #pragma mark - CONTACTS:
 
 - (CBLQuery*) fullTextContactsSearchForText:(NSString*)text{
-    CBLQuery* query = [[self.database viewNamed: kFTSContacts] query];
+    CBLQuery* query = [_ftsContact query];
     query.fullTextQuery = text;
     query.fullTextSnippets = YES;   // enables snippets; see next example
     return query;

@@ -28,7 +28,7 @@
 - (CBLQuery*) queryContactsByOpport:(Opportunity*)opp;
 - (CBLQuery*) queryOpportunities;
 - (CBLQuery*) fullTextContactsSearchForText:(NSString*)text;
-
+- (CBLQuery*) fullTextCustomerSearchForText:(NSString*)text;
 - (Customer*) createCustomerWithNameOrReturnExist: (NSString*)name;
 
 - (Opportunity*) createOpportunityWithTitleOrReturnExist: (NSString*)title;

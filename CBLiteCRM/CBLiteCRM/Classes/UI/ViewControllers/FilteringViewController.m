@@ -69,7 +69,7 @@ CBLUITableDelegate
 }
 
 - (void)searchDisplayController:(UISearchDisplayController *)controller willHideSearchResultsTableView:(UITableView *)tableView {
-    [self.tableView reloadData];
+    [self updateQuery];
 }
 
 @end
