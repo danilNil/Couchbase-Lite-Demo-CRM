@@ -110,6 +110,9 @@ static DataStore* sInstance;
                                 withEmail: [dict objectForKey:kEmail]];
             profile.phoneNumber = [dict objectForKey:kPhone];
             profile.username = [dict objectForKey:kName];
+            NSError *error;
+            if (![profile save:&error])
+                [[[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil] show];
         }
     }
 }
@@ -265,7 +268,7 @@ static DataStore* sInstance;
 
 #pragma mark - CUSTOMER:
 
-- (Customer*) createCustomerWithMailOrReturnExist: (NSString*)name{
+- (Customer*) createCustomerWithNameOrReturnExist: (NSString*)name{
     Customer* cm = [self customerWithName: name];
     if(!cm)
         cm = [Customer createInDatabase:self.database withCustomerName:name];
@@ -373,5 +376,20 @@ static DataStore* sInstance;
     return query;
 }
 
+-(Opportunity *)createOpportunityWithTitleOrReturnExist:(NSString *)title
+{
+    Opportunity* opp = [self opportunityWithTitle:title];
+    if(!opp)
+        opp = [Opportunity createInDatabase:self.database withTitle:title];
+    return opp;
+}
+
+- (Opportunity*) opporunityWithTitle: (NSString*)title{
+    NSString* docID = [Opportunity docIDForTitle:title];
+    CBLDocument* doc = [self.database documentWithID: docID];
+    if (!doc.currentRevisionID)
+        return nil;
+    return [Opportunity modelForDocument:doc];
+}
 
 @end

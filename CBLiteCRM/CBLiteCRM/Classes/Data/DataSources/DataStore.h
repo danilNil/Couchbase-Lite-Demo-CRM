@@ -28,6 +28,8 @@
 - (CBLQuery*) queryContactsByOpport:(Opportunity*)opp;
 - (CBLQuery*) queryOpportunities;
 
-- (Customer*) createCustomerWithMailOrReturnExist: (NSString*)name;
+- (Customer*) createCustomerWithNameOrReturnExist: (NSString*)name;
+
+- (Opportunity*) createOpportunityWithTitleOrReturnExist: (NSString*)title;
 
 @end

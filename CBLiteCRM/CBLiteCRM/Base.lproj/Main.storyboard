@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <scenes>
         <!--Welcome View Controller-->
@@ -152,7 +152,7 @@
                     <connections>
                         <outlet property="searchDisplayController" destination="bjJ-iH-njp" id="WWH-rL-Gcl"/>
                         <outlet property="tableView" destination="PFW-Pz-PTv" id="yjI-Mp-y6H"/>
-                        <segue destination="thM-Fv-BNK" kind="push" identifier="presentSalesPersonOptions" id="n1X-48-bJc"/>
+                        <segue destination="thM-Fv-BNK" kind="push" identifier="presentSalesPersonOptions" id="gR1-fD-Xtp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uxg-Bj-QbQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -195,7 +195,7 @@
                                 <rect key="frame" x="105" y="128" width="200" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                 <connections>
                                     <outlet property="delegate" destination="thM-Fv-BNK" id="CWq-nX-7kD"/>
                                 </connections>
@@ -206,11 +206,11 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="9pn-dD-UzG">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="9pn-dD-UzG">
                                 <rect key="frame" x="105" y="166" width="200" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                 <connections>
                                     <outlet property="delegate" destination="thM-Fv-BNK" id="6Yz-Fl-rj5"/>
                                 </connections>
@@ -221,10 +221,28 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Wtx-ru-PIH">
+                                <rect key="frame" x="20" y="225" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.80574247259999998" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="delete">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="delete:" destination="thM-Fv-BNK" eventType="touchUpInside" id="nPr-6O-EGu"/>
+                                    <action selector="deleteItem:" destination="tN3-ye-q8X" eventType="touchUpInside" id="mDV-QX-uOK"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="jVX-LX-Luz"/>
+                    <navigationItem key="navigationItem" id="jVX-LX-Luz">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="VuY-Nq-XnW">
+                            <connections>
+                                <action selector="save:" destination="thM-Fv-BNK" id="AD7-gy-LWD"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="mailField" destination="9pn-dD-UzG" id="cvQ-3i-B3x"/>
                         <outlet property="nameField" destination="sNp-72-yPS" id="PGx-wy-ZoS"/>
@@ -353,7 +371,7 @@
                                                 <rect key="frame" x="105" y="319" width="200" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="Xt6-34-7OD" id="XEi-bi-PYH"/>
                                                 </connections>
@@ -368,7 +386,7 @@
                                                 <rect key="frame" x="105" y="352" width="200" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="Xt6-34-7OD" id="yNd-N1-uyH"/>
                                                 </connections>
@@ -708,7 +726,7 @@
                                                 <rect key="frame" x="105" y="96" width="200" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="TLO-se-8qL" id="1iX-bj-kjp"/>
                                                 </connections>
@@ -723,7 +741,7 @@
                                                 <rect key="frame" x="105" y="134" width="200" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="TLO-se-8qL" id="bkX-A6-2i3"/>
                                                 </connections>
@@ -764,7 +782,7 @@
                                                 <rect key="frame" x="105" y="172" width="200" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="URL"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="TLO-se-8qL" id="bPs-NI-jnd"/>
                                                 </connections>
@@ -838,11 +856,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Opportunities" id="quF-yz-X0E"/>
+                    <navigationItem key="navigationItem" title="Opportunities" id="quF-yz-X0E">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="69H-ZZ-60V">
+                            <connections>
+                                <segue destination="jaT-9R-O01" kind="modal" identifier="opportDetails" id="dBC-Hg-tSj"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="searchDisplayController" destination="7Yo-Im-PNS" id="g7f-9z-f9z"/>
                         <outlet property="tableView" destination="gjX-Dh-tYu" id="vqD-w8-We0"/>
-                        <segue destination="jaT-9R-O01" kind="modal" identifier="opportDetails" id="oNZ-Bg-OAD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ikc-FO-AhF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -886,14 +909,19 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Contacts" id="NZa-Iw-Wvs"/>
+                    <navigationItem key="navigationItem" title="Contacts" id="NZa-Iw-Wvs">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="YGm-8L-5xI">
+                            <connections>
+                                <segue destination="CtH-25-1f3" kind="modal" identifier="presentContactDetails" id="dLH-wr-6PA"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="cellIdentifier" value="ContactCell"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="searchDisplayController" destination="Lbo-1f-2Cz" id="n5t-8H-9lo"/>
                         <outlet property="tableView" destination="7sA-pP-vLf" id="I1a-Gg-VDq"/>
-                        <segue destination="CtH-25-1f3" kind="modal" identifier="presentContactDetails" id="T5o-RN-c3U"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JQ3-BF-pyg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -919,8 +947,8 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="KZr-Gj-Zuk"/>
         <segue reference="2JB-Zq-Ixq"/>
         <segue reference="p0c-DY-nbM"/>
+        <segue reference="KZr-Gj-Zuk"/>
     </inferredMetricsTieBreakers>
 </document>

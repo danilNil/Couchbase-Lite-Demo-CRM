@@ -14,6 +14,7 @@
 //Data
 #import "Opportunity.h"
 #import "Customer.h"
+#import "DataStore.h"
 
 @interface OpportunityDetailesViewController ()
 
@@ -25,18 +26,7 @@
 {
     [super viewDidLoad];
     [self.baseScrollView setContentSize:self.contentView.frame.size];
-    [self updateInfo];
-}
-
-- (void)updateInfo{
-    self.nameField.text = self.currentOpport.title;
-    self.stageField.text = self.currentOpport.salesStage;
-    self.dateField.text = [self stringFromDate:self.currentOpport.creationDate];
-    if([self.currentOpport getValueOfProperty:@"revenueSize"])
-        self.revenueField.text = [NSString stringWithFormat:@"%lli",self.currentOpport.revenueSize];
-    if([self.currentOpport getValueOfProperty:@"winProbability"])
-        self.winField.text =[NSString stringWithFormat:@"%f",self.currentOpport.winProbability];
-    self.customerField.text = self.currentOpport.customer.companyName;
+    [self loadInfoForOpportunity:self.currentOpport];
 }
 
 - (NSString*)stringFromDate:(NSDate*)date{
@@ -48,20 +38,57 @@
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
-- (IBAction)saveItem:(id)sender {
-    NSError* err;
-    [self.currentOpport save:&err];
-    if(err)
-        NSLog(@"save opp err: %@", err);
+- (IBAction)saveItem:(id)sender
+{
+    if(![self.nameField.text isEqualToString:@""]){
+        Opportunity* newOpportunity = self.currentOpport;
+        if(!newOpportunity)
+            newOpportunity = [[DataStore sharedInstance] createOpportunityWithTitleOrReturnExist:self.nameField.text];
+        [self updateInfoForOpportunity:newOpportunity];
+        NSError* error;
+        if(![newOpportunity save:&error])
+            NSLog(@"error in save opportunity: %@", error);
+        else
+            [self dismissViewControllerAnimated:YES completion:NULL];
+    } else
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Please fill opportunity name field" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil] show];
 }
 
-- (IBAction)deleteItem:(id)sender {
+- (void)loadInfoForOpportunity:(Opportunity*)opp {
+    self.nameField.enabled = !opp;
+    self.nameField.text = opp.title;
+    self.stageField.text = opp.salesStage;
+    self.dateField.text = [self stringFromDate:opp.creationDate];
+    if([opp getValueOfProperty:@"revenueSize"])
+        self.revenueField.text = [NSString stringWithFormat:@"%lli",opp.revenueSize];
+    if([opp getValueOfProperty:@"winProbability"])
+        self.winField.text =[NSString stringWithFormat:@"%f",opp.winProbability];
+    self.customerField.text = opp.customer.companyName;
+}
+
+- (void)updateInfoForOpportunity:(Opportunity*)opp
+{
+    opp.title = self.nameField.text;
+    opp.salesStage = self.stageField.text;
 }
 
 - (IBAction)customerDetails:(id)sender{
     if(self.currentOpport.customer)
         [self performSegueWithIdentifier:@"presentMyCustomer" sender:self];
 }
+
+- (IBAction)showContacts:(id)sender {}
+
+- (IBAction)deleteItem:(id)sender
+{
+    NSError *error;
+    if (![self.currentOpport deleteDocument:&error])
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil] show];
+    else
+        [self dismissViewControllerAnimated:YES completion:^{}];
+}
+
+- (IBAction)changeCustomer:(id)sender {}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if([segue.destinationViewController isKindOfClass:[UINavigationController class]]){

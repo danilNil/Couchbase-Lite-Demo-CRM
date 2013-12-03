@@ -9,6 +9,7 @@
 #import "SalesPersonOptionsViewController.h"
 #import "SalesPerson.h"
 
+#import "DataStore.h"
 @interface SalesPersonOptionsViewController ()
 
 @end
@@ -17,8 +18,6 @@
 
 - (void)viewDidLoad
 {
-    self.nameField.enabled = NO;
-    self.phoneField.enabled = NO;
     self.mailField.enabled = NO;
 }
 
@@ -29,10 +28,39 @@
 
 - (void)loadUserData
 {
-    [self.navigationItem setTitle:self.salesPerson.username];
-    self.nameField.text = self.salesPerson.username;
-    self.phoneField.text = self.salesPerson.phoneNumber;
-    self.mailField.text = self.salesPerson.email;
+    self.mailField.enabled = !self.salesPerson;
+    if (self.salesPerson) {
+        [self.navigationItem setTitle:self.salesPerson.username];
+        self.nameField.text = self.salesPerson.username;
+        self.phoneField.text = self.salesPerson.phoneNumber;
+        self.mailField.text = self.salesPerson.email;
+    }
+}
+
+- (IBAction)save:(id)sender
+{
+    [self updateInfoForSalesPerson:self.salesPerson];
+}
+
+- (void)updateInfoForSalesPerson:(SalesPerson*)sp
+{
+    sp.username = self.nameField.text;
+    sp.phoneNumber = self.phoneField.text;
+    NSError *error;
+    if (![sp save:&error])
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil] show];
+    else
+        [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)delete:(id)sender
+{
+    NSError *error;
+    if (![self.salesPerson deleteDocument:&error])
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil] show];
+    else
+        [self.navigationController popViewControllerAnimated:YES];
+
 }
 
 @end
