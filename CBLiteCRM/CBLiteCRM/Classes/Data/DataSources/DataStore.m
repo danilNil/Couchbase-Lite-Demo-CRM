@@ -7,11 +7,11 @@
 
 #if kFakeDataBase
 
-NSString *kName = @"name";
-NSString *kEmail = @"email";
-NSString *kPhone = @"phone";
-NSString *kPosition = @"position";
-NSString *kCompanyName = @"companyName";
+static NSString const *kName = @"name";
+static NSString const *kEmail = @"email";
+static NSString const *kPhone = @"phone";
+static NSString const *kPosition = @"position";
+static NSString const *kCompanyName = @"companyName";
 
 #endif
 
