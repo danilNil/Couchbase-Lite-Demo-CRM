@@ -74,10 +74,11 @@
 #pragma mark Content Filtering
 - (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope {
     [self.filteredSource removeAllObjects];
-    for (CBLQueryRow* row in self.dataSource.rows) {
+    CBLQuery* query =[[DataStore sharedInstance] fullTextContactsSearchForText:searchText];
+
+    for (CBLQueryRow* row in query.rows) {
         Customer *customer = [Customer modelForDocument:row.document];
-        if ([customer.companyName rangeOfString:searchText options:NSCaseInsensitiveSearch].location != NSNotFound)
-            [self.filteredSource addObject:customer];
+        [self.filteredSource addObject:customer];
     }
 }
 

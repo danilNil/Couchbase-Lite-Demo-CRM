@@ -12,7 +12,7 @@ NSString *kEmail = @"email";
 NSString *kPhone = @"phone";
 NSString *kPosition = @"position";
 NSString *kCompanyName = @"companyName";
-
+static NSString* const kFTSContacts = @"fullTextSearchContacts";
 #endif
 
 @interface DataStore(){
@@ -80,6 +80,15 @@ static DataStore* sInstance;
             }
         }) version: @"1"];
 
+        CBLView* view = [self.database viewNamed: kFTSContacts];
+        
+        [view setMapBlock: MAPBLOCK({
+            if (doc[@"type"] == kContactDocType) {
+                NSString* body = doc[@"email"];
+                emit(CBLTextKey(body), doc[@"email"]);
+            }
+        }) reduceBlock: NULL version: @"1"];
+        
 #if kFakeDataBase
         [self createFakeSalesPersons];
         [self createFakeContacts];
@@ -305,6 +314,13 @@ static DataStore* sInstance;
 }
 
 #pragma mark - CONTACTS:
+
+- (CBLQuery*) fullTextContactsSearchForText:(NSString*)text{
+    CBLQuery* query = [[self.database viewNamed: kFTSContacts] query];
+    query.fullTextQuery = text;
+    query.fullTextSnippets = YES;   // enables snippets; see next example
+    return query;
+}
 
 - (Contact*) createContactWithMailOrReturnExist: (NSString*)mail{
     Contact* ct = [self contactWithMail:mail];
