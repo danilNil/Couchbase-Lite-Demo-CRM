@@ -18,14 +18,13 @@
 
 
 @interface ContactsViewController ()
-
+@property(nonatomic, strong) Contact* selectedContact;
 @end
 
 @implementation ContactsViewController
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-
     [self.tableView reloadData];
 }
 
@@ -48,6 +47,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    CBLQueryRow *row = [self.dataSource rowAtIndex:indexPath.row];
+    self.selectedContact = [Contact modelForDocument: row.document];
     [self performSegueWithIdentifier:@"presentContactDetails" sender:self];
 }
 
@@ -65,8 +66,7 @@
         UINavigationController* navc = (UINavigationController*)segue.destinationViewController;
         if([navc.topViewController isKindOfClass:[ContactDetailsViewController class]]){
             ContactDetailsViewController* vc = (ContactDetailsViewController*)navc.topViewController;
-            CBLQueryRow *row = [self.dataSource rowAtIndex:[self.tableView indexPathForSelectedRow].row];
-            vc.currentContact = [Contact modelForDocument: row.document];
+            vc.currentContact = self.selectedContact;
         }
     }
 }
