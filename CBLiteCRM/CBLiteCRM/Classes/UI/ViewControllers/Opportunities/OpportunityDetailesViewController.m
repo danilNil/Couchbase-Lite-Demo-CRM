@@ -17,6 +17,7 @@
 #import "OpportunitiesStore.h"
 #import "Customer.h"
 #import "DataStore.h"
+#import "DateHelper.h"
 
 @interface OpportunityDetailesViewController ()
 <DictPickerViewDelegate>
@@ -51,9 +52,7 @@
 
 - (NSString*)stringFromDate:(NSDate*)date
 {
-    NSDateFormatter *df = [NSDateFormatter new];
-    df.dateStyle = NSDateFormatterMediumStyle;
-    NSString *dateString = [df stringFromDate:date];
+    NSString *dateString = [[DateHelper preparedOpportDateFormatter] stringFromDate:date];
     return dateString;
 }
 
@@ -114,10 +113,8 @@
 
 - (void)dateFieldChange
 {
-    NSDateFormatter *df = [NSDateFormatter new];
-    df.dateStyle = NSDateFormatterMediumStyle;
     self.dateField.text = [NSString stringWithFormat:@"%@",
-                      [df stringFromDate:creationDatePicker.date]];
+                      [[DateHelper preparedOpportDateFormatter] stringFromDate:creationDatePicker.date]];
 }
 
 - (IBAction)deleteItem:(id)sender
