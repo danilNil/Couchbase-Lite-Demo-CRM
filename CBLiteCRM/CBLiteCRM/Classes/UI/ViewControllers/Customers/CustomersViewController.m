@@ -55,13 +55,22 @@
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    CBLQueryRow *row = [self.dataSource rowAtIndex:indexPath.row];
-    self.selectedCellData = [Customer modelForDocument: row.document];
-
+    self.selectedCellData = [self customerForPath:indexPath];
     if(self.chooser && self.onSelectCustomer){
-        [self didChooseCustomer:[Customer modelForDocument: row.document]];
+        [self didChooseCustomer:self.selectedCellData];
     }else
         [self performSegueWithIdentifier:@"presentCustomerDetails" sender:self];
+}
+
+- (Customer*)customerForPath:(NSIndexPath*)indexPath{
+    Customer* csmr;
+    CBLQueryRow *row = [self.dataSource rowAtIndex:indexPath.row];
+    if (self.filteredSource.count == 0){
+        csmr = [Customer modelForDocument: row.document];
+    } else {
+        csmr = self.filteredSource[indexPath.row];
+    }
+    return csmr;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
