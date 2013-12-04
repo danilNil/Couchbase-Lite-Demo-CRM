@@ -21,7 +21,7 @@ NSString *kContactCellIdentifier = @"ContactCell";
 
 - (void)setContact:(Contact *)contact {
     _contact = contact;
-    NSData *photoData = [[contact attachmentNamed:@"photo"] body];
+    NSData *photoData = [[contact attachmentNamed:@"photo"] content];
     UIImage *photo = [UIImage imageWithData:photoData];
     [self.avatar setImage:photo];
     self.name.text = contact.email;

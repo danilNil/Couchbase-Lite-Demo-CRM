@@ -22,7 +22,7 @@
     
     // create a database
     NSError *error;
-    self.database = [manager createDatabaseNamed: @"crm-database" error: &error];
+    self.database = [manager databaseNamed: @"crm-database" error: &error];
     _dataStore = [[DataStore alloc] initWithDatabase: _database];
     if (error) {
         NSLog(@"data base creation error: %@", error);

@@ -729,7 +729,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",
-					"/Users/danil/Documents/Al\\ Digit/Projects/Couchbase\\ project/Couchbase-Lite-Demo-CRM/CBLiteCRM",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CBLiteCRM/CBLiteCRM-Prefix.pch";
@@ -754,7 +753,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",
-					"/Users/danil/Documents/Al\\ Digit/Projects/Couchbase\\ project/Couchbase-Lite-Demo-CRM/CBLiteCRM",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CBLiteCRM/CBLiteCRM-Prefix.pch";

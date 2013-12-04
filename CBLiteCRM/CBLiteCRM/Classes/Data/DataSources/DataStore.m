@@ -253,12 +253,12 @@ static DataStore* sInstance;
 }
 
 - (CBLQuery*) allUsersQuery {
-    return [_salesPersonsView query];
+    return [_salesPersonsView createQuery];
 }
 
 - (NSArray*) allOtherUsers {
     NSMutableArray* users = [NSMutableArray array];
-    for (CBLQueryRow* row in self.allUsersQuery.rows.allObjects) {
+    for (CBLQueryRow* row in [self.allUsersQuery rows:nil].allObjects) {
         SalesPerson* user = [SalesPerson modelForDocument: row.document];
         if (![user.username isEqualToString: self.username])
             [users addObject: user];
@@ -284,7 +284,7 @@ static DataStore* sInstance;
 }
 
 - (CBLQuery*) allCustomersQuery {
-    return [_customersView query];
+    return [_customersView createQuery];
 }
 
 - (CBLQuery*) queryCustomersByOpport:(Opportunity*)opp {
@@ -296,7 +296,7 @@ static DataStore* sInstance;
         }
     }) reduceBlock: nil version: @"1"];
     
-    CBLQuery* query = [view query];
+    CBLQuery* query = [view createQuery];
     NSLog(@"!need to implement fetching for one-to-many relationship");
     //    NSString* myListId = opp.document.documentID;
     //    query.startKey = @[myListId, @{}];
@@ -323,7 +323,7 @@ static DataStore* sInstance;
 
 
 - (CBLQuery*) queryContacts {
-    CBLQuery* query = [_contactsView query];
+    CBLQuery* query = [_contactsView createQuery];
     query.descending = YES;
     return query;
 }
@@ -339,7 +339,7 @@ static DataStore* sInstance;
         }
     }) reduceBlock: nil version: @"1"];
     
-    CBLQuery* query = [view query];
+    CBLQuery* query = [view createQuery];
     NSLog(@"!need to implement fetching for many-to-many relationship");
 //    NSString* myListId = opp.document.documentID;
 //    query.startKey = @[myListId, @{}];
@@ -371,7 +371,7 @@ static DataStore* sInstance;
 
 
 - (CBLQuery*) queryOpportunities {
-    CBLQuery* query = [_opportView query];
+    CBLQuery* query = [_opportView createQuery];
     query.descending = YES;
     return query;
 }

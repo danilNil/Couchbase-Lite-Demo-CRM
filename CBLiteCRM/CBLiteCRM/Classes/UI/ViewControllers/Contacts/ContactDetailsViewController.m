@@ -109,7 +109,7 @@
     ct.address = self.addressField.text;
     ct.opportunities = [self selectedOpportunities];
     if(selectedImage)
-        [ct addAttachment:[self attachmentFromPhoto:selectedImage] named:@"photo"];
+        [ct setAttachmentNamed:@"photo" withContentType:@"image/png" content:UIImagePNGRepresentation(selectedImage)];
     NSError* error;
     if(![ct save:&error])
         NSLog(@"error in save contact: %@", error);
@@ -123,11 +123,8 @@
     return nil;
 }
 
-- (CBLAttachment*)attachmentFromPhoto:(UIImage*)image{
-    return [[CBLAttachment alloc] initWithContentType:@"image/png" body:UIImagePNGRepresentation(image)];
-}
 - (UIImage*)imageFromAttachment:(CBLAttachment*)attach{
-    return [UIImage imageWithData:attach.body];
+    return [UIImage imageWithData:attach.content];
 }
 
 #pragma mark - UITextFieldDelegate
