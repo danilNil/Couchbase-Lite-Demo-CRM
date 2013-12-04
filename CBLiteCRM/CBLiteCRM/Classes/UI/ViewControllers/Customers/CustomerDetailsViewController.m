@@ -7,8 +7,10 @@
 //
 
 #import "CustomerDetailsViewController.h"
+//Data
 #import "Customer.h"
 #import "DataStore.h"
+#import "CustomersStore.h"
 
 @interface CustomerDetailsViewController ()
 
@@ -44,7 +46,7 @@
     if(self.companyNameField.text && ![self.companyNameField.text isEqualToString:@""]){
         Customer* newCustomer = self.currentCustomer;
         if(!newCustomer)
-            newCustomer = [[DataStore sharedInstance] createCustomerWithNameOrReturnExist:self.companyNameField.text];
+            newCustomer = [[DataStore sharedInstance].customersStore createCustomerWithNameOrReturnExist:self.companyNameField.text];
         [self updateInfoForCustomer:newCustomer];
     }
     [self dismissViewControllerAnimated:YES completion:NULL];

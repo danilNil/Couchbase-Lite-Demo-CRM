@@ -14,6 +14,11 @@ static NSString* const kOpportDocType = @"opportunity";
 static NSString* const kContactDocType = @"contact";
 static NSString* const kCustomerDocType = @"customer";
 
+static NSString const *kName = @"name";
+static NSString const *kEmail = @"email";
+static NSString const *kPhone = @"phone";
+static NSString const *kPosition = @"position";
+static NSString const *kCompanyName = @"companyName";
 
 #define kFakeDataBase 1
 

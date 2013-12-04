@@ -6,12 +6,16 @@
 //  Copyright (c) 2013 Danil. All rights reserved.
 //
 
+//UI
 #import "SalesViewController.h"
-#import "DataStore.h"
-#import "SalesPerson.h"
 #import "SalesPersonOptionsViewController.h"
-#import "SalesPerson.h"
 #import "SalesPersonCell.h"
+
+//Data
+#import "DataStore.h"
+#import "SalePersonsStore.h"
+#import "SalesPerson.h"
+
 
 @interface SalesViewController ()
 
@@ -21,7 +25,7 @@
 
 - (void) updateQuery
 {
-    self.dataSource.query = [[[DataStore sharedInstance] allUsersQuery] asLiveQuery];
+    self.dataSource.query = [[[DataStore sharedInstance].salePersonsStore allUsersQuery] asLiveQuery];
 }
 
 - (UITableViewCell *)couchTableSource:(CBLUITableSource*)source cellForRowAtIndexPath:(NSIndexPath *)indexPath

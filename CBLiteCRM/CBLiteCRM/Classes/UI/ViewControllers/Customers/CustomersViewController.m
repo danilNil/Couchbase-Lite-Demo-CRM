@@ -6,9 +6,13 @@
 //  Copyright (c) 2013 Danil. All rights reserved.
 //
 
+//UI
 #import "CustomersViewController.h"
 #import "CustomerDetailsViewController.h"
+
+//Data
 #import "DataStore.h"
+#import "CustomersStore.h"
 #import "Customer.h"
 
 @interface CustomersViewController ()
@@ -29,7 +33,7 @@
 
 - (void) updateQuery
 {
-    self.dataSource.query = [[[DataStore sharedInstance] allCustomersQuery] asLiveQuery];
+    self.dataSource.query = [[[DataStore sharedInstance].customersStore allCustomersQuery] asLiveQuery];
 }
 
 - (void)didChooseCustomer:(Customer*)cust{

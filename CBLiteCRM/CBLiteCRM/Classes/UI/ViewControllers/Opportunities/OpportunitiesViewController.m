@@ -11,6 +11,7 @@
 
 //Data
 #import "DataStore.h"
+#import "OpportunitiesStore.h"
 #import "Opportunity.h"
 
 @interface OpportunitiesViewController ()
@@ -42,7 +43,7 @@
 
 - (void) updateQuery
 {
-    self.dataSource.query = [[[DataStore sharedInstance] queryOpportunities] asLiveQuery];
+    self.dataSource.query = [[[DataStore sharedInstance].opportunitiesStore queryOpportunities] asLiveQuery];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

@@ -6,11 +6,16 @@
 //  Copyright (c) 2013 Danil. All rights reserved.
 //
 
+//UI
 #import "ContactsViewController.h"
 #import "ContactDetailsViewController.h"
-#import "DataStore.h"
-#import "Contact.h"
 #import "ContactCell.h"
+
+//Data
+#import "DataStore.h"
+#import "ContactsStore.h"
+#import "Contact.h"
+
 
 @interface ContactsViewController ()
 
@@ -27,9 +32,9 @@
 - (void) updateQuery
 {
     if(!self.filteredOpp)
-        self.dataSource.query = [[[DataStore sharedInstance] queryContacts] asLiveQuery];
+        self.dataSource.query = [[[DataStore sharedInstance].contactsStore queryContacts] asLiveQuery];
     else
-        self.dataSource.query = [[[DataStore sharedInstance] queryContactsByOpport:self.filteredOpp] asLiveQuery];
+        self.dataSource.query = [[[DataStore sharedInstance].contactsStore queryContactsByOpport:self.filteredOpp] asLiveQuery];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

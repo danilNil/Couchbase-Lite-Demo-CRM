@@ -14,6 +14,7 @@
 
 //Data
 #import "Opportunity.h"
+#import "OpportunitiesStore.h"
 #import "Customer.h"
 #import "DataStore.h"
 
@@ -66,7 +67,7 @@
     if(![self.nameField.text isEqualToString:@""]){
         Opportunity* newOpportunity = self.currentOpport;
         if(!newOpportunity)
-            newOpportunity = [[DataStore sharedInstance] createOpportunityWithTitleOrReturnExist:self.nameField.text];
+            newOpportunity = [[DataStore sharedInstance].opportunitiesStore createOpportunityWithTitleOrReturnExist:self.nameField.text];
         [self updateInfoForOpportunity:newOpportunity];
         NSError* error;
         if(![newOpportunity save:&error])

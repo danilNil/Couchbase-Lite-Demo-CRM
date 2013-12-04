@@ -13,6 +13,7 @@
 
 //Data
 #import "DataStore.h"
+#import "ContactsStore.h"
 #import "Contact.h"
 #import "Customer.h"
 
@@ -85,7 +86,7 @@
     if(self.mailField.text && ![self.mailField.text isEqualToString:@""]){
         Contact* newContact = self.currentContact;
         if(!newContact){
-            newContact = [[DataStore sharedInstance] createContactWithMailOrReturnExist:self.mailField.text];
+            newContact = [[DataStore sharedInstance].contactsStore createContactWithMailOrReturnExist:self.mailField.text];
         }
         [self updateInfoForContact:newContact];
     }

@@ -10,6 +10,8 @@
 
 //Data
 #import "DataStore.h"
+#import "SalePersonsStore.h"
+
 @interface WelcomeViewController ()
 
 @end
@@ -33,7 +35,7 @@
 }
 
 - (void)loginWithUserName:(NSString*) username{
-    if([[DataStore sharedInstance] profileWithUsername:username])
+    if([[DataStore sharedInstance].salePersonsStore profileWithUsername:username])
         [self performSegueWithIdentifier:@"pushMenuController" sender:self];
 }
 

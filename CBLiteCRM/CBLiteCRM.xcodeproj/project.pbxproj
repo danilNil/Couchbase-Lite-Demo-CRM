@@ -27,6 +27,11 @@
 		830D51AC1848570900044A19 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 830D51AB1848570900044A19 /* BaseModel.m */; };
 		830D51B01848968800044A19 /* OpportunityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 830D51AF1848968800044A19 /* OpportunityCell.m */; };
 		830D51B31848973900044A19 /* OpportunityDetailesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 830D51B21848973900044A19 /* OpportunityDetailesViewController.m */; };
+		831730FD184F21090043F865 /* CustomersStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 831730FC184F21090043F865 /* CustomersStore.m */; };
+		83173100184F211C0043F865 /* OpportunitiesStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 831730FF184F211C0043F865 /* OpportunitiesStore.m */; };
+		83173103184F21650043F865 /* SalePersonsStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 83173102184F21650043F865 /* SalePersonsStore.m */; };
+		83173106184F21890043F865 /* ContactsStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 83173105184F21890043F865 /* ContactsStore.m */; };
+		83173109184F238D0043F865 /* BaseStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 83173108184F238D0043F865 /* BaseStore.m */; };
 		831FFCD41844364900C7CB22 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 831FFCD31844364900C7CB22 /* Foundation.framework */; };
 		831FFCD61844364900C7CB22 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 831FFCD51844364900C7CB22 /* CoreGraphics.framework */; };
 		831FFCD81844364900C7CB22 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 831FFCD71844364900C7CB22 /* UIKit.framework */; };
@@ -105,6 +110,16 @@
 		830D51AF1848968800044A19 /* OpportunityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpportunityCell.m; sourceTree = "<group>"; };
 		830D51B11848973900044A19 /* OpportunityDetailesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpportunityDetailesViewController.h; sourceTree = "<group>"; };
 		830D51B21848973900044A19 /* OpportunityDetailesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpportunityDetailesViewController.m; sourceTree = "<group>"; };
+		831730FB184F21090043F865 /* CustomersStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomersStore.h; sourceTree = "<group>"; };
+		831730FC184F21090043F865 /* CustomersStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomersStore.m; sourceTree = "<group>"; };
+		831730FE184F211C0043F865 /* OpportunitiesStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpportunitiesStore.h; sourceTree = "<group>"; };
+		831730FF184F211C0043F865 /* OpportunitiesStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpportunitiesStore.m; sourceTree = "<group>"; };
+		83173101184F21650043F865 /* SalePersonsStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SalePersonsStore.h; sourceTree = "<group>"; };
+		83173102184F21650043F865 /* SalePersonsStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SalePersonsStore.m; sourceTree = "<group>"; };
+		83173104184F21890043F865 /* ContactsStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactsStore.h; sourceTree = "<group>"; };
+		83173105184F21890043F865 /* ContactsStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactsStore.m; sourceTree = "<group>"; };
+		83173107184F238D0043F865 /* BaseStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseStore.h; sourceTree = "<group>"; };
+		83173108184F238D0043F865 /* BaseStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseStore.m; sourceTree = "<group>"; };
 		831FFCD01844364900C7CB22 /* CBLiteCRM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CBLiteCRM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		831FFCD31844364900C7CB22 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		831FFCD51844364900C7CB22 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -394,6 +409,16 @@
 			children = (
 				831FFD321844542F00C7CB22 /* DataStore.h */,
 				831FFD331844542F00C7CB22 /* DataStore.m */,
+				831730FB184F21090043F865 /* CustomersStore.h */,
+				831730FC184F21090043F865 /* CustomersStore.m */,
+				831730FE184F211C0043F865 /* OpportunitiesStore.h */,
+				831730FF184F211C0043F865 /* OpportunitiesStore.m */,
+				83173101184F21650043F865 /* SalePersonsStore.h */,
+				83173102184F21650043F865 /* SalePersonsStore.m */,
+				83173104184F21890043F865 /* ContactsStore.h */,
+				83173105184F21890043F865 /* ContactsStore.m */,
+				83173107184F238D0043F865 /* BaseStore.h */,
+				83173108184F238D0043F865 /* BaseStore.m */,
 			);
 			path = DataSources;
 			sourceTree = "<group>";
@@ -578,13 +603,16 @@
 				447A2C681845D808008786AF /* OpportunitiesViewController.m in Sources */,
 				447A2C651845D808008786AF /* ContactsViewController.m in Sources */,
 				447A2C6A1845D808008786AF /* SalesViewController.m in Sources */,
+				83173109184F238D0043F865 /* BaseStore.m in Sources */,
 				447A2C691845D808008786AF /* SalesPersonOptionsViewController.m in Sources */,
+				83173100184F211C0043F865 /* OpportunitiesStore.m in Sources */,
 				831FFD1018443AA300C7CB22 /* AppDelegate.m in Sources */,
 				447A2C731845F214008786AF /* ContactCell.m in Sources */,
 				831FFD471844702F00C7CB22 /* Opportunity.m in Sources */,
 				831FFD4118446C5500C7CB22 /* SalesPerson.m in Sources */,
 				830D51B01848968800044A19 /* OpportunityCell.m in Sources */,
 				447A2C661845D808008786AF /* CustomersViewController.m in Sources */,
+				83173103184F21650043F865 /* SalePersonsStore.m in Sources */,
 				447A2C6B1845D808008786AF /* WelcomeViewController.m in Sources */,
 				83CEAAE31846ECE10002D040 /* ActionSheet.m in Sources */,
 				83CEAADD1846EC240002D040 /* ImagePickerAngel.m in Sources */,
@@ -592,10 +620,12 @@
 				831FFCE01844364900C7CB22 /* main.m in Sources */,
 				831FFD341844542F00C7CB22 /* DataStore.m in Sources */,
 				447A2C741845F214008786AF /* SalesPersonCell.m in Sources */,
+				83173106184F21890043F865 /* ContactsStore.m in Sources */,
 				831FFD3E18446BC300C7CB22 /* Contact.m in Sources */,
 				830D51AC1848570900044A19 /* BaseModel.m in Sources */,
 				447A2C671845D808008786AF /* MenuViewController.m in Sources */,
 				83CEAAE41846ECE10002D040 /* Alert.m in Sources */,
+				831730FD184F21090043F865 /* CustomersStore.m in Sources */,
 				447A2C631845D808008786AF /* TextFieldsViewController.m in Sources */,
 				44D6DAF7184718920097262E /* CustomerDetailsViewController.m in Sources */,
 				831FFD4418446EAC00C7CB22 /* Customer.m in Sources */,

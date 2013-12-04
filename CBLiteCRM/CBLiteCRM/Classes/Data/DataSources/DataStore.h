@@ -1,4 +1,5 @@
 @class SalesPerson, Contact, Customer, Opportunity;
+@class SalePersonsStore,CustomersStore, OpportunitiesStore, ContactsStore;
 
 @interface DataStore : NSObject
 
@@ -7,29 +8,9 @@
 + (DataStore*) sharedInstance;
 
 @property (readonly) CBLDatabase* database;
-
-// USERS:
-
-/** The local logged-in user */
-@property (nonatomic, readonly) SalesPerson* user;
-
-/** The local logged-in user's username. */
-@property (nonatomic, strong) NSString* username;
-
-/** Gets a UserProfile for a user given their username. */
-- (SalesPerson*) profileWithUsername: (NSString*)username;
-@property (readonly) CBLQuery* allUsersQuery;
-@property (readonly) NSArray* allOtherUsers;    /**< UserProfile objects of other users */
-@property (readonly) CBLQuery* allCustomersQuery;
-
-- (Contact*) createContactWithMailOrReturnExist: (NSString*)mail;
-- (Contact*) contactWithMail: (NSString*)mail;
-- (CBLQuery*) queryContacts;
-- (CBLQuery*) queryContactsByOpport:(Opportunity*)opp;
-- (CBLQuery*) queryOpportunities;
-
-- (Customer*) createCustomerWithNameOrReturnExist: (NSString*)name;
-
-- (Opportunity*) createOpportunityWithTitleOrReturnExist: (NSString*)title;
+@property (readonly, strong) SalePersonsStore* salePersonsStore;
+@property (readonly, strong) CustomersStore* customersStore;
+@property (readonly, strong) OpportunitiesStore* opportunitiesStore;
+@property (readonly, strong) ContactsStore* contactsStore;
 
 @end
