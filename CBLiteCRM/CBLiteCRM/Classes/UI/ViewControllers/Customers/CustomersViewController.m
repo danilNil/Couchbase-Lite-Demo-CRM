@@ -16,6 +16,7 @@
 #import "Customer.h"
 
 @interface CustomersViewController ()
+@property(nonatomic, strong) Customer* selectedCellData;
 
 @end
 
@@ -54,8 +55,10 @@
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    CBLQueryRow *row = [self.dataSource rowAtIndex:indexPath.row];
+    self.selectedCellData = [Customer modelForDocument: row.document];
+
     if(self.chooser && self.onSelectCustomer){
-        CBLQueryRow *row = [self.dataSource rowAtIndex:indexPath.row];
         [self didChooseCustomer:[Customer modelForDocument: row.document]];
     }else
         [self performSegueWithIdentifier:@"presentCustomerDetails" sender:self];
@@ -64,14 +67,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if([segue.destinationViewController isKindOfClass:[CustomerDetailsViewController class]] && sender == self){
         CustomerDetailsViewController* vc = segue.destinationViewController;
-        Customer *customer;
-        if (self.filteredSource.count == 0){
-            CBLQueryRow *row = [self.dataSource rowAtIndex:[self.tableView indexPathForSelectedRow].row];
-            customer = [Customer modelForDocument: row.document];
-        } else {
-            customer = self.filteredSource[[self.searchDisplayController.searchResultsTableView indexPathForSelectedRow].row];
-        }
-        vc.currentCustomer = customer;
+        vc.currentCustomer = self.selectedCellData;
     }
 }
 
