@@ -15,6 +15,7 @@
 #import "Opportunity.h"
 
 @interface OpportunitiesViewController ()
+@property(nonatomic, strong) Opportunity* selectedCellData;
 
 @end
 
@@ -22,22 +23,29 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+
+    self.selectedCellData = [self opportForPath:indexPath];
     [self performSegueWithIdentifier:@"opportDetails" sender:tableView];
 }
+
+- (Opportunity*)opportForPath:(NSIndexPath*)indexPath{
+    Opportunity* opp;
+    CBLQueryRow *row = [self.dataSource rowAtIndex:indexPath.row];
+    if (self.filteredSource.count == 0){
+        opp = [Opportunity modelForDocument: row.document];
+    } else {
+        opp = self.filteredSource[indexPath.row];
+    }
+    return opp;
+}
+
 
 #pragma mark - Segue
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if([segue.destinationViewController isKindOfClass:[UINavigationController class]] && [sender isKindOfClass:[UITableView class]]){
         UINavigationController* navc = (UINavigationController*)segue.destinationViewController;
-        Opportunity *opp;
         OpportunityDetailesViewController* vc = (OpportunityDetailesViewController*)navc.topViewController;
-        if([navc.topViewController isKindOfClass:[OpportunityDetailesViewController class]] && sender == self.tableView){
-            CBLQueryRow *row = [self.dataSource rowAtIndex:[self.tableView indexPathForSelectedRow].row];
-            opp = [Opportunity modelForDocument: row.document];
-        } else {
-            opp = self.filteredSource[[self.searchDisplayController.searchResultsTableView indexPathForSelectedRow].row];
-        }
-        vc.currentOpport = opp;
+        vc.currentOpport = self.selectedCellData;
     }
 }
 
