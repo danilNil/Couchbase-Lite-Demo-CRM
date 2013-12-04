@@ -18,6 +18,7 @@
 
 
 @interface SalesViewController ()
+@property(nonatomic, strong) SalesPerson* selectedCellData;
 
 @end
 
@@ -48,21 +49,25 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    self.selectedCellData = [self salesForPath:indexPath];
     [self performSegueWithIdentifier:@"presentSalesPersonOptions" sender:tableView];
+}
+
+- (SalesPerson*)salesForPath:(NSIndexPath*)indexPath{
+    SalesPerson* sls;
+    CBLQueryRow *row = [self.dataSource rowAtIndex:indexPath.row];
+    if (self.filteredSource.count == 0){
+        sls = [SalesPerson modelForDocument: row.document];
+    } else {
+        sls = self.filteredSource[indexPath.row];
+    }
+    return sls;
 }
 
 #pragma mark - Segue
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     SalesPersonOptionsViewController *salesPersonOptionsViewController = [segue destinationViewController];
-    if(sender == self.searchDisplayController.searchResultsTableView) {
-        NSIndexPath *indexPath = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
-        salesPersonOptionsViewController.salesPerson = self.filteredSource[indexPath.row];
-    } else if (sender == self.tableView) {
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        CBLQueryRow *row = [self.dataSource rowAtIndex:indexPath.row];
-        SalesPerson *salesPerson = [SalesPerson modelForDocument: row.document];
-        salesPersonOptionsViewController.salesPerson = salesPerson;
-    }
+    salesPersonOptionsViewController.salesPerson =self.selectedCellData;
 }
 
 #pragma mark Content Filtering
