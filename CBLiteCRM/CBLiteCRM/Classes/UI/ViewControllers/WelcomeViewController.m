@@ -8,6 +8,7 @@
 
 #import "WelcomeViewController.h"
 #import "UIView+Activity.h"
+#import "AppDelegate.h"
 
 //Data
 #import "DataStore.h"
@@ -19,46 +20,19 @@
 
 @implementation WelcomeViewController
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (IBAction)personaLogin:(id)sender {
-    [self loginWithUserName:kExampleUserName];
-}
-
-- (void)loginWithUserName:(NSString*) username{
-    if([[DataStore sharedInstance].salePersonsStore profileWithUsername:username])
-        [self performSegueWithIdentifier:@"pushMenuController" sender:self];
+- (void)hideWelcomeScreen{
+    [self performSegueWithIdentifier:@"pushMenuController" sender:self];
 }
 
 - (IBAction)facebookLogin:(id)sender {
+    AppDelegate* app = [UIApplication sharedApplication].delegate;
     [self.view showActivity];
-    [self loginAndSync: ^(){
+    [app loginAndSync: ^(){
+        [self hideWelcomeScreen];
         NSLog(@"called complete loginAndSync");
-        [self.view hi]
+        [self.view hideActivity];
     }];
-
-    [self loginWithUserName:kExampleUserName];
 }
 
-- (void)loginAndSync: (void (^)())complete {
-    if (_cblSync.userID) {
-        complete();
-    } else {
-        [_cblSync beforeFirstSync:^(NSString *userID, NSDictionary *userData, NSError **outError) {
-            complete();
-        }];
-        [_cblSync start];
-    }
-}
 
 @end

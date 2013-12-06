@@ -12,8 +12,8 @@
 
 #import "Profile.h"
 
-#define kSyncUrl @"http://sync.couchbasecloud.com:4984/todos4"
-#define kFBAppId @"501518809925546"
+#define kSyncUrl @"http://sync.couchbasecloud.com:4984/persona"
+#define kFBAppId @"220375198143968"
 
 @interface AppDelegate()
     @property (readonly) DataStore* dataStore;
