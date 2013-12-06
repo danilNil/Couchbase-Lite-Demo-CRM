@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *addressField;
 @property (weak, nonatomic) IBOutlet UIImageView *photoView;
 @property (weak, nonatomic) IBOutlet UIView *contentView;
+@property (weak, nonatomic) IBOutlet UIButton *deleteButton;
 
 @property (strong, nonatomic) Contact *currentContact;
 

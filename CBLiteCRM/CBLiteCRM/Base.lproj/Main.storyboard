@@ -481,6 +481,7 @@
                         <outlet property="baseScrollView" destination="Eqz-fr-KN8" id="2wt-do-48k"/>
                         <outlet property="companyField" destination="SsA-Fp-cOF" id="tzd-EH-WS3"/>
                         <outlet property="contentView" destination="NkD-al-MDr" id="61m-0N-OdD"/>
+                        <outlet property="deleteButton" destination="2C2-UJ-N4e" id="Cb5-7i-g5z"/>
                         <outlet property="mailField" destination="5mM-HQ-Oru" id="TW9-PZ-mMv"/>
                         <outlet property="nameField" destination="KGO-lG-Wez" id="ohX-Wu-5nY"/>
                         <outlet property="phoneField" destination="wdg-R9-28s" id="N6u-HG-cQN"/>
@@ -962,6 +963,6 @@
         <segue reference="KZr-Gj-Zuk"/>
         <segue reference="3kk-cj-LW4"/>
         <segue reference="uhY-OQ-e3f"/>
-        <segue reference="2JB-Zq-Ixq"/>
+        <segue reference="zHw-JE-Ekg"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -42,6 +42,7 @@
 
 - (void)loadInfoForContact:(Contact*)ct{
     self.mailField.enabled = !ct;
+    self.deleteButton.enabled = ct ? YES : NO;
     if(ct){
         self.nameField.text = ct.name;
         self.positionField.text = ct.position;
