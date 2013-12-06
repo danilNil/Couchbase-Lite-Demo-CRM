@@ -10,9 +10,9 @@
 
 @interface SalesPerson : BaseModel
 
-@property (strong) NSString* username;
-@property (strong, readonly) NSString* email;
-@property (strong) NSString* phoneNumber;
+@property (copy) NSString* username;
+@property (copy, readonly) NSString* email;
+@property (copy) NSString* phoneNumber;
 @property bool approved;
 
 

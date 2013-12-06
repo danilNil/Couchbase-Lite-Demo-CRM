@@ -9,12 +9,12 @@
 #import "BaseModel.h"
 
 @interface Customer : BaseModel
-@property (strong, readonly) NSString* companyName;
-@property (strong) NSString* industry;
-@property (strong) NSString* phone;
-@property (strong) NSString* email;
-@property (strong) NSString* websiteUrl;
-@property (strong) NSString* address;
+@property (copy, readonly) NSString* companyName;
+@property (copy) NSString* industry;
+@property (copy) NSString* phone;
+@property (copy) NSString* email;
+@property (copy) NSString* websiteUrl;
+@property (copy) NSString* address;
 
 + (NSString*) docIDForUsername: (NSString*)username;
 + (NSString*) usernameFromDocID: (NSString*)docID;

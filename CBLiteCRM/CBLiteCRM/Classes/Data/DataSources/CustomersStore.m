@@ -15,8 +15,8 @@
 }
 @end
 
-
 @implementation CustomersStore
+
 - (id) initWithDatabase: (CBLDatabase*)database {
     self = [super initWithDatabase:database];
     if (self) {
@@ -36,8 +36,6 @@
     }
     return self;
 }
-
-
 
 - (void) createFakeCustomers {
     for (NSDictionary *dict in [self getFakeCustomersDictionary]) {
@@ -72,7 +70,6 @@
               @"+1 111 9122", kPhone,
               @"Vito", kName, nil]];
 }
-
 
 - (Customer*) createCustomerWithNameOrReturnExist: (NSString*)name{
     Customer* cm = [self customerWithName: name];

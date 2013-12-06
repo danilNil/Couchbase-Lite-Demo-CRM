@@ -14,9 +14,9 @@
 @property (strong) NSDate* creationDate;
 @property long long revenueSize;
 @property float winProbability;
-@property (strong) NSString* salesStage;
+@property (copy) NSString* salesStage;
 @property (readonly, strong) NSArray* contacts;
-@property (strong) NSString* title;
+@property (copy) NSString* title;
 + (NSString*)docIDForTitle:(NSString*)title;
 + (NSString*) titleFromDocID: (NSString*)docID;
 + (Opportunity*) createInDatabase: (CBLDatabase*)database
