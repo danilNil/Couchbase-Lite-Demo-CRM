@@ -60,6 +60,7 @@
 		832845361851885F008FBFCD /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 832845351851885F008FBFCD /* Social.framework */; };
 		83284539185188D1008FBFCD /* CBLSyncManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 83284538185188D1008FBFCD /* CBLSyncManager.m */; };
 		8328453B185188DF008FBFCD /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8328453A185188DF008FBFCD /* Accounts.framework */; };
+		8328454118519176008FBFCD /* Profile.m in Sources */ = {isa = PBXBuildFile; fileRef = 8328454018519176008FBFCD /* Profile.m */; };
 		83CC79C8184F39A600557A9B /* DateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 83CC79C7184F39A600557A9B /* DateHelper.m */; };
 		83CEAADD1846EC240002D040 /* ImagePickerAngel.m in Sources */ = {isa = PBXBuildFile; fileRef = 83CEAADC1846EC240002D040 /* ImagePickerAngel.m */; };
 		83CEAAE31846ECE10002D040 /* ActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 83CEAAE01846ECE10002D040 /* ActionSheet.m */; };
@@ -165,6 +166,8 @@
 		83284537185188D1008FBFCD /* CBLSyncManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBLSyncManager.h; sourceTree = "<group>"; };
 		83284538185188D1008FBFCD /* CBLSyncManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBLSyncManager.m; sourceTree = "<group>"; };
 		8328453A185188DF008FBFCD /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		8328453F18519176008FBFCD /* Profile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Profile.h; sourceTree = "<group>"; };
+		8328454018519176008FBFCD /* Profile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Profile.m; sourceTree = "<group>"; };
 		83CC79C6184F39A600557A9B /* DateHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateHelper.h; sourceTree = "<group>"; };
 		83CC79C7184F39A600557A9B /* DateHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateHelper.m; sourceTree = "<group>"; };
 		83CEAADB1846EC240002D040 /* ImagePickerAngel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagePickerAngel.h; sourceTree = "<group>"; };
@@ -445,6 +448,8 @@
 		831FFD221844422000C7CB22 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				8328453F18519176008FBFCD /* Profile.h */,
+				8328454018519176008FBFCD /* Profile.m */,
 				831FFD3C18446BC200C7CB22 /* Contact.h */,
 				831FFD3D18446BC200C7CB22 /* Contact.m */,
 				831FFD3F18446C5500C7CB22 /* SalesPerson.h */,
@@ -659,6 +664,7 @@
 				44D6DAF7184718920097262E /* CustomerDetailsViewController.m in Sources */,
 				831FFD4418446EAC00C7CB22 /* Customer.m in Sources */,
 				830D51B31848973900044A19 /* OpportunityDetailesViewController.m in Sources */,
+				8328454118519176008FBFCD /* Profile.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
