@@ -16,7 +16,6 @@ UISearchDisplayDelegate
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *filteredSource;
 @property (nonatomic, strong) CBLUITableSource* dataSource;
-@property (nonatomic, strong) CBLUITableSource* filteredDataSource;
 
 @property (nonatomic, strong) NSString *cellIdentifier;
 

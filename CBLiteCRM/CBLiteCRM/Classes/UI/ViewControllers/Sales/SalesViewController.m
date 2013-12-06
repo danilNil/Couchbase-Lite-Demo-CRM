@@ -56,11 +56,11 @@
 - (SalesPerson*)salesForPath:(NSIndexPath*)indexPath{
     SalesPerson* sls;
     CBLQueryRow *row = [self.dataSource rowAtIndex:indexPath.row];
-//    if (self.filteredSource.count == 0){
+    if (self.filteredSource.count == 0){
         sls = [SalesPerson modelForDocument: row.document];
-//    } else {
-//        sls = self.filteredSource[indexPath.row];
-//    }
+    } else {
+        sls = self.filteredSource[indexPath.row];
+    }
     return sls;
 }
 
@@ -73,16 +73,12 @@
 #pragma mark Content Filtering
 - (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope
 {
-    CBLQuery *query = [[DataStore sharedInstance].salePersonsStore allUsersQuery];
-    query.startKey = @[searchText];
-    query.endKey = @[searchText, @{}];
-    self.filteredDataSource.query = [query asLiveQuery];
-//    [self.filteredSource removeAllObjects];
-//    for (CBLQueryRow* row in self.dataSource.rows) {
-//        SalesPerson *salesPerson = [SalesPerson modelForDocument:row.document];
-//        if ([salesPerson.email rangeOfString:searchText options:NSCaseInsensitiveSearch].location != NSNotFound)
-//            [self.filteredSource addObject:salesPerson];
-//    }
+    [self.filteredSource removeAllObjects];
+    for (CBLQueryRow* row in self.dataSource.rows) {
+        SalesPerson *salesPerson = [SalesPerson modelForDocument:row.document];
+        if ([salesPerson.email rangeOfString:searchText options:NSCaseInsensitiveSearch].location != NSNotFound)
+            [self.filteredSource addObject:salesPerson];
+    }
 }
 
 @end
