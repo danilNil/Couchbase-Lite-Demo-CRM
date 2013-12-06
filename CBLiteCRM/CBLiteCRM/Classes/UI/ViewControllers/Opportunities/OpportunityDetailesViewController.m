@@ -80,6 +80,7 @@
 
 - (void)loadInfoForOpportunity:(Opportunity*)opp {
     self.nameField.enabled = !opp;
+    self.deleteButton.enabled = opp ? YES: NO;
     if (opp) {
         customer = self.currentOpport.customer;
         self.nameField.text = opp.title;

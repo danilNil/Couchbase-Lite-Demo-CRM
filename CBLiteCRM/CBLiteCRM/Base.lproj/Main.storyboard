@@ -281,12 +281,15 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Customers" id="2xc-r9-3hG">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="fY0-JQ-c0J"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="fY0-JQ-c0J">
+                            <connections>
+                                <segue destination="DoK-bY-Hq0" kind="modal" identifier="presentCustomerDetails" id="uhY-OQ-e3f"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="searchDisplayController" destination="n9v-pV-RVS" id="KV3-Ya-3hJ"/>
                         <outlet property="tableView" destination="02H-qr-bZC" id="pe7-uj-SQV"/>
-                        <segue destination="DoK-bY-Hq0" kind="modal" identifier="presentCustomerDetails" id="3l8-ci-wIc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ol1-q6-oMp" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -660,6 +663,7 @@
                         <outlet property="contentView" destination="qKj-wr-JUC" id="Z1w-QP-eVy"/>
                         <outlet property="customerField" destination="bL3-Ut-32T" id="ykL-88-MFg"/>
                         <outlet property="dateField" destination="3pF-gR-KXa" id="yJf-nx-lj4"/>
+                        <outlet property="deleteButton" destination="MnG-pZ-lRp" id="2Tk-lZ-axd"/>
                         <outlet property="nameField" destination="eUD-c5-Dk5" id="lxP-YS-YBC"/>
                         <outlet property="revenueField" destination="q54-bn-r8A" id="ofH-l6-8lo"/>
                         <outlet property="stageField" destination="8Hz-8A-88H" id="9IC-oA-Dgv"/>
@@ -825,6 +829,7 @@
                         <outlet property="baseScrollView" destination="HSp-Q5-DoW" id="rqv-HB-jNX"/>
                         <outlet property="companyNameField" destination="ZEi-QX-lQV" id="Wna-NS-gVC"/>
                         <outlet property="contentView" destination="6NZ-5w-naS" id="L0R-7n-UJC"/>
+                        <outlet property="deleteButton" destination="c3T-bE-FLg" id="8of-uu-YRc"/>
                         <outlet property="industryField" destination="i8t-rW-i8a" id="did-Vt-HgJ"/>
                         <outlet property="mailField" destination="Ogp-Je-lhE" id="Ab4-xP-ZAf"/>
                         <outlet property="phoneField" destination="33M-G7-N2v" id="RFY-Ne-dY2"/>
@@ -956,7 +961,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="KZr-Gj-Zuk"/>
         <segue reference="3kk-cj-LW4"/>
-        <segue reference="3l8-ci-wIc"/>
-        <segue reference="zHw-JE-Ekg"/>
+        <segue reference="uhY-OQ-e3f"/>
+        <segue reference="2JB-Zq-Ixq"/>
     </inferredMetricsTieBreakers>
 </document>

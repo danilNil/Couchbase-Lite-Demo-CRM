@@ -29,6 +29,7 @@
 }
 
 - (void)loadInfoForCustomer:(Customer*)cm{
+    self.deleteButton.enabled = cm ? YES : NO;
     if(cm){
         self.companyNameField.text = cm.companyName;
         self.industryField.text = cm.industry;

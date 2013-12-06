@@ -10,7 +10,8 @@
 
 #import "SalesPerson.h"
 
-@interface SalePersonsStore(){
+@interface SalePersonsStore()
+{
     CBLView* _salesPersonsView;
 }
 
