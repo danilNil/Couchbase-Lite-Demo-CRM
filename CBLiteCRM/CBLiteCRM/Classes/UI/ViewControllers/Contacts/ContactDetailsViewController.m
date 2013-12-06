@@ -91,8 +91,9 @@
             newContact = [[DataStore sharedInstance].contactsStore createContactWithMailOrReturnExist:self.mailField.text];
         }
         [self updateInfoForContact:newContact];
-    }
-    [self dismissViewControllerAnimated:YES completion:NULL];
+        [self dismissViewControllerAnimated:YES completion:NULL];
+    } else
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Please fill contact email field" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil] show];
 }
 
 - (IBAction)deleteItem:(id)sender

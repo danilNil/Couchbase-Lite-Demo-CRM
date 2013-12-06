@@ -52,8 +52,9 @@
         if(!newCustomer)
             newCustomer = [[DataStore sharedInstance].customersStore createCustomerWithNameOrReturnExist:self.companyNameField.text];
         [self updateInfoForCustomer:newCustomer];
-    }
-    [self dismissViewControllerAnimated:YES completion:NULL];
+        [self dismissViewControllerAnimated:YES completion:NULL];
+    } else
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Please fill company name field" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil] show];
 }
 
 - (IBAction)deleteItem:(id)sender {
