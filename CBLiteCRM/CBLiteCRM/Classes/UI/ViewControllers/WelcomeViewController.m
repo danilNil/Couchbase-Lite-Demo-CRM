@@ -7,6 +7,8 @@
 //
 
 #import "WelcomeViewController.h"
+#import "UIView+Activity.h"
+#import "AppDelegate.h"
 
 //Data
 #import "DataStore.h"
@@ -18,27 +20,19 @@
 
 @implementation WelcomeViewController
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+- (void)hideWelcomeScreen{
+    [self performSegueWithIdentifier:@"pushMenuController" sender:self];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)facebookLogin:(id)sender {
+    AppDelegate* app = [UIApplication sharedApplication].delegate;
+    [self.view showActivity];
+    [app loginAndSync: ^(){
+        [self hideWelcomeScreen];
+        NSLog(@"called complete loginAndSync");
+        [self.view hideActivity];
+    }];
 }
-
-- (IBAction)personaLogin:(id)sender {
-    [self loginWithUserName:kExampleUserName];
-}
-
-- (void)loginWithUserName:(NSString*) username{
-    if([[DataStore sharedInstance].salePersonsStore profileWithUsername:username])
-        [self performSegueWithIdentifier:@"pushMenuController" sender:self];
-}
-
 
 
 @end
