@@ -96,10 +96,9 @@
         }) reduceBlock: nil version: @"2"]; // bump version any time you change the MAPBLOCK body!
     }
     CBLQuery* query = [view createQuery];
-    query.descending = YES;
     NSString* myCustID = customer.document.documentID;
-    query.startKey = @[myCustID, @{}];
-    query.endKey = @[myCustID];
+    query.startKey = @[myCustID];
+    query.endKey = @[myCustID, @{}];
     return query;
 }
 @end
