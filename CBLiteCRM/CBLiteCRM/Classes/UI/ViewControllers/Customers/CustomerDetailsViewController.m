@@ -21,6 +21,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.automaticallyAdjustsScrollViewInsets = NO;
     [self.baseScrollView setContentSize:self.contentView.frame.size];
     [self loadInfoForCustomer:self.currentCustomer];
 }
