@@ -281,15 +281,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Customers" id="2xc-r9-3hG">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="fY0-JQ-c0J">
-                            <connections>
-                                <segue destination="TLO-se-8qL" kind="modal" identifier="presentCustomerDetails" id="9YH-IM-SQK"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="fY0-JQ-c0J"/>
                     </navigationItem>
                     <connections>
                         <outlet property="searchDisplayController" destination="n9v-pV-RVS" id="KV3-Ya-3hJ"/>
                         <outlet property="tableView" destination="02H-qr-bZC" id="pe7-uj-SQV"/>
+                        <segue destination="DoK-bY-Hq0" kind="modal" identifier="presentCustomerDetails" id="3l8-ci-wIc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ol1-q6-oMp" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -304,6 +301,21 @@
                 </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="1087" y="-1107"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="NMm-OM-D9U">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="DoK-bY-Hq0" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5Zf-a3-rlQ">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="TLO-se-8qL" kind="relationship" relationship="rootViewController" id="Tn2-9L-ico"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3AB-f3-rgh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1528" y="-1107"/>
         </scene>
         <!--Contact Details View Controller - Details-->
         <scene sceneID="XBv-Uk-B3a">
@@ -652,14 +664,14 @@
                         <outlet property="revenueField" destination="q54-bn-r8A" id="ofH-l6-8lo"/>
                         <outlet property="stageField" destination="8Hz-8A-88H" id="9IC-oA-Dgv"/>
                         <outlet property="winField" destination="8xy-VZ-6oJ" id="DyI-Qp-7us"/>
-                        <segue destination="TLO-se-8qL" kind="modal" identifier="presentMyCustomer" id="p0c-DY-nbM"/>
+                        <segue destination="DoK-bY-Hq0" kind="modal" identifier="presentMyCustomer" id="sb8-08-2KH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dzf-aQ-KNO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1817" y="1005"/>
         </scene>
-        <!--Customer Details View Controller-->
+        <!--Customer Details View Controller - Customer-->
         <scene sceneID="c5f-lt-CfQ">
             <objects>
                 <viewController id="TLO-se-8qL" customClass="CustomerDetailsViewController" sceneMemberID="viewController">
@@ -667,23 +679,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="zcc-Uy-RjL">
-                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <barButtonItem title="Back" id="7IY-np-ru0">
-                                        <connections>
-                                            <action selector="back:" destination="TLO-se-8qL" id="gdT-mu-uu4"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="voO-xJ-qHH"/>
-                                    <barButtonItem title="Save" id="Tky-as-2WS">
-                                        <connections>
-                                            <action selector="saveItem:" destination="TLO-se-8qL" id="aig-Sq-5is"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="HSp-Q5-DoW">
                                 <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" heightSizable="YES"/>
@@ -801,7 +796,7 @@
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="deleteItem:" destination="TLO-se-8qL" eventType="touchUpInside" id="68v-zM-cVd"/>
+                                                    <action selector="opportunities:" destination="TLO-se-8qL" eventType="touchUpInside" id="G2e-f4-ti0"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -812,7 +807,18 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="VDR-Cm-fF2"/>
+                    <navigationItem key="navigationItem" title="Customer" id="W0p-A6-xbK">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="wqe-YH-wEz">
+                            <connections>
+                                <action selector="back:" destination="TLO-se-8qL" id="iVy-No-bMd"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="mkx-TY-45S">
+                            <connections>
+                                <action selector="saveItem:" destination="TLO-se-8qL" id="hBp-90-kzT"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="URLField" destination="Cdn-Rp-SO3" id="LLE-G3-nOa"/>
                         <outlet property="addressField" destination="SD8-B9-1C5" id="w2m-v5-b9v"/>
@@ -822,11 +828,12 @@
                         <outlet property="industryField" destination="i8t-rW-i8a" id="did-Vt-HgJ"/>
                         <outlet property="mailField" destination="Ogp-Je-lhE" id="Ab4-xP-ZAf"/>
                         <outlet property="phoneField" destination="33M-G7-N2v" id="RFY-Ne-dY2"/>
+                        <segue destination="5ij-MH-fTa" kind="push" identifier="presentOpportunitiesForCustomer" id="3kk-cj-LW4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H6L-mK-hTJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1514" y="-1107"/>
+            <point key="canvasLocation" x="1927" y="-1107"/>
         </scene>
         <!--Opportunities View Controller - Opportunities-->
         <scene sceneID="5kX-lH-IT9">
@@ -947,8 +954,9 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="2JB-Zq-Ixq"/>
-        <segue reference="p0c-DY-nbM"/>
         <segue reference="KZr-Gj-Zuk"/>
+        <segue reference="3kk-cj-LW4"/>
+        <segue reference="3l8-ci-wIc"/>
+        <segue reference="zHw-JE-Ekg"/>
     </inferredMetricsTieBreakers>
 </document>

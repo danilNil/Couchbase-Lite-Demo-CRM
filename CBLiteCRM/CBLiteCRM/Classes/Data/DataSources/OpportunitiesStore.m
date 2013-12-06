@@ -8,6 +8,7 @@
 
 #import "OpportunitiesStore.h"
 #import "Opportunity.h"
+#import "Customer.h"
 
 @interface OpportunitiesStore(){
     CBLView* _opportView;
@@ -77,5 +78,28 @@
     if (!doc.currentRevisionID)
         return nil;
     return [Opportunity modelForDocument:doc];
+}
+
+-(CBLQuery *)queryOpportunitiesForCustomer:(Customer *)customer
+{
+    CBLView* view = [self.database viewNamed: @"OpportunitiesForCustomer"];
+    if (!view.mapBlock) {
+        NSString* const kOppDocType = [Opportunity docType];
+        [view setMapBlock: MAPBLOCK({
+            if ([doc[@"type"] isEqualToString: kOppDocType]) {
+                NSString* customerId = doc[@"customer"];
+                id date = doc[@"creationDate"];
+                if (customerId) {
+                    emit(@[customerId, date], doc);
+                }
+            }
+        }) reduceBlock: nil version: @"2"]; // bump version any time you change the MAPBLOCK body!
+    }
+    CBLQuery* query = [view createQuery];
+    query.descending = YES;
+    NSString* myCustID = customer.document.documentID;
+    query.startKey = @[myCustID, @{}];
+    query.endKey = @[myCustID];
+    return query;
 }
 @end
