@@ -31,18 +31,9 @@
 
 - (UITableViewCell *)couchTableSource:(CBLUITableSource*)source cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    SalesPersonCell *cell = [self.tableView dequeueReusableCellWithIdentifier:kSalesPersonCell];
-    CBLQueryRow *row = [self.dataSource rowAtIndex:indexPath.row];
+    SalesPersonCell *cell = [[source tableView] dequeueReusableCellWithIdentifier:kSalesPersonCell];
+    CBLQueryRow *row = [source rowAtIndex:indexPath.row];
     SalesPerson *salesPerson = [SalesPerson modelForDocument: row.document];
-    cell.salesPerson = salesPerson;
-    return cell;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    SalesPersonCell *cell = [tableView dequeueReusableCellWithIdentifier:kSalesPersonCell];
-    SalesPerson *salesPerson;
-    salesPerson = self.filteredSource[indexPath.row];
     cell.salesPerson = salesPerson;
     return cell;
 }
@@ -73,12 +64,21 @@
 #pragma mark Content Filtering
 - (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope
 {
-    [self.filteredSource removeAllObjects];
-    for (CBLQueryRow* row in self.dataSource.rows) {
-        SalesPerson *salesPerson = [SalesPerson modelForDocument:row.document];
-        if ([salesPerson.email rangeOfString:searchText options:NSCaseInsensitiveSearch].location != NSNotFound)
-            [self.filteredSource addObject:salesPerson];
+    NSError *err;
+    CBLQuery *query = [[DataStore sharedInstance].salePersonsStore filteredQuery];
+    CBLQueryEnumerator *enumer = [query rows:&err];
+    NSLog(@"%u", [[query rows:&err] count]);
+
+    NSMutableArray *matches = [NSMutableArray new];
+    for (NSUInteger i = 0; i < enumer.count; i++) {
+        CBLQueryRow* row = [enumer rowAtIndex:i];
+        SalesPerson* sp = [SalesPerson modelForDocument:row.document];
+        if ([sp.email rangeOfString:searchText options:NSCaseInsensitiveSearch].location != NSNotFound)
+            [matches addObject:sp.email];
     }
+    query.keys = matches;
+    NSLog(@"%u", [[query rows:&err] count]);
+    self.filteredDataSource.query = [query asLiveQuery];
 }
 
 @end

@@ -18,6 +18,8 @@
 /** Gets a UserProfile for a user given their username. */
 - (SalesPerson*) profileWithUsername: (NSString*)username;
 @property (readonly) CBLQuery* allUsersQuery;
+@property (readonly) CBLQuery* filteredQuery;
+
 @property (readonly) NSArray* allOtherUsers;    /**< UserProfile objects of other users */
 
 @end

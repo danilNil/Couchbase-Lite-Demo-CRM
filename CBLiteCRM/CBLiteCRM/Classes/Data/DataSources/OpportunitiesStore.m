@@ -12,6 +12,7 @@
 
 @interface OpportunitiesStore(){
     CBLView* _opportView;
+    CBLView* _filteredOpportView;
 }
 @end
 
@@ -28,6 +29,17 @@
                     emit(name.lowercaseString, name);
             }
         }) version: @"1"];
+
+        _filteredOpportView = [self.database viewNamed: @"filteredOpportunities"];
+
+        [_filteredOpportView setMapBlock: MAPBLOCK({
+            if ([doc[@"type"] isEqualToString:kOpportDocType]) {
+                NSString* title = doc[@"title"];
+                if (title)
+                    emit(title, doc);
+            }
+        }) version: @"2"];
+
 #if kFakeDataBase
 
         [self createFakeOpportunities];
@@ -57,6 +69,11 @@
     return [Opportunity modelForDocument: doc];
 }
 
+-(CBLQuery *)filteredQuery {
+    CBLQuery* query = [_filteredOpportView createQuery];
+    query.descending = YES;
+    return query;
+}
 
 - (CBLQuery*) queryOpportunities {
     CBLQuery* query = [_opportView createQuery];

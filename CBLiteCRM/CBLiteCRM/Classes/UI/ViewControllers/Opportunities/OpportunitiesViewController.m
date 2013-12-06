@@ -71,7 +71,7 @@ CBLUITableDelegate
 
 -(UITableViewCell *)couchTableSource:(CBLUITableSource *)source cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"OpportunityCell"];
+    UITableViewCell *cell = [[source tableView] dequeueReusableCellWithIdentifier:@"OpportunityCell"];
     if (!cell)
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"OpportunityCell"];
 
@@ -80,28 +80,25 @@ CBLUITableDelegate
     cell.detailTextLabel.text = opportunity.customer.companyName;
     return cell;
 }
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"OpportunityCell"];
-    if (!cell)
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"OpportunityCell"];
-
-    Opportunity *opportunity = self.filteredSource[indexPath.row];
-    cell.textLabel.text = [opportunity getValueOfProperty:@"title"];
-    cell.detailTextLabel.text = opportunity.customer.companyName;
-    return cell;
-}
 
 #pragma mark Content Filtering
 - (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope
 {
-    [self.filteredSource removeAllObjects];
-    for (CBLQueryRow* row in self.dataSource.rows) {
-        Opportunity *opportunity = [Opportunity modelForDocument:row.document];
-        NSString *title = [opportunity getValueOfProperty:@"title"];
-        if ([title rangeOfString:searchText options:NSCaseInsensitiveSearch].location != NSNotFound)
-            [self.filteredSource addObject:opportunity];
+    NSError *err;
+    CBLQuery *query = [[DataStore sharedInstance].opportunitiesStore filteredQuery];
+    CBLQueryEnumerator *enumer = [query rows:&err];
+    NSLog(@"%u", [[query rows:&err] count]);
+
+    NSMutableArray *matches = [NSMutableArray new];
+    for (NSUInteger i = 0; i < enumer.count; i++) {
+        CBLQueryRow* row = [enumer rowAtIndex:i];
+        Opportunity* opp = [Opportunity modelForDocument:row.document];
+        if ([opp.title rangeOfString:searchText options:NSCaseInsensitiveSearch].location != NSNotFound)
+            [matches addObject:opp.title];
     }
+    query.keys = matches;
+    NSLog(@"%u", [[query rows:&err] count]);
+    self.filteredDataSource.query = [query asLiveQuery];
 }
 
 @end
