@@ -47,7 +47,7 @@
 }
 
 - (IBAction)saveItem:(id)sender {
-    if(self.companyNameField.text && ![self.companyNameField.text isEqualToString:@""]){
+    if(self.companyNameField.text && ![self.companyNameField.text isEqualToString:@""]) {
         Customer* newCustomer = self.currentCustomer;
         if(!newCustomer)
             newCustomer = [[DataStore sharedInstance].customersStore createCustomerWithNameOrReturnExist:self.companyNameField.text];

@@ -70,6 +70,7 @@ CBLUITableDelegate
 }
 
 - (void)searchDisplayController:(UISearchDisplayController *)controller willHideSearchResultsTableView:(UITableView *)tableView {
+    [self.filteredSource removeAllObjects];
     [self.tableView reloadData];
 }
 
