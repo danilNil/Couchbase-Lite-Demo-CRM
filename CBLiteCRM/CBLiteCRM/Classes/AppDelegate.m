@@ -53,7 +53,7 @@
     
     if (_cblSync.userID) {
         //        we are logged in, go ahead and sync
-//        [_cblSync start];
+        [_cblSync start];
     } else {
         // Application callback to create the user profile.
         // this will be triggered after we call [_cblSync start]
