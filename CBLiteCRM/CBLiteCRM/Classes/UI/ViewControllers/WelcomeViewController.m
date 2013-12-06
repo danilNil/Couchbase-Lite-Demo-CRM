@@ -7,6 +7,7 @@
 //
 
 #import "WelcomeViewController.h"
+#import "UIView+Activity.h"
 
 //Data
 #import "DataStore.h"
@@ -40,6 +41,24 @@
 }
 
 - (IBAction)facebookLogin:(id)sender {
+    [self.view showActivity];
+    [self loginAndSync: ^(){
+        NSLog(@"called complete loginAndSync");
+        [self.view hi]
+    }];
+
     [self loginWithUserName:kExampleUserName];
 }
+
+- (void)loginAndSync: (void (^)())complete {
+    if (_cblSync.userID) {
+        complete();
+    } else {
+        [_cblSync beforeFirstSync:^(NSString *userID, NSDictionary *userData, NSError **outError) {
+            complete();
+        }];
+        [_cblSync start];
+    }
+}
+
 @end
