@@ -37,6 +37,10 @@ CBLUITableDelegate
     self.dataSource = [CBLUITableSource new];
     self.dataSource.tableView = self.tableView;
     self.tableView.dataSource = self.dataSource;
+    
+    self.filteredDataSource = [CBLUITableSource new];
+    self.filteredDataSource.tableView = self.searchDisplayController.searchResultsTableView;
+    self.searchDisplayController.searchResultsTableView.dataSource = self.dataSource;
     [self updateQuery];
     self.filteredSource = [NSMutableArray arrayWithCapacity:self.dataSource.rows.count];
 }

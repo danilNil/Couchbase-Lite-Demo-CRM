@@ -24,6 +24,7 @@
 {
     UIDatePicker *creationDatePicker;
     DictPickerView *stagePicker;
+    Customer *customer;
 }
 @end
 
@@ -80,6 +81,7 @@
 - (void)loadInfoForOpportunity:(Opportunity*)opp {
     self.nameField.enabled = !opp;
     if (opp) {
+        customer = self.currentOpport.customer;
         self.nameField.text = opp.title;
         if (opp.salesStage) {
             self.stageField.text = opp.salesStage;
@@ -102,10 +104,11 @@
     opp.title = self.nameField.text;
     opp.salesStage = self.stageField.text;
     opp.creationDate = creationDatePicker.date;
+    opp.customer = customer;
 }
 
 - (IBAction)customerDetails:(id)sender{
-    if(self.currentOpport.customer)
+    if(customer)
         [self performSegueWithIdentifier:@"presentMyCustomer" sender:self];
 }
 
@@ -173,12 +176,12 @@
         CustomersViewController* vc = (CustomersViewController*)segue.destinationViewController;
         vc.chooser = YES;
         [vc setOnSelectCustomer:^(Customer *cust) {
-            self.currentOpport.customer = cust;
+            customer = cust;
             self.customerField.text = cust.companyName;
         }];
     }else if([segue.destinationViewController isKindOfClass:[CustomerDetailsViewController class]]){
         CustomerDetailsViewController* vc = segue.destinationViewController;
-        vc.currentCustomer = self.currentOpport.customer;
+        vc.currentCustomer = customer;
     }
 }
 
