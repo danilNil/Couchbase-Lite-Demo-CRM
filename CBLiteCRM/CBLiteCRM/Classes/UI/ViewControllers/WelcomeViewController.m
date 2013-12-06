@@ -39,6 +39,7 @@
         [self performSegueWithIdentifier:@"pushMenuController" sender:self];
 }
 
-
-
+- (IBAction)facebookLogin:(id)sender {
+    [self loginWithUserName:kExampleUserName];
+}
 @end
