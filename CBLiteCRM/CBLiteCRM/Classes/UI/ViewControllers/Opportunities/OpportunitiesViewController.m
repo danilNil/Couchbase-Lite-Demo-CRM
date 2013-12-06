@@ -13,8 +13,13 @@
 #import "DataStore.h"
 #import "OpportunitiesStore.h"
 #import "Opportunity.h"
+#import "OpportunitiesStore.h"
+#import "Customer.h"
 
 @interface OpportunitiesViewController ()
+<
+CBLUITableDelegate
+>
 @property(nonatomic, strong) Opportunity* selectedCellData;
 
 @end
@@ -51,17 +56,33 @@
 
 - (void) updateQuery
 {
-    self.dataSource.query = [[[DataStore sharedInstance].opportunitiesStore queryOpportunities] asLiveQuery];
+    if (self.filteredCustomer) {
+        self.dataSource.query = [[[DataStore sharedInstance].opportunitiesStore queryOpportunitiesForCustomer:self.filteredCustomer] asLiveQuery];
+    } else {
+        self.dataSource.query = [[[DataStore sharedInstance].opportunitiesStore queryOpportunities] asLiveQuery];
+    }
 }
 
+-(UITableViewCell *)couchTableSource:(CBLUITableSource *)source cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"OpportunityCell"];
+    if (!cell)
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"OpportunityCell"];
+
+    Opportunity *opportunity = [Opportunity modelForDocument:[source.rows[indexPath.row] document]];
+    cell.textLabel.text = [opportunity getValueOfProperty:@"title"];
+    cell.detailTextLabel.text = opportunity.customer.companyName;
+    return cell;
+}
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"OpportunityCell"];
     if (!cell)
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"OpportunityCell"];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"OpportunityCell"];
 
     Opportunity *opportunity = self.filteredSource[indexPath.row];
     cell.textLabel.text = [opportunity getValueOfProperty:@"title"];
+    cell.detailTextLabel.text = opportunity.customer.companyName;
     return cell;
 }
 

@@ -7,6 +7,8 @@
 //
 
 #import "CustomerDetailsViewController.h"
+#import "OpportunitiesViewController.h"
+
 //Data
 #import "Customer.h"
 #import "DataStore.h"
@@ -59,6 +61,17 @@
         [self  dismissViewControllerAnimated:YES completion:^{}];
     } else {
         [[[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:Nil cancelButtonTitle:@"ok" otherButtonTitles: nil] show];
+    }
+}
+
+- (IBAction)opportunities:(id)sender {
+    [self performSegueWithIdentifier:@"presentOpportunitiesForCustomer" sender:self];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.destinationViewController isKindOfClass:[OpportunitiesViewController class]]) {
+        OpportunitiesViewController *vc = (OpportunitiesViewController*)segue.destinationViewController;
+        vc.filteredCustomer = self.currentCustomer;
     }
 }
 

@@ -16,6 +16,9 @@
 #import "Customer.h"
 
 @interface CustomersViewController ()
+<
+CBLUITableDelegate
+>
 @property(nonatomic, strong) Customer* selectedCellData;
 
 @end
@@ -74,8 +77,8 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if([segue.destinationViewController isKindOfClass:[CustomerDetailsViewController class]] && sender == self){
-        CustomerDetailsViewController* vc = segue.destinationViewController;
+    if([segue.destinationViewController isKindOfClass:[UINavigationController class]] && sender == self){
+        CustomerDetailsViewController* vc = (CustomerDetailsViewController*)((UINavigationController*)segue.destinationViewController).topViewController;
         vc.currentCustomer = self.selectedCellData;
     }
 }

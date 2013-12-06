@@ -8,8 +8,8 @@
 
 
 @interface BaseModel : CBLModel
-@property (strong) NSString* uniqueField;
-@property (strong) NSString* docType;
+@property (copy) NSString* uniqueField;
+@property (copy) NSString* docType;
 
 + (id) createInDatabase: (CBLDatabase*)database
         withUniqueField: (NSString*)uniqueField

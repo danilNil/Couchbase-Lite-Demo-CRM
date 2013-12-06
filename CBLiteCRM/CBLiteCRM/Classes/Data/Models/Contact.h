@@ -9,13 +9,13 @@
 
 @class Customer;
 @interface Contact : BaseModel
-@property (strong) Customer* customer;
-@property (strong) NSString* name;
-@property (strong) NSString* position;
-@property (strong) NSString* phoneNumber;
-@property (readonly, strong) NSString* email;
-@property (strong) NSString* address;
-@property (strong) NSArray* opportunities;
+@property (weak) Customer* customer;
+@property (copy) NSString* name;
+@property (copy) NSString* position;
+@property (copy) NSString* phoneNumber;
+@property (readonly, copy) NSString* email;
+@property (copy) NSString* address;
+@property (copy) NSArray* opportunities;
 
 + (Contact*) createInDatabase: (CBLDatabase*)database
                  withEmail: (NSString*)username;
