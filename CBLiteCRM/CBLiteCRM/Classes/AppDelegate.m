@@ -10,7 +10,7 @@
 #import "DataStore.h"
 #import "CBLSyncManager.h"
 
-#import "Profile.h"
+#import "SalesPerson.h"
 
 #define kSyncUrl @"http://sync.couchbasecloud.com:4984/persona"
 #define kFBAppId @"220375198143968"
@@ -28,10 +28,14 @@
     
     // create a database
     NSError *error;
-    self.database = [manager databaseNamed: @"crm-database" error: &error];
+    self.database = [manager databaseNamed: @"persona" error: &error];
+    if (error) {
+        NSLog(@"error getting database %@",error);
+        exit(-1);
+    }
     _dataStore = [[DataStore alloc] initWithDatabase: _database];
-    [self setupCBLSync];
 
+    [self setupCBLSync];
     if (error) {
         NSLog(@"data base creation error: %@", error);
     }
@@ -49,13 +53,13 @@
     
     if (_cblSync.userID) {
         //        we are logged in, go ahead and sync
-        [_cblSync start];
+//        [_cblSync start];
     } else {
         // Application callback to create the user profile.
         // this will be triggered after we call [_cblSync start]
         [_cblSync beforeFirstSync:^(NSString *userID, NSDictionary *userData,  NSError **outError) {
             // This is a first run, setup the profile but don't save it yet.
-            Profile *myProfile = [[Profile alloc] initCurrentUserProfileInDatabase:self.database withName:userData[@"name"] andUserID:userID];
+            SalesPerson *myProfile = [[SalesPerson alloc] initInDatabase:self.database withEmail:userData[@"name"] andUserID:userID];
             
             // Sync doesn't start until after this block completes, so
             // all this data will be tagged.

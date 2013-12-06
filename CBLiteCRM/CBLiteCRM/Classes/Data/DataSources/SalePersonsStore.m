@@ -29,7 +29,7 @@
         _salesPersonsView = [self.database viewNamed: @"salesPersonsByName"];
         [_salesPersonsView setMapBlock: MAPBLOCK({
             if ([doc[@"type"] isEqualToString: kSalesPersonDocType]) {
-                NSString* name = [SalesPerson emailFromDocID: doc[@"_id"]];
+                NSString* name = [SalesPerson userIdFromDocID: doc[@"_id"]];
                 if (name)
                     emit(name.lowercaseString, name);
             }
@@ -49,7 +49,7 @@
     for (NSDictionary *dict in [self getFakeSalesPersonsDictionary]) {
         SalesPerson* profile = [self profileWithUsername: [dict objectForKey:kEmail]];
         if (!profile) {
-            profile = [SalesPerson createInDatabase: self.database
+            profile = [[SalesPerson alloc] initInDatabase:self.database
                                           withEmail: [dict objectForKey:kEmail]];
             profile.phoneNumber = [dict objectForKey:kPhone];
             profile.username = [dict objectForKey:kName];
@@ -86,7 +86,7 @@
         return nil;
     SalesPerson* user = [self profileWithUsername: self.username];
     if (!user) {
-        user = [SalesPerson createInDatabase: self.database
+        user = [[SalesPerson alloc] initInDatabase: self.database
                                    withEmail: self.username];
     }
     return user;
@@ -94,7 +94,7 @@
 
 
 - (SalesPerson*) profileWithUsername: (NSString*)username {
-    NSString* docID = [SalesPerson docIDForEmail: username];
+    NSString* docID = [SalesPerson docIDForUserId: username];
     CBLDocument* doc = [self.database documentWithID: docID];
     if (!doc.currentRevisionID)
         return nil;
@@ -111,7 +111,7 @@
         
         SalesPerson* myProfile = [self profileWithUsername: self.username];
         if (!myProfile) {
-            myProfile = [SalesPerson createInDatabase: self.database
+            myProfile = [[SalesPerson  alloc] initInDatabase: self.database
                                             withEmail: self.username];
             NSLog(@"Created user profile %@", myProfile);
         }

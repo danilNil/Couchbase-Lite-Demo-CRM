@@ -8,17 +8,23 @@
 
 #import "BaseModel.h"
 
-@interface SalesPerson : BaseModel
+@interface SalesPerson : CBLModel
 
-@property (copy) NSString* username;
-@property (copy, readonly) NSString* email;
-@property (copy) NSString* phoneNumber;
+/** The user_id is usually an email address. */
+@property (readwrite) NSString* user_id;
+
+@property (readwrite) NSString* username;
+@property (readwrite) NSString* email;
+@property (readwrite) NSString* phoneNumber;
 @property bool approved;
 
 
-+ (SalesPerson*) createInDatabase: (CBLDatabase*)database
-              withEmail: (NSString*)mail;
-+ (NSString*) emailFromDocID: (NSString*)docID;
-+ (NSString*) docIDForEmail: (NSString*)mail;
+- (instancetype) initInDatabase: (CBLDatabase*)database
+                      withEmail: (NSString*)mail
+                      andUserID: (NSString*)userId;
+- (instancetype) initInDatabase: (CBLDatabase*)database
+                      withEmail: (NSString*)mail;
++ (NSString*) userIdFromDocID: (NSString*)docID;
++ (NSString*) docIDForUserId: (NSString*)mail;
 
 @end

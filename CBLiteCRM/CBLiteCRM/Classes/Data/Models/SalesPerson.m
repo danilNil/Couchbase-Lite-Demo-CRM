@@ -9,32 +9,62 @@
 #import "SalesPerson.h"
 
 @implementation SalesPerson
-@dynamic username, phoneNumber, email, approved;
+@dynamic username, phoneNumber, email, approved, user_id;
+
+- (instancetype) initInDatabase: (CBLDatabase*)database
+                      withEmail: (NSString*)mail
+                      andUserID: (NSString*)userId
+{
+    NSParameterAssert(mail);
+    NSParameterAssert(userId);
+    
+    
+    CBLDocument* doc = [database documentWithID: [[self class] docIDForUserId:userId]];
+    
+    self = [super initWithDocument:doc];
+    if (self) {
+        self.email = mail;
+        self.user_id = userId;
+    }
+    return self;
+}
+
++ (NSString*) docIDForUserId: (NSString*)userId {
+    return [self docIDForUniqueField:userId forDocType:[self docType]];
+}
+
++ (NSString*) userIdFromDocID: (NSString*)docID{
+    return [self uniqueFieldFromDocID:docID forDocType:[self docType]];
+}
+
 
 + (NSString*) docType{
     return kSalesPersonDocType;
 }
 
-+ (NSString*) docIDForEmail: (NSString*)mail {
-    return [super docIDForUniqueField:mail forDocType:[self docType]];
++ (NSString*) docIDForUniqueField: (NSString*)uniqueValue forDocType:(NSString*)docType{
+    return [NSString stringWithFormat:@"%@:%@",docType,uniqueValue];
 }
 
-+ (NSString*) emailFromDocID: (NSString*)docID{
-    return [super uniqueFieldFromDocID:docID forDocType:[self docType]];
++ (NSString*) uniqueFieldFromDocID: (NSString*)docID forDocType:(NSString*)docType{
+    return [docID substringFromIndex:docType.length+1];
 }
 
 
-+ (SalesPerson*) createInDatabase: (CBLDatabase*)database
-              withEmail: (NSString*)mail
+- (instancetype) initInDatabase: (CBLDatabase*)database
+                    withEmail: (NSString*)mail
 {
 
-    SalesPerson* profile = [super createInDatabase:database withUniqueField:mail andDocType:[self docType]];
-    [profile setValue: mail ofProperty: @"email"];
-    
-    NSError* error;
-    if (![profile save: &error])
-        return nil;
-    return profile;
+    CBLDocument* doc = [database documentWithID: [[self class] docIDForUserId:mail]];
+
+    self = [super initWithDocument:doc];
+    if (self) {
+        // The "type" property identifies what type of document this is.
+        // It's used in map functions and by the CBLModelFactory.
+        [self setValue: [[self class] docType] ofProperty: @"type"];
+        self.email = mail;
+    }
+    return self;
 }
 
 @end
