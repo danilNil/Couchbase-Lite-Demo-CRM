@@ -13,7 +13,6 @@
 - (CBLQuery*) queryOpportunitiesForCustomer:(Customer*)customer;
 
 - (CBLQuery*) queryOpportunities;
-- (CBLQuery*) filteredQuery;
 
 - (Opportunity*) createOpportunityWithTitleOrReturnExist: (NSString*)title;
 

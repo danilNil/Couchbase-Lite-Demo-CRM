@@ -12,6 +12,7 @@
 
 @interface CustomersStore(){
     CBLView* _customersView;
+    CBLView* _filteredCustomersView;
 }
 @end
 
@@ -29,6 +30,18 @@
                     emit(name.lowercaseString, name);
             }
         }) version: @"1"];
+        
+        _filteredCustomersView = [self.database viewNamed: @"filteredCustomers"];
+        
+        [_filteredCustomersView setMapBlock: MAPBLOCK({
+            if ([doc[@"type"] isEqualToString:kCustomerDocType]) {
+                NSString* companyName = doc[@"companyName"];
+                if (companyName)
+                    emit(companyName, doc);
+            }
+        }) version: @"1"];
+
+        
 #if kFakeDataBase
         [self createFakeCustomers];
 #endif
@@ -105,6 +118,11 @@
     //    query.startKey = @[myListId, @{}];
     //    query.endKey = @[myListId];
     return query;
+}
+
+- (CBLQuery *)filteredQuery
+{
+    return [_filteredCustomersView createQuery];
 }
 
 @end

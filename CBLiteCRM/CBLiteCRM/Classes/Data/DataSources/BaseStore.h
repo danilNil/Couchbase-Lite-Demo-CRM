@@ -10,5 +10,7 @@
 @interface BaseStore : NSObject
 @property (readonly) CBLDatabase* database;
 
+@property (readonly) CBLQuery* filteredQuery;
+
 - (id) initWithDatabase: (CBLDatabase*)database;
 @end

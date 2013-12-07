@@ -28,6 +28,7 @@ CBLUITableDelegate
 -(void)viewDidLoad{
     [super viewDidLoad];
     [self updateUIForState:self.chooser];
+        self.filteredDataSource.labelProperty = @"companyName";
 }
 
 - (void)updateUIForState:(BOOL)chooser{
@@ -85,12 +86,23 @@ CBLUITableDelegate
 
 #pragma mark Content Filtering
 - (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope {
-    [self.filteredSource removeAllObjects];
-    for (CBLQueryRow* row in self.dataSource.rows) {
-        Customer *customer = [Customer modelForDocument:row.document];
-        if ([customer.companyName rangeOfString:searchText options:NSCaseInsensitiveSearch].location != NSNotFound)
-            [self.filteredSource addObject:customer];
+    NSError *err;
+    CBLQuery *query = [[DataStore sharedInstance].customersStore filteredQuery];
+    CBLQueryEnumerator *enumer = [query rows:&err];
+    NSLog(@"%u", [[query rows:&err] count]);
+    
+    NSMutableArray *matches = [NSMutableArray new];
+    for (NSUInteger i = 0; i < enumer.count; i++) {
+        CBLQueryRow* row = [enumer rowAtIndex:i];
+        Customer* cust = [Customer modelForDocument:row.document];
+        if ([cust.companyName rangeOfString:searchText options:NSCaseInsensitiveSearch].location != NSNotFound)
+            [matches addObject:cust.companyName];
     }
+    query.keys = matches;
+    NSLog(@"%u", [[query rows:&err] count]);
+
+    self.filteredDataSource.query = [query asLiveQuery];
+
 }
 
 @end
