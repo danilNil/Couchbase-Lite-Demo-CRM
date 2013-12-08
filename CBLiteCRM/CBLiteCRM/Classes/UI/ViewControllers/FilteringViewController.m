@@ -46,17 +46,6 @@ CBLUITableDelegate
     [self updateQuery];
 }
 
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return self.filteredSource.count;
-}
-
 #pragma mark Content Filtering
 - (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope {}
 
@@ -74,7 +63,6 @@ CBLUITableDelegate
 }
 
 - (void)searchDisplayController:(UISearchDisplayController *)controller willHideSearchResultsTableView:(UITableView *)tableView {
-    [self.filteredSource removeAllObjects];
     [self.tableView reloadData];
 }
 

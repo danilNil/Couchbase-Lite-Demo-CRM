@@ -36,11 +36,7 @@ CBLUITableDelegate
 - (Opportunity*)opportForPath:(NSIndexPath*)indexPath{
     Opportunity* opp;
     CBLQueryRow *row = [self.dataSource rowAtIndex:indexPath.row];
-    if (self.filteredSource.count == 0){
-        opp = [Opportunity modelForDocument: row.document];
-    } else {
-        opp = self.filteredSource[indexPath.row];
-    }
+    opp = [Opportunity modelForDocument: row.document];
     return opp;
 }
 

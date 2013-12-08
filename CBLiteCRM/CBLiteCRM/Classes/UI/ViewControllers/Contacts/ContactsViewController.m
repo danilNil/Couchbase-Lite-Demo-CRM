@@ -36,15 +36,6 @@
         self.dataSource.query = [[[DataStore sharedInstance].contactsStore queryContactsByOpport:self.filteredOpp] asLiveQuery];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    ContactCell *cell = [tableView dequeueReusableCellWithIdentifier:kContactCellIdentifier forIndexPath:indexPath];
-    Contact *contact;
-    contact = self.filteredSource[indexPath.row];
-    cell.contact = contact;
-    return cell;
-}
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CBLQueryRow *row = [self.dataSource rowAtIndex:indexPath.row];
@@ -54,8 +45,8 @@
 
 - (UITableViewCell *)couchTableSource:(CBLUITableSource *)source cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ContactCell *cell = [self.tableView dequeueReusableCellWithIdentifier:kContactCellIdentifier];
-    CBLQueryRow *row = [self.dataSource rowAtIndex:indexPath.row];
+    ContactCell *cell = [[source tableView] dequeueReusableCellWithIdentifier:kContactCellIdentifier];
+    CBLQueryRow *row = [source rowAtIndex:indexPath.row];
     Contact *contact = [Contact modelForDocument: row.document];
     cell.contact = contact;
     return cell;
@@ -72,13 +63,24 @@
 }
 
 #pragma mark Content Filtering
-- (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope {
-    [self.filteredSource removeAllObjects];
-    for (CBLQueryRow* row in self.dataSource.rows) {
-        Contact *contact = [Contact modelForDocument:row.document];
-        if ([contact.email rangeOfString:searchText options:NSCaseInsensitiveSearch].location != NSNotFound)
-            [self.filteredSource addObject:contact];
+- (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope {   
+    NSError *err;
+    CBLQuery *query = [[DataStore sharedInstance].contactsStore filteredQuery];
+    CBLQueryEnumerator *enumer = [query rows:&err];
+    NSLog(@"%u", [[query rows:&err] count]);
+    
+    NSMutableArray *matches = [NSMutableArray new];
+    for (NSUInteger i = 0; i < enumer.count; i++) {
+        CBLQueryRow* row = [enumer rowAtIndex:i];
+        Contact* ct = [Contact modelForDocument:row.document];
+        if ([ct.email rangeOfString:searchText options:NSCaseInsensitiveSearch].location != NSNotFound)
+            [matches addObject:ct.email];
     }
+    query.keys = matches;
+    NSLog(@"%u", [[query rows:&err] count]);
+    self.filteredDataSource.query = [query asLiveQuery];
+
+    
 }
 
 @end

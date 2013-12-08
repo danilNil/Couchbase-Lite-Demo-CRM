@@ -47,11 +47,7 @@
 - (SalesPerson*)salesForPath:(NSIndexPath*)indexPath{
     SalesPerson* sls;
     CBLQueryRow *row = [self.dataSource rowAtIndex:indexPath.row];
-    if (self.filteredSource.count == 0){
         sls = [SalesPerson modelForDocument: row.document];
-    } else {
-        sls = self.filteredSource[indexPath.row];
-    }
     return sls;
 }
 

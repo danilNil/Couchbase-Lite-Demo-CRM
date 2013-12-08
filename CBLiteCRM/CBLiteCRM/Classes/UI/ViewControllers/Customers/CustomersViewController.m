@@ -28,7 +28,7 @@ CBLUITableDelegate
 -(void)viewDidLoad{
     [super viewDidLoad];
     [self updateUIForState:self.chooser];
-        self.filteredDataSource.labelProperty = @"companyName";
+    self.filteredDataSource.labelProperty = @"companyName";
 }
 
 - (void)updateUIForState:(BOOL)chooser{
@@ -46,34 +46,18 @@ CBLUITableDelegate
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CustomerCell"];
-    if (!cell)
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CustomerCell"];
-
-    Customer *customer = self.filteredSource[indexPath.row];
-    cell.textLabel.text = customer.companyName;
-    return cell;
-}
-
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     self.selectedCellData = [self customerForPath:indexPath];
-    if(self.chooser && self.onSelectCustomer){
+    if(self.chooser && self.onSelectCustomer)
         [self didChooseCustomer:self.selectedCellData];
-    }else
+    else
         [self performSegueWithIdentifier:@"presentCustomerDetails" sender:self];
 }
 
 - (Customer*)customerForPath:(NSIndexPath*)indexPath{
     Customer* csmr;
     CBLQueryRow *row = [self.dataSource rowAtIndex:indexPath.row];
-    if (self.filteredSource.count == 0){
-        csmr = [Customer modelForDocument: row.document];
-    } else {
-        csmr = self.filteredSource[indexPath.row];
-    }
+    csmr = [Customer modelForDocument: row.document];
     return csmr;
 }
 

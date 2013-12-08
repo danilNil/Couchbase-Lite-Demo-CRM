@@ -9,8 +9,10 @@
 #import "ContactsStore.h"
 #import "Contact.h"
 #import "Opportunity.h"
-@interface ContactsStore(){
+@interface ContactsStore()
+{
     CBLView* _contactsView;
+    CBLView* _filteredContactsView;
 }
 @end
 
@@ -28,6 +30,16 @@
                     emit(name.lowercaseString, name);
             }
         }) version: @"1"];
+        
+        _filteredContactsView = [self.database viewNamed: @"filteredContacts"];
+        [_filteredContactsView setMapBlock: MAPBLOCK({
+            if ([doc[@"type"] isEqualToString: kContactDocType]) {
+                NSString* email = doc[@"email"];
+                if (email)
+                    emit(email, doc);
+            }
+        }) version: @"2"];
+        
 #if kFakeDataBase
         [self createFakeContacts];
 #endif
@@ -100,6 +112,11 @@
     CBLQuery* query = [_contactsView createQuery];
     query.descending = YES;
     return query;
+}
+
+- (CBLQuery *)filteredQuery
+{
+    return [_filteredContactsView createQuery];
 }
 
 - (CBLQuery*) queryContactsByOpport:(Opportunity*)opp {
