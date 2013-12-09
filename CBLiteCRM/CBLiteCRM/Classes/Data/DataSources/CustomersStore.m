@@ -39,12 +39,6 @@
                     emit(companyName, doc);
             }
         }) version: @"1"];
-
-        
-#if kFakeDataBase
-        [self createFakeCustomers];
-#endif
-
     }
     return self;
 }

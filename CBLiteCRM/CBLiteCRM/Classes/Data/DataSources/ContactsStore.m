@@ -38,10 +38,6 @@
                     emit(email, doc);
             }
         }) version: @"2"];
-        
-#if kFakeDataBase
-        [self createFakeContacts];
-#endif
 
     }
     return self;

@@ -37,11 +37,6 @@
                     emit(title, doc);
             }
         }) version: @"2"];
-
-#if kFakeDataBase
-        [self createFakeOpportunities];
-#endif
-
     }
     return self;
 }

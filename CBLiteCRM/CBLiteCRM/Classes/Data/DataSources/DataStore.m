@@ -24,6 +24,9 @@ static DataStore* sInstance;
         sInstance = self;
         _database = database;
         [self initStores];
+#if kFakeDataBase
+        [self createFakeDB];
+#endif
     }
     return self;
 }
@@ -38,6 +41,18 @@ static DataStore* sInstance;
     _customersStore = [[CustomersStore alloc] initWithDatabase:self.database];
     _opportunitiesStore = [[OpportunitiesStore alloc] initWithDatabase:self.database];
     _contactsStore = [[ContactsStore alloc] initWithDatabase:self.database];
+}
+
+- (void)createFakeDB{
+    BOOL isCreated = [[NSUserDefaults standardUserDefaults] boolForKey:kCreatedFakeKey];
+    if(!isCreated){
+        [self.salePersonsStore createFakeSalesPersons];
+        [self.customersStore createFakeCustomers];
+        [self.opportunitiesStore createFakeOpportunities];
+        [self.contactsStore createFakeContacts];
+    }
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kCreatedFakeKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 @end

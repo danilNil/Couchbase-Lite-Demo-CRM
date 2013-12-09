@@ -19,8 +19,9 @@ static NSString const *kEmail = @"email";
 static NSString const *kPhone = @"phone";
 static NSString const *kPosition = @"position";
 static NSString const *kCompanyName = @"companyName";
+static NSString *kCreatedFakeKey = @"createdFakeDBKey";
 
-#define kFakeDataBase 0
+#define kFakeDataBase 1
 
 static NSString* const kExampleUserName = @"foo@example.com";
 #endif

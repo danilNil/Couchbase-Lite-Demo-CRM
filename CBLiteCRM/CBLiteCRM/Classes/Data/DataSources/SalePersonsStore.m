@@ -44,17 +44,11 @@
                     emit(email, doc);
             }
         }) version: @"4"];
-#if kFakeDataBase
-        [self createFakeSalesPersons];
-#endif
-
-
     }
     return self;
 }
 
 
-#if kFakeDataBase
 - (void) createFakeSalesPersons {
     for (NSDictionary *dict in [self getFakeSalesPersonsDictionary]) {
         SalesPerson* profile = [self profileWithUsername: [dict objectForKey:kEmail]];
@@ -88,8 +82,6 @@
               @"+2 132 9162", kPhone,
               @"Eugene", kName, nil]];
 }
-
-#endif
 
 - (SalesPerson*) user {
     if (!self.username)

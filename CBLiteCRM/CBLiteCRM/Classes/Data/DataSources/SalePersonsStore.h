@@ -21,4 +21,5 @@
 
 @property (readonly) NSArray* allOtherUsers;    /**< UserProfile objects of other users */
 
+- (void) createFakeSalesPersons;
 @end
