@@ -7,11 +7,14 @@
 //
 
 #import "FilteringViewController.h"
+#import "BaseStore.h"
+#import "BaseModel.h"
 
 @interface FilteringViewController ()
 <
 CBLUITableDelegate
 >
+
 @end
 
 @implementation FilteringViewController
@@ -48,7 +51,22 @@ CBLUITableDelegate
 
 #pragma mark Content Filtering
 
-- (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope {}
+- (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope
+{
+    NSError *err;
+    CBLQuery *query = [self.store filteredQuery];
+    CBLQueryEnumerator *enumer = [query rows:&err];
+
+    NSMutableArray *matches = [NSMutableArray new];
+    for (NSUInteger i = 0; i < enumer.count; i++) {
+        CBLQueryRow* row = [enumer rowAtIndex:i];
+        BaseModel* model = [self.modelClass modelForDocument:row.document];
+        if ([[model getValueOfProperty:self.searchableProperty] rangeOfString:searchText options:NSCaseInsensitiveSearch].location != NSNotFound)
+            [matches addObject:[model getValueOfProperty:self.searchableProperty]];
+    }
+    query.keys = matches;
+    self.filteredDataSource.query = [query asLiveQuery];
+}
 
 #pragma mark - UISearchDisplayController Delegate Methods
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {

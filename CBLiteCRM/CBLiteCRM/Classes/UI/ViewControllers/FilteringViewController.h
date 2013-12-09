@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 Danil. All rights reserved.
 //
 
+@class BaseStore;
+
 @interface FilteringViewController : UIViewController 
 <
 UITableViewDelegate,
@@ -15,9 +17,13 @@ UISearchDisplayDelegate
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) CBLUITableSource* dataSource;
-@property (nonatomic, strong) CBLUITableSource* filteredDataSource;
 
+@property (nonatomic, strong) CBLUITableSource* filteredDataSource;
 @property (nonatomic, weak) CBLUITableSource* currentSource;
+
+@property (nonatomic, strong) NSString *searchableProperty;
+@property (readwrite) Class modelClass;
+@property (nonatomic, weak) BaseStore *store;
 
 @property (nonatomic, strong) NSString *cellIdentifier;
 

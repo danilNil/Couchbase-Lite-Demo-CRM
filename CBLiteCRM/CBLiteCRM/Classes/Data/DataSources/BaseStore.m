@@ -8,6 +8,10 @@
 
 #import "BaseStore.h"
 
+@interface BaseStore ()
+
+@end
+
 @implementation BaseStore
 - (id) initWithDatabase: (CBLDatabase*)database {
     self = [super init];

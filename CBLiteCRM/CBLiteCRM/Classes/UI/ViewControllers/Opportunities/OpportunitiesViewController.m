@@ -26,6 +26,13 @@ CBLUITableDelegate
 
 @implementation OpportunitiesViewController
 
+-(void)viewDidLoad
+{
+    [super viewDidLoad];
+    self.modelClass = [Opportunity class];
+    self.searchableProperty = @"title";
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 
@@ -35,6 +42,7 @@ CBLUITableDelegate
 
 - (Opportunity*)opportForPath:(NSIndexPath*)indexPath{
     Opportunity* opp;
+    NSAssert(self.currentSource, @"currentSource should not be nil");
     CBLQueryRow *row = [self.currentSource rowAtIndex:indexPath.row];
     opp = [Opportunity modelForDocument: row.document];
     return opp;
@@ -58,10 +66,11 @@ CBLUITableDelegate
 
 - (void) updateQuery
 {
+    self.store = [DataStore sharedInstance].opportunitiesStore;
     if (self.filteredCustomer)
-        self.dataSource.query = [[[DataStore sharedInstance].opportunitiesStore queryOpportunitiesForCustomer:self.filteredCustomer] asLiveQuery];
+        self.dataSource.query = [[(OpportunitiesStore*)self.store queryOpportunitiesForCustomer:self.filteredCustomer] asLiveQuery];
     else
-        self.dataSource.query = [[[DataStore sharedInstance].opportunitiesStore queryOpportunities] asLiveQuery];
+        self.dataSource.query = [[(OpportunitiesStore*)self.store queryOpportunities] asLiveQuery];
 }
 
 -(UITableViewCell *)couchTableSource:(CBLUITableSource *)source cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -74,26 +83,6 @@ CBLUITableDelegate
     cell.textLabel.text = [opportunity getValueOfProperty:@"title"];
     cell.detailTextLabel.text = opportunity.customer.companyName;
     return cell;
-}
-
-#pragma mark Content Filtering
-- (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope
-{
-    NSError *err;
-    CBLQuery *query = [[DataStore sharedInstance].opportunitiesStore filteredQuery];
-    CBLQueryEnumerator *enumer = [query rows:&err];
-    NSLog(@"%u", [[query rows:&err] count]);
-
-    NSMutableArray *matches = [NSMutableArray new];
-    for (NSUInteger i = 0; i < enumer.count; i++) {
-        CBLQueryRow* row = [enumer rowAtIndex:i];
-        Opportunity* opp = [Opportunity modelForDocument:row.document];
-        if ([opp.title rangeOfString:searchText options:NSCaseInsensitiveSearch].location != NSNotFound)
-            [matches addObject:opp.title];
-    }
-    query.keys = matches;
-    NSLog(@"%u", [[query rows:&err] count]);
-    self.filteredDataSource.query = [query asLiveQuery];
 }
 
 @end

@@ -19,14 +19,20 @@
 
 @interface SalesViewController ()
 @property(nonatomic, strong) SalesPerson* selectedCellData;
-
 @end
 
 @implementation SalesViewController
 
+-(void)viewDidLoad
+{
+    [super viewDidLoad];
+    self.modelClass = [SalesPerson class];
+    self.searchableProperty = @"email";
+}
 - (void) updateQuery
 {
-    self.dataSource.query = [[[DataStore sharedInstance].salePersonsStore allUsersQuery] asLiveQuery];
+    self.store = [DataStore sharedInstance].salePersonsStore;
+    self.dataSource.query = [[(SalePersonsStore*)self.store allUsersQuery] asLiveQuery];
 }
 
 - (UITableViewCell *)couchTableSource:(CBLUITableSource*)source cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -55,26 +61,6 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     SalesPersonOptionsViewController *salesPersonOptionsViewController = [segue destinationViewController];
     salesPersonOptionsViewController.salesPerson =self.selectedCellData;
-}
-
-#pragma mark Content Filtering
-- (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope
-{
-    NSError *err;
-    CBLQuery *query = [[DataStore sharedInstance].salePersonsStore filteredQuery];
-    CBLQueryEnumerator *enumer = [query rows:&err];
-    NSLog(@"%u", [[query rows:&err] count]);
-
-    NSMutableArray *matches = [NSMutableArray new];
-    for (NSUInteger i = 0; i < enumer.count; i++) {
-        CBLQueryRow* row = [enumer rowAtIndex:i];
-        SalesPerson* sp = [SalesPerson modelForDocument:row.document];
-        if ([sp.email rangeOfString:searchText options:NSCaseInsensitiveSearch].location != NSNotFound)
-            [matches addObject:sp.email];
-    }
-    query.keys = matches;
-    NSLog(@"%u", [[query rows:&err] count]);
-    self.filteredDataSource.query = [query asLiveQuery];
 }
 
 @end

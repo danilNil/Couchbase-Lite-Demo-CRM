@@ -87,9 +87,8 @@
 - (IBAction)saveItem:(id)sender {
     if(self.mailField.text && ![self.mailField.text isEqualToString:@""]){
         Contact* newContact = self.currentContact;
-        if(!newContact){
+        if(!newContact)
             newContact = [[DataStore sharedInstance].contactsStore createContactWithMailOrReturnExist:self.mailField.text];
-        }
         [self updateInfoForContact:newContact];
         [self dismissViewControllerAnimated:YES completion:NULL];
     } else

@@ -23,6 +23,13 @@
 
 @implementation ContactsViewController
 
+-(void)viewDidLoad
+{
+    [super viewDidLoad];
+    self.modelClass = [Contact class];
+    self.searchableProperty = @"email";
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.tableView reloadData];
@@ -30,10 +37,11 @@
 
 - (void) updateQuery
 {
+    self.store = [DataStore sharedInstance].contactsStore;
     if(!self.filteredOpp)
-        self.dataSource.query = [[[DataStore sharedInstance].contactsStore queryContacts] asLiveQuery];
+        self.dataSource.query = [[(ContactsStore*)self.store queryContacts] asLiveQuery];
     else
-        self.dataSource.query = [[[DataStore sharedInstance].contactsStore queryContactsByOpport:self.filteredOpp] asLiveQuery];
+        self.dataSource.query = [[(ContactsStore*)self.store queryContactsByOpport:self.filteredOpp] asLiveQuery];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -60,27 +68,6 @@
             vc.currentContact = self.selectedContact;
         }
     }
-}
-
-#pragma mark Content Filtering
-- (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope {   
-    NSError *err;
-    CBLQuery *query = [[DataStore sharedInstance].contactsStore filteredQuery];
-    CBLQueryEnumerator *enumer = [query rows:&err];
-    NSLog(@"%u", [[query rows:&err] count]);
-    
-    NSMutableArray *matches = [NSMutableArray new];
-    for (NSUInteger i = 0; i < enumer.count; i++) {
-        CBLQueryRow* row = [enumer rowAtIndex:i];
-        Contact* ct = [Contact modelForDocument:row.document];
-        if ([ct.email rangeOfString:searchText options:NSCaseInsensitiveSearch].location != NSNotFound)
-            [matches addObject:ct.email];
-    }
-    query.keys = matches;
-    NSLog(@"%u", [[query rows:&err] count]);
-    self.filteredDataSource.query = [query asLiveQuery];
-
-    
 }
 
 @end

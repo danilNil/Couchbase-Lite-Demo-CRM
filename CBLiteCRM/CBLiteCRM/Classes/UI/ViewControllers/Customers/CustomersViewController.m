@@ -27,8 +27,10 @@ CBLUITableDelegate
 
 -(void)viewDidLoad{
     [super viewDidLoad];
+    self.modelClass = [Customer class];
+    self.searchableProperty = @"companyName";
     [self updateUIForState:self.chooser];
-    self.filteredDataSource.labelProperty = @"companyName";
+    self.filteredDataSource.labelProperty = self.searchableProperty;
 }
 
 - (void)updateUIForState:(BOOL)chooser{
@@ -38,7 +40,8 @@ CBLUITableDelegate
 
 - (void) updateQuery
 {
-    self.dataSource.query = [[[DataStore sharedInstance].customersStore allCustomersQuery] asLiveQuery];
+    self.store = [DataStore sharedInstance].customersStore;
+    self.dataSource.query = [[(CustomersStore*)self.store allCustomersQuery] asLiveQuery];
 }
 
 - (void)didChooseCustomer:(Customer*)cust{
@@ -66,27 +69,6 @@ CBLUITableDelegate
         CustomerDetailsViewController* vc = (CustomerDetailsViewController*)((UINavigationController*)segue.destinationViewController).topViewController;
         vc.currentCustomer = self.selectedCellData;
     }
-}
-
-#pragma mark Content Filtering
-- (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope {
-    NSError *err;
-    CBLQuery *query = [[DataStore sharedInstance].customersStore filteredQuery];
-    CBLQueryEnumerator *enumer = [query rows:&err];
-    NSLog(@"%u", [[query rows:&err] count]);
-    
-    NSMutableArray *matches = [NSMutableArray new];
-    for (NSUInteger i = 0; i < enumer.count; i++) {
-        CBLQueryRow* row = [enumer rowAtIndex:i];
-        Customer* cust = [Customer modelForDocument:row.document];
-        if ([cust.companyName rangeOfString:searchText options:NSCaseInsensitiveSearch].location != NSNotFound)
-            [matches addObject:cust.companyName];
-    }
-    query.keys = matches;
-    NSLog(@"%u", [[query rows:&err] count]);
-
-    self.filteredDataSource.query = [query asLiveQuery];
-
 }
 
 @end
