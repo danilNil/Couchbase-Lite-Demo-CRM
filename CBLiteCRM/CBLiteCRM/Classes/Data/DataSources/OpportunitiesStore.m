@@ -43,8 +43,8 @@
     for (NSString *title in array) {
         Opportunity* profile = [self opportunityWithTitle:title];
         if (!profile) {
-            profile = [Opportunity createInDatabase: self.database
-                                          withTitle: title];
+            profile = [[Opportunity alloc] initInDatabase:self.database
+                                                withTitle: title];
         }
     }
 }
@@ -68,7 +68,7 @@
 {
     Opportunity* opp = [self opportunityWithTitle:title];
     if(!opp)
-        opp = [Opportunity createInDatabase:self.database withTitle:title];
+        opp = [[Opportunity alloc] initInDatabase:self.database withTitle:title];
     return opp;
 }
 

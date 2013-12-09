@@ -41,7 +41,7 @@
     for (NSDictionary *dict in [self getFakeCustomersDictionary]) {
         Customer* customer = [self customerWithName: [dict objectForKey:kName]];
         if (!customer) {
-            customer = [Customer createInDatabase: self.database
+            customer = [[Customer alloc] initInDatabase:self.database
                                  withCustomerName: [dict objectForKey:kName]];
             customer.email = [dict objectForKey:kEmail];
             customer.phone = [dict objectForKey:kPhone];
@@ -74,7 +74,7 @@
 - (Customer*) createCustomerWithNameOrReturnExist: (NSString*)name{
     Customer* cm = [self customerWithName: name];
     if(!cm)
-        cm = [Customer createInDatabase:self.database withCustomerName:name];
+        cm = [[Customer alloc] initInDatabase:self.database withCustomerName:name];
     return cm;
 }
 

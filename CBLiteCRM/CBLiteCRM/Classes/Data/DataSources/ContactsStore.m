@@ -41,8 +41,8 @@
     for (NSDictionary *dict in [self getFakeContactsDictionary]) {
         Contact* contact = [self contactWithMail: [dict objectForKey:kEmail]];
         if (!contact) {
-            contact = [Contact createInDatabase: self.database
-                                      withEmail: [dict objectForKey:kEmail]];
+            contact = [[Contact alloc] initInDatabase:self.database
+                                            withEmail: [dict objectForKey:kEmail]];
             contact.phoneNumber = [dict objectForKey:kPhone];
             contact.name = [dict objectForKey:kName];
             contact.position = [dict objectForKey:kPosition];
@@ -83,7 +83,7 @@
 - (Contact*) createContactWithMailOrReturnExist: (NSString*)mail{
     Contact* ct = [self contactWithMail:mail];
     if(!ct)
-        ct = [Contact createInDatabase:self.database withEmail:mail];
+        ct = [[Contact alloc] initInDatabase:self.database withEmail:mail];
     return ct;
 }
 
