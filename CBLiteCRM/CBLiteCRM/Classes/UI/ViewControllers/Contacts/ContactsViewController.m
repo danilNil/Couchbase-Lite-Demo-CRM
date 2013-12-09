@@ -38,10 +38,12 @@
 - (void) updateQuery
 {
     self.store = [DataStore sharedInstance].contactsStore;
-    if(!self.filteredOpp)
-        self.dataSource.query = [[(ContactsStore*)self.store queryContacts] asLiveQuery];
-    else
+    if(self.filteredOpp)
         self.dataSource.query = [[(ContactsStore*)self.store queryContactsByOpport:self.filteredOpp] asLiveQuery];
+    else if(self.filteredCustomer)
+        self.dataSource.query = [[(ContactsStore*)self.store queryContactsByCustomer:self.filteredCustomer] asLiveQuery];
+    else
+        self.dataSource.query = [[(ContactsStore*)self.store queryContacts] asLiveQuery];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

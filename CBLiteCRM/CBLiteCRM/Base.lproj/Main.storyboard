@@ -769,7 +769,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="c3T-bE-FLg">
-                                                <rect key="frame" x="15" y="316" width="290" height="30"/>
+                                                <rect key="frame" x="15" y="341" width="290" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="0.86324139030000002" green="0.86324139030000002" blue="0.86324139030000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <state key="normal" title="Delete">
@@ -805,6 +805,17 @@
                                                     <action selector="opportunities:" destination="TLO-se-8qL" eventType="touchUpInside" id="G2e-f4-ti0"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Fjy-H7-u5b">
+                                                <rect key="frame" x="15" y="303" width="290" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="0.86274509803921573" green="0.86274509803921573" blue="0.86274509803921573" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="show contacts">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="showContacts:" destination="TLO-se-8qL" eventType="touchUpInside" id="WNR-2x-yS1"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     </view>
@@ -836,6 +847,7 @@
                         <outlet property="mailField" destination="Ogp-Je-lhE" id="Ab4-xP-ZAf"/>
                         <outlet property="phoneField" destination="33M-G7-N2v" id="RFY-Ne-dY2"/>
                         <segue destination="5ij-MH-fTa" kind="push" identifier="presentOpportunitiesForCustomer" id="3kk-cj-LW4"/>
+                        <segue destination="hp4-NH-ICy" kind="push" identifier="presentContactsForCustomer" id="I7d-Ci-gP9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H6L-mK-hTJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -961,9 +973,9 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="KZr-Gj-Zuk"/>
         <segue reference="3kk-cj-LW4"/>
         <segue reference="uhY-OQ-e3f"/>
         <segue reference="zHw-JE-Ekg"/>
+        <segue reference="I7d-Ci-gP9"/>
     </inferredMetricsTieBreakers>
 </document>

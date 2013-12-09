@@ -8,6 +8,7 @@
 
 #import "CustomerDetailsViewController.h"
 #import "OpportunitiesViewController.h"
+#import "ContactsViewController.h"
 
 //Data
 #import "Customer.h"
@@ -66,13 +67,22 @@
     }
 }
 
-- (IBAction)opportunities:(id)sender {
+- (IBAction)opportunities:(id)sender
+{
     [self performSegueWithIdentifier:@"presentOpportunitiesForCustomer" sender:self];
+}
+
+- (IBAction)showContacts:(id)sender
+{
+    [self performSegueWithIdentifier:@"presentContactsForCustomer" sender:self];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.destinationViewController isKindOfClass:[OpportunitiesViewController class]]) {
         OpportunitiesViewController *vc = (OpportunitiesViewController*)segue.destinationViewController;
+        vc.filteredCustomer = self.currentCustomer;
+    } else if ([segue.destinationViewController isKindOfClass:[ContactsViewController class]]) {
+        ContactsViewController *vc = (ContactsViewController*)segue.destinationViewController;
         vc.filteredCustomer = self.currentCustomer;
     }
 }
