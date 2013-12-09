@@ -34,8 +34,13 @@ CBLUITableDelegate
 }
 
 - (void)updateUIForState:(BOOL)chooser{
-    if(chooser)
-        self.navigationController.navigationItem.rightBarButtonItem.enabled = NO;
+    if(chooser) {
+//        self.navigationItem.rightBarButtonItem
+        UIBarButtonItem *btn = self.navigationItem.rightBarButtonItem;
+
+//        btn.enabled = NO;
+//        NSLog(@"%@", NSStringFromCGRect([btn frame]));
+    }
 }
 
 - (void) updateQuery

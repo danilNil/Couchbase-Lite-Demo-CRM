@@ -45,6 +45,7 @@
     self.deleteButton.enabled = ct ? YES : NO;
     if(ct){
         self.nameField.text = ct.name;
+        self.companyField.text = ct.customer.companyName;
         self.positionField.text = ct.position;
         self.phoneField.text = ct.phoneNumber;
         self.mailField.text = ct.email;
@@ -123,11 +124,22 @@
 }
 
 - (Customer*)selectedCustomer{
-    return nil;
+    return self.currentContact.customer;
 }
 
 - (UIImage*)imageFromAttachment:(CBLAttachment*)attach{
     return [UIImage imageWithData:attach.content];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.destinationViewController isKindOfClass:[CustomersViewController class]]) {
+        CustomersViewController* vc = (CustomersViewController*)segue.destinationViewController;
+        [vc setOnSelectCustomer:^(Customer *cust) {
+            self.currentContact.customer = cust;
+            self.companyField.text = cust.companyName;
+        }];
+        vc.chooser = YES;
+    }
 }
 
 #pragma mark - UITextFieldDelegate
