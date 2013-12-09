@@ -14,6 +14,7 @@
 @property (readwrite) NSString* user_id;
 
 @property (readwrite) NSString* username;
+@property (readwrite) NSString* type;
 @property (readwrite) NSString* email;
 @property (readwrite) NSString* phoneNumber;
 @property bool approved;

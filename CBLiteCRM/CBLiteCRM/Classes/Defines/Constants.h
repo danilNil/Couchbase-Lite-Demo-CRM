@@ -21,7 +21,7 @@ static NSString const *kPosition = @"position";
 static NSString const *kCompanyName = @"companyName";
 static NSString *kCreatedFakeKey = @"createdFakeDBKey";
 
-#define kFakeDataBase 1
+#define kFakeDataBase 0
 
 static NSString* const kExampleUserName = @"foo@example.com";
 #endif

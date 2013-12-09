@@ -12,7 +12,7 @@
 
 #import "SalesPerson.h"
 
-#define kSyncUrl @"http://sync.couchbasecloud.com:4984/fb_sg"
+#define kSyncUrl @"http://sync.couchbasecloud.com:4984/fb_sg1"
 #define kFBAppId @"220375198143968"
 
 @interface AppDelegate()
@@ -34,7 +34,7 @@
         exit(-1);
     }
     _dataStore = [[DataStore alloc] initWithDatabase: _database];
-
+    
     [self setupCBLSync];
     if (error) {
         NSLog(@"data base creation error: %@", error);
@@ -59,13 +59,15 @@
         // this will be triggered after we call [_cblSync start]
         [_cblSync beforeFirstSync:^(NSString *userID, NSDictionary *userData,  NSError **outError) {
             // This is a first run, setup the profile but don't save it yet.
+
             SalesPerson *myProfile = [[SalesPerson alloc] initInDatabase:self.database withEmail:userData[@"name"] andUserID:userID];
-            
+//            NSLog(@"my profile doc properties: %@", myProfile.document.properties);
             // Sync doesn't start until after this block completes, so
             // all this data will be tagged.
-            if (!outError) {
+//            if (!outError) {
                 [myProfile save:outError];
-            }
+                NSLog(@"my profile doc properties: %@", myProfile.document.properties);
+//            }
         }];
     }
 }
