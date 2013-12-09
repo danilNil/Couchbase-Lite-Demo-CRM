@@ -9,6 +9,8 @@
 #import "ContactsStore.h"
 #import "Contact.h"
 #import "Opportunity.h"
+#import "Customer.h"
+
 @interface ContactsStore()
 {
     CBLView* _contactsView;
@@ -128,6 +130,25 @@
     //    NSString* myListId = opp.document.documentID;
     //    query.startKey = @[myListId, @{}];
     //    query.endKey = @[myListId];
+    return query;
+}
+
+- (CBLQuery *)queryContactsByCustomer:(Customer *)cust
+{
+    CBLView* view = [self.database viewNamed: @"contactsForCustomer"];
+    if (!view.mapBlock) {
+        [view setMapBlock: MAPBLOCK({
+            if ([doc[@"type"] isEqualToString: kContactDocType]) {
+                NSString* customerId = doc[@"customer"];
+                if (customerId) {
+                    emit(customerId, doc);
+                }
+            }
+        }) reduceBlock: nil version: @"4"]; // bump version any time you change the MAPBLOCK body!
+    }
+    CBLQuery* query = [view createQuery];
+    NSString* myCustID = cust.document.documentID;
+    query.keys = @[myCustID];
     return query;
 }
 

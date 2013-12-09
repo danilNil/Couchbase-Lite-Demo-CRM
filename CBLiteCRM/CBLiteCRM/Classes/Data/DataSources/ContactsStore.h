@@ -7,11 +7,14 @@
 //
 
 #import "BaseStore.h"
-@class Contact, Opportunity;
+@class Contact, Opportunity, Customer;
 @interface ContactsStore : BaseStore
 - (Contact*) createContactWithMailOrReturnExist: (NSString*)mail;
 - (Contact*) contactWithMail: (NSString*)mail;
 - (CBLQuery*) queryContacts;
 - (CBLQuery*) queryContactsByOpport:(Opportunity*)opp;
+
 - (void) createFakeContacts;
+- (CBLQuery*) queryContactsByCustomer:(Customer*)cust;
+
 @end

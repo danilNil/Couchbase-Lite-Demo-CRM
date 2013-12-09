@@ -8,10 +8,11 @@
 
 #import "FilteringViewController.h"
 
-@class Opportunity;
+@class Customer, Opportunity;
 
 @interface ContactsViewController : FilteringViewController
 
 @property (strong, nonatomic) Opportunity* filteredOpp;
+@property (strong, nonatomic) Customer* filteredCustomer;
 
 @end
