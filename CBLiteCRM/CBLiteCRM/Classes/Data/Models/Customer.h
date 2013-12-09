@@ -16,8 +16,6 @@
 @property (copy) NSString* websiteUrl;
 @property (copy) NSString* address;
 
-+ (NSString*) docIDForUsername: (NSString*)username;
-+ (NSString*) usernameFromDocID: (NSString*)docID;
 
 - (instancetype) initInDatabase: (CBLDatabase*)database
                   withCustomerName: (NSString*)name;

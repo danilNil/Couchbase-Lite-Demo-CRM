@@ -23,9 +23,8 @@
         _contactsView = [self.database viewNamed: @"contactsByName"];
         [_contactsView setMapBlock: MAPBLOCK({
             if ([doc[@"type"] isEqualToString: kContactDocType]) {
-                NSString* name = [Contact emailFromDocID: doc[@"_id"]];
-                if (name)
-                    emit(name.lowercaseString, name);
+                if (doc[@"email"])
+                    emit(doc[@"email"], doc[@"email"]);
             }
         }) version: @"1"];
 #if kFakeDataBase
@@ -88,8 +87,7 @@
 }
 
 - (Contact*) contactWithMail: (NSString*)mail{
-    NSString* docID = [Contact docIDForEmail: mail];
-    CBLDocument* doc = [self.database documentWithID: docID];
+    CBLDocument* doc = [self.database createDocument];
     if (!doc.currentRevisionID)
         return nil;
     return [Contact modelForDocument: doc];
@@ -107,9 +105,8 @@
     CBLView* view = [self.database viewNamed: @"contactsByOpport"];
     [view setMapBlock: MAPBLOCK({
         if ([doc[@"type"] isEqualToString: kContactDocType]) {
-            NSString* name = [Contact emailFromDocID: doc[@"_id"]];
             NSString* opportList = doc[@"opportunities"];
-            emit(@[opportList], name);
+            emit(@[opportList], doc[@"email"]);
         }
     }) reduceBlock: nil version: @"1"];
     

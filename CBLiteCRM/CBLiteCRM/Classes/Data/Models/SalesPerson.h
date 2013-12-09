@@ -24,7 +24,5 @@
                       andUserID: (NSString*)userId;
 - (instancetype) initInDatabase: (CBLDatabase*)database
                       withEmail: (NSString*)mail;
-+ (NSString*) userIdFromDocID: (NSString*)docID;
-+ (NSString*) docIDForUserId: (NSString*)mail;
 
 @end

@@ -19,7 +19,6 @@
 
 - (instancetype) initInDatabase: (CBLDatabase*)database
                  withEmail: (NSString*)mail;
-+ (NSString*) emailFromDocID: (NSString*)docID;
-+ (NSString*) docIDForEmail: (NSString*)mail;
+
 
 @end

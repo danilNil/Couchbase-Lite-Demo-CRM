@@ -12,7 +12,5 @@
 @property (copy) NSString* docType;
 
 - (instancetype) initInDatabase: (CBLDatabase*)database;
-+ (NSString*) uniqueFieldFromDocID: (NSString*)docID forDocType:(NSString*)docType;
-+ (NSString*) docIDForUniqueField: (NSString*)uniqueValue forDocType:(NSString*)docType;
 + (NSString*) docType;
 @end

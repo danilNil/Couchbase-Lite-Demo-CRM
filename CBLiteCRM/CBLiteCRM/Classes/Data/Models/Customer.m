@@ -15,13 +15,6 @@
     return kCustomerDocType;
 }
 
-+ (NSString*) docIDForUsername: (NSString*)username {
-    return [super docIDForUniqueField:username forDocType:[self docType]];
-}
-
-+ (NSString*) usernameFromDocID: (NSString*)docID{
-    return [super uniqueFieldFromDocID:docID forDocType:[self docType]];
-}
 
 - (instancetype) initInDatabase: (CBLDatabase*)database
                withCustomerName: (NSString*)name

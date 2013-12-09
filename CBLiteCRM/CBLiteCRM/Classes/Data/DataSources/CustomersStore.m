@@ -24,9 +24,8 @@
         _customersView = [self.database viewNamed:@"customersByName"];
         [_customersView setMapBlock: MAPBLOCK({
             if ([doc[@"type"] isEqualToString: kCustomerDocType]) {
-                NSString* name = [Customer usernameFromDocID: doc[@"_id"]];
-                if (name)
-                    emit(name.lowercaseString, name);
+                if (doc[@"companyName"])
+                    emit(doc[@"companyName"], doc[@"companyName"]);
             }
         }) version: @"1"];
 #if kFakeDataBase
@@ -79,8 +78,7 @@
 }
 
 - (Customer*) customerWithName: (NSString*)name {
-    NSString* docID = [Customer docIDForUsername: name];
-    CBLDocument* doc = [self.database documentWithID: docID];
+    CBLDocument* doc = [self.database createDocument];
     if (!doc.currentRevisionID)
         return nil;
     return [Customer modelForDocument: doc];
@@ -88,23 +86,6 @@
 
 - (CBLQuery*) allCustomersQuery {
     return [_customersView createQuery];
-}
-
-- (CBLQuery*) queryCustomersByOpport:(Opportunity*)opp {
-    CBLView* view = [self.database viewNamed: @"customersByOpport"];
-    [view setMapBlock: MAPBLOCK({
-        if ([doc[@"type"] isEqualToString: kCustomerDocType]) {
-            NSString* name = [Customer usernameFromDocID: doc[@"_id"]];
-            emit(name.lowercaseString, name);
-        }
-    }) reduceBlock: nil version: @"1"];
-    
-    CBLQuery* query = [view createQuery];
-    NSLog(@"!need to implement fetching for one-to-many relationship");
-    //    NSString* myListId = opp.document.documentID;
-    //    query.startKey = @[myListId, @{}];
-    //    query.endKey = @[myListId];
-    return query;
 }
 
 @end

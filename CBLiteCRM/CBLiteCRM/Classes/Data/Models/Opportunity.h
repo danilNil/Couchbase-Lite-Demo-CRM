@@ -17,8 +17,7 @@
 @property (copy) NSString* salesStage;
 @property (readonly, strong) NSArray* contacts;
 @property (copy) NSString* title;
-+ (NSString*)docIDForTitle:(NSString*)title;
-+ (NSString*) titleFromDocID: (NSString*)docID;
+
 - (instancetype) initInDatabase: (CBLDatabase*)database
                       withTitle: (NSString*)title;
 @end

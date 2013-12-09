@@ -20,14 +20,6 @@
     return self;
 }
 
-+ (NSString*) uniqueFieldFromDocID: (NSString*)docID forDocType:(NSString*)docType{
-    return [docID substringFromIndex:docType.length+1];
-}
-
-+ (NSString*) docIDForUniqueField: (NSString*)uniqueValue forDocType:(NSString*)docType{
-    return [NSString stringWithFormat:@"%@:%@",docType,uniqueValue];
-}
-
 + (NSString*) docType{
     NSAssert(YES, @"implement doc type in your class");
     return nil;

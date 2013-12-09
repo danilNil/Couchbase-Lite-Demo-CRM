@@ -15,14 +15,6 @@
    return kContactDocType;
 }
 
-+ (NSString*) docIDForEmail: (NSString*)mail {
-    return [super docIDForUniqueField:mail forDocType:[self docType]];
-}
-
-+ (NSString*) emailFromDocID: (NSString*)docID{
-    return [super uniqueFieldFromDocID:docID forDocType:[self docType]];
-}
-
 - (instancetype) initInDatabase: (CBLDatabase*)database
                   withEmail: (NSString*)mail
 {

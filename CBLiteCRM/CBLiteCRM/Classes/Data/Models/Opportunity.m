@@ -16,13 +16,6 @@
     return kOpportDocType;
 }
 
-+ (NSString*)docIDForTitle:(NSString*)title{
-    return [super docIDForUniqueField:title forDocType:[self docType]];
-}
-
-+ (NSString*) titleFromDocID: (NSString*)docID{
-    return [super uniqueFieldFromDocID:docID forDocType:[self docType]];
-}
 
 - (instancetype) initInDatabase: (CBLDatabase*)database
                       withTitle: (NSString*)title{

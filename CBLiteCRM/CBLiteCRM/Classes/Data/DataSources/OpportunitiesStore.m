@@ -23,13 +23,10 @@
         _opportView = [self.database viewNamed: @"oppByName"];
         [_opportView setMapBlock: MAPBLOCK({
             if ([doc[@"type"] isEqualToString: kOpportDocType]) {
-                NSString* name = [Opportunity titleFromDocID: doc[@"_id"]];
-                if (name)
-                    emit(name.lowercaseString, name);
+                emit(doc[@"title"], doc[@"title"]);
             }
         }) version: @"1"];
 #if kFakeDataBase
-
         [self createFakeOpportunities];
 #endif
 
@@ -50,8 +47,7 @@
 }
 
 - (Opportunity*) opportunityWithTitle: (NSString*)title {
-    NSString* docID = [Opportunity docIDForTitle: title];
-    CBLDocument* doc = [self.database documentWithID: docID];
+    CBLDocument* doc = [self.database createDocument];
     if (!doc.currentRevisionID)
         return nil;
     return [Opportunity modelForDocument: doc];
@@ -73,8 +69,7 @@
 }
 
 - (Opportunity*) opporunityWithTitle: (NSString*)title{
-    NSString* docID = [Opportunity docIDForTitle:title];
-    CBLDocument* doc = [self.database documentWithID: docID];
+    CBLDocument* doc = [self.database createDocument];
     if (!doc.currentRevisionID)
         return nil;
     return [Opportunity modelForDocument:doc];
