@@ -58,10 +58,8 @@ CBLUITableDelegate
 }
 
 - (Customer*)customerForPath:(NSIndexPath*)indexPath{
-    Customer* csmr;
     CBLQueryRow *row = [self.currentSource rowAtIndex:indexPath.row];
-    csmr = [Customer modelForDocument: row.document];
-    return csmr;
+    return [Customer modelForDocument: row.document];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{

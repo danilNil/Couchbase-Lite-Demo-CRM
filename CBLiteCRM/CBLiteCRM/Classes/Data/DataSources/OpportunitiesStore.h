@@ -7,7 +7,7 @@
 //
 
 #import "BaseStore.h"
-@class Opportunity, Customer;
+@class Opportunity, Customer, Contact;
 @interface OpportunitiesStore : BaseStore
 
 - (CBLQuery*) queryOpportunitiesForCustomer:(Customer*)customer;
@@ -15,5 +15,7 @@
 - (CBLQuery*) queryOpportunities;
 
 - (Opportunity*) createOpportunityWithTitleOrReturnExist: (NSString*)title;
+
+//- (BOOL)addContact:(Contact*)contact;
 
 @end

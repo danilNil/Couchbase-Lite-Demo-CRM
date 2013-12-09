@@ -14,6 +14,7 @@
 
 //Data
 #import "Opportunity.h"
+#import "Contact.h"
 #import "OpportunitiesStore.h"
 #import "Customer.h"
 #import "DataStore.h"
@@ -183,6 +184,12 @@
     }else if([segue.destinationViewController isKindOfClass:[CustomerDetailsViewController class]]){
         CustomerDetailsViewController* vc = segue.destinationViewController;
         vc.currentCustomer = customer;
+    } else if ([segue.destinationViewController isKindOfClass:[ContactsViewController class]]) {
+        ContactsViewController* vc = (ContactsViewController*)segue.destinationViewController;
+        vc.chooser = YES;
+        [vc setOnSelectContact:^(Contact * ct) {
+            NSLog(@"Contact selected %@", [ct email]);
+        }];
     }
 }
 

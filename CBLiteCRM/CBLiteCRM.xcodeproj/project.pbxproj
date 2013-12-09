@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		44726BF51855B9FF00AC88D2 /* ContactOpportunity.m in Sources */ = {isa = PBXBuildFile; fileRef = 44726BF41855B9FF00AC88D2 /* ContactOpportunity.m */; };
 		447A2C631845D808008786AF /* TextFieldsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 447A2C4E1845D808008786AF /* TextFieldsViewController.m */; };
 		447A2C641845D808008786AF /* ContactDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 447A2C511845D808008786AF /* ContactDetailsViewController.m */; };
 		447A2C651845D808008786AF /* ContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 447A2C531845D808008786AF /* ContactsViewController.m */; };
@@ -78,6 +79,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		44726BF31855B9FF00AC88D2 /* ContactOpportunity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactOpportunity.h; sourceTree = "<group>"; };
+		44726BF41855B9FF00AC88D2 /* ContactOpportunity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactOpportunity.m; sourceTree = "<group>"; };
 		447A2C4D1845D808008786AF /* TextFieldsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFieldsViewController.h; sourceTree = "<group>"; };
 		447A2C4E1845D808008786AF /* TextFieldsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextFieldsViewController.m; sourceTree = "<group>"; };
 		447A2C501845D808008786AF /* ContactDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactDetailsViewController.h; sourceTree = "<group>"; };
@@ -209,6 +212,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		44726BF21855B6E800AC88D2 /* RelationalModels */ = {
+			isa = PBXGroup;
+			children = (
+				44726BF31855B9FF00AC88D2 /* ContactOpportunity.h */,
+				44726BF41855B9FF00AC88D2 /* ContactOpportunity.m */,
+			);
+			path = RelationalModels;
+			sourceTree = "<group>";
+		};
 		447A2C4B1845D808008786AF /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -409,6 +421,7 @@
 			isa = PBXGroup;
 			children = (
 				831FFD211844422000C7CB22 /* DataSources */,
+				44726BF21855B6E800AC88D2 /* RelationalModels */,
 				831FFD221844422000C7CB22 /* Models */,
 			);
 			path = Data;
@@ -649,6 +662,7 @@
 				831FFD341844542F00C7CB22 /* DataStore.m in Sources */,
 				447A2C741845F214008786AF /* SalesPersonCell.m in Sources */,
 				83CC79C8184F39A600557A9B /* DateHelper.m in Sources */,
+				44726BF51855B9FF00AC88D2 /* ContactOpportunity.m in Sources */,
 				83173106184F21890043F865 /* ContactsStore.m in Sources */,
 				831FFD3E18446BC300C7CB22 /* Contact.m in Sources */,
 				830D51AC1848570900044A19 /* BaseModel.m in Sources */,
