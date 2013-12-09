@@ -25,9 +25,8 @@
         _customersView = [self.database viewNamed:@"customersByName"];
         [_customersView setMapBlock: MAPBLOCK({
             if ([doc[@"type"] isEqualToString: kCustomerDocType]) {
-                NSString* name = [Customer usernameFromDocID: doc[@"_id"]];
-                if (name)
-                    emit(name.lowercaseString, name);
+                if (doc[@"companyName"])
+                    emit(doc[@"companyName"], doc[@"companyName"]);
             }
         }) version: @"1"];
         
@@ -54,7 +53,7 @@
     for (NSDictionary *dict in [self getFakeCustomersDictionary]) {
         Customer* customer = [self customerWithName: [dict objectForKey:kName]];
         if (!customer) {
-            customer = [Customer createInDatabase: self.database
+            customer = [[Customer alloc] initInDatabase:self.database
                                  withCustomerName: [dict objectForKey:kName]];
             customer.email = [dict objectForKey:kEmail];
             customer.phone = [dict objectForKey:kPhone];
@@ -87,13 +86,12 @@
 - (Customer*) createCustomerWithNameOrReturnExist: (NSString*)name{
     Customer* cm = [self customerWithName: name];
     if(!cm)
-        cm = [Customer createInDatabase:self.database withCustomerName:name];
+        cm = [[Customer alloc] initInDatabase:self.database withCustomerName:name];
     return cm;
 }
 
 - (Customer*) customerWithName: (NSString*)name {
-    NSString* docID = [Customer docIDForUsername: name];
-    CBLDocument* doc = [self.database documentWithID: docID];
+    CBLDocument* doc = [self.database createDocument];
     if (!doc.currentRevisionID)
         return nil;
     return [Customer modelForDocument: doc];
@@ -101,23 +99,6 @@
 
 - (CBLQuery*) allCustomersQuery {
     return [_customersView createQuery];
-}
-
-- (CBLQuery*) queryCustomersByOpport:(Opportunity*)opp {
-    CBLView* view = [self.database viewNamed: @"customersByOpport"];
-    [view setMapBlock: MAPBLOCK({
-        if ([doc[@"type"] isEqualToString: kCustomerDocType]) {
-            NSString* name = [Customer usernameFromDocID: doc[@"_id"]];
-            emit(name.lowercaseString, name);
-        }
-    }) reduceBlock: nil version: @"1"];
-    
-    CBLQuery* query = [view createQuery];
-    NSLog(@"!need to implement fetching for one-to-many relationship");
-    //    NSString* myListId = opp.document.documentID;
-    //    query.startKey = @[myListId, @{}];
-    //    query.endKey = @[myListId];
-    return query;
 }
 
 - (CBLQuery *)filteredQuery

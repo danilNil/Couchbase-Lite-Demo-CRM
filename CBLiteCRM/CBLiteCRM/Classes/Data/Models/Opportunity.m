@@ -16,24 +16,20 @@
     return kOpportDocType;
 }
 
-+ (NSString*)docIDForTitle:(NSString*)title{
-    return [super docIDForUniqueField:title forDocType:[self docType]];
-}
 
-+ (NSString*) titleFromDocID: (NSString*)docID{
-    return [super uniqueFieldFromDocID:docID forDocType:[self docType]];
-}
-
-+ (Opportunity*) createInDatabase: (CBLDatabase*)database
-                     withTitle: (NSString*)title
-{
-    Opportunity* opp = [super createInDatabase:database withUniqueField:title andDocType:[self docType]];
-    [opp setValue: title ofProperty: @"title"];
-
+- (instancetype) initInDatabase: (CBLDatabase*)database
+                      withTitle: (NSString*)title{
+    NSParameterAssert(title);
+    self = [super initInDatabase:database];
+    if(self){
+        [self setValue: title ofProperty: @"title"];
+    }
+    
     NSError* error;
-    if (![opp save: &error])
+    if (![self save: &error])
         return nil;
-    return opp;
+    return self;
+
 }
 
 @end

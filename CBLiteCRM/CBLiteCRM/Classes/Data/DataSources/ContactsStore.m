@@ -25,9 +25,8 @@
         _contactsView = [self.database viewNamed: @"contactsByName"];
         [_contactsView setMapBlock: MAPBLOCK({
             if ([doc[@"type"] isEqualToString: kContactDocType]) {
-                NSString* name = [Contact emailFromDocID: doc[@"_id"]];
-                if (name)
-                    emit(name.lowercaseString, name);
+                if (doc[@"email"])
+                    emit(doc[@"email"], doc[@"email"]);
             }
         }) version: @"1"];
         
@@ -53,8 +52,8 @@
     for (NSDictionary *dict in [self getFakeContactsDictionary]) {
         Contact* contact = [self contactWithMail: [dict objectForKey:kEmail]];
         if (!contact) {
-            contact = [Contact createInDatabase: self.database
-                                      withEmail: [dict objectForKey:kEmail]];
+            contact = [[Contact alloc] initInDatabase:self.database
+                                            withEmail: [dict objectForKey:kEmail]];
             contact.phoneNumber = [dict objectForKey:kPhone];
             contact.name = [dict objectForKey:kName];
             contact.position = [dict objectForKey:kPosition];
@@ -95,13 +94,12 @@
 - (Contact*) createContactWithMailOrReturnExist: (NSString*)mail{
     Contact* ct = [self contactWithMail:mail];
     if(!ct)
-        ct = [Contact createInDatabase:self.database withEmail:mail];
+        ct = [[Contact alloc] initInDatabase:self.database withEmail:mail];
     return ct;
 }
 
 - (Contact*) contactWithMail: (NSString*)mail{
-    NSString* docID = [Contact docIDForEmail: mail];
-    CBLDocument* doc = [self.database documentWithID: docID];
+    CBLDocument* doc = [self.database createDocument];
     if (!doc.currentRevisionID)
         return nil;
     return [Contact modelForDocument: doc];
@@ -124,9 +122,8 @@
     CBLView* view = [self.database viewNamed: @"contactsByOpport"];
     [view setMapBlock: MAPBLOCK({
         if ([doc[@"type"] isEqualToString: kContactDocType]) {
-            NSString* name = [Contact emailFromDocID: doc[@"_id"]];
             NSString* opportList = doc[@"opportunities"];
-            emit(@[opportList], name);
+            emit(@[opportList], doc[@"email"]);
         }
     }) reduceBlock: nil version: @"1"];
     

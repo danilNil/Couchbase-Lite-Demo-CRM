@@ -30,9 +30,8 @@
         _salesPersonsView = [self.database viewNamed: @"salesPersonsByName"];
         [_salesPersonsView setMapBlock: MAPBLOCK({
             if ([doc[@"type"] isEqualToString: kSalesPersonDocType]) {
-                NSString* name = [SalesPerson userIdFromDocID: doc[@"_id"]];
-                if (name)
-                    emit(name.lowercaseString, name);
+                if (doc[@"email"])
+                    emit(doc[@"email"], doc[@"email"]);
             }
         }) version: @"1"];
 
@@ -105,8 +104,7 @@
 
 
 - (SalesPerson*) profileWithUsername: (NSString*)username {
-    NSString* docID = [SalesPerson docIDForUserId: username];
-    CBLDocument* doc = [self.database documentWithID: docID];
+    CBLDocument* doc = [self.database createDocument];
     if (!doc.currentRevisionID)
         return nil;
     return [SalesPerson modelForDocument: doc];

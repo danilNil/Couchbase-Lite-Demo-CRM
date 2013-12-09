@@ -20,7 +20,7 @@ static NSString const *kPhone = @"phone";
 static NSString const *kPosition = @"position";
 static NSString const *kCompanyName = @"companyName";
 
-#define kFakeDataBase 1
+#define kFakeDataBase 0
 
 static NSString* const kExampleUserName = @"foo@example.com";
 #endif

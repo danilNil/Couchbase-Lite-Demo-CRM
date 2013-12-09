@@ -11,10 +11,6 @@
 @property (copy) NSString* uniqueField;
 @property (copy) NSString* docType;
 
-+ (id) createInDatabase: (CBLDatabase*)database
-        withUniqueField: (NSString*)uniqueField
-             andDocType:(NSString*)docType;
-+ (NSString*) uniqueFieldFromDocID: (NSString*)docID forDocType:(NSString*)docType;
-+ (NSString*) docIDForUniqueField: (NSString*)uniqueValue forDocType:(NSString*)docType;
+- (instancetype) initInDatabase: (CBLDatabase*)database;
 + (NSString*) docType;
 @end

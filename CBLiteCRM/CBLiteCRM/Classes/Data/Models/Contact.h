@@ -17,9 +17,8 @@
 @property (copy) NSString* address;
 @property (copy) NSArray* opportunities;
 
-+ (Contact*) createInDatabase: (CBLDatabase*)database
-                 withEmail: (NSString*)username;
-+ (NSString*) emailFromDocID: (NSString*)docID;
-+ (NSString*) docIDForEmail: (NSString*)mail;
+- (instancetype) initInDatabase: (CBLDatabase*)database
+                 withEmail: (NSString*)mail;
+
 
 @end
