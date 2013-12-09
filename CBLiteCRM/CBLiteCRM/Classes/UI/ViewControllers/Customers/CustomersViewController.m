@@ -56,7 +56,7 @@ CBLUITableDelegate
 
 - (Customer*)customerForPath:(NSIndexPath*)indexPath{
     Customer* csmr;
-    CBLQueryRow *row = [self.dataSource rowAtIndex:indexPath.row];
+    CBLQueryRow *row = [self.currentSource rowAtIndex:indexPath.row];
     csmr = [Customer modelForDocument: row.document];
     return csmr;
 }

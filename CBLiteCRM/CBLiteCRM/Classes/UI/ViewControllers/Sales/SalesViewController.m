@@ -46,8 +46,8 @@
 
 - (SalesPerson*)salesForPath:(NSIndexPath*)indexPath{
     SalesPerson* sls;
-    CBLQueryRow *row = [self.dataSource rowAtIndex:indexPath.row];
-        sls = [SalesPerson modelForDocument: row.document];
+    CBLQueryRow *row = [self.currentSource rowAtIndex:indexPath.row];
+    sls = [SalesPerson modelForDocument: row.document];
     return sls;
 }
 

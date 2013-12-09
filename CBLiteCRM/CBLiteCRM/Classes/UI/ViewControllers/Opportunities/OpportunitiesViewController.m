@@ -35,7 +35,7 @@ CBLUITableDelegate
 
 - (Opportunity*)opportForPath:(NSIndexPath*)indexPath{
     Opportunity* opp;
-    CBLQueryRow *row = [self.dataSource rowAtIndex:indexPath.row];
+    CBLQueryRow *row = [self.currentSource rowAtIndex:indexPath.row];
     opp = [Opportunity modelForDocument: row.document];
     return opp;
 }
@@ -58,11 +58,10 @@ CBLUITableDelegate
 
 - (void) updateQuery
 {
-    if (self.filteredCustomer) {
+    if (self.filteredCustomer)
         self.dataSource.query = [[[DataStore sharedInstance].opportunitiesStore queryOpportunitiesForCustomer:self.filteredCustomer] asLiveQuery];
-    } else {
+    else
         self.dataSource.query = [[[DataStore sharedInstance].opportunitiesStore queryOpportunities] asLiveQuery];
-    }
 }
 
 -(UITableViewCell *)couchTableSource:(CBLUITableSource *)source cellForRowAtIndexPath:(NSIndexPath *)indexPath

@@ -38,7 +38,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CBLQueryRow *row = [self.dataSource rowAtIndex:indexPath.row];
+    CBLQueryRow *row = [self.currentSource rowAtIndex:indexPath.row];
     self.selectedContact = [Contact modelForDocument: row.document];
     [self performSegueWithIdentifier:@"presentContactDetails" sender:self];
 }

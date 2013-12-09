@@ -47,6 +47,7 @@ CBLUITableDelegate
 }
 
 #pragma mark Content Filtering
+
 - (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope {}
 
 #pragma mark - UISearchDisplayController Delegate Methods
@@ -63,7 +64,13 @@ CBLUITableDelegate
 }
 
 - (void)searchDisplayController:(UISearchDisplayController *)controller willHideSearchResultsTableView:(UITableView *)tableView {
+    self.currentSource = self.dataSource;
     [self.tableView reloadData];
+}
+
+- (void)searchDisplayController:(UISearchDisplayController *)controller willShowSearchResultsTableView:(UITableView *)tableView
+{
+    self.currentSource = self.filteredDataSource;
 }
 
 @end
