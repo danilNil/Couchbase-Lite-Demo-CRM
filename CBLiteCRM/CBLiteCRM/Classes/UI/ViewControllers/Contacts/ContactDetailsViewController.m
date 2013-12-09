@@ -21,6 +21,7 @@
     UIImage* selectedImage;
     UITapGestureRecognizer* photoTapRecognizer;
     ImagePickerAngel * imagePickerAngel;
+    Customer *customer;
 }
 
 @end
@@ -44,8 +45,9 @@
     self.mailField.enabled = !ct;
     self.deleteButton.enabled = ct ? YES : NO;
     if(ct){
+        customer = ct.customer;
         self.nameField.text = ct.name;
-        self.companyField.text = ct.customer.companyName;
+        self.companyField.text = customer.companyName;
         self.positionField.text = ct.position;
         self.phoneField.text = ct.phoneNumber;
         self.mailField.text = ct.email;
@@ -124,7 +126,7 @@
 }
 
 - (Customer*)selectedCustomer{
-    return self.currentContact.customer;
+    return customer;
 }
 
 - (UIImage*)imageFromAttachment:(CBLAttachment*)attach{
@@ -135,7 +137,7 @@
     if ([segue.destinationViewController isKindOfClass:[CustomersViewController class]]) {
         CustomersViewController* vc = (CustomersViewController*)segue.destinationViewController;
         [vc setOnSelectCustomer:^(Customer *cust) {
-            self.currentContact.customer = cust;
+            customer = cust;
             self.companyField.text = cust.companyName;
         }];
         vc.chooser = YES;
