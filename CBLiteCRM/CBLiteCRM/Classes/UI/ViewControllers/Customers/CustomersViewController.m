@@ -35,7 +35,7 @@ CBLUITableDelegate
 
 - (void)updateUIForState:(BOOL)chooser{
     if(chooser)
-        self.navigationController.navigationItem.rightBarButtonItem.enabled = NO;
+        self.navigationItem.rightBarButtonItem.enabled = NO;
 }
 
 - (void) updateQuery

@@ -21,6 +21,7 @@
     UIImage* selectedImage;
     UITapGestureRecognizer* photoTapRecognizer;
     ImagePickerAngel * imagePickerAngel;
+    Customer *customer;
 }
 
 @end
@@ -44,7 +45,9 @@
     self.mailField.enabled = !ct;
     self.deleteButton.enabled = ct ? YES : NO;
     if(ct){
+        customer = ct.customer;
         self.nameField.text = ct.name;
+        self.companyField.text = customer.companyName;
         self.positionField.text = ct.position;
         self.phoneField.text = ct.phoneNumber;
         self.mailField.text = ct.email;
@@ -123,11 +126,22 @@
 }
 
 - (Customer*)selectedCustomer{
-    return nil;
+    return customer;
 }
 
 - (UIImage*)imageFromAttachment:(CBLAttachment*)attach{
     return [UIImage imageWithData:attach.content];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.destinationViewController isKindOfClass:[CustomersViewController class]]) {
+        CustomersViewController* vc = (CustomersViewController*)segue.destinationViewController;
+        [vc setOnSelectCustomer:^(Customer *cust) {
+            customer = cust;
+            self.companyField.text = cust.companyName;
+        }];
+        vc.chooser = YES;
+    }
 }
 
 #pragma mark - UITextFieldDelegate
