@@ -23,15 +23,19 @@
     return [super uniqueFieldFromDocID:docID forDocType:[self docType]];
 }
 
-+ (Customer*) createInDatabase: (CBLDatabase*)database
-                 withCustomerName: (NSString*)name
+- (instancetype) initInDatabase: (CBLDatabase*)database
+               withCustomerName: (NSString*)name
 {
-    Customer* customer = [super createInDatabase:database withUniqueField:name andDocType:[self docType]];
-   [customer setValue:name ofProperty: @"companyName"];
+    NSParameterAssert(name);
+    self = [super initInDatabase:database];
+    if(self){
+        [self setValue:name ofProperty: @"companyName"];
+    }
+
     NSError* error;
-    if (![customer save: &error])
+    if (![self save: &error])
         return nil;
-    return customer;
+    return self;
 }
 
 @end

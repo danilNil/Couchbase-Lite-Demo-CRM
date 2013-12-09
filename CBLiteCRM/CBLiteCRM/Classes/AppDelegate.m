@@ -12,7 +12,7 @@
 
 #import "SalesPerson.h"
 
-#define kSyncUrl @"http://sync.couchbasecloud.com:4984/persona"
+#define kSyncUrl @"http://sync.couchbasecloud.com:4984/fb_sg"
 #define kFBAppId @"220375198143968"
 
 @interface AppDelegate()
@@ -28,7 +28,7 @@
     
     // create a database
     NSError *error;
-    self.database = [manager databaseNamed: @"persona" error: &error];
+    self.database = [manager databaseNamed: @"fb_sg" error: &error];
     if (error) {
         NSLog(@"error getting database %@",error);
         exit(-1);

@@ -19,6 +19,6 @@
 @property (copy) NSString* title;
 + (NSString*)docIDForTitle:(NSString*)title;
 + (NSString*) titleFromDocID: (NSString*)docID;
-+ (Opportunity*) createInDatabase: (CBLDatabase*)database
-                        withTitle: (NSString*)title;
+- (instancetype) initInDatabase: (CBLDatabase*)database
+                      withTitle: (NSString*)title;
 @end

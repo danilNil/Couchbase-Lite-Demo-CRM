@@ -23,14 +23,18 @@
     return [super uniqueFieldFromDocID:docID forDocType:[self docType]];
 }
 
-+ (Contact*) createInDatabase: (CBLDatabase*)database
-                     withEmail: (NSString*)mail
+- (instancetype) initInDatabase: (CBLDatabase*)database
+                  withEmail: (NSString*)mail
 {
-    Contact* profile = [super createInDatabase:database withUniqueField:mail andDocType:[self docType]];
-    [profile setValue: mail ofProperty: @"email"];
+    NSParameterAssert(mail);
+    self = [super initInDatabase:database];
+    if(self){
+        [self setValue: mail ofProperty: @"email"];
+    }
+
     NSError* error;
-    if (![profile save: &error])
+    if (![self save: &error])
         return nil;
-    return profile;
+    return self;
 }
 @end

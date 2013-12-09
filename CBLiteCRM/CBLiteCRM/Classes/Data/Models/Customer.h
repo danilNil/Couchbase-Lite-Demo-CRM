@@ -18,7 +18,8 @@
 
 + (NSString*) docIDForUsername: (NSString*)username;
 + (NSString*) usernameFromDocID: (NSString*)docID;
-+ (Customer*) createInDatabase: (CBLDatabase*)database
-              withCustomerName: (NSString*)name;
+
+- (instancetype) initInDatabase: (CBLDatabase*)database
+                  withCustomerName: (NSString*)name;
 
 @end

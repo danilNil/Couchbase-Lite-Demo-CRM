@@ -11,20 +11,13 @@
 @implementation BaseModel
 @dynamic uniqueField,docType;
 
-+ (id) createInDatabase: (CBLDatabase*)database
-        withUniqueField: (NSString*)uniqueField
-             andDocType:(NSString*)docType{
-    NSString* docID = [self docIDForUniqueField:uniqueField forDocType:docType];
-    CBLDocument* doc = [database documentWithID: docID];
-    BaseModel* newModel = [[self class] modelForDocument: doc];
-    
-    [newModel setValue:docType ofProperty: @"type"];
-    [newModel setValue:uniqueField ofProperty:@"uniqueField"];
+- (instancetype) initInDatabase: (CBLDatabase*)database{
+    self = [super initWithNewDocumentInDatabase:database];
+    if(self){
+        [self setValue: [[self class] docType] ofProperty: @"type"];
+    }
 
-    NSError* error;
-    if (![newModel save: &error])
-        return nil;
-    return newModel;
+    return self;
 }
 
 + (NSString*) uniqueFieldFromDocID: (NSString*)docID forDocType:(NSString*)docType{
