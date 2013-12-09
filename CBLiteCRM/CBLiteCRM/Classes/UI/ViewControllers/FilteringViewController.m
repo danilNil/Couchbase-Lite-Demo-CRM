@@ -56,7 +56,7 @@ CBLUITableDelegate
 {
     NSError *err;
     CBLQuery *query = [self.store filteredQuery];
-    CBLQueryEnumerator *enumer = [query rows:&err];
+    CBLQueryEnumerator *enumer = [self.dataSource.query rows:&err];
 
     NSMutableArray *matches = [NSMutableArray new];
     for (NSUInteger i = 0; i < enumer.count; i++) {
