@@ -33,7 +33,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-229" y="2"/>
+            <point key="canvasLocation" x="-269" y="338"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="iCt-9w-6q7">
@@ -49,7 +49,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jRX-ZC-y9G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="146" y="2"/>
+            <point key="canvasLocation" x="106" y="338"/>
         </scene>
         <!--Menu View Controller - Menu-->
         <scene sceneID="odU-Xo-URo">
@@ -116,7 +116,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0JA-6r-ZWB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="555" y="2"/>
+            <point key="canvasLocation" x="537" y="427"/>
         </scene>
         <!--Sales View Controller - Sales Person-->
         <scene sceneID="zQg-tN-zT5">
@@ -167,7 +167,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="1092" y="-430"/>
+            <point key="canvasLocation" x="1066" y="-153"/>
         </scene>
         <!--Sales Person Options View Controller-->
         <scene sceneID="cKc-Z1-Fuf">
@@ -252,7 +252,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nql-vy-yKY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1514" y="-430"/>
+            <point key="canvasLocation" x="1488" y="-153"/>
         </scene>
         <!--Customers View Controller - Customers-->
         <scene sceneID="5Vl-uH-AH0">
@@ -267,7 +267,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <searchBar key="tableHeaderView" contentMode="redraw" id="JEN-lx-y2A">
-                                    <rect key="frame" x="0.0" y="64" width="320" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <textInputTraits key="textInputTraits"/>
                                     <connections>
@@ -304,7 +304,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="1087" y="-1107"/>
+            <point key="canvasLocation" x="1066" y="-723"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="NMm-OM-D9U">
@@ -319,7 +319,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3AB-f3-rgh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1528" y="-1107"/>
+            <point key="canvasLocation" x="1507" y="-723"/>
         </scene>
         <!--Contact Details View Controller - Details-->
         <scene sceneID="XBv-Uk-B3a">
@@ -435,6 +435,9 @@
                                                 <state key="normal" title="Opportunities">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="opportunities:" destination="Xt6-34-7OD" eventType="touchUpInside" id="BEB-SH-boh"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2C2-UJ-N4e">
                                                 <rect key="frame" x="15" y="462" width="290" height="30"/>
@@ -488,11 +491,12 @@
                         <outlet property="phoneField" destination="wdg-R9-28s" id="N6u-HG-cQN"/>
                         <outlet property="photoView" destination="JdH-AX-qt3" id="8aJ-6T-DTM"/>
                         <outlet property="positionField" destination="I8x-kn-3Kq" id="ld2-Eo-jHC"/>
+                        <segue destination="zWg-jE-NQp" kind="push" identifier="presentOpportunitiesForContact" id="33B-kY-8zX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fwK-Yb-awM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1796" y="244"/>
+            <point key="canvasLocation" x="1833" y="427"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cuA-kl-VxA">
@@ -508,7 +512,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fF2-nJ-Obm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1382" y="235"/>
+            <point key="canvasLocation" x="1443" y="427"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jTM-kM-nf1">
@@ -539,7 +543,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" id="qKj-wr-JUC">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="326"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="413"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="opportunity name" textAlignment="center" minimumFontSize="17" id="eUD-c5-Dk5">
@@ -604,7 +608,7 @@
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="hp4-NH-ICy" kind="push" id="KZr-Gj-Zuk"/>
+                                                    <action selector="showContacts:" destination="tN3-ye-q8X" eventType="touchUpInside" id="1sn-CL-3Do"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="MnG-pZ-lRp">
@@ -671,11 +675,12 @@
                         <outlet property="stageField" destination="8Hz-8A-88H" id="9IC-oA-Dgv"/>
                         <outlet property="winField" destination="8xy-VZ-6oJ" id="DyI-Qp-7us"/>
                         <segue destination="DoK-bY-Hq0" kind="modal" identifier="presentMyCustomer" id="sb8-08-2KH"/>
+                        <segue destination="1hK-A1-uop" kind="push" identifier="presentContactsForOpportunity" id="eya-Yd-xZB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dzf-aQ-KNO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1817" y="1005"/>
+            <point key="canvasLocation" x="1833" y="1005"/>
         </scene>
         <!--Customer Details View Controller - Customer-->
         <scene sceneID="c5f-lt-CfQ">
@@ -852,7 +857,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H6L-mK-hTJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1927" y="-1107"/>
+            <point key="canvasLocation" x="1906" y="-723"/>
         </scene>
         <!--Opportunities View Controller - Opportunities-->
         <scene sceneID="5kX-lH-IT9">
@@ -961,7 +966,120 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="1005" y="235"/>
+            <point key="canvasLocation" x="1066" y="427"/>
+        </scene>
+        <!--Contacts By Opportunity View Controller - Contacts-->
+        <scene sceneID="emB-hk-xRJ">
+            <objects>
+                <viewController id="1hK-A1-uop" customClass="ContactsByOpportunityViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QuJ-97-dbJ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Et0-7c-YhJ">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <searchBar key="tableHeaderView" contentMode="redraw" id="oYI-iZ-EUk">
+                                    <rect key="frame" x="0.0" y="64" width="320" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="bjJ-iH-njp" id="Vkk-M0-cOc"/>
+                                    </connections>
+                                </searchBar>
+                                <connections>
+                                    <outlet property="dataSource" destination="1hK-A1-uop" id="0at-ot-GQN"/>
+                                    <outlet property="delegate" destination="1hK-A1-uop" id="rJQ-mt-NVH"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Contacts" id="maZ-4m-xyL">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="9Ts-j2-2VC">
+                            <connections>
+                                <action selector="back:" destination="1hK-A1-uop" id="5dd-iP-Zdl"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="OKe-d4-aNe">
+                            <connections>
+                                <segue destination="hp4-NH-ICy" kind="push" identifier="presentContactSelectionForOpportunity" id="1iO-jg-otn"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="cellIdentifier" value="ContactCell"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="rrA-Bl-w1O" id="Pes-DL-i5u"/>
+                        <outlet property="tableView" destination="Et0-7c-YhJ" id="uSx-Cy-6iS"/>
+                        <segue destination="Xt6-34-7OD" kind="modal" identifier="presentContactDetails" id="ast-FK-lDe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i99-Ue-YoZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="rrA-Bl-w1O">
+                    <connections>
+                        <outlet property="delegate" destination="1hK-A1-uop" id="Ipg-BQ-bMT"/>
+                        <outlet property="searchBar" destination="oYI-iZ-EUk" id="pEv-9e-XFh"/>
+                        <outlet property="searchContentsController" destination="1hK-A1-uop" id="GGy-j4-aPC"/>
+                        <outlet property="searchResultsDataSource" destination="1hK-A1-uop" id="DJU-4o-OXS"/>
+                        <outlet property="searchResultsDelegate" destination="1hK-A1-uop" id="iMw-hh-wws"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="1074" y="1574"/>
+        </scene>
+        <!--Opportunites By Contact View Controller - Opportunities-->
+        <scene sceneID="6Jb-Mf-S3a">
+            <objects>
+                <viewController id="zWg-jE-NQp" customClass="OpportunitesByContactViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8Oo-iW-SMn">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="2tM-I0-4kq">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <searchBar key="tableHeaderView" contentMode="redraw" id="zQg-mi-DH4">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="bjJ-iH-njp" id="8Qr-J9-VRD"/>
+                                    </connections>
+                                </searchBar>
+                                <connections>
+                                    <outlet property="dataSource" destination="zWg-jE-NQp" id="Sav-hI-q7E"/>
+                                    <outlet property="delegate" destination="zWg-jE-NQp" id="GP0-0O-JZI"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Opportunities" id="aQI-ER-j4b">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="cAx-YM-HS5"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="Bx2-zr-kSv" id="DOn-KX-Vep"/>
+                        <outlet property="tableView" destination="2tM-I0-4kq" id="Xbm-at-Fif"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VZV-hd-HAK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="Bx2-zr-kSv">
+                    <connections>
+                        <outlet property="delegate" destination="zWg-jE-NQp" id="kT2-AX-kxE"/>
+                        <outlet property="searchBar" destination="zQg-mi-DH4" id="V5I-PL-sVO"/>
+                        <outlet property="searchContentsController" destination="zWg-jE-NQp" id="KRX-cf-Hi7"/>
+                        <outlet property="searchResultsDataSource" destination="zWg-jE-NQp" id="Qyd-su-9du"/>
+                        <outlet property="searchResultsDelegate" destination="zWg-jE-NQp" id="fSe-zo-lgl"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="2330" y="427"/>
         </scene>
     </scenes>
     <resources>
@@ -973,9 +1091,10 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="3kk-cj-LW4"/>
-        <segue reference="uhY-OQ-e3f"/>
-        <segue reference="zHw-JE-Ekg"/>
         <segue reference="I7d-Ci-gP9"/>
+        <segue reference="sb8-08-2KH"/>
+        <segue reference="oD6-Gt-h5e"/>
+        <segue reference="ast-FK-lDe"/>
+        <segue reference="zHw-JE-Ekg"/>
     </inferredMetricsTieBreakers>
 </document>

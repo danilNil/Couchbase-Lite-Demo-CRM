@@ -8,16 +8,20 @@
 
 #import "OpportunityDetailesViewController.h"
 #import "ContactsViewController.h"
+#import "ContactsByOpportunityViewController.h"
 #import "CustomersViewController.h"
 #import "CustomerDetailsViewController.h"
 #import "DictPickerView.h"
 
 //Data
 #import "Opportunity.h"
+#import "Contact.h"
 #import "OpportunitiesStore.h"
 #import "Customer.h"
 #import "DataStore.h"
 #import "DateHelper.h"
+#import "ContactOpportunityStore.h"
+#import "ContactOpportunity.h"
 
 @interface OpportunityDetailesViewController ()
 <DictPickerViewDelegate>
@@ -113,8 +117,6 @@
         [self performSegueWithIdentifier:@"presentMyCustomer" sender:self];
 }
 
-- (IBAction)showContacts:(id)sender {}
-
 - (void)dateFieldChange
 {
     self.dateField.text = [NSString stringWithFormat:@"%@",
@@ -131,6 +133,11 @@
 }
 
 - (IBAction)changeCustomer:(id)sender {}
+
+- (IBAction)showContacts:(id)sender
+{
+    [self performSegueWithIdentifier:@"presentContactsForOpportunity" sender:self];
+}
 
 - (void)setupStagePicker
 {
@@ -167,13 +174,7 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if([segue.destinationViewController isKindOfClass:[UINavigationController class]]){
-        UINavigationController* navc = (UINavigationController*)segue.destinationViewController;
-        if([navc.topViewController isKindOfClass:[ContactsViewController class]]){
-            ContactsViewController* vc = (ContactsViewController*)navc.topViewController;
-            vc.filteredOpp = self.currentOpport;
-        }
-    }else if([segue.destinationViewController isKindOfClass:[CustomersViewController class]]){
+    if([segue.destinationViewController isKindOfClass:[CustomersViewController class]]){
         CustomersViewController* vc = (CustomersViewController*)segue.destinationViewController;
         vc.chooser = YES;
         [vc setOnSelectCustomer:^(Customer *cust) {
@@ -183,6 +184,9 @@
     }else if([segue.destinationViewController isKindOfClass:[CustomerDetailsViewController class]]){
         CustomerDetailsViewController* vc = segue.destinationViewController;
         vc.currentCustomer = customer;
+    } else if ([segue.destinationViewController isKindOfClass:[ContactsViewController class]]) {
+        ContactsByOpportunityViewController* vc = (ContactsByOpportunityViewController*)segue.destinationViewController;
+        vc.filteredOpp = self.currentOpport;
     }
 }
 

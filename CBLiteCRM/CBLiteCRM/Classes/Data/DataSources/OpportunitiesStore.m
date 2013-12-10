@@ -108,4 +108,5 @@
     query.endKey = @[myCustID, @{}];
     return query;
 }
+
 @end

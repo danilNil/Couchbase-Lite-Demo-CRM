@@ -61,9 +61,16 @@ CBLUITableDelegate
     NSMutableArray *matches = [NSMutableArray new];
     for (NSUInteger i = 0; i < enumer.count; i++) {
         CBLQueryRow* row = [enumer rowAtIndex:i];
-        BaseModel* model = [self.modelClass modelForDocument:row.document];
-        if ([[model getValueOfProperty:self.searchableProperty] rangeOfString:searchText options:NSCaseInsensitiveSearch].location != NSNotFound)
-            [matches addObject:[model getValueOfProperty:self.searchableProperty]];
+        CBLModel* model = [self.modelClass modelForDocument:row.document];
+        NSString* searchableString;
+        if (self.secondLevelSearchableProperty.length > 0) {
+            id obj = [model getValueOfProperty:self.firstLevelSearchableProperty];
+            searchableString = [obj getValueOfProperty:self.secondLevelSearchableProperty];
+        } else {
+            self.firstLevelSearchableProperty = [model getValueOfProperty:self.firstLevelSearchableProperty];
+        }
+        if ([searchableString rangeOfString:searchText options:NSCaseInsensitiveSearch].location != NSNotFound)
+            [matches addObject:searchableString];
     }
     query.keys = matches;
     self.filteredDataSource.query = [query asLiveQuery];

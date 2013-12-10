@@ -7,7 +7,7 @@
 //
 
 #import "BaseStore.h"
-@class Opportunity, Customer;
+@class Opportunity, Customer, Contact;
 @interface OpportunitiesStore : BaseStore
 
 - (CBLQuery*) queryOpportunitiesForCustomer:(Customer*)customer;

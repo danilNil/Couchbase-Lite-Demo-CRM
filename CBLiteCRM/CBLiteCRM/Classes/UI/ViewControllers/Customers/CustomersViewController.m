@@ -25,12 +25,13 @@ CBLUITableDelegate
 
 @implementation CustomersViewController
 
--(void)viewDidLoad{
+-(void)viewDidLoad
+{
     [super viewDidLoad];
     self.modelClass = [Customer class];
-    self.searchableProperty = @"companyName";
+    self.firstLevelSearchableProperty = @"companyName";
     [self updateUIForState:self.chooser];
-    self.filteredDataSource.labelProperty = self.searchableProperty;
+    self.filteredDataSource.labelProperty = self.firstLevelSearchableProperty;
 }
 
 - (void)updateUIForState:(BOOL)chooser{
@@ -58,10 +59,8 @@ CBLUITableDelegate
 }
 
 - (Customer*)customerForPath:(NSIndexPath*)indexPath{
-    Customer* csmr;
     CBLQueryRow *row = [self.currentSource rowAtIndex:indexPath.row];
-    csmr = [Customer modelForDocument: row.document];
-    return csmr;
+    return [Customer modelForDocument: row.document];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{

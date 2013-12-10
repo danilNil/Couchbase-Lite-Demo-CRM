@@ -16,9 +16,10 @@
 #import "ContactsStore.h"
 #import "Contact.h"
 
-
 @interface ContactsViewController ()
+
 @property(nonatomic, strong) Contact* selectedContact;
+
 @end
 
 @implementation ContactsViewController
@@ -27,7 +28,7 @@
 {
     [super viewDidLoad];
     self.modelClass = [Contact class];
-    self.searchableProperty = @"email";
+    self.firstLevelSearchableProperty = @"email";
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -38,19 +39,27 @@
 - (void) updateQuery
 {
     self.store = [DataStore sharedInstance].contactsStore;
-    if(self.filteredOpp)
-        self.dataSource.query = [[(ContactsStore*)self.store queryContactsByOpport:self.filteredOpp] asLiveQuery];
+    if (self.filteringOpportunity)
+        self.dataSource.query = [[(ContactsStore*)self.store queryContactsForOpportunity:self.filteringOpportunity] asLiveQuery];
     else if(self.filteredCustomer)
         self.dataSource.query = [[(ContactsStore*)self.store queryContactsByCustomer:self.filteredCustomer] asLiveQuery];
     else
         self.dataSource.query = [[(ContactsStore*)self.store queryContacts] asLiveQuery];
 }
 
+- (void)didChooseContact:(Contact*)ct{
+    self.onSelectContact(ct);
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CBLQueryRow *row = [self.currentSource rowAtIndex:indexPath.row];
     self.selectedContact = [Contact modelForDocument: row.document];
-    [self performSegueWithIdentifier:@"presentContactDetails" sender:self];
+    if(self.chooser && self.onSelectContact)
+        [self didChooseContact:self.selectedContact];
+    else
+        [self performSegueWithIdentifier:@"presentContactDetails" sender:self];
 }
 
 - (UITableViewCell *)couchTableSource:(CBLUITableSource *)source cellForRowAtIndexPath:(NSIndexPath *)indexPath

@@ -13,6 +13,7 @@ static NSString* const kSalesPersonDocType = @"salesperson";
 static NSString* const kOpportDocType = @"opportunity";
 static NSString* const kContactDocType = @"contact";
 static NSString* const kCustomerDocType = @"customer";
+static NSString* const kContactOpportunityDocType = @"contactOpportunity";
 
 static NSString const *kName = @"name";
 static NSString const *kEmail = @"email";

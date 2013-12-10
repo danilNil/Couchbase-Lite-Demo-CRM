@@ -10,12 +10,15 @@
 #import "ContactDetailsViewController.h"
 #import "ImagePickerAngel.h"
 #import "CustomersViewController.h"
+#import "OpportunitesByContactViewController.h"
 
 //Data
 #import "DataStore.h"
 #import "ContactsStore.h"
+#import "ContactOpportunityStore.h"
 #import "Contact.h"
 #import "Customer.h"
+#import "ContactOpportunity.h"
 
 @interface ContactDetailsViewController (){
     UIImage* selectedImage;
@@ -87,6 +90,13 @@
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
+- (IBAction)opportunities:(id)sender
+{
+    if (self.currentContact) {
+        [self performSegueWithIdentifier:@"presentOpportunitiesForContact" sender:self];
+    }
+}
+
 - (IBAction)saveItem:(id)sender {
     if(self.mailField.text && ![self.mailField.text isEqualToString:@""]){
         Contact* newContact = self.currentContact;
@@ -141,6 +151,10 @@
             self.companyField.text = cust.companyName;
         }];
         vc.chooser = YES;
+    } else if ([segue.destinationViewController isKindOfClass:[OpportunitesByContactViewController class]]) {
+        OpportunitesByContactViewController *vc = (OpportunitesByContactViewController*)segue.destinationViewController;
+        vc.navigationItem.rightBarButtonItem.enabled = NO;
+        vc.filteringContact = self.currentContact;
     }
 }
 

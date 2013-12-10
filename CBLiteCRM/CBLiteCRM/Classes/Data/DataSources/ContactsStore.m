@@ -11,6 +11,10 @@
 #import "Opportunity.h"
 #import "Customer.h"
 
+#import "ContactOpportunityStore.h"
+#import "ContactOpportunity.h"
+#import "DataStore.h"
+
 @interface ContactsStore()
 {
     CBLView* _contactsView;
@@ -103,33 +107,31 @@
     return [Contact modelForDocument: doc];
 }
 
-
 - (CBLQuery*) queryContacts {
     CBLQuery* query = [_contactsView createQuery];
     query.descending = YES;
     return query;
 }
 
-- (CBLQuery *)filteredQuery
+- (CBLQuery*) queryContactsForOpportunity:(Opportunity*)opp
 {
-    return [_filteredContactsView createQuery];
-}
-
-- (CBLQuery*) queryContactsByOpport:(Opportunity*)opp {
-    
-    CBLView* view = [self.database viewNamed: @"contactsByOpport"];
-    [view setMapBlock: MAPBLOCK({
-        if ([doc[@"type"] isEqualToString: kContactDocType]) {
-            NSString* opportList = doc[@"opportunities"];
-            emit(@[opportList], doc[@"email"]);
+    CBLQuery* query = [_contactsView createQuery];
+    CBLQuery *addedContactsQuery = [[DataStore sharedInstance].contactOpportunityStore queryContactsForOpportunity:opp];
+    NSError *err;
+    NSMutableArray *keys;
+    keys = [NSMutableArray new];
+    for (CBLQueryRow *r in [query rows:&err]) {
+        Contact *ct = [Contact modelForDocument:r.document];
+        BOOL exist = NO;
+        for (CBLQueryRow *row in [addedContactsQuery rows:&err]) {
+            ContactOpportunity *ctOpp = [ContactOpportunity modelForDocument:row.document];
+            if ([ct.email isEqualToString:ctOpp.contact.email])
+                exist = YES;
         }
-    }) reduceBlock: nil version: @"1"];
-    
-    CBLQuery* query = [view createQuery];
-    NSLog(@"!need to implement fetching for many-to-many relationship");
-    //    NSString* myListId = opp.document.documentID;
-    //    query.startKey = @[myListId, @{}];
-    //    query.endKey = @[myListId];
+        if (!exist)
+            [keys addObject:ct.email];
+    }
+    query.keys = keys;
     return query;
 }
 
@@ -150,6 +152,10 @@
     NSString* myCustID = cust.document.documentID;
     query.keys = @[myCustID];
     return query;
+}
+- (CBLQuery *)filteredQuery
+{
+    return [_filteredContactsView createQuery];
 }
 
 @end

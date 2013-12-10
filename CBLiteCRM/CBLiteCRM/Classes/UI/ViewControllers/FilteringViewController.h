@@ -21,10 +21,15 @@ UISearchDisplayDelegate
 @property (nonatomic, strong) CBLUITableSource* filteredDataSource;
 @property (nonatomic, weak) CBLUITableSource* currentSource;
 
-@property (nonatomic, strong) NSString *searchableProperty;
+@property (nonatomic, strong) NSString *firstLevelSearchableProperty;
+@property (nonatomic, strong) NSString *secondLevelSearchableProperty;
+
 @property (readwrite) Class modelClass;
 @property (nonatomic, weak) BaseStore *store;
 
 @property (nonatomic, strong) NSString *cellIdentifier;
+
+- (void) updateQuery;
+- (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope;
 
 @end
