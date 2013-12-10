@@ -18,14 +18,23 @@
     NSParameterAssert(mail);
     NSParameterAssert(userId);
     
-    
-    CBLDocument* doc = [database documentWithID: [[self class] docIDForUserId:userId]];
+    self = [self initInDatabase:database withEmail:mail];
+    if (self) {
+        self.user_id = userId;
+    }
+    return self;
+}
+
+- (instancetype) initInDatabase: (CBLDatabase*)database
+                      withEmail: (NSString*)mail
+{
+    NSParameterAssert(mail);
+    CBLDocument* doc = [database documentWithID: [[self class] docIDForUserId:mail]];
     
     self = [super initWithDocument:doc];
     if (self) {
-        self.email = mail;
-        self.user_id = userId;
         self.type = [[self class] docType];
+        self.email = mail;
     }
     return self;
 }
@@ -52,20 +61,6 @@
 }
 
 
-- (instancetype) initInDatabase: (CBLDatabase*)database
-                    withEmail: (NSString*)mail
-{
 
-    CBLDocument* doc = [database documentWithID: [[self class] docIDForUserId:mail]];
-
-    self = [super initWithDocument:doc];
-    if (self) {
-        // The "type" property identifies what type of document this is.
-        // It's used in map functions and by the CBLModelFactory.
-        [self setValue: [[self class] docType] ofProperty: @"type"];
-        self.email = mail;
-    }
-    return self;
-}
 
 @end
