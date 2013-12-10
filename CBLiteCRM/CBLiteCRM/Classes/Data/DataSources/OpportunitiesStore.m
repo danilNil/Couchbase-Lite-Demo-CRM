@@ -9,7 +9,6 @@
 #import "OpportunitiesStore.h"
 #import "Opportunity.h"
 #import "Customer.h"
-#import "ContactOpportunity.h"
 
 @interface OpportunitiesStore(){
     CBLView* _opportView;
@@ -115,8 +114,4 @@
     return query;
 }
 
-//- (BOOL)addContact:(Contact *)contact
-//{
-//    ContactOpportunity *ctOpp = [ContactOpportunity alloc] initInDatabase:self.database withContact:contact andOpportunity:
-//}
 @end

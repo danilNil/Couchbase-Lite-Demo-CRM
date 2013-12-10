@@ -117,22 +117,4 @@
     return [_filteredContactsView createQuery];
 }
 
-- (CBLQuery*) queryContactsByOpport:(Opportunity*)opp {
-    
-    CBLView* view = [self.database viewNamed: @"contactsByOpport"];
-    [view setMapBlock: MAPBLOCK({
-        if ([doc[@"type"] isEqualToString: kContactDocType]) {
-            NSString* opportList = doc[@"opportunities"];
-            emit(@[opportList], doc[@"email"]);
-        }
-    }) reduceBlock: nil version: @"1"];
-    
-    CBLQuery* query = [view createQuery];
-    NSLog(@"!need to implement fetching for many-to-many relationship");
-    //    NSString* myListId = opp.document.documentID;
-    //    query.startKey = @[myListId, @{}];
-    //    query.endKey = @[myListId];
-    return query;
-}
-
 @end

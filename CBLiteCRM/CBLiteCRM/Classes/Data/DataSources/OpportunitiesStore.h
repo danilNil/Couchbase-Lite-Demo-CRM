@@ -16,6 +16,4 @@
 
 - (Opportunity*) createOpportunityWithTitleOrReturnExist: (NSString*)title;
 
-//- (BOOL)addContact:(Contact*)contact;
-
 @end

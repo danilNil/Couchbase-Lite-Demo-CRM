@@ -22,6 +22,7 @@
 		447A2C751845F214008786AF /* SalesPersonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 447A2C721845F214008786AF /* SalesPersonCell.xib */; };
 		448980C0184D9AD2000D9B5A /* DictPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 448980BF184D9AD2000D9B5A /* DictPickerView.m */; };
 		449204CF18445EB30036D3A9 /* CouchbaseLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 449204CE18445EB30036D3A9 /* CouchbaseLite.framework */; };
+		44B3A6701856C79700CF4BAE /* ContactOpportunityStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 44B3A66F1856C79700CF4BAE /* ContactOpportunityStore.m */; };
 		44CABE1D18487FF30060263F /* ContactCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44CABE1C18487FF30060263F /* ContactCell.xib */; };
 		44D6DAF7184718920097262E /* CustomerDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44D6DAF6184718920097262E /* CustomerDetailsViewController.m */; };
 		81833B57184B9D4600F788A2 /* FilteringViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81833B56184B9D4600F788A2 /* FilteringViewController.m */; };
@@ -107,6 +108,8 @@
 		448980BE184D9AD2000D9B5A /* DictPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DictPickerView.h; sourceTree = "<group>"; };
 		448980BF184D9AD2000D9B5A /* DictPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DictPickerView.m; sourceTree = "<group>"; };
 		449204CE18445EB30036D3A9 /* CouchbaseLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CouchbaseLite.framework; sourceTree = "<group>"; };
+		44B3A66E1856C79700CF4BAE /* ContactOpportunityStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactOpportunityStore.h; sourceTree = "<group>"; };
+		44B3A66F1856C79700CF4BAE /* ContactOpportunityStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactOpportunityStore.m; sourceTree = "<group>"; };
 		44CABE1C18487FF30060263F /* ContactCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactCell.xib; sourceTree = "<group>"; };
 		44D6DAF5184718920097262E /* CustomerDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerDetailsViewController.h; sourceTree = "<group>"; };
 		44D6DAF6184718920097262E /* CustomerDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerDetailsViewController.m; sourceTree = "<group>"; };
@@ -217,6 +220,8 @@
 			children = (
 				44726BF31855B9FF00AC88D2 /* ContactOpportunity.h */,
 				44726BF41855B9FF00AC88D2 /* ContactOpportunity.m */,
+				44B3A66E1856C79700CF4BAE /* ContactOpportunityStore.h */,
+				44B3A66F1856C79700CF4BAE /* ContactOpportunityStore.m */,
 			);
 			path = RelationalModels;
 			sourceTree = "<group>";
@@ -662,6 +667,7 @@
 				831FFD341844542F00C7CB22 /* DataStore.m in Sources */,
 				447A2C741845F214008786AF /* SalesPersonCell.m in Sources */,
 				83CC79C8184F39A600557A9B /* DateHelper.m in Sources */,
+				44B3A6701856C79700CF4BAE /* ContactOpportunityStore.m in Sources */,
 				44726BF51855B9FF00AC88D2 /* ContactOpportunity.m in Sources */,
 				83173106184F21890043F865 /* ContactsStore.m in Sources */,
 				831FFD3E18446BC300C7CB22 /* Contact.m in Sources */,

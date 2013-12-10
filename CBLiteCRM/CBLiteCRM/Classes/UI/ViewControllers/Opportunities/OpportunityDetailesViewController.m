@@ -19,6 +19,8 @@
 #import "Customer.h"
 #import "DataStore.h"
 #import "DateHelper.h"
+#import "ContactOpportunityStore.h"
+#import "ContactOpportunity.h"
 
 @interface OpportunityDetailesViewController ()
 <DictPickerViewDelegate>
@@ -114,8 +116,6 @@
         [self performSegueWithIdentifier:@"presentMyCustomer" sender:self];
 }
 
-- (IBAction)showContacts:(id)sender {}
-
 - (void)dateFieldChange
 {
     self.dateField.text = [NSString stringWithFormat:@"%@",
@@ -168,13 +168,7 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if([segue.destinationViewController isKindOfClass:[UINavigationController class]]){
-        UINavigationController* navc = (UINavigationController*)segue.destinationViewController;
-        if([navc.topViewController isKindOfClass:[ContactsViewController class]]){
-            ContactsViewController* vc = (ContactsViewController*)navc.topViewController;
-            vc.filteredOpp = self.currentOpport;
-        }
-    }else if([segue.destinationViewController isKindOfClass:[CustomersViewController class]]){
+    if([segue.destinationViewController isKindOfClass:[CustomersViewController class]]){
         CustomersViewController* vc = (CustomersViewController*)segue.destinationViewController;
         vc.chooser = YES;
         [vc setOnSelectCustomer:^(Customer *cust) {
@@ -185,11 +179,17 @@
         CustomerDetailsViewController* vc = segue.destinationViewController;
         vc.currentCustomer = customer;
     } else if ([segue.destinationViewController isKindOfClass:[ContactsViewController class]]) {
+        CBLQuery* query = [[DataStore sharedInstance].contactOpportunityStore queryContactsForOpportunity:self.currentOpport];
+        NSError *err;
+        NSLog(@"%u", [[query rows:&err] count]);
         ContactsViewController* vc = (ContactsViewController*)segue.destinationViewController;
-        vc.chooser = YES;
-        [vc setOnSelectContact:^(Contact * ct) {
-            NSLog(@"Contact selected %@", [ct email]);
-        }];
+        vc.filteredOpp = self.currentOpport;
+//        ContactsViewController* vc = (ContactsViewController*)segue.destinationViewController;
+//        vc.chooser = YES;
+//        [vc setOnSelectContact:^(Contact * ct) {
+//            ContactOpportunity *ctOpp = [[ContactOpportunity alloc] initInDatabase:[DataStore sharedInstance].database withContact:ct andOpportunity:self.currentOpport];
+//            NSLog(@"ContactOpportunity created %@", ctOpp);
+//        }];
     }
 }
 

@@ -39,12 +39,10 @@ CBLUITableDelegate
     [self performSegueWithIdentifier:@"opportDetails" sender:tableView];
 }
 
-- (Opportunity*)opportForPath:(NSIndexPath*)indexPath{
-    Opportunity* opp;
-    NSAssert(self.currentSource, @"currentSource should not be nil");
+- (Opportunity*)opportForPath:(NSIndexPath*)indexPath
+{
     CBLQueryRow *row = [self.currentSource rowAtIndex:indexPath.row];
-    opp = [Opportunity modelForDocument: row.document];
-    return opp;
+    return [Opportunity modelForDocument: row.document];
 }
 
 - (void)viewWillAppear:(BOOL)animated

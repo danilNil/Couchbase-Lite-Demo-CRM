@@ -14,8 +14,10 @@
 //Data
 #import "DataStore.h"
 #import "ContactsStore.h"
+#import "ContactOpportunityStore.h"
 #import "Contact.h"
 #import "Customer.h"
+#import "ContactOpportunity.h"
 
 @interface ContactDetailsViewController (){
     UIImage* selectedImage;
@@ -85,6 +87,17 @@
 - (IBAction)back:(id)sender {
     self.currentContact = nil;
     [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (IBAction)opportunities:(id)sender
+{
+    if (self.currentContact) {
+        CBLQuery *query = [[DataStore sharedInstance].contactOpportunityStore queryOpportunitiesForContact:self.currentContact];
+        NSError *err;
+        ContactOpportunity *ctOpp = [ContactOpportunity modelForDocument:[[[query rows:&err] rowAtIndex:0] document]];
+        NSLog(@"Contact %@", ctOpp.contact);
+        [self performSegueWithIdentifier:@"presentOpportunitiesFromContact" sender:self];
+    }
 }
 
 - (IBAction)saveItem:(id)sender {
