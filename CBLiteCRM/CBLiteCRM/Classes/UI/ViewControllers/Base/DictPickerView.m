@@ -49,7 +49,7 @@
 }
 
 
-- (void) setNameFrom:(NSString *)nameFrom{
+- (void) setNameFrom:(NSString *)nameFrom {
     _nameFrom = nameFrom;
     [self reloadAllComponents];
 }

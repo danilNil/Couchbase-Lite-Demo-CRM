@@ -8,6 +8,7 @@
 
 #import "OpportunityDetailesViewController.h"
 #import "ContactsViewController.h"
+#import "ContactsByOpportunityViewController.h"
 #import "CustomersViewController.h"
 #import "CustomerDetailsViewController.h"
 #import "DictPickerView.h"
@@ -133,6 +134,11 @@
 
 - (IBAction)changeCustomer:(id)sender {}
 
+- (IBAction)showContacts:(id)sender
+{
+    [self performSegueWithIdentifier:@"presentContactsForOpportunity" sender:self];
+}
+
 - (void)setupStagePicker
 {
     stagePicker = [DictPickerView new];
@@ -179,17 +185,8 @@
         CustomerDetailsViewController* vc = segue.destinationViewController;
         vc.currentCustomer = customer;
     } else if ([segue.destinationViewController isKindOfClass:[ContactsViewController class]]) {
-        CBLQuery* query = [[DataStore sharedInstance].contactOpportunityStore queryContactsForOpportunity:self.currentOpport];
-        NSError *err;
-        NSLog(@"%u", [[query rows:&err] count]);
-        ContactsViewController* vc = (ContactsViewController*)segue.destinationViewController;
+        ContactsByOpportunityViewController* vc = (ContactsByOpportunityViewController*)segue.destinationViewController;
         vc.filteredOpp = self.currentOpport;
-//        ContactsViewController* vc = (ContactsViewController*)segue.destinationViewController;
-//        vc.chooser = YES;
-//        [vc setOnSelectContact:^(Contact * ct) {
-//            ContactOpportunity *ctOpp = [[ContactOpportunity alloc] initInDatabase:[DataStore sharedInstance].database withContact:ct andOpportunity:self.currentOpport];
-//            NSLog(@"ContactOpportunity created %@", ctOpp);
-//        }];
     }
 }
 

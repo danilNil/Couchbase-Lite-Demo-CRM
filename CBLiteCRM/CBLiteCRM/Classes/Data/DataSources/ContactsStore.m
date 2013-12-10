@@ -9,6 +9,10 @@
 #import "ContactsStore.h"
 #import "Contact.h"
 #import "Opportunity.h"
+#import "ContactOpportunityStore.h"
+#import "ContactOpportunity.h"
+#import "DataStore.h"
+
 @interface ContactsStore()
 {
     CBLView* _contactsView;
@@ -105,10 +109,31 @@
     return [Contact modelForDocument: doc];
 }
 
-
 - (CBLQuery*) queryContacts {
     CBLQuery* query = [_contactsView createQuery];
     query.descending = YES;
+    return query;
+}
+
+- (CBLQuery*) queryContactsForOpportunity:(Opportunity*)opp
+{
+    CBLQuery* query = [_contactsView createQuery];
+    CBLQuery *addedContactsQuery = [[DataStore sharedInstance].contactOpportunityStore queryContactsForOpportunity:opp];
+    NSError *err;
+    NSMutableArray *keys;
+    keys = [NSMutableArray new];
+    for (CBLQueryRow *r in [query rows:&err]) {
+        Contact *ct = [Contact modelForDocument:r.document];
+        BOOL exist = NO;
+        for (CBLQueryRow *row in [addedContactsQuery rows:&err]) {
+            ContactOpportunity *ctOpp = [ContactOpportunity modelForDocument:row.document];
+            if ([ct.email isEqualToString:ctOpp.contact.email])
+                exist = YES;
+        }
+        if (!exist)
+            [keys addObject:ct.email];
+    }
+    query.keys = keys;
     return query;
 }
 

@@ -16,7 +16,6 @@
 #import "ContactsStore.h"
 #import "Contact.h"
 
-
 @interface ContactsViewController ()
 
 @property(nonatomic, strong) Contact* selectedContact;
@@ -40,10 +39,10 @@
 - (void) updateQuery
 {
     self.store = [DataStore sharedInstance].contactsStore;
-    if(!self.filteredOpp)
-        self.dataSource.query = [[(ContactsStore*)self.store queryContacts] asLiveQuery];
+    if (self.filteringOpportunity)
+        self.dataSource.query = [[(ContactsStore*)self.store queryContactsForOpportunity:self.filteringOpportunity] asLiveQuery];
     else
-        self.dataSource.query = [[(ContactsStore*)self.store queryContactsByOpport:self.filteredOpp] asLiveQuery];
+        self.dataSource.query = [[(ContactsStore*)self.store queryContacts] asLiveQuery];
 }
 
 - (void)didChooseContact:(Contact*)ct{

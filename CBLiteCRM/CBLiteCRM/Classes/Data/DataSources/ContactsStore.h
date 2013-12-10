@@ -9,8 +9,10 @@
 #import "BaseStore.h"
 @class Contact, Opportunity;
 @interface ContactsStore : BaseStore
+
 - (Contact*) createContactWithMailOrReturnExist: (NSString*)mail;
 - (Contact*) contactWithMail: (NSString*)mail;
 - (CBLQuery*) queryContacts;
+- (CBLQuery*) queryContactsForOpportunity:(Opportunity*)opp;
 
 @end

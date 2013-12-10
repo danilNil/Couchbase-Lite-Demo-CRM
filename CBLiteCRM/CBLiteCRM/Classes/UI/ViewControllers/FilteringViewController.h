@@ -27,4 +27,6 @@ UISearchDisplayDelegate
 
 @property (nonatomic, strong) NSString *cellIdentifier;
 
+- (void) updateQuery;
+
 @end
