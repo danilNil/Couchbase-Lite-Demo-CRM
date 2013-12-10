@@ -29,7 +29,12 @@
                       withEmail: (NSString*)mail
 {
     NSParameterAssert(mail);
-    CBLDocument* doc = [database documentWithID: [[self class] docIDForUserId:mail]];
+    NSString* docID = [[self class] docIDForUserId:mail];
+    CBLDocument* doc = [database existingDocumentWithID:docID];
+    if(doc)
+        NSLog(@"ERROR: doc with same ID already created!");
+    else
+        doc = [database documentWithID: docID];
     
     self = [super initWithDocument:doc];
     if (self) {
