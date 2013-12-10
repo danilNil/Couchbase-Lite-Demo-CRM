@@ -10,6 +10,7 @@
 #import "ContactDetailsViewController.h"
 #import "ImagePickerAngel.h"
 #import "CustomersViewController.h"
+#import "OpportunitesByContactViewController.h"
 
 //Data
 #import "DataStore.h"
@@ -92,11 +93,7 @@
 - (IBAction)opportunities:(id)sender
 {
     if (self.currentContact) {
-        CBLQuery *query = [[DataStore sharedInstance].contactOpportunityStore queryOpportunitiesForContact:self.currentContact];
-        NSError *err;
-        ContactOpportunity *ctOpp = [ContactOpportunity modelForDocument:[[[query rows:&err] rowAtIndex:0] document]];
-        NSLog(@"Contact %@", ctOpp.contact);
-        [self performSegueWithIdentifier:@"presentOpportunitiesFromContact" sender:self];
+        [self performSegueWithIdentifier:@"presentOpportunitiesForContact" sender:self];
     }
 }
 
@@ -154,6 +151,10 @@
             self.companyField.text = cust.companyName;
         }];
         vc.chooser = YES;
+    } else if ([segue.destinationViewController isKindOfClass:[OpportunitesByContactViewController class]]) {
+        OpportunitesByContactViewController *vc = (OpportunitesByContactViewController*)segue.destinationViewController;
+        vc.navigationItem.rightBarButtonItem.enabled = NO;
+        vc.filteringContact = self.currentContact;
     }
 }
 
