@@ -67,7 +67,7 @@ CBLUITableDelegate
             id obj = [model getValueOfProperty:self.firstLevelSearchableProperty];
             searchableString = [obj getValueOfProperty:self.secondLevelSearchableProperty];
         } else {
-            self.firstLevelSearchableProperty = [model getValueOfProperty:self.firstLevelSearchableProperty];
+            searchableString = [model getValueOfProperty:self.firstLevelSearchableProperty];
         }
         if ([searchableString rangeOfString:searchText options:NSCaseInsensitiveSearch].location != NSNotFound)
             [matches addObject:searchableString];
