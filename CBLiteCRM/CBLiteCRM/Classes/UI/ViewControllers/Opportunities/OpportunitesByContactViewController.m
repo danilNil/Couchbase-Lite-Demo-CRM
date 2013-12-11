@@ -48,6 +48,21 @@
     return cell;
 }
 
--(void)filterContentForSearchText:(NSString *)searchText scope:(NSString *)scope {}
+-(void)filterContentForSearchText:(NSString *)searchText scope:(NSString *)scope
+{
+    NSError *err;
+    CBLQuery *query = [(ContactOpportunityStore*)self.store filteredOpportunitiesQuery];
+    CBLQueryEnumerator *enumer = [self.dataSource.query rows:&err];
+
+    NSMutableArray *matches = [NSMutableArray new];
+    for (NSUInteger i = 0; i < enumer.count; i++) {
+        CBLQueryRow *row = [self.dataSource rowAtIndex:i];
+        ContactOpportunity *ctOpp = [ContactOpportunity modelForDocument:row.document];
+        NSString* searchableString = ctOpp.opportunity.title;
+        if ([searchableString rangeOfString:searchText options:NSCaseInsensitiveSearch].location != NSNotFound)
+            [matches addObject:ctOpp.opportunity.document.documentID];
+    }
+    query.keys = matches;
+    self.filteredDataSource.query = [query asLiveQuery];}
 
 @end

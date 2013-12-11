@@ -62,13 +62,7 @@ CBLUITableDelegate
     for (NSUInteger i = 0; i < enumer.count; i++) {
         CBLQueryRow* row = [enumer rowAtIndex:i];
         CBLModel* model = [self.modelClass modelForDocument:row.document];
-        NSString* searchableString;
-        if (self.secondLevelSearchableProperty.length > 0) {
-            id obj = [model getValueOfProperty:self.firstLevelSearchableProperty];
-            searchableString = [obj getValueOfProperty:self.secondLevelSearchableProperty];
-        } else {
-            searchableString = [model getValueOfProperty:self.firstLevelSearchableProperty];
-        }
+        NSString* searchableString = [model getValueOfProperty:self.firstLevelSearchableProperty];
         if ([searchableString rangeOfString:searchText options:NSCaseInsensitiveSearch].location != NSNotFound)
             [matches addObject:searchableString];
     }

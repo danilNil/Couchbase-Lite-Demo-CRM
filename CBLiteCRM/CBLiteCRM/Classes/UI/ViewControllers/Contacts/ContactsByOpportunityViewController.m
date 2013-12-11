@@ -67,6 +67,24 @@
     return cell;
 }
 
--(void)filterContentForSearchText:(NSString *)searchText scope:(NSString *)scope {}
+-(void)filterContentForSearchText:(NSString *)searchText scope:(NSString *)scope
+{
+    NSError *err;
+    CBLQuery *query = [(ContactOpportunityStore*)self.store filteredContactsQuery];
+    CBLQueryEnumerator *enumer = [self.dataSource.query rows:&err];
+
+    NSMutableArray *matches = [NSMutableArray new];
+    for (NSUInteger i = 0; i < enumer.count; i++) {
+        CBLQueryRow *row = [self.dataSource rowAtIndex:i];
+        ContactOpportunity *ctOpp = [ContactOpportunity modelForDocument:row.document];
+        NSString* searchableString = ctOpp.contact.email;
+        if ([searchableString rangeOfString:searchText options:NSCaseInsensitiveSearch].location != NSNotFound)
+            [matches addObject:ctOpp.contact.document.documentID];
+    }
+    NSLog(@"%@", [[[query rows:&err] rowAtIndex:0] key]);
+    query.keys = matches;
+    NSLog(@"%u", [[query rows:&err] count]);
+    self.filteredDataSource.query = [query asLiveQuery];
+}
 
 @end

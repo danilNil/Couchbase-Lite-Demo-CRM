@@ -15,4 +15,7 @@
 - (CBLQuery*)queryContactsForOpportunity:(Opportunity*)opp;
 - (CBLQuery*)queryOpportunitiesForContact:(Contact*)ct;
 
+- (CBLQuery *)filteredContactsQuery;
+- (CBLQuery *)filteredOpportunitiesQuery;
+
 @end

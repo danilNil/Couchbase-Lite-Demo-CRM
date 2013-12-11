@@ -14,11 +14,14 @@
 @interface ContactOpportunityStore ()
 {
     CBLView* _contactOpportunityView;
+    CBLView* _filteredContactsOpportunityView;
+    CBLView* _filteredOpportunitiesContactView;
 }
 
 @end
 
 @implementation ContactOpportunityStore
+
 -(id)initWithDatabase:(CBLDatabase *)database
 {
     self = [super initWithDatabase:database];
@@ -31,6 +34,22 @@
                     emit(doc[@"email"], doc[@"email"]);
             }
         }) version: @"1"];
+        _filteredContactsOpportunityView = [self.database viewNamed: @"filteredContactsOpportunities"];
+        [_filteredContactsOpportunityView setMapBlock: MAPBLOCK({
+            if ([doc[@"type"] isEqualToString: kContactOpportunityDocType]) {
+                if (doc[@"contact"])
+                    emit(doc[@"contact"], doc[@"contact"]);
+            }
+        }) version: @"2"];
+
+        _filteredOpportunitiesContactView = [self.database viewNamed: @"filteredOpportunitiesContact"];
+        [_filteredOpportunitiesContactView setMapBlock: MAPBLOCK({
+            if ([doc[@"type"] isEqualToString: kContactOpportunityDocType]) {
+                if (doc[@"opportunity"])
+                    emit(doc[@"opportunity"], doc[@"opportunity"]);
+            }
+        }) version: @"2"];
+
     }
     return self;
 }
@@ -48,12 +67,9 @@
             }
         }) reduceBlock: nil version: @"1"]; // bump version any time you change the MAPBLOCK body!
     }
-    NSError *err;
     CBLQuery* query = [view createQuery];
-    NSLog(@"%u", [[query rows:&err] count]);
     NSString* oppID = opp.document.documentID;
     query.keys = @[oppID];
-    NSLog(@"filtered %u", [[query rows:&err] count]);
     return query;
 }
 
@@ -70,14 +86,20 @@
             }
         }) reduceBlock: nil version: @"1"]; // bump version any time you change the MAPBLOCK body!
     }
-    NSError *err;
     CBLQuery* query = [view createQuery];
-    NSLog(@"%u", [[query rows:&err] count]);
     NSString* ctID = ct.document.documentID;
     query.keys = @[ctID];
-    NSLog(@"filtered %u", [[query rows:&err] count]);
     return query;
+}
 
+-(CBLQuery *)filteredContactsQuery
+{
+    return [_filteredContactsOpportunityView createQuery];
+}
+
+-(CBLQuery *)filteredOpportunitiesQuery
+{
+    return [_filteredOpportunitiesContactView createQuery];
 }
 
 @end
