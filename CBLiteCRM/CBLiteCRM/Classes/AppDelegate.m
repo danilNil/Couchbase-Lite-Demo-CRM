@@ -47,6 +47,8 @@
 - (void)setupAppearance{
     [[UINavigationBar appearance] setBarTintColor:kBaseBlueColor];
     [[UIBarButtonItem appearance] setTintColor:[UIColor whiteColor]];
+    NSDictionary *navbarTitleTextAttributes = @{UITextAttributeTextColor:[UIColor whiteColor]};
+    [[UINavigationBar appearance] setTitleTextAttributes:navbarTitleTextAttributes];
 }
 
 #pragma mark - Sync

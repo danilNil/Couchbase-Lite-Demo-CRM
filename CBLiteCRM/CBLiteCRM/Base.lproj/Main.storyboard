@@ -1097,6 +1097,7 @@
         <image name="photo_bg.png" width="142" height="142"/>
         <image name="photo_placeholder.png" width="142" height="142"/>
     </resources>
+    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
