@@ -184,6 +184,7 @@
 		8326BEF21858590A00B605EB /* photo_placeholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo_placeholder@2x.png"; sourceTree = "<group>"; };
 		8326BEF718586DF200B605EB /* input_field.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = input_field.png; sourceTree = "<group>"; };
 		8326BEF818586DF200B605EB /* input_field@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "input_field@2x.png"; sourceTree = "<group>"; };
+		8326BEFB1858718000B605EB /* DeviceSoftware.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeviceSoftware.h; sourceTree = "<group>"; };
 		832845321851882F008FBFCD /* UIView+Activity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Activity.h"; sourceTree = "<group>"; };
 		832845331851882F008FBFCD /* UIView+Activity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Activity.m"; sourceTree = "<group>"; };
 		832845351851885F008FBFCD /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
@@ -506,6 +507,7 @@
 			isa = PBXGroup;
 			children = (
 				831FFD37184454A900C7CB22 /* Constants.h */,
+				8326BEFB1858718000B605EB /* DeviceSoftware.h */,
 			);
 			path = Defines;
 			sourceTree = "<group>";

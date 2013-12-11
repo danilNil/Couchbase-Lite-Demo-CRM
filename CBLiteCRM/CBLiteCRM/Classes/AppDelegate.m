@@ -11,6 +11,7 @@
 #import "CBLSyncManager.h"
 
 #import "SalesPerson.h"
+#import "DeviceSoftware.h"
 
 #define kSyncUrl @"http://sync.couchbasecloud.com:4984/fb_sg1"
 #define kFBAppId @"220375198143968"
@@ -45,7 +46,9 @@
 }
 
 - (void)setupAppearance{
-    [[UINavigationBar appearance] setBarTintColor:kBaseBlueColor];
+    if (isIOS7()) {
+        [[UINavigationBar appearance] setBarTintColor:kBaseBlueColor];
+    }
     [[UIBarButtonItem appearance] setTintColor:[UIColor whiteColor]];
     NSDictionary *navbarTitleTextAttributes = @{UITextAttributeTextColor:[UIColor whiteColor]};
     [[UINavigationBar appearance] setTitleTextAttributes:navbarTitleTextAttributes];
