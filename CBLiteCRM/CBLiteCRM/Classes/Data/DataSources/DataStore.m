@@ -5,6 +5,7 @@
 #import "SalePersonsStore.h"
 #import "ContactsStore.h"
 #import "ContactOpportunityStore.h"
+#import "OpportunityContactStore.h"
 
 @interface DataStore()
 @end
@@ -39,6 +40,7 @@ static DataStore* sInstance;
     _opportunitiesStore = [[OpportunitiesStore alloc] initWithDatabase:self.database];
     _contactsStore = [[ContactsStore alloc] initWithDatabase:self.database];
     _contactOpportunityStore = [[ContactOpportunityStore alloc] initWithDatabase:self.database];
+    _opportunityContactStore = [[OpportunityContactStore alloc] initWithDatabase:self.database];
 }
 
 - (void)createFakeDB{

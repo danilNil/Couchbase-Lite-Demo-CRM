@@ -70,7 +70,7 @@
 -(void)filterContentForSearchText:(NSString *)searchText scope:(NSString *)scope
 {
     NSError *err;
-    CBLQuery *query = [(ContactOpportunityStore*)self.store filteredContactsQuery];
+    CBLQuery *query = [self.store filteredQuery];
     CBLQueryEnumerator *enumer = [self.dataSource.query rows:&err];
 
     NSMutableArray *matches = [NSMutableArray new];
@@ -81,9 +81,7 @@
         if ([searchableString rangeOfString:searchText options:NSCaseInsensitiveSearch].location != NSNotFound)
             [matches addObject:ctOpp.contact.document.documentID];
     }
-    NSLog(@"%@", [[[query rows:&err] rowAtIndex:0] key]);
     query.keys = matches;
-    NSLog(@"%u", [[query rows:&err] count]);
     self.filteredDataSource.query = [query asLiveQuery];
 }
 

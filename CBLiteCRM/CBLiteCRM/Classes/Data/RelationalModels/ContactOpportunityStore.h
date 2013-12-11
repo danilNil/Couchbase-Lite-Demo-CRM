@@ -8,14 +8,10 @@
 
 #import "BaseStore.h"
 
-@class Opportunity, Contact;
+@class Opportunity;
 
 @interface ContactOpportunityStore : BaseStore
 
 - (CBLQuery*)queryContactsForOpportunity:(Opportunity*)opp;
-- (CBLQuery*)queryOpportunitiesForContact:(Contact*)ct;
-
-- (CBLQuery *)filteredContactsQuery;
-- (CBLQuery *)filteredOpportunitiesQuery;
 
 @end

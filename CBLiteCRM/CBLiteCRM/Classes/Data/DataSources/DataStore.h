@@ -1,5 +1,5 @@
 @class SalesPerson, Contact, Customer, Opportunity;
-@class SalePersonsStore,CustomersStore, OpportunitiesStore, ContactsStore, ContactOpportunityStore;
+@class SalePersonsStore,CustomersStore, OpportunitiesStore, ContactsStore, ContactOpportunityStore, OpportunityContactStore;
 
 @interface DataStore : NSObject
 
@@ -13,5 +13,6 @@
 @property (readonly, strong) OpportunitiesStore* opportunitiesStore;
 @property (readonly, strong) ContactsStore* contactsStore;
 @property (readonly, strong) ContactOpportunityStore *contactOpportunityStore;
+@property (readonly, strong) OpportunityContactStore *opportunityContactStore;
 
 @end

@@ -10,7 +10,7 @@
 
 #import "DataStore.h"
 #import "ContactOpportunity.h"
-#import "ContactOpportunityStore.h"
+#import "OpportunityContactStore.h"
 #import "Opportunity.h"
 #import "Customer.h"
 
@@ -31,8 +31,8 @@
 
 - (void) updateQuery
 {
-    self.store = [DataStore sharedInstance].contactOpportunityStore;
-    self.dataSource.query = [[(ContactOpportunityStore*)self.store queryOpportunitiesForContact:self.filteringContact] asLiveQuery];
+    self.store = [DataStore sharedInstance].opportunityContactStore;
+    self.dataSource.query = [[(OpportunityContactStore*)self.store queryOpportunitiesForContact:self.filteringContact] asLiveQuery];
 }
 
 -(UITableViewCell *)couchTableSource:(CBLUITableSource *)source cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -51,7 +51,7 @@
 -(void)filterContentForSearchText:(NSString *)searchText scope:(NSString *)scope
 {
     NSError *err;
-    CBLQuery *query = [(ContactOpportunityStore*)self.store filteredOpportunitiesQuery];
+    CBLQuery *query = [(OpportunityContactStore*)self.store filteredQuery];
     CBLQueryEnumerator *enumer = [self.dataSource.query rows:&err];
 
     NSMutableArray *matches = [NSMutableArray new];
@@ -63,6 +63,7 @@
             [matches addObject:ctOpp.opportunity.document.documentID];
     }
     query.keys = matches;
-    self.filteredDataSource.query = [query asLiveQuery];}
+    self.filteredDataSource.query = [query asLiveQuery];
+}
 
 @end

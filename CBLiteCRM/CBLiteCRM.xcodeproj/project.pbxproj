@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4423292918581F5A00025B31 /* OpportunityContactStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 4423292818581F5A00025B31 /* OpportunityContactStore.m */; };
 		44726BF51855B9FF00AC88D2 /* ContactOpportunity.m in Sources */ = {isa = PBXBuildFile; fileRef = 44726BF41855B9FF00AC88D2 /* ContactOpportunity.m */; };
 		447A2C631845D808008786AF /* TextFieldsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 447A2C4E1845D808008786AF /* TextFieldsViewController.m */; };
 		447A2C641845D808008786AF /* ContactDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 447A2C511845D808008786AF /* ContactDetailsViewController.m */; };
@@ -82,6 +83,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4423292718581F5A00025B31 /* OpportunityContactStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpportunityContactStore.h; sourceTree = "<group>"; };
+		4423292818581F5A00025B31 /* OpportunityContactStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpportunityContactStore.m; sourceTree = "<group>"; };
 		44726BF31855B9FF00AC88D2 /* ContactOpportunity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactOpportunity.h; sourceTree = "<group>"; };
 		44726BF41855B9FF00AC88D2 /* ContactOpportunity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactOpportunity.m; sourceTree = "<group>"; };
 		447A2C4D1845D808008786AF /* TextFieldsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFieldsViewController.h; sourceTree = "<group>"; };
@@ -228,6 +231,8 @@
 				44726BF41855B9FF00AC88D2 /* ContactOpportunity.m */,
 				44B3A66E1856C79700CF4BAE /* ContactOpportunityStore.h */,
 				44B3A66F1856C79700CF4BAE /* ContactOpportunityStore.m */,
+				4423292718581F5A00025B31 /* OpportunityContactStore.h */,
+				4423292818581F5A00025B31 /* OpportunityContactStore.m */,
 			);
 			path = RelationalModels;
 			sourceTree = "<group>";
@@ -681,6 +686,7 @@
 				44B3A6701856C79700CF4BAE /* ContactOpportunityStore.m in Sources */,
 				44726BF51855B9FF00AC88D2 /* ContactOpportunity.m in Sources */,
 				83173106184F21890043F865 /* ContactsStore.m in Sources */,
+				4423292918581F5A00025B31 /* OpportunityContactStore.m in Sources */,
 				831FFD3E18446BC300C7CB22 /* Contact.m in Sources */,
 				830D51AC1848570900044A19 /* BaseModel.m in Sources */,
 				447A2C671845D808008786AF /* MenuViewController.m in Sources */,
@@ -781,8 +787,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Pavel Sumarokov";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Pavel Sumarokov";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",

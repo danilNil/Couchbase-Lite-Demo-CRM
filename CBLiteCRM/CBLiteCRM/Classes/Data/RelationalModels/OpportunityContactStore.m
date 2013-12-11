@@ -1,71 +1,73 @@
 //
-//  ContactOpportunityStore.m
+//  OpportunityContactStore.m
 //  CBLiteCRM
 //
-//  Created by Ruslan on 12/10/13.
+//  Created by Ruslan on 12/11/13.
 //  Copyright (c) 2013 Danil. All rights reserved.
 //
 
-#import "ContactOpportunityStore.h"
+#import "OpportunityContactStore.h"
 #import "ContactOpportunity.h"
 #import "Opportunity.h"
 #import "Contact.h"
 
-@interface ContactOpportunityStore ()
+@interface OpportunityContactStore ()
 {
     CBLView* _contactOpportunityView;
-    CBLView* _filteredContactsOpportunityView;
+    CBLView* _filteredOpportunitiesContactView;
 }
 
 @end
 
-@implementation ContactOpportunityStore
+@implementation OpportunityContactStore
 
 -(id)initWithDatabase:(CBLDatabase *)database
 {
     self = [super initWithDatabase:database];
     if (self) {
         [self.database.modelFactory registerClass: [ContactOpportunity class] forDocumentType: kContactOpportunityDocType];
-        _contactOpportunityView = [self.database viewNamed: @"ContactsOpportunity"];
+        _contactOpportunityView = [self.database viewNamed: @"OpportunitiesContact"];
         [_contactOpportunityView setMapBlock: MAPBLOCK({
             if ([doc[@"type"] isEqualToString: kContactOpportunityDocType]) {
-                if (doc[@"contact"])
-                    emit(doc[@"contact"], doc);
+                if (doc[@"opportunity"])
+                    emit(doc[@"opportunity"], doc);
             }
         }) version: @"1"];
-        _filteredContactsOpportunityView = [self.database viewNamed: @"filteredContactsOpportunities"];
-        [_filteredContactsOpportunityView setMapBlock: MAPBLOCK({
+
+        _filteredOpportunitiesContactView = [self.database viewNamed: @"filteredOpportunitiesContact"];
+        [_filteredOpportunitiesContactView setMapBlock: MAPBLOCK({
             if ([doc[@"type"] isEqualToString: kContactOpportunityDocType]) {
-                if (doc[@"contact"])
-                    emit(doc[@"contact"], doc);
+                if (doc[@"opportunity"])
+                    emit(doc[@"opportunity"], doc);
             }
         }) version: @"2"];
+
     }
     return self;
 }
 
--(CBLQuery *)queryContactsForOpportunity:(Opportunity *)opp
+-(CBLQuery *)queryOpportunitiesForContact:(Contact *)ct
 {
-    CBLView* view = [self.database viewNamed: @"ContactsForOpportunity"];
+    CBLView* view = [self.database viewNamed: @"OpportunitiesForContact"];
     if (!view.mapBlock) {
         [view setMapBlock: MAPBLOCK({
             if ([doc[@"type"] isEqualToString: kContactOpportunityDocType]) {
-                NSString* opportunityId = doc[@"opportunity"];
-                if (opportunityId) {
-                    emit(opportunityId, doc);
+                NSString* contactId = doc[@"contact"];
+                if (contactId) {
+                    emit(contactId, doc);
                 }
             }
         }) reduceBlock: nil version: @"1"]; // bump version any time you change the MAPBLOCK body!
     }
     CBLQuery* query = [view createQuery];
-    NSString* oppID = opp.document.documentID;
-    query.keys = @[oppID];
+    NSString* ctID = ct.document.documentID;
+    query.keys = @[ctID];
     return query;
 }
 
 -(CBLQuery *)filteredQuery
 {
-    return [_filteredContactsOpportunityView createQuery];
+    return [_filteredOpportunitiesContactView createQuery];
 }
 
 @end
