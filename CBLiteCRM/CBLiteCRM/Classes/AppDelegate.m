@@ -45,7 +45,8 @@
 }
 
 - (void)setupAppearance{
-    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:39.0/255.0 green:202.0/255.0 blue:255.0/255.0 alpha:1.0]];
+    [[UINavigationBar appearance] setBarTintColor:kBaseBlueColor];
+    [[UIBarButtonItem appearance] setTintColor:[UIColor whiteColor]];
 }
 
 #pragma mark - Sync
