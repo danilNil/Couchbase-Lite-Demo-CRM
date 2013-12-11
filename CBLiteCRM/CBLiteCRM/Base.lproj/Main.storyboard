@@ -28,7 +28,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <segue destination="8BR-6E-1rT" kind="modal" identifier="pushMenuController" modalTransitionStyle="flipHorizontal" id="a24-D0-MoE"/>
+                        <segue destination="8BR-6E-1rT" kind="modal" identifier="pushMenuController" modalTransitionStyle="coverVertical" id="a24-D0-MoE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -1091,10 +1091,10 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="oD6-Gt-h5e"/>
-        <segue reference="1iO-jg-otn"/>
         <segue reference="BU2-V0-PLp"/>
-        <segue reference="zHw-JE-Ekg"/>
+        <segue reference="rju-Nc-jGo"/>
+        <segue reference="oD6-Gt-h5e"/>
+        <segue reference="HKR-Id-rJ9"/>
         <segue reference="uhY-OQ-e3f"/>
     </inferredMetricsTieBreakers>
 </document>
