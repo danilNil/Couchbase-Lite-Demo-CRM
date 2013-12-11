@@ -11,12 +11,12 @@
 @interface SalesPerson : CBLModel
 
 /** The user_id is usually an email address. */
-@property (readwrite) NSString* user_id;
+@property (strong) NSString* user_id;
 
-@property (readwrite) NSString* username;
-@property (readwrite) NSString* type;
-@property (readwrite) NSString* email;
-@property (readwrite) NSString* phoneNumber;
+@property (strong) NSString* username;
+@property (strong) NSString* type;
+@property (strong) NSString* email;
+@property (strong) NSString* phoneNumber;
 @property bool approved;
 
 
