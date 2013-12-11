@@ -14,6 +14,7 @@
 
 #define kSyncUrl @"http://sync.couchbasecloud.com:4984/fb_sg1"
 #define kFBAppId @"220375198143968"
+#define kBAseBlueColor
 
 @interface AppDelegate()
     @property (readonly) DataStore* dataStore;
@@ -23,6 +24,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [self setupAppearance];
     // create a shared instance of CBLManager
     CBLManager *manager = [CBLManager sharedInstance];
     
@@ -42,6 +44,9 @@
     return YES;
 }
 
+- (void)setupAppearance{
+    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:39.0/255.0 green:202.0/255.0 blue:255.0/255.0 alpha:1.0]];
+}
 
 #pragma mark - Sync
 
