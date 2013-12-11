@@ -99,7 +99,7 @@
         if([opp getValueOfProperty:@"revenueSize"])
             self.revenueField.text = [NSString stringWithFormat:@"%lli",opp.revenueSize];
         if([opp getValueOfProperty:@"winProbability"])
-            self.winField.text =[NSString stringWithFormat:@"%f",opp.winProbability];
+            self.winField.text =[NSString stringWithFormat:@"%.02f",opp.winProbability];
         self.customerField.text = opp.customer.companyName;
     }
 }
@@ -108,6 +108,8 @@
 {
     opp.title = self.nameField.text;
     opp.salesStage = self.stageField.text;
+    opp.revenueSize = [self.revenueField.text longLongValue];
+    opp.winProbability = [self.winField.text floatValue];
     opp.creationDate = creationDatePicker.date;
     opp.customer = customer;
 }
