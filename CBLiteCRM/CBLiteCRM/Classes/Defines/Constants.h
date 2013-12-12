@@ -22,6 +22,7 @@ static NSString const *kPosition = @"position";
 static NSString const *kCompanyName = @"companyName";
 static NSString *kCreatedFakeKey = @"createdFakeDBKey";
 
+#define kCBLPrefKeyUserID @"CBLFBUserID"
 #define kFakeDataBase 0
 #define kBaseBlueColor [UIColor colorWithRed:39.0/255.0 green:202.0/255.0 blue:255.0/255.0 alpha:1.0]
 static NSString* const kExampleUserName = @"foo@example.com";

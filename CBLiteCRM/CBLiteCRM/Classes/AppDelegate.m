@@ -87,7 +87,7 @@
     }
 }
 
-- (void)loginAndSync: (void (^)())complete {
+- (void)loginAndSync: (void (^)())complete asAdmin:(BOOL)asAdmin{
     if (_cblSync.userID) {
         complete();
     } else {

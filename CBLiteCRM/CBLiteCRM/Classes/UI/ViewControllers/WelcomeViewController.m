@@ -20,6 +20,13 @@
 
 @implementation WelcomeViewController
 
+-(void)viewDidLoad{
+    NSString* userID = [[NSUserDefaults standardUserDefaults] objectForKey: kCBLPrefKeyUserID];
+    if(userID)
+        [self facebookLogin:self];
+    [super viewDidLoad];
+}
+
 - (void)hideWelcomeScreen{
     [self performSegueWithIdentifier:@"pushMenuController" sender:self];
 }
@@ -31,10 +38,7 @@
         [self hideWelcomeScreen];
         NSLog(@"called complete loginAndSync");
         [self.view hideActivity];
-    }];
-}
-
-- (IBAction)asAdminChanged:(id)sender {
+    } asAdmin:self.asAdmin.isOn];
 }
 
 

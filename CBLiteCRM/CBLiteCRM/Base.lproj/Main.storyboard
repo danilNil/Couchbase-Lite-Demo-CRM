@@ -42,14 +42,12 @@
                                 <rect key="frame" x="251" y="279" width="51" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="onTintColor" red="0.13333334029999999" green="0.76470595600000002" blue="1" alpha="1" colorSpace="deviceRGB"/>
-                                <connections>
-                                    <action selector="asAdminChanged:" destination="vXZ-lx-hvc" eventType="valueChanged" id="JPp-fb-Jfu"/>
-                                </connections>
                             </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="asAdmin" destination="cPY-CB-kWM" id="Ql8-dS-Stb"/>
                         <segue destination="8BR-6E-1rT" kind="modal" identifier="pushMenuController" modalTransitionStyle="coverVertical" id="a24-D0-MoE"/>
                     </connections>
                 </viewController>

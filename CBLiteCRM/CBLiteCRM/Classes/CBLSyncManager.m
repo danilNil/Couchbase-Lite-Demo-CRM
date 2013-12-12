@@ -8,7 +8,6 @@
 
 #import "CBLSyncManager.h"
 
-#define kCBLPrefKeyUserID @"CBLFBUserID"
 
 
 @interface CBLSyncManager () {
