@@ -34,7 +34,9 @@
 }
 
 - (void)loadInfoForCustomer:(Customer*)cm{
-    self.deleteButton.enabled = cm ? YES : NO;
+
+    self.buttonsView.hidden = (cm == nil);
+    
     if(cm) {
         self.companyNameField.text = cm.companyName;
         self.industryField.text = cm.industry;
