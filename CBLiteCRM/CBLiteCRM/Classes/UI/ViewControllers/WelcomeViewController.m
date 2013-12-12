@@ -34,5 +34,8 @@
     }];
 }
 
+- (IBAction)asAdminChanged:(id)sender {
+}
+
 
 @end

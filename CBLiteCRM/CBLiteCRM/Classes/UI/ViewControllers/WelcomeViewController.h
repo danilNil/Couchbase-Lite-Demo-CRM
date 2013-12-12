@@ -10,5 +10,6 @@
 
 @interface WelcomeViewController : UIViewController
 - (IBAction)facebookLogin:(id)sender;
+- (IBAction)asAdminChanged:(id)sender;
 
 @end
