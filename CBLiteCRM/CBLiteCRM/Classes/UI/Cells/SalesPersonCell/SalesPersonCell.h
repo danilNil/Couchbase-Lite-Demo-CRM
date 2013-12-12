@@ -12,8 +12,9 @@ extern NSString *kSalesPersonCell;
 
 @interface SalesPersonCell : UITableViewCell
 
-@property (strong, nonatomic) IBOutlet UILabel *name;
-@property (strong, nonatomic) IBOutlet UIButton *checkmark;
+@property (weak, nonatomic) IBOutlet UILabel *name;
+@property (weak, nonatomic) IBOutlet UILabel *email;
+@property (weak, nonatomic) IBOutlet UIButton *checkmark;
 
 @property (strong, nonatomic) SalesPerson *salesPerson;
 

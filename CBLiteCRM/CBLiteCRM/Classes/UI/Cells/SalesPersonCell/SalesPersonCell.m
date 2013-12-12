@@ -22,15 +22,15 @@ NSString *kSalesPersonCell = @"SalesPersonCell";
     [super setSelected:selected animated:animated];
 }
 
-- (IBAction)checkmarkTapped:(id)sender {
-    if (!self.checkmark.selected)
-        self.checked = YES;
-    else
-        self.checked = NO;
+- (IBAction)checkmarkTapped:(id)sender
+{
+    self.checked = !self.checkmark.selected;
 }
 
-- (void)setChecked:(BOOL)checked {
+- (void)setChecked:(BOOL)checked
+{
     self.salesPerson.approved = checked;
+
     NSError *err;
     if ([self.salesPerson save:&err]) {
         _checked = checked;
@@ -46,8 +46,10 @@ NSString *kSalesPersonCell = @"SalesPersonCell";
 - (void)setSalesPerson:(SalesPerson *)salesPerson
 {
     _salesPerson = salesPerson;
-    self.name.text = salesPerson.email;
-    self.checked = salesPerson.approved;
+
+    self.name.text  = salesPerson.username;
+    self.email.text = salesPerson.email;
+    self.checked    = salesPerson.approved;
 }
 
 @end
