@@ -67,7 +67,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="6jY-i8-izR">
-                                <rect key="frame" x="15" y="124" width="120" height="120"/>
+                                <rect key="frame" x="17" y="115" width="135" height="135"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -80,7 +80,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="v6c-Vo-TjJ">
-                                <rect key="frame" x="180" y="124" width="120" height="120"/>
+                                <rect key="frame" x="167" y="296" width="143" height="143"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -93,7 +93,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="J5t-Xn-IKo">
-                                <rect key="frame" x="15" y="290" width="120" height="120"/>
+                                <rect key="frame" x="163" y="101" width="150" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -106,7 +106,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="uYR-2i-ili">
-                                <rect key="frame" x="180" y="290" width="120" height="120"/>
+                                <rect key="frame" x="9" y="290" width="150" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -1093,13 +1093,13 @@
     </scenes>
     <resources>
         <image name="FacebookButton" width="282" height="66"/>
-        <image name="contacts_icon.png" width="120" height="120"/>
-        <image name="customers_icon.png" width="120" height="120"/>
+        <image name="contacts_icon.png" width="150" height="150"/>
+        <image name="customers_icon.png" width="143" height="143"/>
         <image name="input_field.png" width="293" height="37"/>
-        <image name="opportunities_icon.png" width="120" height="120"/>
+        <image name="opportunities_icon.png" width="150" height="150"/>
         <image name="photo_bg.png" width="142" height="142"/>
         <image name="photo_placeholder.png" width="142" height="142"/>
-        <image name="sales_icon.png" width="120" height="120"/>
+        <image name="sales_icon.png" width="135" height="135"/>
     </resources>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
