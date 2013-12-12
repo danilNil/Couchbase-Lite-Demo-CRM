@@ -14,7 +14,6 @@ extern NSString *kContactCellIdentifier;
 
 @property (weak, nonatomic) IBOutlet UIImageView *avatar;
 @property (weak, nonatomic) IBOutlet UILabel *name;
-@property (weak, nonatomic) IBOutlet UILabel *company;
 @property (weak, nonatomic) IBOutlet UILabel *position;
 
 @property (nonatomic, strong) Contact *contact;

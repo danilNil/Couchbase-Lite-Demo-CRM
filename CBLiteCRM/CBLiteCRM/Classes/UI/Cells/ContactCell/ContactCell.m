@@ -8,7 +8,7 @@
 
 #import "ContactCell.h"
 #import "Contact.h"
-#import "Customer.h"
+#import "Contact+Helper.h"
 
 NSString *kContactCellIdentifier = @"ContactCell";
 
@@ -21,12 +21,20 @@ NSString *kContactCellIdentifier = @"ContactCell";
 
 - (void)setContact:(Contact *)contact {
     _contact = contact;
-    NSData *photoData = [[contact attachmentNamed:@"photo"] content];
-    UIImage *photo = [UIImage imageWithData:photoData];
-    [self.avatar setImage:photo];
-    self.name.text = contact.email;
-    self.company.text = contact.customer.companyName;
-    self.position.text = contact.position;
+    
+    self.avatar.image   = [self avatarImageForContact:contact];
+    self.name.text      = [contact email];
+    self.position.text  = [contact positionAtCompany];
+}
+
+- (UIImage*)avatarImageForContact:(Contact*)contact
+{
+    UIImage * photo = [contact photo];
+    
+    if(!photo)
+        photo = [UIImage imageNamed:@"PhotoPlaceholderSmall"];
+    
+    return photo;
 }
 
 @end
