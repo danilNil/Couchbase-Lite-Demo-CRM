@@ -20,6 +20,13 @@
 
 @implementation WelcomeViewController
 
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    NSString* userID = [[NSUserDefaults standardUserDefaults] objectForKey: kCBLPrefKeyUserID];
+    if(userID)
+        [self facebookLogin:self];
+}
+
 - (void)hideWelcomeScreen{
     [self performSegueWithIdentifier:@"pushMenuController" sender:self];
 }
