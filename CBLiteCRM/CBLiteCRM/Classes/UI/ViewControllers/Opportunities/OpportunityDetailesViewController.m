@@ -146,23 +146,32 @@
         if (opp.salesStage) {
             self.stageField.text = opp.salesStage;
             ((DictPickerView*)self.stageField.inputView).selectedItemName = opp.salesStage;
+        }else{
+            self.stageField.text =@"New";
         }
         if (opp.creationDate) {
             self.dateField.text = [self stringFromDate:opp.creationDate];
             creationDatePicker.date = opp.creationDate;
         }
-        if([opp getValueOfProperty:@"revenueSize"])
-            self.revenueField.text = [NSString stringWithFormat:@"%lli",opp.revenueSize];
-        if([opp getValueOfProperty:@"winProbability"])
-            self.winField.text =[NSString stringWithFormat:@"%.02f",opp.winProbability];
+        if([opp getValueOfProperty:@"revenueSize"]){
+            if(opp.revenueSize)
+                self.revenueField.text = [NSString stringWithFormat:@"%lli",opp.revenueSize];
+        }
+        if([opp getValueOfProperty:@"winProbability"]){
+            if(opp.winProbability)
+                self.winField.text =[NSString stringWithFormat:@"%.02f",opp.winProbability];
+        }
         self.customerField.text = opp.customer.companyName;
+    }else{
+        self.stageField.text =@"New";
     }
 }
 
 - (void)updateInfoForOpportunity:(Opportunity*)opp
 {
     opp.title = self.nameField.text;
-    opp.salesStage = self.stageField.text;
+    if([self.stageField.text isEqualToString:@""])
+        opp.salesStage = @"New";
     opp.revenueSize = [self.revenueField.text longLongValue];
     opp.winProbability = [self.winField.text floatValue];
     opp.creationDate = creationDatePicker.date;
