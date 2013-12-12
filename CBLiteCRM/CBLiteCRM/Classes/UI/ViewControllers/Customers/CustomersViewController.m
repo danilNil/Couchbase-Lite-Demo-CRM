@@ -50,7 +50,10 @@ CBLUITableDelegate
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
     self.selectedCellData = [self customerForPath:indexPath];
     if(self.chooser && self.onSelectCustomer)
         [self didChooseCustomer:self.selectedCellData];

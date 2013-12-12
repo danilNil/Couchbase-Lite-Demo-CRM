@@ -54,6 +54,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
     CBLQueryRow *row = [self.currentSource rowAtIndex:indexPath.row];
     self.selectedContact = [Contact modelForDocument: row.document];
     if(self.chooser && self.onSelectContact)

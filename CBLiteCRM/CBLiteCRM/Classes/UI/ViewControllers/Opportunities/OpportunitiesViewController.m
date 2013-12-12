@@ -35,6 +35,8 @@ CBLUITableDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
     self.selectedCellData = [self opportForPath:indexPath];
     [self performSegueWithIdentifier:@"opportDetails" sender:tableView];
 }
