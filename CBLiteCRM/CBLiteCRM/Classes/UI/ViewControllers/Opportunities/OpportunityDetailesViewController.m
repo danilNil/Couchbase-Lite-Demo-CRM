@@ -225,17 +225,18 @@
 - (UIToolbar*) toolBar
 {
     UIToolbar *toolbar = [UIToolbar new];
-    toolbar.barStyle = UIBarStyleBlackTranslucent;
-    [toolbar sizeToFit];
+
     UIBarButtonItem *flex = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemFlexibleSpace
                                                                           target: self
                                                                           action: nil];
 
-    UIBarButtonItem *done = [[UIBarButtonItem alloc] initWithTitle: NSLocalizedString(@"done", nil)
+    UIBarButtonItem *done = [[UIBarButtonItem alloc] initWithTitle: NSLocalizedString(@"Done", nil)
                                                              style: UIBarButtonItemStyleBordered
                                                             target: self
                                                             action: @selector(done)];
     [toolbar setItems: @[flex, done]];
+    [toolbar sizeToFit];
+    
     return toolbar;
 }
 

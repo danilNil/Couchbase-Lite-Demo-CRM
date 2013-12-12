@@ -51,6 +51,8 @@
         [[UIBarButtonItem appearance] setTintColor:[UIColor whiteColor]];
         
         [[UITextField appearance] setTintColor:[UIColor grayColor]];
+        [[UIToolbar appearance] setTintColor:[UIColor blackColor]];
+        [[UIToolbar appearance] setBackgroundColor:[UIColor lightGrayColor]];
     } else {
         [[UINavigationBar appearance] setTintColor:kBaseBlueColor];
     }
