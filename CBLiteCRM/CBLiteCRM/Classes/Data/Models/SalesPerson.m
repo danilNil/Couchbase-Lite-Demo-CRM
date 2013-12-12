@@ -15,13 +15,14 @@
                    withUserData: (NSDictionary*)userData
                       andMail: (NSString*)mail
 {
-    NSParameterAssert(userData);
+    NSParameterAssert(userData); 
     NSParameterAssert(mail);
     
     self = [self initInDatabase:database withEmail:mail];
     if (self) {
         self.user_id = mail;
         self.username = userData[@"name"];
+        self.approved = NO;
     }
     return self;
 }
