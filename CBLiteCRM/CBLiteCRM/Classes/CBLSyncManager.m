@@ -306,6 +306,8 @@
 
              [self performSelectorOnMainThread:@selector(showFacebookAlert) withObject:nil waitUntilDone:NO];
 
+             // temporary fix for #29287
+             [[NSNotificationCenter defaultCenter] postNotificationName:@"authentication.fail" object:nil];
          }
      }];
 }

@@ -20,9 +20,22 @@
 
 @implementation WelcomeViewController
 
+-(void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(onEpicFail)
+                                                 name:@"authentication.fail"
+                                               object:nil];
+    
+}
+
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
+
     NSString* userID = [[NSUserDefaults standardUserDefaults] objectForKey: kCBLPrefKeyUserID];
+    
     if(userID)
         [self facebookLogin:self];
 }
@@ -31,14 +44,24 @@
     [self performSegueWithIdentifier:@"pushMenuController" sender:self];
 }
 
+- (AppDelegate*)appDelegate
+{
+    return [UIApplication sharedApplication].delegate;
+}
+
 - (IBAction)facebookLogin:(id)sender {
-    AppDelegate* app = [UIApplication sharedApplication].delegate;
     [self.view showActivity];
-    [app loginAndSync: ^(){
+    
+    [[self appDelegate] loginAndSync: ^(){
         [self hideWelcomeScreen];
         NSLog(@"called complete loginAndSync");
         [self.view hideActivity];
     }];
+}
+
+- (void) onEpicFail
+{
+    [self.view hideActivity];
 }
 
 
