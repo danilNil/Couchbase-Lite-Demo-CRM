@@ -43,6 +43,8 @@
         self.addressField.text = cm.address;
         self.URLField.text = cm.websiteUrl;
         self.companyNameField.enabled = NO;
+    }else{
+        self.navigationItem.title = @"Add New Customer";
     }
 }
 
