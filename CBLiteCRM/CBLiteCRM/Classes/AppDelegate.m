@@ -14,7 +14,7 @@
 #import "Constants.h"
 #import "DeviceSoftware.h"
 
-#define kSyncUrl @"http://sync.couchbasecloud.com:4984/role_sg5"
+#define kSyncUrl @"http://sync.couchbasecloud.com:4984/role_sg6"
 #define kFBAppId @"220375198143968"
 
 @interface AppDelegate()
