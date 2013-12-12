@@ -25,11 +25,12 @@
 #import "ContactOpportunity.h"
 
 @interface OpportunityDetailesViewController ()
-<DictPickerViewDelegate>
+<DictPickerViewDelegate, UITextFieldDelegate>
 {
     UIDatePicker *creationDatePicker;
     DictPickerView *stagePicker;
     Customer *customer;
+    UITextField *currentFirstResponder;
 }
 @end
 
@@ -47,6 +48,8 @@
 
     [self.baseScrollView setContentSize:self.contentView.frame.size];
     [self loadInfoForOpportunity:self.currentOpport];
+    self.revenueField.inputAccessoryView = [self toolBar];
+    self.winField.inputAccessoryView = [self toolBar];
 }
 
 - (void)setStageFieldInputView
@@ -200,11 +203,10 @@
 {
     if ([self.stageField isFirstResponder]) {
         self.stageField.text = stagePicker.selectedItemName;
-        [self.stageField resignFirstResponder];
     } else if ([self.dateField isFirstResponder]) {
         self.dateField.text = [self stringFromDate:creationDatePicker.date];
-        [self.dateField resignFirstResponder];
     }
+    [currentFirstResponder resignFirstResponder];
 }
 
 #pragma mark - UITextFieldDelegate
@@ -212,6 +214,11 @@
 {
     [textField resignFirstResponder];
     return YES;
+}
+
+-(void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    currentFirstResponder = textField;
 }
 
 @end
