@@ -11,6 +11,7 @@
 #import "CBLSyncManager.h"
 
 #import "SalesPerson.h"
+#import "Constants.h"
 #import "DeviceSoftware.h"
 
 #define kSyncUrl @"http://sync.couchbasecloud.com:4984/fb_sg1"

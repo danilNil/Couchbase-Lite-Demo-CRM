@@ -28,6 +28,7 @@
 		44B3A6761857132D00CF4BAE /* OpportunitesByContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44B3A6751857132D00CF4BAE /* OpportunitesByContactViewController.m */; };
 		44CABE1D18487FF30060263F /* ContactCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44CABE1C18487FF30060263F /* ContactCell.xib */; };
 		44D6DAF7184718920097262E /* CustomerDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44D6DAF6184718920097262E /* CustomerDetailsViewController.m */; };
+		44FA91FC1859534A00E6D962 /* DeviceSoftware.m in Sources */ = {isa = PBXBuildFile; fileRef = 44FA91FB1859534A00E6D962 /* DeviceSoftware.m */; };
 		81833B57184B9D4600F788A2 /* FilteringViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81833B56184B9D4600F788A2 /* FilteringViewController.m */; };
 		830D51AC1848570900044A19 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 830D51AB1848570900044A19 /* BaseModel.m */; };
 		830D51B01848968800044A19 /* OpportunityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 830D51AF1848968800044A19 /* OpportunityCell.m */; };
@@ -127,6 +128,7 @@
 		44CABE1C18487FF30060263F /* ContactCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactCell.xib; sourceTree = "<group>"; };
 		44D6DAF5184718920097262E /* CustomerDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerDetailsViewController.h; sourceTree = "<group>"; };
 		44D6DAF6184718920097262E /* CustomerDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerDetailsViewController.m; sourceTree = "<group>"; };
+		44FA91FB1859534A00E6D962 /* DeviceSoftware.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceSoftware.m; sourceTree = "<group>"; };
 		81833B55184B9D4600F788A2 /* FilteringViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilteringViewController.h; sourceTree = "<group>"; };
 		81833B56184B9D4600F788A2 /* FilteringViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilteringViewController.m; sourceTree = "<group>"; };
 		830D51AA1848570900044A19 /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
@@ -508,6 +510,7 @@
 			children = (
 				831FFD37184454A900C7CB22 /* Constants.h */,
 				8326BEFB1858718000B605EB /* DeviceSoftware.h */,
+				44FA91FB1859534A00E6D962 /* DeviceSoftware.m */,
 			);
 			path = Defines;
 			sourceTree = "<group>";
@@ -686,6 +689,7 @@
 				447A2C681845D808008786AF /* OpportunitiesViewController.m in Sources */,
 				447A2C651845D808008786AF /* ContactsViewController.m in Sources */,
 				447A2C6A1845D808008786AF /* SalesViewController.m in Sources */,
+				44FA91FC1859534A00E6D962 /* DeviceSoftware.m in Sources */,
 				83173109184F238D0043F865 /* BaseStore.m in Sources */,
 				447A2C691845D808008786AF /* SalesPersonOptionsViewController.m in Sources */,
 				83173100184F211C0043F865 /* OpportunitiesStore.m in Sources */,

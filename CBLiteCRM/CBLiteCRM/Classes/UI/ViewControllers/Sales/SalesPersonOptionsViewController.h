@@ -11,6 +11,7 @@
 
 @property (nonatomic, unsafe_unretained) SalesPerson *salesPerson;
 
+@property (weak, nonatomic) IBOutlet UIView *contentView;
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
 @property (weak, nonatomic) IBOutlet UITextField *phoneField;
 @property (weak, nonatomic) IBOutlet UITextField *mailField;

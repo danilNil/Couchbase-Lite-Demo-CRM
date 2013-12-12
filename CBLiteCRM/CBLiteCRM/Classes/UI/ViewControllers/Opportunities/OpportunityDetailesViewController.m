@@ -12,6 +12,7 @@
 #import "CustomersViewController.h"
 #import "CustomerDetailsViewController.h"
 #import "DictPickerView.h"
+#import "DeviceSoftware.h"
 
 //Data
 #import "Opportunity.h"
@@ -37,7 +38,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.automaticallyAdjustsScrollViewInsets = NO;
+    if (isIOS7())
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    else
+        self.baseScrollView.frame = self.view.bounds;
     [self setupStagePicker];
     [self setStageFieldInputView];
 

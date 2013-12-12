@@ -11,7 +11,7 @@
 #import "ImagePickerAngel.h"
 #import "CustomersViewController.h"
 #import "OpportunitesByContactViewController.h"
-
+#import "DeviceSoftware.h"
 //Data
 #import "DataStore.h"
 #import "ContactsStore.h"
@@ -34,7 +34,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.automaticallyAdjustsScrollViewInsets = NO;
+    if (isIOS7())
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    else
+        self.baseScrollView.frame = self.view.bounds;
     [self.baseScrollView setContentSize:self.contentView.frame.size];
     if(!photoTapRecognizer){
         photoTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapOnPhoto)];

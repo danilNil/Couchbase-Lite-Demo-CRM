@@ -9,6 +9,7 @@
 #import "CustomerDetailsViewController.h"
 #import "OpportunitiesViewController.h"
 #import "ContactsViewController.h"
+#import "DeviceSoftware.h"
 
 //Data
 #import "Customer.h"
@@ -24,14 +25,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.automaticallyAdjustsScrollViewInsets = NO;
+    if (isIOS7())
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    else
+        self.baseScrollView.frame = self.view.bounds;
     [self.baseScrollView setContentSize:self.contentView.frame.size];
     [self loadInfoForCustomer:self.currentCustomer];
 }
 
 - (void)loadInfoForCustomer:(Customer*)cm{
     self.deleteButton.enabled = cm ? YES : NO;
-    if(cm){
+    if(cm) {
         self.companyNameField.text = cm.companyName;
         self.industryField.text = cm.industry;
         self.phoneField.text = cm.phone;
