@@ -96,9 +96,9 @@
     if ([self.stageField.text isEqualToString:@""])
         return YES;
     for (NSString *stageValue in stagePicker.itemNames)
-        if (![stageValue isEqualToString:self.stageField.text])
-            return NO;
-    return YES;
+        if ([stageValue isEqualToString:self.stageField.text])
+            return YES;
+    return NO;
 }
 
 - (BOOL)checkThatTextFieldTextIsNumeric:(UITextField*)tf
