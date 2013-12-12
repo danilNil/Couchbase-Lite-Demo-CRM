@@ -78,7 +78,7 @@
     if ([self.nameField.text isEqualToString:@""]) {
         [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Please fill opportunity name field" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil] show];
         return NO;
-    } else if ([self checkThatStageFieldValueCorrect]) {
+    } else if (![self checkThatStageFieldValueCorrect]) {
         [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Please fill stage field with correct value" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil] show];
         return NO;
     } else if (![self checkThatTextFieldTextIsNumeric:self.revenueField]) {
@@ -93,6 +93,8 @@
 
 - (BOOL)checkThatStageFieldValueCorrect
 {
+    if ([self.stageField.text isEqualToString:@""])
+        return YES;
     for (NSString *stageValue in stagePicker.itemNames)
         if (![stageValue isEqualToString:self.stageField.text])
             return NO;
@@ -101,24 +103,38 @@
 
 - (BOOL)checkThatTextFieldTextIsNumeric:(UITextField*)tf
 {
+    if ([tf.text isEqualToString:@""])
+        return YES;
     NSScanner *scanner = [NSScanner scannerWithString:tf.text];
     BOOL isNumeric = [scanner scanInteger:NULL] && [scanner isAtEnd];
+    if (!isNumeric) {
+        isNumeric = [scanner scanFloat:NULL] && [scanner isAtEnd];
+    }
     return isNumeric;
 }
 
 - (IBAction)saveItem:(id)sender
 {
+    if ([self saveItem])
+        [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (BOOL)saveItem {
     if([self validateAllFields]){
         Opportunity* newOpportunity = self.currentOpport;
-        if(!newOpportunity)
+        if(!newOpportunity) {
             newOpportunity = [[DataStore sharedInstance].opportunitiesStore createOpportunityWithTitleOrReturnExist:self.nameField.text];
+            self.currentOpport = newOpportunity;
+        }
         [self updateInfoForOpportunity:newOpportunity];
         NSError* error;
-        if(![newOpportunity save:&error])
+        if(![newOpportunity save:&error]) {
             NSLog(@"error in save opportunity: %@", error);
-        else
-            [self dismissViewControllerAnimated:YES completion:NULL];
+            return NO;
+        }
+        return YES;
     }
+    return NO;
 }
 
 - (void)loadInfoForOpportunity:(Opportunity*)opp {
@@ -177,7 +193,8 @@
 
 - (IBAction)showContacts:(id)sender
 {
-    [self performSegueWithIdentifier:@"presentContactsForOpportunity" sender:self];
+    if ([self saveItem])
+        [self performSegueWithIdentifier:@"presentContactsForOpportunity" sender:self];
 }
 
 - (void)setupStagePicker
@@ -192,9 +209,8 @@
 
 - (void)itemPicker:(id)picker didSelectItemWithName:(NSString *)name
 {
-    if(picker == stagePicker) {
+    if(picker == stagePicker)
         self.stageField.text = name;
-    }
 }
 
 - (UIToolbar*) toolBar
