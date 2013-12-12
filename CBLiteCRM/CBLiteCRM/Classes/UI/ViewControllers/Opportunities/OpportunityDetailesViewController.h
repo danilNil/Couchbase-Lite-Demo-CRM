@@ -17,8 +17,9 @@
 @property (weak, nonatomic) IBOutlet UITextField *dateField;
 @property (weak, nonatomic) IBOutlet UITextField *revenueField;
 @property (weak, nonatomic) IBOutlet UITextField *winField;
-@property (weak, nonatomic) IBOutlet UITextField *customerField;
-@property (strong, nonatomic) IBOutlet UIButton *deleteButton;
+@property (weak, nonatomic) IBOutlet UIButton *deleteButton;
+@property (weak, nonatomic) IBOutlet UIButton *customerButton;
+@property (weak, nonatomic) IBOutlet UIButton *customerDetailsButton;
 
 - (IBAction)back:(id)sender;
 - (IBAction)saveItem:(id)sender;

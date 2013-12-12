@@ -541,17 +541,17 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="413"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="opportunity name" textAlignment="center" minimumFontSize="17" id="eUD-c5-Dk5">
-                                                <rect key="frame" x="20" y="10" width="280" height="30"/>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Opportunity Name" textAlignment="center" minimumFontSize="17" background="input_field.png" disabledBackground="input_field_disabled.png" id="eUD-c5-Dk5">
+                                                <rect key="frame" x="14" y="7" width="292" height="37"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="tN3-ye-q8X" id="eE2-QD-mBa"/>
                                                 </connections>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="stage" textAlignment="center" minimumFontSize="17" id="8Hz-8A-88H">
-                                                <rect key="frame" x="20" y="48" width="280" height="30"/>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Stage" textAlignment="center" minimumFontSize="17" background="input_field.png" id="8Hz-8A-88H">
+                                                <rect key="frame" x="14" y="52" width="290" height="37"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -559,8 +559,8 @@
                                                     <outlet property="delegate" destination="tN3-ye-q8X" id="yBe-km-a26"/>
                                                 </connections>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="creation date" textAlignment="center" minimumFontSize="17" id="3pF-gR-KXa">
-                                                <rect key="frame" x="20" y="86" width="280" height="30"/>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Creation Date" textAlignment="center" minimumFontSize="17" background="input_field.png" id="3pF-gR-KXa">
+                                                <rect key="frame" x="14" y="97" width="290" height="37"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -568,8 +568,8 @@
                                                     <outlet property="delegate" destination="tN3-ye-q8X" id="ig2-3c-Fgq"/>
                                                 </connections>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="revenue size" textAlignment="center" minimumFontSize="17" id="q54-bn-r8A">
-                                                <rect key="frame" x="20" y="124" width="280" height="30"/>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Revenue Size" textAlignment="center" minimumFontSize="17" background="input_field.png" id="q54-bn-r8A">
+                                                <rect key="frame" x="15" y="142" width="290" height="37"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -577,8 +577,8 @@
                                                     <outlet property="delegate" destination="tN3-ye-q8X" id="OCw-qf-sgW"/>
                                                 </connections>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="win probability" textAlignment="center" minimumFontSize="17" id="8xy-VZ-6oJ">
-                                                <rect key="frame" x="20" y="162" width="280" height="30"/>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Win Probability" textAlignment="center" minimumFontSize="17" background="input_field.png" id="8xy-VZ-6oJ">
+                                                <rect key="frame" x="15" y="188" width="290" height="37"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
@@ -586,21 +586,12 @@
                                                     <outlet property="delegate" destination="tN3-ye-q8X" id="FOP-Rx-X8z"/>
                                                 </connections>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="customer" textAlignment="center" minimumFontSize="17" id="bL3-Ut-32T">
-                                                <rect key="frame" x="20" y="200" width="209" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                                <connections>
-                                                    <outlet property="delegate" destination="tN3-ye-q8X" id="Mju-e7-dsu"/>
-                                                </connections>
-                                            </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="m4S-Rf-q8k">
-                                                <rect key="frame" x="20" y="250" width="280" height="30"/>
+                                                <rect key="frame" x="14" y="288" width="290" height="44"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" white="0.80574247259999998" alpha="1" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <state key="normal" title="show contacts">
+                                                <color key="backgroundColor" red="0.35686274509999999" green="0.83921568629999999" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="18"/>
+                                                <state key="normal" title="Show Contacts">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
@@ -608,11 +599,11 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="MnG-pZ-lRp">
-                                                <rect key="frame" x="20" y="288" width="280" height="30"/>
+                                                <rect key="frame" x="14" y="340" width="290" height="44"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" white="0.80574247259999998" alpha="1" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <state key="normal" title="delete">
+                                                <color key="backgroundColor" red="0.96470588239999999" green="0.70196078429999997" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="18"/>
+                                                <state key="normal" title="Delete">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
@@ -620,20 +611,23 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="6KV-qq-ehq">
-                                                <rect key="frame" x="20" y="200" width="209" height="30"/>
+                                                <rect key="frame" x="16" y="236" width="203" height="44"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal">
+                                                <color key="backgroundColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="18"/>
+                                                <state key="normal" title="Customer">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
                                                     <segue destination="Dc7-B9-xyB" kind="push" id="2JB-Zq-Ixq"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ZDn-8Q-AID">
-                                                <rect key="frame" x="237" y="199" width="63" height="30"/>
+                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ZDn-8Q-AID">
+                                                <rect key="frame" x="227" y="236" width="77" height="44"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" white="0.80574247259999998" alpha="1" colorSpace="calibratedWhite"/>
-                                                <state key="normal" title=">">
+                                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="18"/>
+                                                <state key="normal" title="Details">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
@@ -664,7 +658,8 @@
                     <connections>
                         <outlet property="baseScrollView" destination="3Tq-TI-Tm3" id="Qwx-Vh-ZoA"/>
                         <outlet property="contentView" destination="qKj-wr-JUC" id="Z1w-QP-eVy"/>
-                        <outlet property="customerField" destination="bL3-Ut-32T" id="ykL-88-MFg"/>
+                        <outlet property="customerButton" destination="6KV-qq-ehq" id="f4o-uZ-MdP"/>
+                        <outlet property="customerDetailsButton" destination="ZDn-8Q-AID" id="gtN-kL-8Xq"/>
                         <outlet property="dateField" destination="3pF-gR-KXa" id="yJf-nx-lj4"/>
                         <outlet property="deleteButton" destination="MnG-pZ-lRp" id="2Tk-lZ-axd"/>
                         <outlet property="nameField" destination="eUD-c5-Dk5" id="lxP-YS-YBC"/>
@@ -1088,6 +1083,7 @@
         <image name="contacts_icon.png" width="150" height="150"/>
         <image name="customers_icon.png" width="143" height="143"/>
         <image name="input_field.png" width="293" height="37"/>
+        <image name="input_field_disabled.png" width="293" height="37"/>
         <image name="opportunities_icon.png" width="150" height="150"/>
         <image name="sales_icon.png" width="135" height="135"/>
     </resources>
@@ -1098,10 +1094,10 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="oD6-Gt-h5e"/>
         <segue reference="rju-Nc-jGo"/>
-        <segue reference="sb8-08-2KH"/>
+        <segue reference="oD6-Gt-h5e"/>
         <segue reference="BU2-V0-PLp"/>
-        <segue reference="zHw-JE-Ekg"/>
+        <segue reference="sb8-08-2KH"/>
+        <segue reference="2JB-Zq-Ixq"/>
     </inferredMetricsTieBreakers>
 </document>

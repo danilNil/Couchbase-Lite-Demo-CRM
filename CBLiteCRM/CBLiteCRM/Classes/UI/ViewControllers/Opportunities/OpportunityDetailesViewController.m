@@ -161,7 +161,7 @@
             if(opp.winProbability)
                 self.winField.text =[NSString stringWithFormat:@"%.02f",opp.winProbability];
         }
-        self.customerField.text = opp.customer.companyName;
+        [self setCustomer:opp.customer];
     }else{
         self.stageField.text =@"New";
     }
@@ -243,9 +243,8 @@
     if([segue.destinationViewController isKindOfClass:[CustomersViewController class]]){
         CustomersViewController* vc = (CustomersViewController*)segue.destinationViewController;
         vc.chooser = YES;
-        [vc setOnSelectCustomer:^(Customer *cust) {
-            customer = cust;
-            self.customerField.text = cust.companyName;
+        [vc setOnSelectCustomer:^(Customer * newCustomer) {
+            [self setCustomer:newCustomer];
         }];
     }else if([segue.destinationViewController isKindOfClass:[CustomerDetailsViewController class]]){
         CustomerDetailsViewController* vc = segue.destinationViewController;
@@ -254,6 +253,24 @@
         ContactsByOpportunityViewController* vc = (ContactsByOpportunityViewController*)segue.destinationViewController;
         vc.filteredOpp = self.currentOpport;
     }
+}
+
+- (void)setCustomer:(Customer*)newCustomer
+{
+    customer = newCustomer;
+    
+    [self.customerButton setTitle:[self customerTitle]
+                         forState:UIControlStateNormal];
+    
+    [self.customerDetailsButton setEnabled:(customer!=nil)];
+}
+
+- (NSString*) customerTitle
+{
+    if (customer)
+        return [NSString stringWithFormat:@"Customer: %@", customer.companyName];
+    
+    return @"Select Customer";
 }
 
 - (void)done
