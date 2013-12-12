@@ -97,4 +97,9 @@
         [_cblSync start];
     }
 }
+
+- (void)logout{
+    [_cblSync logout];
+}
+
 @end

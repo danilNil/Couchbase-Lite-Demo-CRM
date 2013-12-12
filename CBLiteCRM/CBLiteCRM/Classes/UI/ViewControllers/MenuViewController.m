@@ -7,7 +7,7 @@
 //
 
 #import "MenuViewController.h"
-
+#import "AppDelegate.h"
 @interface MenuViewController ()
 
 @end
@@ -36,6 +36,8 @@
 }
 
 - (IBAction)logout:(id)sender {
+    AppDelegate* app = [UIApplication sharedApplication].delegate;
+    [app logout];
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 @end

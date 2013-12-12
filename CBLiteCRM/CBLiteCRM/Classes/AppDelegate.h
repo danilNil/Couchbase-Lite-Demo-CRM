@@ -17,5 +17,5 @@
 @property (strong, nonatomic) CBLSyncManager *cblSync;
 
 - (void)loginAndSync: (void (^)())complete;
-
+- (void)logout;
 @end

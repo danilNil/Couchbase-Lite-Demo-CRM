@@ -23,6 +23,7 @@
 @property (readwrite) CBLSyncManager *syncManager;
 -(void) getCredentials: (void (^)(NSString *userID, NSDictionary *userData))block;
 -(void) registerCredentialsWithReplications: (NSArray *)repls;
+- (void)logoutUser:(NSString*)userID;
 @end
 
 // example Facebook Authenticator
@@ -64,7 +65,7 @@
 //- (void)onSyncError: (void (^)())block;
 
 - (void)start;
-
+- (void)logout;
 
 // These are not KVO-observable; observe SyncManagerStateChangedNotification instead
 @property (nonatomic, readonly) unsigned completed, total;

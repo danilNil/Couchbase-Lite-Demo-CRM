@@ -92,6 +92,16 @@
 
 #pragma mark - Sync related
 
+- (void)logout{
+    if (!self.userID) {
+        NSLog(@"here is should be self.syncManager.userID");
+    }else{
+        [self.authenticator logoutUser:self.userID];
+        [[NSUserDefaults standardUserDefaults] setObject:nil forKey:kCBLPrefKeyUserID];
+        _userID = nil;
+    }
+}
+
 - (void) launchSync {
     NSLog(@"launch Sync");
 
@@ -239,6 +249,15 @@
 }
 
 #pragma mark - Facebook API related
+
+- (void)logoutUser:(NSString*)userID{
+    if (!userID) {
+        NSLog(@"here is should be self.syncManager.userID");
+    }else{
+        [[NSUserDefaults standardUserDefaults] setObject: nil forKey: [self accessTokenKeyForUserID:userID]];
+        
+    }
+}
 
 - (void)getFacebookUserInfoWithAccessToken: (NSString*)accessToken facebookAccount:(ACAccount *)fbAccount onCompletion: (void (^)(NSDictionary* userData))complete
 {
