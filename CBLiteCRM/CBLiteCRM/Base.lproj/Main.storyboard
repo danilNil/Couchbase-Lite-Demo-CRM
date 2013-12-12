@@ -133,7 +133,7 @@
             </objects>
             <point key="canvasLocation" x="537" y="427"/>
         </scene>
-        <!--Sales View Controller - Sales Person-->
+        <!--Sales View Controller - Sales-->
         <scene sceneID="zQg-tN-zT5">
             <objects>
                 <viewController id="xUM-Pc-30e" customClass="SalesViewController" sceneMemberID="viewController">
@@ -161,7 +161,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Sales Person" id="BEL-0B-KFB"/>
+                    <navigationItem key="navigationItem" title="Sales" id="BEL-0B-KFB"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="cellIdentifier" value="SalesPersonCell"/>
                     </userDefinedRuntimeAttributes>
@@ -345,7 +345,7 @@
             </objects>
             <point key="canvasLocation" x="1507" y="-723"/>
         </scene>
-        <!--Contact Details View Controller - Details-->
+        <!--Contact Details View Controller - Contact-->
         <scene sceneID="XBv-Uk-B3a">
             <objects>
                 <viewController id="Xt6-34-7OD" customClass="ContactDetailsViewController" sceneMemberID="viewController">
@@ -463,7 +463,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Details" id="3qe-Px-orA">
+                    <navigationItem key="navigationItem" title="Contact" id="3qe-Px-orA">
                         <barButtonItem key="leftBarButtonItem" title="Back" id="8NG-H0-efG">
                             <connections>
                                 <action selector="back:" destination="Xt6-34-7OD" id="SlQ-52-Vtt"/>
@@ -525,7 +525,7 @@
             </objects>
             <point key="canvasLocation" x="1443" y="1005"/>
         </scene>
-        <!--Opportunity Detailes View Controller - Details-->
+        <!--Opportunity Detailes View Controller - Opportunity-->
         <scene sceneID="Clk-Zq-gKl">
             <objects>
                 <viewController id="tN3-ye-q8X" customClass="OpportunityDetailesViewController" sceneMemberID="viewController">
@@ -643,7 +643,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Details" id="rs4-Bj-CoV">
+                    <navigationItem key="navigationItem" title="Opportunity" id="rs4-Bj-CoV">
                         <barButtonItem key="leftBarButtonItem" title="Back" id="pTa-HC-10n">
                             <connections>
                                 <action selector="back:" destination="tN3-ye-q8X" id="7bF-Z2-TlW"/>
