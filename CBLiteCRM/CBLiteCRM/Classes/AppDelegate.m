@@ -13,6 +13,7 @@
 #import "SalesPerson.h"
 #import "Constants.h"
 #import "DeviceSoftware.h"
+#import "TestFlight.h"
 
 #define kSyncUrl @"http://sync.couchbasecloud.com:4984/fb_sg1"
 #define kFBAppId @"220375198143968"
@@ -25,6 +26,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [self setupTestflight];
     [self setupAppearance];
     // create a shared instance of CBLManager
     CBLManager *manager = [CBLManager sharedInstance];
@@ -106,6 +108,13 @@
 
 - (void)logout{
     [_cblSync logout];
+}
+
+#pragma -
+
+- (void) setupTestflight
+{
+    [TestFlight takeOff:@"f13dc547-6cef-4b07-9864-6fd1cffa1b3f"];
 }
 
 @end
