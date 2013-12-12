@@ -9,7 +9,7 @@
 #import "SalesPerson.h"
 
 @implementation SalesPerson
-@dynamic username, phoneNumber, email, approved, user_id, type;
+@dynamic username, phoneNumber, email, approved, user_id, type, isAdmin;
 
 - (instancetype) initInDatabase: (CBLDatabase*)database
                    withUserData: (NSDictionary*)userData
@@ -23,6 +23,7 @@
         self.user_id = mail;
         self.username = userData[@"name"];
         self.approved = NO;
+        self.isAdmin = NO;
     }
     return self;
 }

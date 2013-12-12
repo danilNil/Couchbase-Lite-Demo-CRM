@@ -14,11 +14,12 @@
 #import "Constants.h"
 #import "DeviceSoftware.h"
 
-#define kSyncUrl @"http://sync.couchbasecloud.com:4984/role_sg6"
+#define kSyncUrl @"http://sync.couchbasecloud.com:4984/admin2"
 #define kFBAppId @"220375198143968"
 
 @interface AppDelegate()
-    @property (readonly) DataStore* dataStore;
+@property (readonly) DataStore* dataStore;
+@property (nonatomic) BOOL asAdmin;
 @end
 
 @implementation AppDelegate
@@ -76,6 +77,7 @@
             // This is a first run, setup the profile but don't save it yet.
 
             SalesPerson *myProfile = [[SalesPerson alloc] initInDatabase:self.database withUserData:userData andMail:userID];
+            myProfile.isAdmin = self.asAdmin;
 //            NSLog(@"my profile doc properties: %@", myProfile.document.properties);
             // Sync doesn't start until after this block completes, so
             // all this data will be tagged.
@@ -91,6 +93,8 @@
     if (_cblSync.userID) {
         complete();
     } else {
+//        TODO: removed that variable after CBLSyncManager refactoring
+        self.asAdmin = asAdmin;
         [_cblSync beforeFirstSync:^(NSString *userID, NSDictionary *userData, NSError **outError) {
             complete();
         }];

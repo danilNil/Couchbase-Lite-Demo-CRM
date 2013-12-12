@@ -18,6 +18,7 @@
 @property (strong) NSString* email;
 @property (strong) NSString* phoneNumber;
 @property bool approved;
+@property bool isAdmin;
 
 
 - (instancetype) initInDatabase: (CBLDatabase*)database
