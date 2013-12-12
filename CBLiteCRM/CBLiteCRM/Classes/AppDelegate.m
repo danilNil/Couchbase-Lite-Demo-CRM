@@ -49,6 +49,8 @@
     if (isIOS7()) {
         [[UINavigationBar appearance] setBarTintColor:kBaseBlueColor];
         [[UIBarButtonItem appearance] setTintColor:[UIColor whiteColor]];
+        
+        [[UITextField appearance] setTintColor:[UIColor grayColor]];
     } else {
         [[UINavigationBar appearance] setTintColor:kBaseBlueColor];
     }
