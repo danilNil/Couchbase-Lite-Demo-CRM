@@ -60,7 +60,7 @@
 #pragma mark - Segue
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     SalesPersonOptionsViewController *salesPersonOptionsViewController = [segue destinationViewController];
-    salesPersonOptionsViewController.salesPerson =self.selectedCellData;
+    salesPersonOptionsViewController.salesPerson = self.selectedCellData;
 }
 
 @end

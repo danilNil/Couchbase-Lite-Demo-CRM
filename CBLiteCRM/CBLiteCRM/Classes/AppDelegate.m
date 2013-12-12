@@ -53,7 +53,7 @@
         [[UINavigationBar appearance] setTintColor:kBaseBlueColor];
     }
     
-    NSDictionary *navbarTitleTextAttributes = @{UITextAttributeTextColor:[UIColor whiteColor]};
+    NSDictionary *navbarTitleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
 
     [[UINavigationBar appearance] setTitleTextAttributes:navbarTitleTextAttributes];
 }

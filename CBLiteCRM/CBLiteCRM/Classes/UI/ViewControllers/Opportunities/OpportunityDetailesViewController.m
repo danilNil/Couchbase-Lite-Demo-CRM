@@ -73,9 +73,42 @@
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
+- (BOOL)validateAllFields
+{
+    if ([self.nameField.text isEqualToString:@""]) {
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Please fill opportunity name field" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil] show];
+        return NO;
+    } else if ([self checkThatStageFieldValueCorrect]) {
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Please fill stage field with correct value" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil] show];
+        return NO;
+    } else if (![self checkThatTextFieldTextIsNumeric:self.revenueField]) {
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Please fill revenue field with numeric value" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil] show];
+        return NO;
+    } else if (![self checkThatTextFieldTextIsNumeric:self.winField]) {
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Please fill win probability field with numeric value" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil] show];
+        return NO;
+    }
+    return YES;
+}
+
+- (BOOL)checkThatStageFieldValueCorrect
+{
+    for (NSString *stageValue in stagePicker.itemNames)
+        if (![stageValue isEqualToString:self.stageField.text])
+            return NO;
+    return YES;
+}
+
+- (BOOL)checkThatTextFieldTextIsNumeric:(UITextField*)tf
+{
+    NSScanner *scanner = [NSScanner scannerWithString:tf.text];
+    BOOL isNumeric = [scanner scanInteger:NULL] && [scanner isAtEnd];
+    return isNumeric;
+}
+
 - (IBAction)saveItem:(id)sender
 {
-    if(![self.nameField.text isEqualToString:@""]){
+    if([self validateAllFields]){
         Opportunity* newOpportunity = self.currentOpport;
         if(!newOpportunity)
             newOpportunity = [[DataStore sharedInstance].opportunitiesStore createOpportunityWithTitleOrReturnExist:self.nameField.text];
@@ -85,8 +118,7 @@
             NSLog(@"error in save opportunity: %@", error);
         else
             [self dismissViewControllerAnimated:YES completion:NULL];
-    } else
-        [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Please fill opportunity name field" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil] show];
+    }
 }
 
 - (void)loadInfoForOpportunity:(Opportunity*)opp {

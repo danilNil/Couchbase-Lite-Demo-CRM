@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <deployment defaultVersion="1536" identifier="iOS"/>
+        <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <scenes>
@@ -269,6 +269,9 @@
                     </navigationItem>
                     <connections>
                         <outlet property="contentView" destination="aH8-hl-aJp" id="q8S-Ii-SYS"/>
+                        <outlet property="mailField" destination="Vce-uM-Vu5" id="NPv-TT-tF8"/>
+                        <outlet property="nameField" destination="2cq-SL-IR2" id="U6F-wh-fb7"/>
+                        <outlet property="phoneField" destination="8Tv-6X-tnh" id="wDh-dP-imF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nql-vy-yKY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1090,11 +1093,6 @@
     </scenes>
     <resources>
         <image name="FacebookButton" width="282" height="66"/>
-        <image name="input_field.png" width="293" height="37"/>
-        <image name="input_field.png" width="293" height="37"/>
-        <image name="input_field.png" width="293" height="37"/>
-        <image name="input_field.png" width="293" height="37"/>
-        <image name="input_field.png" width="293" height="37"/>
         <image name="input_field.png" width="293" height="37"/>
         <image name="photo_bg.png" width="142" height="142"/>
         <image name="photo_placeholder.png" width="142" height="142"/>
