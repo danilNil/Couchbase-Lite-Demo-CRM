@@ -1,3 +1,5 @@
+
+// grant access to all users
 function(doc) {
   channel("all_channels");
   if (doc.type == "salesperson") {
