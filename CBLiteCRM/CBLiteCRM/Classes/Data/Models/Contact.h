@@ -20,5 +20,6 @@
 - (instancetype) initInDatabase: (CBLDatabase*)database
                  withEmail: (NSString*)mail;
 
+- (UIImage*) photo;
 
 @end

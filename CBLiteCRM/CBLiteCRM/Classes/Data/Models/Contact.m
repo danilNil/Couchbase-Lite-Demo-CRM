@@ -29,4 +29,12 @@
         return nil;
     return self;
 }
+
+- (UIImage*)photo
+{
+    NSData * photoData = [[self attachmentNamed:@"photo"] content];
+
+    return [UIImage imageWithData:photoData];
+}
+
 @end
