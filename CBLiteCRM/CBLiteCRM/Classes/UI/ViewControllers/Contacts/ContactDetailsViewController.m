@@ -58,13 +58,18 @@
         self.phoneField.text = ct.phoneNumber;
         self.mailField.text = ct.email;
         self.addressField.text = ct.address;
-        [self updatePhotoWithContact:ct];
+        self.photoView.image = [self photoImageForContact:ct];
     }
 }
-- (void)updatePhotoWithContact:(Contact*)ct{
-    UIImage* img = [self imageFromAttachment:[ct attachmentNamed:@"photo"]];
-    if(img)
-        self.photoView.image = img;
+
+- (UIImage*)photoImageForContact:(Contact*)contact
+{
+    UIImage * photo = [contact photo];
+    
+    if(!photo)
+        photo = [UIImage imageNamed:@"PhotoPlaceholder"];
+    
+    return photo;
 }
 
 - (void)didTapOnPhoto{
