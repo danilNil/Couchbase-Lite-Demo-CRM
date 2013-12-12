@@ -15,4 +15,5 @@
     #import <Foundation/Foundation.h>
     #import <CouchbaseLite/CouchbaseLite.h>
     #import "Constants.h"
+    #import "UIAlertView+Helper.h"
 #endif

@@ -75,17 +75,29 @@
 
 - (BOOL)validateAllFields
 {
-    if ([self.nameField.text isEqualToString:@""]) {
-        [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Please fill opportunity name field" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil] show];
+    if ([self.nameField.text isEqualToString:@""])
+    {
+        [UIAlertView showErrorMessage:@"Please fill opportunity name field"];
         return NO;
-    } else if (![self checkThatStageFieldValueCorrect]) {
-        [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Please fill stage field with correct value" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil] show];
+    }
+    else if (![self checkThatStageFieldValueCorrect])
+    {
+        [UIAlertView showErrorMessage:@"Please fill stage field with correct value"];
         return NO;
-    } else if (![self checkThatTextFieldTextIsNumeric:self.revenueField]) {
-        [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Please fill revenue field with numeric value" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil] show];
+    }
+    else if (![self checkThatTextFieldTextIsNumeric:self.revenueField])
+    {
+        [UIAlertView showErrorMessage:@"Please fill revenue field with numeric value"];
         return NO;
-    } else if (![self checkThatTextFieldTextIsNumeric:self.winField]) {
-        [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Please fill win probability field with numeric value" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil] show];
+    }
+    else if (![self checkThatTextFieldTextIsNumeric:self.winField])
+    {
+        [UIAlertView showErrorMessage:@"Please fill win probability field with numeric value"];
+        return NO;
+    }
+    else if (!customer)
+    {
+        [UIAlertView showErrorMessage:@"Please select customer"];
         return NO;
     }
     return YES;
