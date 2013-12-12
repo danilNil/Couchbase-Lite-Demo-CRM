@@ -29,6 +29,8 @@
 		44CABE1D18487FF30060263F /* ContactCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44CABE1C18487FF30060263F /* ContactCell.xib */; };
 		44D6DAF7184718920097262E /* CustomerDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44D6DAF6184718920097262E /* CustomerDetailsViewController.m */; };
 		44FA91FC1859534A00E6D962 /* DeviceSoftware.m in Sources */ = {isa = PBXBuildFile; fileRef = 44FA91FB1859534A00E6D962 /* DeviceSoftware.m */; };
+		49C103DA1859EB0F00D58426 /* RoundedImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C103D91859EB0F00D58426 /* RoundedImageView.m */; };
+		49C103DD1859F86200D58426 /* Contact+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C103DC1859F86200D58426 /* Contact+Helper.m */; };
 		81833B57184B9D4600F788A2 /* FilteringViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81833B56184B9D4600F788A2 /* FilteringViewController.m */; };
 		830D51AC1848570900044A19 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 830D51AB1848570900044A19 /* BaseModel.m */; };
 		830D51B01848968800044A19 /* OpportunityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 830D51AF1848968800044A19 /* OpportunityCell.m */; };
@@ -139,6 +141,10 @@
 		44D6DAF5184718920097262E /* CustomerDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerDetailsViewController.h; sourceTree = "<group>"; };
 		44D6DAF6184718920097262E /* CustomerDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerDetailsViewController.m; sourceTree = "<group>"; };
 		44FA91FB1859534A00E6D962 /* DeviceSoftware.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceSoftware.m; sourceTree = "<group>"; };
+		49C103D81859EB0F00D58426 /* RoundedImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundedImageView.h; sourceTree = "<group>"; };
+		49C103D91859EB0F00D58426 /* RoundedImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundedImageView.m; sourceTree = "<group>"; };
+		49C103DB1859F86200D58426 /* Contact+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Contact+Helper.h"; sourceTree = "<group>"; };
+		49C103DC1859F86200D58426 /* Contact+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Contact+Helper.m"; sourceTree = "<group>"; };
 		81833B55184B9D4600F788A2 /* FilteringViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilteringViewController.h; sourceTree = "<group>"; };
 		81833B56184B9D4600F788A2 /* FilteringViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilteringViewController.m; sourceTree = "<group>"; };
 		830D51AA1848570900044A19 /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
@@ -513,6 +519,8 @@
 			children = (
 				831FFD3C18446BC200C7CB22 /* Contact.h */,
 				831FFD3D18446BC200C7CB22 /* Contact.m */,
+				49C103DB1859F86200D58426 /* Contact+Helper.h */,
+				49C103DC1859F86200D58426 /* Contact+Helper.m */,
 				831FFD3F18446C5500C7CB22 /* SalesPerson.h */,
 				831FFD4018446C5500C7CB22 /* SalesPerson.m */,
 				831FFD4218446EAC00C7CB22 /* Customer.h */,
@@ -596,6 +604,8 @@
 				83CEAADE1846ECE10002D040 /* AlertBuilder */,
 				83CEAADB1846EC240002D040 /* ImagePickerAngel.h */,
 				83CEAADC1846EC240002D040 /* ImagePickerAngel.m */,
+				49C103D81859EB0F00D58426 /* RoundedImageView.h */,
+				49C103D91859EB0F00D58426 /* RoundedImageView.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -729,6 +739,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49C103DA1859EB0F00D58426 /* RoundedImageView.m in Sources */,
 				832845341851882F008FBFCD /* UIView+Activity.m in Sources */,
 				448980C0184D9AD2000D9B5A /* DictPickerView.m in Sources */,
 				447A2C641845D808008786AF /* ContactDetailsViewController.m in Sources */,
@@ -770,6 +781,7 @@
 				447A2C631845D808008786AF /* TextFieldsViewController.m in Sources */,
 				44D6DAF7184718920097262E /* CustomerDetailsViewController.m in Sources */,
 				831FFD4418446EAC00C7CB22 /* Customer.m in Sources */,
+				49C103DD1859F86200D58426 /* Contact+Helper.m in Sources */,
 				830D51B31848973900044A19 /* OpportunityDetailesViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1001,7 +1013,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "7E73E076-D223-40B7-94A0-B71439FB50B5";
+				PROVISIONING_PROFILE = "";
 				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1030,7 +1042,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "7E73E076-D223-40B7-94A0-B71439FB50B5";
+				PROVISIONING_PROFILE = "";
 				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
