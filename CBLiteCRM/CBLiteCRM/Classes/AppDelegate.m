@@ -79,7 +79,9 @@
         [_cblSync beforeFirstSync:^(NSString *userID, NSDictionary *userData,  NSError **outError) {
             // This is a first run, setup the profile but don't save it yet.
 
-            SalesPerson *myProfile = [[SalesPerson alloc] initInDatabase:self.database withEmail:userData[@"name"] andUserID:userID];
+            SalesPerson *myProfile = [[SalesPerson alloc] initInDatabase:self.database withEmail:userData[@"email"] andUserID:userID];
+            myProfile.username = userData[@"username"];
+
 //            NSLog(@"my profile doc properties: %@", myProfile.document.properties);
             // Sync doesn't start until after this block completes, so
             // all this data will be tagged.
