@@ -23,7 +23,8 @@
 - (void) updateQuery
 {
     self.store = [DataStore sharedInstance].opportunityContactStore;
-    self.dataSource.query = [[(OpportunityContactStore*)self.store queryOpportunitiesForContact:self.filteringContact] asLiveQuery];
+    if (self.filteringContact)
+        self.dataSource.query = [[(OpportunityContactStore*)self.store queryOpportunitiesForContact:self.filteringContact] asLiveQuery];
 }
 
 -(UITableViewCell *)couchTableSource:(CBLUITableSource *)source cellForRowAtIndexPath:(NSIndexPath *)indexPath

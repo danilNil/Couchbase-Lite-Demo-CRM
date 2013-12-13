@@ -26,6 +26,7 @@
     UITapGestureRecognizer* photoTapRecognizer;
     ImagePickerAngel * imagePickerAngel;
     Customer *customer;
+    UIAlertView *currentAlertView;
 }
 
 @end
@@ -46,6 +47,7 @@
         self.photoView.userInteractionEnabled = YES;
     }
     [self loadInfoForContact:self.currentContact];
+    self.currentContact = _currentContact;
 }
 
 - (void)loadInfoForContact:(Contact*)ct{
@@ -104,20 +106,15 @@
 
 - (IBAction)opportunities:(id)sender
 {
-    if (self.currentContact) {
-        [self performSegueWithIdentifier:@"presentOpportunitiesForContact" sender:self];
-    }
+    [self saveContact];
+    [self performSegueWithIdentifier:@"presentOpportunitiesForContact" sender:self];
 }
 
 - (IBAction)saveItem:(id)sender {
-    if(self.mailField.text && ![self.mailField.text isEqualToString:@""]){
-        Contact* newContact = self.currentContact;
-        if(!newContact)
-            newContact = [[DataStore sharedInstance].contactsStore createContactWithMailOrReturnExist:self.mailField.text];
-        [self updateInfoForContact:newContact];
+    if ([self saveContact])
         [self dismissViewControllerAnimated:YES completion:NULL];
-    } else
-        [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Please fill contact email field" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil] show];
+    else
+        [currentAlertView show];
 }
 
 - (IBAction)deleteItem:(id)sender
@@ -127,6 +124,20 @@
         [[[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil] show];
     else
         [self dismissViewControllerAnimated:YES completion:^{}];
+}
+
+- (BOOL)saveContact
+{
+    if(self.mailField.text && ![self.mailField.text isEqualToString:@""]){
+        Contact* newContact = self.currentContact;
+        if(!newContact)
+            newContact = [[DataStore sharedInstance].contactsStore createContactWithMailOrReturnExist:self.mailField.text];
+        [self updateInfoForContact:newContact];
+        return YES;
+    } else {
+        currentAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Please fill contact email field" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil];
+        return NO;
+    }
 }
 
 - (void)updateInfoForContact:(Contact*)ct{
@@ -141,6 +152,13 @@
     NSError* error;
     if(![ct save:&error])
         NSLog(@"error in save contact: %@", error);
+    else
+        self.currentContact = ct;
+}
+
+-(void)setCurrentContact:(Contact *)currentContact {
+    _currentContact = currentContact;
+    self.buttonsView.hidden = !currentContact;
 }
 
 - (NSArray*)selectedOpportunities{
