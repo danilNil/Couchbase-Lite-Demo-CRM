@@ -224,14 +224,18 @@
     [self getFaceBookAccessToken:^(NSString* accessToken, ACAccount* fbAccount){
         
         [self getFacebookUserInfoWithAccessToken:accessToken facebookAccount: fbAccount onCompletion: ^(NSDictionary* userData){
-            
+
             NSString *userID = userData[@"email"];
-            
-            // Store the access_token for later.
-            [[NSUserDefaults standardUserDefaults] setObject: accessToken forKey: [self accessTokenKeyForUserID:userID]];
-            
-            block(userID, userData);
-            
+            if(!accessToken){
+                NSLog(@"ERROR: here is should be token");
+                block(nil, nil);
+            }else{
+                if(!userID)
+                    userID = [userData[@"name"] stringByReplacingOccurrencesOfString:@" " withString:@""].lowercaseString;
+                // Store the access_token for later.
+                [[NSUserDefaults standardUserDefaults] setObject: accessToken forKey: [self accessTokenKeyForUserID:userID]];
+                block(userID, userData);
+            }
         }];
     }];
 }
