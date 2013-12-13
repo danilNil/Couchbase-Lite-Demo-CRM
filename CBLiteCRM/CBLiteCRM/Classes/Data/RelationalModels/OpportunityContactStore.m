@@ -37,10 +37,10 @@
         _filteredOpportunitiesContactView = [self.database viewNamed: @"filteredOpportunitiesContact"];
         [_filteredOpportunitiesContactView setMapBlock: MAPBLOCK({
             if ([doc[@"type"] isEqualToString: kContactOpportunityDocType]) {
-                if (doc[@"opportunity"])
-                    emit(doc[@"opportunity"], doc);
+                if (doc[@"_id"])
+                    emit(doc[@"_id"], doc);
             }
-        }) version: @"2"];
+        }) version: @"3"];
 
     }
     return self;

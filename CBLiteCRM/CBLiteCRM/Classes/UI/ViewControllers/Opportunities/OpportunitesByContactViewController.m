@@ -15,19 +15,10 @@
 #import "Customer.h"
 
 @interface OpportunitesByContactViewController ()
-
+@property (nonatomic, weak) OpportunityContactStore *store;
 @end
 
 @implementation OpportunitesByContactViewController
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-
-    self.modelClass = [ContactOpportunity class];
-    self.firstLevelSearchableProperty = @"opportunity";
-    self.secondLevelSearchableProperty = @"title";
-}
 
 - (void) updateQuery
 {
@@ -60,7 +51,7 @@
         ContactOpportunity *ctOpp = [ContactOpportunity modelForDocument:row.document];
         NSString* searchableString = ctOpp.opportunity.title;
         if ([searchableString rangeOfString:searchText options:NSCaseInsensitiveSearch].location != NSNotFound)
-            [matches addObject:ctOpp.opportunity.document.documentID];
+            [matches addObject:ctOpp.document.documentID];
     }
     query.keys = matches;
     self.filteredDataSource.query = [query asLiveQuery];
