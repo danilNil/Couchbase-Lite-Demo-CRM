@@ -20,14 +20,6 @@
 
 @implementation ContactsByOpportunityViewController
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    self.modelClass = [ContactOpportunity class];
-    self.firstLevelSearchableProperty = @"contact";
-    self.secondLevelSearchableProperty = @"email";
-
-}
 - (void)updateQuery
 {
     self.store = [DataStore sharedInstance].contactOpportunityStore;
@@ -81,7 +73,7 @@
         ContactOpportunity *ctOpp = [ContactOpportunity modelForDocument:row.document];
         NSString* searchableString = ctOpp.contact.email;
         if ([searchableString rangeOfString:searchText options:NSCaseInsensitiveSearch].location != NSNotFound)
-            [matches addObject:ctOpp.contact.document.documentID];
+            [matches addObject:ctOpp.document.documentID];
     }
     query.keys = matches;
     self.filteredDataSource.query = [query asLiveQuery];

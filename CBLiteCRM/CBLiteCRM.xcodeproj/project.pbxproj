@@ -936,7 +936,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/andrew/Projects/Couchbase/Couchbase-Lite-Demo-CRM/CBLiteCRM/TestFlightSDK",
+					"$(SRCROOT)/TestFlightSDK",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1063,7 +1063,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/andrew/Projects/Couchbase/Couchbase-Lite-Demo-CRM/CBLiteCRM/TestFlightSDK",
+					"$(SRCROOT)/TestFlightSDK",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1096,7 +1096,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/andrew/Projects/Couchbase/Couchbase-Lite-Demo-CRM/CBLiteCRM/TestFlightSDK",
+					"$(SRCROOT)/TestFlightSDK",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
