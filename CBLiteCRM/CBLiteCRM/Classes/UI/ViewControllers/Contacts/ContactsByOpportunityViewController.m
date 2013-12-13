@@ -13,6 +13,7 @@
 #import "ContactOpportunity.h"
 #import "Contact.h"
 #import "ContactCell.h"
+#import "ContactDetailsViewController.h"
 
 @interface ContactsByOpportunityViewController ()
 
@@ -29,6 +30,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    [super prepareForSegue:segue sender:sender];
     if ([segue.identifier isEqualToString:@"presentContactSelectionForOpportunity"]) {
         ContactsViewController* vc = (ContactsViewController*)segue.destinationViewController;
         vc.chooser = YES;
@@ -37,7 +39,11 @@
             ContactOpportunity *ctOpp = [[ContactOpportunity alloc] initInDatabase:[DataStore sharedInstance].database withContact:ct andOpportunity:self.filteredOpp];
             NSLog(@"ContactOpportunity created %@", ctOpp);
         }];
+    } else if ([segue.destinationViewController isKindOfClass:[ContactDetailsViewController class]]) {
+        ContactDetailsViewController* vc = (ContactDetailsViewController*)segue.destinationViewController;
+        vc.currentContact = [[ContactOpportunity modelForDocument:[self.currentSource rowAtIndex:[self.currentSource.tableView indexPathForSelectedRow].row].document] contact];
     }
+
 }
 
 - (IBAction)back:(id)sender

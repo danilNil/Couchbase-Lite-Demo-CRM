@@ -11,6 +11,7 @@
 #import "ImagePickerAngel.h"
 #import "CustomersViewController.h"
 #import "OpportunitesByContactViewController.h"
+#import "ContactsByOpportunityViewController.h"
 #import "DeviceSoftware.h"
 //Data
 #import "DataStore.h"
@@ -95,7 +96,10 @@
 
 - (IBAction)back:(id)sender {
     self.currentContact = nil;
-    [self dismissViewControllerAnimated:YES completion:NULL];
+    if ([[((UINavigationController*)self.presentingViewController).viewControllers lastObject] isKindOfClass:[ContactsViewController class]])
+        [self dismissViewControllerAnimated:YES completion:NULL];
+    else if ([[((UINavigationController*)self.presentingViewController).viewControllers lastObject] isKindOfClass:[OpportunitiesViewController class]])
+        [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (IBAction)opportunities:(id)sender
