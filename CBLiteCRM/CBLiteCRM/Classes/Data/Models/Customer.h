@@ -16,6 +16,7 @@
 @property (strong) NSString* websiteUrl;
 @property (strong) NSString* address;
 
+- (BOOL)deleteDoc;
 
 - (instancetype) initInDatabase: (CBLDatabase*)database
                   withCustomerName: (NSString*)name;

@@ -10,7 +10,7 @@
 
 @class Customer;
 @interface Opportunity : BaseModel
-@property (strong) Customer* customer;
+@property (weak) Customer* customer;
 @property (strong) NSDate* creationDate;
 @property long long revenueSize;
 @property float winProbability;

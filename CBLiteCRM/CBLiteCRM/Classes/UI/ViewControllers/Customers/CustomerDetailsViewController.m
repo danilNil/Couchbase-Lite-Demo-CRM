@@ -38,7 +38,7 @@
     self.buttonsView.hidden = (cm == nil);
     
     if(cm) {
-        self.companyNameField.text = cm.companyName;
+        self.companyNameField.text = cm.companyName.length > 0 ? cm.companyName : @"";
         self.industryField.text = cm.industry;
         self.phoneField.text = cm.phone;
         self.mailField.text = cm.email;
@@ -67,11 +67,10 @@
 }
 
 - (IBAction)deleteItem:(id)sender {
-    NSError *error;
-    if ([self.currentCustomer deleteDocument:&error]) {
+    if ([self.currentCustomer deleteDoc]) {
         [self  dismissViewControllerAnimated:YES completion:^{}];
     } else {
-        [[[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:Nil cancelButtonTitle:@"ok" otherButtonTitles: nil] show];
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:@"err" delegate:Nil cancelButtonTitle:@"ok" otherButtonTitles: nil] show];
     }
 }
 

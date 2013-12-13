@@ -80,7 +80,7 @@ CBLUITableDelegate
 
     Opportunity *opportunity = [Opportunity modelForDocument:[source.rows[indexPath.row] document]];
     cell.textLabel.text = [opportunity getValueOfProperty:@"title"];
-    cell.detailTextLabel.text = opportunity.customer.companyName;
+    cell.detailTextLabel.text = opportunity.customer.companyName.length > 0 ? opportunity.customer.companyName : @"";
     return cell;
 }
 
