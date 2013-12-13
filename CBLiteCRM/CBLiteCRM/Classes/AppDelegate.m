@@ -15,11 +15,12 @@
 #import "DeviceSoftware.h"
 #import "TestFlight.h"
 
-#define kSyncUrl @"http://sync.couchbasecloud.com:4984/fb_sg1"
+#define kSyncUrl @"http://sync.couchbasecloud.com:4984/cbl_crm_sg6"
 #define kFBAppId @"220375198143968"
 
 @interface AppDelegate()
-    @property (readonly) DataStore* dataStore;
+@property (readonly) DataStore* dataStore;
+@property (nonatomic) BOOL asAdmin;
 @end
 
 @implementation AppDelegate
@@ -80,25 +81,20 @@
         // this will be triggered after we call [_cblSync start]
         [_cblSync beforeFirstSync:^(NSString *userID, NSDictionary *userData,  NSError **outError) {
             // This is a first run, setup the profile but don't save it yet.
-
-            SalesPerson *myProfile = [[SalesPerson alloc] initInDatabase:self.database withEmail:userData[@"email"] andUserID:userID];
-            myProfile.username = userData[@"username"];
-
-//            NSLog(@"my profile doc properties: %@", myProfile.document.properties);
-            // Sync doesn't start until after this block completes, so
-            // all this data will be tagged.
-//            if (!outError) {
-                [myProfile save:outError];
-                NSLog(@"my profile doc properties: %@", myProfile.document.properties);
-//            }
+            SalesPerson *myProfile = [[SalesPerson alloc] initInDatabase:self.database withUserData:userData andMail:userID];
+            myProfile.isAdmin = self.asAdmin;
+            [myProfile save:outError];
+            NSLog(@"my profile doc properties: %@", myProfile.document.properties);
         }];
     }
 }
 
-- (void)loginAndSync: (void (^)())complete {
+- (void)loginAndSync: (void (^)())complete asAdmin:(BOOL)asAdmin{
     if (_cblSync.userID) {
         complete();
     } else {
+//        TODO: removed that variable after CBLSyncManager refactoring
+        self.asAdmin = asAdmin;
         [_cblSync beforeFirstSync:^(NSString *userID, NSDictionary *userData, NSError **outError) {
             complete();
         }];

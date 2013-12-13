@@ -9,18 +9,21 @@
 #import "SalesPerson.h"
 
 @implementation SalesPerson
-@dynamic username, phoneNumber, email, approved, user_id, type;
+@dynamic username, phoneNumber, email, approved, user_id, type, isAdmin;
 
 - (instancetype) initInDatabase: (CBLDatabase*)database
-                      withEmail: (NSString*)mail
-                      andUserID: (NSString*)userId
+                   withUserData: (NSDictionary*)userData
+                      andMail: (NSString*)mail
 {
+    NSParameterAssert(userData); 
     NSParameterAssert(mail);
-    NSParameterAssert(userId);
     
     self = [self initInDatabase:database withEmail:mail];
     if (self) {
-        self.user_id = userId;
+        self.user_id = mail;
+        self.username = userData[@"name"];
+        self.approved = NO;
+        self.isAdmin = NO;
     }
     return self;
 }

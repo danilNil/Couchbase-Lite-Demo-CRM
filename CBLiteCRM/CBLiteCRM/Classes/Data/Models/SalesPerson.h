@@ -18,11 +18,12 @@
 @property (strong) NSString* email;
 @property (strong) NSString* phoneNumber;
 @property bool approved;
+@property bool isAdmin;
 
 
 - (instancetype) initInDatabase: (CBLDatabase*)database
-                      withEmail: (NSString*)mail
-                      andUserID: (NSString*)userId;
+                      withUserData: (NSDictionary*)userData
+                      andMail: (NSString*)mail;
 - (instancetype) initInDatabase: (CBLDatabase*)database
                       withEmail: (NSString*)mail;
 

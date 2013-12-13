@@ -16,6 +16,6 @@
 @property (strong, nonatomic) CBLDatabase *database;
 @property (strong, nonatomic) CBLSyncManager *cblSync;
 
-- (void)loginAndSync: (void (^)())complete;
 - (void)logout;
+- (void)loginAndSync: (void (^)())complete asAdmin:(BOOL)asAdmin;
 @end

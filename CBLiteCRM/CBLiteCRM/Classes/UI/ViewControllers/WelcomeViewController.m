@@ -56,7 +56,7 @@
         [self hideWelcomeScreen];
         NSLog(@"called complete loginAndSync");
         [self.view hideActivity];
-    }];
+    } asAdmin:self.asAdmin.isOn];
 }
 
 - (void) onEpicFail
