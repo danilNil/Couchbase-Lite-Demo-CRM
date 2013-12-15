@@ -13,8 +13,6 @@
 @interface CustomersStore(){
     CBLView* _customersView;
     CBLView* _filteredCustomersView;
-    CBLView* _allCustomersView;
-    CBLView* _allRelatedToCustomerView;
 }
 @end
 
@@ -41,32 +39,10 @@
                     emit(companyName, doc);
             }
         }) version: @"1"];
-
-        _allCustomersView = [self.database viewNamed:@"allCustomers"];
-        [_allCustomersView setMapBlock: MAPBLOCK({
-            if ([doc[@"type"] isEqualToString: kCustomerDocType])
-                emit(doc[@"_id"], doc[@"_id"]);
-        }) version: @"3"];
-
-        _allRelatedToCustomerView = [self.database viewNamed:@"allRelatedToCustomer"];
-        [_allRelatedToCustomerView setMapBlock: MAPBLOCK({
-            if (doc[@"customer"])
-                emit(doc[@"customer"],doc[@"customer"]);
-        }) version: @"1"];
-
     }
     return self;
 }
 
-- (CBLQuery*)getAllCustomersQuery
-{
-    return [_allCustomersView createQuery];
-}
-
--(CBLQuery *)getAllRelatedToCustomerQuery
-{
-    return [_allRelatedToCustomerView createQuery];
-}
 
 - (void) createFakeCustomers {
     for (NSDictionary *dict in [self getFakeCustomersDictionary]) {

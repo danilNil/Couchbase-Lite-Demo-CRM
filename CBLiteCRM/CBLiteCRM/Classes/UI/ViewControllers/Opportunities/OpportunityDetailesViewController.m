@@ -280,7 +280,7 @@
 
 - (NSString*) customerTitle
 {
-    if (customer)
+    if (customer.companyName)
         return [NSString stringWithFormat:@"Customer: %@", customer.companyName];
     
     return @"Select Customer";

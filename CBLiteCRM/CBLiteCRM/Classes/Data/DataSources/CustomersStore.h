@@ -11,9 +11,6 @@
 @interface CustomersStore : BaseStore
 @property (readonly) CBLQuery* allCustomersQuery;
 
-- (CBLQuery*)getAllCustomersQuery;
-- (CBLQuery*)getAllRelatedToCustomerQuery;
-
 - (Customer*) createCustomerWithNameOrReturnExist: (NSString*)name;
 - (void) createFakeCustomers;
 @end
