@@ -258,8 +258,8 @@
         [vc setOnSelectCustomer:^(Customer * newCustomer) {
             [self setCustomer:newCustomer];
         }];
-    }else if([segue.destinationViewController isKindOfClass:[CustomerDetailsViewController class]]){
-        CustomerDetailsViewController* vc = segue.destinationViewController;
+    }else if([segue.identifier isEqualToString:@"presentMyCustomer"]){
+        CustomerDetailsViewController* vc = (CustomerDetailsViewController*)((UINavigationController*)segue.destinationViewController).topViewController;
         vc.currentCustomer = customer;
     } else if ([segue.destinationViewController isKindOfClass:[ContactsViewController class]]) {
         ContactsByOpportunityViewController* vc = (ContactsByOpportunityViewController*)segue.destinationViewController;

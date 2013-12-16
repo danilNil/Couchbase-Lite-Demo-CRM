@@ -30,13 +30,7 @@ CBLUITableDelegate
     [super viewDidLoad];
     self.modelClass = [Customer class];
     self.firstLevelSearchableProperty = @"companyName";
-    [self updateUIForState:self.chooser];
     self.filteredDataSource.labelProperty = self.firstLevelSearchableProperty;
-}
-
-- (void)updateUIForState:(BOOL)chooser{
-    if(chooser)
-        self.navigationItem.rightBarButtonItem.enabled = NO;
 }
 
 - (void) updateQuery
