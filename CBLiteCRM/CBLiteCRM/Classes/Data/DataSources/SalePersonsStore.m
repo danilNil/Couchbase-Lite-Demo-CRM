@@ -22,7 +22,7 @@
 - (id) initWithDatabase: (CBLDatabase*)database {
     self = [super initWithDatabase:database];
     if (self) {
-        NSString* savedUserName = [[NSUserDefaults standardUserDefaults] stringForKey: @"UserName"];
+        NSString* savedUserName = [[NSUserDefaults standardUserDefaults] stringForKey: kCBLPrefKeyUserID];
         if(savedUserName)
             self.username = savedUserName;
 
@@ -83,15 +83,19 @@
               @"Eugene", kName, nil]];
 }
 
+//TODO: need to refactor. for more clearly logic of login adn logout. we need to init this class with database after we already logged in so username and current user should be already created and provided fron outside
+
 - (SalesPerson*) user {
-    if (!self.username)
+    if(_user)
+        return _user;
+    if (![self username])
         return nil;
-    SalesPerson* user = [self profileWithUsername: self.username];
-    if (!user) {
-        user = [[SalesPerson alloc] initInDatabase: self.database
-                                   withEmail: self.username];
+    _user = [[SalesPerson alloc] initInDatabase: self.database
+                                                 withEmail: self.username];
+    if (!_user) {
+        _user = [self profileWithUsername: [self username]];
     }
-    return user;
+    return _user;
 }
 
 
@@ -107,9 +111,8 @@
 - (void) setUsername:(NSString *)username {
     if (![username isEqualToString: self.username]) {
         NSLog(@"Setting username to '%@'", username);
-        _username = username;
-        [[NSUserDefaults standardUserDefaults] setObject: username forKey: @"UserName"];
-        
+        [[NSUserDefaults standardUserDefaults] setObject: username forKey: kCBLPrefKeyUserID];
+        [[NSUserDefaults standardUserDefaults] synchronize];
         SalesPerson* myProfile = [self profileWithUsername: self.username];
         if (!myProfile) {
             myProfile = [[SalesPerson  alloc] initInDatabase: self.database
@@ -119,6 +122,11 @@
     }
 }
 
+- (NSString*)username{
+    NSString* un =[[NSUserDefaults standardUserDefaults] objectForKey: kCBLPrefKeyUserID];
+    NSLog(@"current username: %@", un);
+    return un;
+}
 
 
 - (CBLQuery*) allUsersQuery {

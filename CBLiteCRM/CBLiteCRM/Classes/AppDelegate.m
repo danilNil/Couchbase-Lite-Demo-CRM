@@ -11,6 +11,7 @@
 #import "CBLSyncManager.h"
 
 #import "SalesPerson.h"
+#import "SalePersonsStore.h"
 #import "Constants.h"
 #import "DeviceSoftware.h"
 #import "TestFlight.h"
@@ -80,11 +81,7 @@
         // Application callback to create the user profile.
         // this will be triggered after we call [_cblSync start]
         [_cblSync beforeFirstSync:^(NSString *userID, NSDictionary *userData,  NSError **outError) {
-            // This is a first run, setup the profile but don't save it yet.
-            SalesPerson *myProfile = [[SalesPerson alloc] initInDatabase:self.database withUserData:userData andMail:userID];
-            myProfile.isAdmin = self.asAdmin;
-            [myProfile save:outError];
-            NSLog(@"my profile doc properties: %@", myProfile.document.properties);
+            [self updateUserWithRole:self.asAdmin];
         }];
     }
 }
@@ -96,13 +93,27 @@
 //        TODO: removed that variable after CBLSyncManager refactoring
         self.asAdmin = asAdmin;
         [_cblSync beforeFirstSync:^(NSString *userID, NSDictionary *userData, NSError **outError) {
+            [self updateUserWithRole:self.asAdmin];
             complete();
         }];
         [_cblSync start];
     }
 }
 
+- (void)updateUserWithRole:(BOOL)adminRole{
+    NSError* err;
+    SalesPerson *myProfile = [DataStore sharedInstance].salePersonsStore.user;
+    myProfile.isAdmin = self.asAdmin;
+    [myProfile save:&err];
+    if(err){
+        NSLog(@"error on updateUserWithRole: %@", err);
+    }
+    NSLog(@"my profile doc properties: %@", myProfile.document.properties);
+}
+
+//TODO: should be refactored with CBLSyncManager
 - (void)logout{
+    [DataStore sharedInstance].salePersonsStore.user = nil;
     [_cblSync logout];
 }
 

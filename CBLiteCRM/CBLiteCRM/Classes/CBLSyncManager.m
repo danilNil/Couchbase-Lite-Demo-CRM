@@ -23,13 +23,7 @@
 - (instancetype) initSyncForDatabase:(CBLDatabase*)database
                              withURL:(NSURL*)remoteURL {
     NSString* userID = [[NSUserDefaults standardUserDefaults] objectForKey: kCBLPrefKeyUserID];
-    self = [self initSyncForDatabase:database withURL:remoteURL asUser:userID];
-    if (self) {
-        [self beforeFirstSync:^(NSString *newUserId, NSDictionary *userData, NSError **outError) {
-            [[NSUserDefaults standardUserDefaults] setObject: newUserId forKey: kCBLPrefKeyUserID];
-        }];
-    }
-    return self;
+    return [self initSyncForDatabase:database withURL:remoteURL asUser:userID];
 }
 
 - (instancetype) initSyncForDatabase:(CBLDatabase*)database
@@ -98,6 +92,8 @@
         [self.authenticator logoutUser:self.userID];
         [[NSUserDefaults standardUserDefaults] setObject:nil forKey:kCBLPrefKeyUserID];
         _userID = nil;
+        [[NSUserDefaults standardUserDefaults] synchronize];
+
     }
 }
 
@@ -233,7 +229,9 @@
                 if(!userID)
                     userID = [userData[@"name"] stringByReplacingOccurrencesOfString:@" " withString:@""].lowercaseString;
                 // Store the access_token for later.
+                [[NSUserDefaults standardUserDefaults] setObject: userID forKey: kCBLPrefKeyUserID];
                 [[NSUserDefaults standardUserDefaults] setObject: accessToken forKey: [self accessTokenKeyForUserID:userID]];
+                [[NSUserDefaults standardUserDefaults] synchronize];
                 block(userID, userData);
             }
         }];
@@ -258,7 +256,8 @@
         NSLog(@"here is should be self.syncManager.userID");
     }else{
         [[NSUserDefaults standardUserDefaults] setObject: nil forKey: [self accessTokenKeyForUserID:userID]];
-        
+        [[NSUserDefaults standardUserDefaults] synchronize];
+
     }
 }
 

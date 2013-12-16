@@ -10,10 +10,11 @@
 @class SalesPerson;
 @interface SalePersonsStore : BaseStore
 /** The local logged-in user */
-@property (nonatomic, readonly) SalesPerson* user;
+@property (nonatomic, strong) SalesPerson* user;
 
 /** The local logged-in user's username. */
-@property (nonatomic, strong) NSString* username;
+- (void) setUsername:(NSString *)username;
+- (NSString*)username;
 
 /** Gets a UserProfile for a user given their username. */
 - (SalesPerson*) profileWithUsername: (NSString*)username;

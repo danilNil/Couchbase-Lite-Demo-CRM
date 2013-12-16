@@ -41,6 +41,7 @@
     CBLQueryRow *row = [source rowAtIndex:indexPath.row];
     SalesPerson *salesPerson = [SalesPerson modelForDocument: row.document];
     cell.salesPerson = salesPerson;
+    cell.checkmark.hidden = ![[DataStore sharedInstance] salePersonsStore].user.isAdmin;
     return cell;
 }
 
