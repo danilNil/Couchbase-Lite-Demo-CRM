@@ -1116,16 +1116,6 @@
         <image name="contacts_icon.png" width="150" height="150"/>
         <image name="customers_icon.png" width="143" height="143"/>
         <image name="input_field.png" width="293" height="37"/>
-        <image name="input_field.png" width="293" height="37"/>
-        <image name="input_field.png" width="293" height="37"/>
-        <image name="input_field.png" width="293" height="37"/>
-        <image name="input_field.png" width="293" height="37"/>
-        <image name="input_field.png" width="293" height="37"/>
-        <image name="input_field.png" width="293" height="37"/>
-        <image name="input_field.png" width="293" height="37"/>
-        <image name="input_field.png" width="293" height="37"/>
-        <image name="input_field.png" width="293" height="37"/>
-        <image name="input_field.png" width="293" height="37"/>
         <image name="input_field_disabled.png" width="293" height="37"/>
         <image name="opportunities_icon.png" width="150" height="150"/>
         <image name="sales_icon.png" width="135" height="135"/>
@@ -1137,11 +1127,11 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="2JB-Zq-Ixq"/>
-        <segue reference="dBC-Hg-tSj"/>
-        <segue reference="3kk-cj-LW4"/>
-        <segue reference="sb8-08-2KH"/>
-        <segue reference="1iO-jg-otn"/>
+        <segue reference="zHw-JE-Ekg"/>
         <segue reference="wBq-cU-ftI"/>
+        <segue reference="wax-He-xAT"/>
+        <segue reference="sb8-08-2KH"/>
+        <segue reference="3kk-cj-LW4"/>
+        <segue reference="1iO-jg-otn"/>
     </inferredMetricsTieBreakers>
 </document>

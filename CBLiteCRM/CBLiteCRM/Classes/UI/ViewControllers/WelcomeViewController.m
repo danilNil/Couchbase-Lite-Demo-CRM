@@ -53,9 +53,11 @@
     [self.view showActivity];
     
     [[self appDelegate] loginAndSync: ^(){
-        [self hideWelcomeScreen];
-        NSLog(@"called complete loginAndSync");
-        [self.view hideActivity];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self hideWelcomeScreen];
+            NSLog(@"called complete loginAndSync");
+            [self.view hideActivity];
+        });
     } asAdmin:self.asAdmin.isOn];
 }
 
