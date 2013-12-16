@@ -76,8 +76,7 @@
 }
 
 - (void)didTapOnPhoto{
-    if([self.currentContact attachmentNames].count==0)
-        [self pickNewImage];
+    [self pickNewImage];
 }
 
 - (void) pickNewImage
