@@ -16,7 +16,9 @@
 #import "ContactDetailsViewController.h"
 
 @interface ContactsByOpportunityViewController ()
-
+{
+    Contact* selectedContact;
+}
 @end
 
 @implementation ContactsByOpportunityViewController
@@ -39,11 +41,10 @@
             ContactOpportunity *ctOpp = [[ContactOpportunity alloc] initInDatabase:[DataStore sharedInstance].database withContact:ct andOpportunity:self.filteredOpp];
             NSLog(@"ContactOpportunity created %@", ctOpp);
         }];
-    } else if ([segue.destinationViewController isKindOfClass:[ContactDetailsViewController class]]) {
-        ContactDetailsViewController* vc = (ContactDetailsViewController*)segue.destinationViewController;
-        vc.currentContact = [[ContactOpportunity modelForDocument:[self.currentSource rowAtIndex:[self.currentSource.tableView indexPathForSelectedRow].row].document] contact];
+    } else if ([segue.identifier isEqualToString:@"presentContactDetails"]) {
+        ContactDetailsViewController* vc = (ContactDetailsViewController*)((UINavigationController*)segue.destinationViewController).topViewController;
+        vc.currentContact = selectedContact;
     }
-
 }
 
 - (IBAction)back:(id)sender
@@ -53,15 +54,16 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
+    NSIndexPath *selPath = [self.currentSource.tableView indexPathForSelectedRow];
+    selectedContact = [[ContactOpportunity modelForDocument:[(CBLUITableSource*)tableView.dataSource rowAtIndex:selPath.row].document] contact];
     [self performSegueWithIdentifier:@"presentContactDetails" sender:self];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (UITableViewCell *)couchTableSource:(CBLUITableSource *)source cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ContactCell *cell = [[source tableView] dequeueReusableCellWithIdentifier:kContactCellIdentifier];
-    CBLQueryRow *row = [self.currentSource rowAtIndex:indexPath.row];
+    CBLQueryRow *row = [(CBLUITableSource *)self.tableView.dataSource rowAtIndex:indexPath.row];
     ContactOpportunity *ctOpp = [ContactOpportunity modelForDocument:row.document];
     cell.contact = ctOpp.contact;
     return cell;

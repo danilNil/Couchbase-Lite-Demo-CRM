@@ -27,6 +27,19 @@
         self.dataSource.query = [[(OpportunityContactStore*)self.store queryOpportunitiesForContact:self.filteringContact] asLiveQuery];
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    self.selectedCellData = [self contactOpportunityForPath:indexPath].opportunity;
+    [self performSegueWithIdentifier:@"opportDetails" sender:tableView];
+}
+
+- (ContactOpportunity*)contactOpportunityForPath:(NSIndexPath*)indexPath
+{
+    CBLQueryRow *row = [self.currentSource rowAtIndex:indexPath.row];
+    return [ContactOpportunity modelForDocument: row.document];
+}
+
 -(UITableViewCell *)couchTableSource:(CBLUITableSource *)source cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [[source tableView] dequeueReusableCellWithIdentifier:@"OpportunityCell"];

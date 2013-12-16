@@ -43,6 +43,7 @@
     return self;
 }
 
+
 - (void) createFakeCustomers {
     for (NSDictionary *dict in [self getFakeCustomersDictionary]) {
         Customer* customer = [self customerWithName: [dict objectForKey:kName]];

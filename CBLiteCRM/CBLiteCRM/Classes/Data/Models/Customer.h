@@ -16,7 +16,6 @@
 @property (strong) NSString* websiteUrl;
 @property (strong) NSString* address;
 
-
 - (instancetype) initInDatabase: (CBLDatabase*)database
                   withCustomerName: (NSString*)name;
 

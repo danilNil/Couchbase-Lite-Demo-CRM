@@ -7,6 +7,8 @@
 //
 
 #import "Customer.h"
+#import "DataStore.h"
+#import "CustomersStore.h"
 
 @implementation Customer
 @dynamic companyName, industry, phone, email, websiteUrl, address;
