@@ -7,6 +7,9 @@
 //
 
 #import "Opportunity.h"
+#import "ContactOpportunityStore.h"
+#import "ContactOpportunity.h"
+#import "DataStore.h"
 
 @implementation Opportunity
 @dynamic customer, creationDate, revenueSize, winProbability, salesStage, contacts, title;
@@ -30,6 +33,18 @@
         return nil;
     return self;
 
+}
+
+- (BOOL)deleteDocument: (NSError**)outError
+{
+    ContactOpportunityStore *ctOppStore = [DataStore sharedInstance].contactOpportunityStore;
+    CBLQuery *q = [ctOppStore queryContactsForOpportunity:self];
+    NSError *er;
+    for (CBLQueryRow *r in [q rows:&er]) {
+        ContactOpportunity *ctOpp = [ContactOpportunity modelForDocument:r.document];
+        [ctOpp deleteDocument:&er];
+    }
+    return [super deleteDocument:outError];
 }
 
 @end

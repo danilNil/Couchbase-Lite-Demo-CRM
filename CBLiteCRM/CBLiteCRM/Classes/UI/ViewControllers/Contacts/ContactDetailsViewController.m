@@ -13,15 +13,15 @@
 #import "OpportunitesByContactViewController.h"
 #import "ContactsByOpportunityViewController.h"
 #import "DeviceSoftware.h"
+
 //Data
 #import "DataStore.h"
 #import "ContactsStore.h"
-#import "ContactOpportunityStore.h"
 #import "Contact.h"
 #import "Customer.h"
-#import "ContactOpportunity.h"
 
-@interface ContactDetailsViewController (){
+@interface ContactDetailsViewController ()
+{
     UIImage* selectedImage;
     UITapGestureRecognizer* photoTapRecognizer;
     ImagePickerAngel * imagePickerAngel;
