@@ -74,6 +74,12 @@
     return cell;
 }
 
+- (bool)couchTableSource:(CBLUITableSource *)source deleteRow:(CBLQueryRow *)row
+{
+    NSError *error;
+    return [[Contact modelForDocument:row.document] deleteDocument:&error];
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if([segue.destinationViewController isKindOfClass:[UINavigationController class]] && sender == self){
         UINavigationController* navc = (UINavigationController*)segue.destinationViewController;

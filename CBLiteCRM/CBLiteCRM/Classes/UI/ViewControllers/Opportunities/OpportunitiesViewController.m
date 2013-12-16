@@ -83,4 +83,10 @@ CBLUITableDelegate
     return cell;
 }
 
+- (bool)couchTableSource:(CBLUITableSource *)source deleteRow:(CBLQueryRow *)row
+{
+    NSError *error;
+    return [[Opportunity modelForDocument:row.document] deleteDocument:&error];
+}
+
 @end

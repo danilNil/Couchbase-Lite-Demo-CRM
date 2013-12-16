@@ -11,10 +11,6 @@
 #import "BaseModel.h"
 
 @interface FilteringViewController ()
-<
-CBLUITableDelegate
->
-
 @end
 
 @implementation FilteringViewController

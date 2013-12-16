@@ -12,7 +12,8 @@
 <
 UITableViewDelegate,
 UISearchBarDelegate,
-UISearchDisplayDelegate
+UISearchDisplayDelegate,
+CBLUITableDelegate
 >
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
