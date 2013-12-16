@@ -291,7 +291,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <searchBar key="tableHeaderView" contentMode="redraw" id="JEN-lx-y2A">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                    <rect key="frame" x="0.0" y="64" width="320" height="44"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <textInputTraits key="textInputTraits"/>
                                     <connections>
@@ -531,7 +531,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rJA-cV-xTC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1443" y="1005"/>
+            <point key="canvasLocation" x="1497" y="1005"/>
         </scene>
         <!--Opportunity Detailes View Controller - Opportunity-->
         <scene sceneID="Clk-Zq-gKl">
@@ -886,7 +886,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <searchBar key="tableHeaderView" contentMode="redraw" id="Sgb-jp-9VB">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                    <rect key="frame" x="0.0" y="64" width="320" height="44"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <textInputTraits key="textInputTraits"/>
                                     <connections>
@@ -924,7 +924,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="1074" y="1005"/>
+            <point key="canvasLocation" x="1088" y="1011"/>
         </scene>
         <!--Contacts View Controller - Contacts-->
         <scene sceneID="P8Y-bZ-Adv">
@@ -995,7 +995,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <searchBar key="tableHeaderView" contentMode="redraw" id="oYI-iZ-EUk">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                    <rect key="frame" x="0.0" y="64" width="320" height="44"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <textInputTraits key="textInputTraits"/>
                                     <connections>
@@ -1080,6 +1080,7 @@
                     <connections>
                         <outlet property="searchDisplayController" destination="Bx2-zr-kSv" id="DOn-KX-Vep"/>
                         <outlet property="tableView" destination="2tM-I0-4kq" id="Xbm-at-Fif"/>
+                        <segue destination="jaT-9R-O01" kind="modal" identifier="opportDetails" id="wax-He-xAT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VZV-hd-HAK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1102,16 +1103,6 @@
         <image name="contacts_icon.png" width="150" height="150"/>
         <image name="customers_icon.png" width="143" height="143"/>
         <image name="input_field.png" width="293" height="37"/>
-        <image name="input_field.png" width="293" height="37"/>
-        <image name="input_field.png" width="293" height="37"/>
-        <image name="input_field.png" width="293" height="37"/>
-        <image name="input_field.png" width="293" height="37"/>
-        <image name="input_field.png" width="293" height="37"/>
-        <image name="input_field.png" width="293" height="37"/>
-        <image name="input_field.png" width="293" height="37"/>
-        <image name="input_field.png" width="293" height="37"/>
-        <image name="input_field.png" width="293" height="37"/>
-        <image name="input_field.png" width="293" height="37"/>
         <image name="input_field_disabled.png" width="293" height="37"/>
         <image name="opportunities_icon.png" width="150" height="150"/>
         <image name="sales_icon.png" width="135" height="135"/>
@@ -1124,9 +1115,10 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="wBq-cU-ftI"/>
-        <segue reference="3kk-cj-LW4"/>
-        <segue reference="sb8-08-2KH"/>
-        <segue reference="1iO-jg-otn"/>
+        <segue reference="wax-He-xAT"/>
         <segue reference="zHw-JE-Ekg"/>
+        <segue reference="sb8-08-2KH"/>
+        <segue reference="3kk-cj-LW4"/>
+        <segue reference="1iO-jg-otn"/>
     </inferredMetricsTieBreakers>
 </document>

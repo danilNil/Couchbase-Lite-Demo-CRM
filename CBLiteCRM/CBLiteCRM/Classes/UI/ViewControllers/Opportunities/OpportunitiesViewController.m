@@ -20,7 +20,6 @@
 <
 CBLUITableDelegate
 >
-@property(nonatomic, strong) Opportunity* selectedCellData;
 
 @end
 
