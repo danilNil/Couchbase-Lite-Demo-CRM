@@ -182,8 +182,7 @@
 - (void)updateInfoForOpportunity:(Opportunity*)opp
 {
     opp.title = self.nameField.text;
-    if([self.stageField.text isEqualToString:@""])
-        opp.salesStage = @"New";
+    opp.salesStage = self.stageField.text;
     opp.revenueSize = [self.revenueField.text longLongValue];
     opp.winProbability = [self.winField.text floatValue];
     opp.creationDate = creationDatePicker.date;
