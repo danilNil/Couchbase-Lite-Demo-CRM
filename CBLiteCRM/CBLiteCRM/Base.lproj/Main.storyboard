@@ -1030,7 +1030,7 @@
                                 <action selector="back:" destination="1hK-A1-uop" id="5dd-iP-Zdl"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="OKe-d4-aNe">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="OKe-d4-aNe">
                             <connections>
                                 <segue destination="hp4-NH-ICy" kind="push" identifier="presentContactSelectionForOpportunity" id="1iO-jg-otn"/>
                             </connections>
@@ -1115,6 +1115,16 @@
         <image name="PhotoPlaceholder" width="142" height="142"/>
         <image name="contacts_icon.png" width="150" height="150"/>
         <image name="customers_icon.png" width="143" height="143"/>
+        <image name="input_field.png" width="293" height="37"/>
+        <image name="input_field.png" width="293" height="37"/>
+        <image name="input_field.png" width="293" height="37"/>
+        <image name="input_field.png" width="293" height="37"/>
+        <image name="input_field.png" width="293" height="37"/>
+        <image name="input_field.png" width="293" height="37"/>
+        <image name="input_field.png" width="293" height="37"/>
+        <image name="input_field.png" width="293" height="37"/>
+        <image name="input_field.png" width="293" height="37"/>
+        <image name="input_field.png" width="293" height="37"/>
         <image name="input_field.png" width="293" height="37"/>
         <image name="input_field_disabled.png" width="293" height="37"/>
         <image name="opportunities_icon.png" width="150" height="150"/>
