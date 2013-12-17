@@ -13,7 +13,6 @@
 #import "SalesPerson.h"
 #import "SalePersonsStore.h"
 #import "Constants.h"
-#import "DeviceSoftware.h"
 #import "TestFlight.h"
 
 #define kSyncUrl @"http://sync.couchbasecloud.com:4984/cbl_crm_sg8"
@@ -50,16 +49,12 @@
 }
 
 - (void)setupAppearance {
-    if (isIOS7()) {
-        [[UINavigationBar appearance] setBarTintColor:kBaseBlueColor];
-        [[UIBarButtonItem appearance] setTintColor:[UIColor whiteColor]];
-        
-        [[UITextField appearance] setTintColor:[UIColor grayColor]];
-        [[UIToolbar appearance] setTintColor:[UIColor blackColor]];
-        [[UIToolbar appearance] setBackgroundColor:[UIColor lightGrayColor]];
-    } else {
-        [[UINavigationBar appearance] setTintColor:kBaseBlueColor];
-    }
+    [[UINavigationBar appearance] setBarTintColor:kBaseBlueColor];
+    [[UIBarButtonItem appearance] setTintColor:[UIColor whiteColor]];
+
+    [[UITextField appearance] setTintColor:[UIColor grayColor]];
+    [[UIToolbar appearance] setTintColor:[UIColor blackColor]];
+    [[UIToolbar appearance] setBackgroundColor:[UIColor lightGrayColor]];
     
     NSDictionary *navbarTitleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
 

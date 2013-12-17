@@ -28,7 +28,6 @@
 		44B3A6761857132D00CF4BAE /* OpportunitesByContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44B3A6751857132D00CF4BAE /* OpportunitesByContactViewController.m */; };
 		44CABE1D18487FF30060263F /* ContactCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44CABE1C18487FF30060263F /* ContactCell.xib */; };
 		44D6DAF7184718920097262E /* CustomerDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44D6DAF6184718920097262E /* CustomerDetailsViewController.m */; };
-		44FA91FC1859534A00E6D962 /* DeviceSoftware.m in Sources */ = {isa = PBXBuildFile; fileRef = 44FA91FB1859534A00E6D962 /* DeviceSoftware.m */; };
 		493498C8185A20B800ADA646 /* input_field_disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 493498C6185A20B800ADA646 /* input_field_disabled.png */; };
 		493498C9185A20B800ADA646 /* input_field_disabled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 493498C7185A20B800ADA646 /* input_field_disabled@2x.png */; };
 		493498CC185A3EC200ADA646 /* UIAlertView+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 493498CB185A3EC200ADA646 /* UIAlertView+Helper.m */; };
@@ -147,7 +146,6 @@
 		44CABE1C18487FF30060263F /* ContactCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactCell.xib; sourceTree = "<group>"; };
 		44D6DAF5184718920097262E /* CustomerDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerDetailsViewController.h; sourceTree = "<group>"; };
 		44D6DAF6184718920097262E /* CustomerDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerDetailsViewController.m; sourceTree = "<group>"; };
-		44FA91FB1859534A00E6D962 /* DeviceSoftware.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceSoftware.m; sourceTree = "<group>"; };
 		493498C6185A20B800ADA646 /* input_field_disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = input_field_disabled.png; sourceTree = "<group>"; };
 		493498C7185A20B800ADA646 /* input_field_disabled@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "input_field_disabled@2x.png"; sourceTree = "<group>"; };
 		493498CA185A3EC200ADA646 /* UIAlertView+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Helper.h"; sourceTree = "<group>"; };
@@ -232,7 +230,6 @@
 		8326BEF21858590A00B605EB /* photo_placeholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo_placeholder@2x.png"; sourceTree = "<group>"; };
 		8326BEF718586DF200B605EB /* input_field.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = input_field.png; sourceTree = "<group>"; };
 		8326BEF818586DF200B605EB /* input_field@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "input_field@2x.png"; sourceTree = "<group>"; };
-		8326BEFB1858718000B605EB /* DeviceSoftware.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeviceSoftware.h; sourceTree = "<group>"; };
 		832845321851882F008FBFCD /* UIView+Activity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Activity.h"; sourceTree = "<group>"; };
 		832845331851882F008FBFCD /* UIView+Activity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Activity.m"; sourceTree = "<group>"; };
 		832845351851885F008FBFCD /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
@@ -573,8 +570,6 @@
 			isa = PBXGroup;
 			children = (
 				831FFD37184454A900C7CB22 /* Constants.h */,
-				8326BEFB1858718000B605EB /* DeviceSoftware.h */,
-				44FA91FB1859534A00E6D962 /* DeviceSoftware.m */,
 			);
 			path = Defines;
 			sourceTree = "<group>";
@@ -794,7 +789,6 @@
 				447A2C681845D808008786AF /* OpportunitiesViewController.m in Sources */,
 				447A2C651845D808008786AF /* ContactsViewController.m in Sources */,
 				447A2C6A1845D808008786AF /* SalesViewController.m in Sources */,
-				44FA91FC1859534A00E6D962 /* DeviceSoftware.m in Sources */,
 				83173109184F238D0043F865 /* BaseStore.m in Sources */,
 				447A2C691845D808008786AF /* SalesPersonOptionsViewController.m in Sources */,
 				83173100184F211C0043F865 /* OpportunitiesStore.m in Sources */,

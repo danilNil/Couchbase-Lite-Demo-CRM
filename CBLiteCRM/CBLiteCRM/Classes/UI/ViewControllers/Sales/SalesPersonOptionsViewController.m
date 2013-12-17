@@ -8,7 +8,6 @@
 
 #import "SalesPersonOptionsViewController.h"
 #import "SalesPerson.h"
-#import "DeviceSoftware.h"
 
 #import "DataStore.h"
 #import "SalePersonsStore.h"
@@ -23,8 +22,6 @@
 - (void)viewDidLoad
 {
     self.mailField.enabled = NO;
-    if (!isIOS7())
-        self.contentView.frame = self.view.bounds;
 }
 
 - (void)viewWillAppear:(BOOL)animated

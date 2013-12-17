@@ -9,7 +9,6 @@
 #import "CustomerDetailsViewController.h"
 #import "OpportunitiesViewController.h"
 #import "ContactsViewController.h"
-#import "DeviceSoftware.h"
 
 //Data
 #import "Customer.h"
@@ -25,10 +24,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    if (isIOS7())
-        self.automaticallyAdjustsScrollViewInsets = NO;
-    else
-        self.baseScrollView.frame = self.view.bounds;
+    self.automaticallyAdjustsScrollViewInsets = NO;
     [self.baseScrollView setContentSize:self.contentView.frame.size];
     [self loadInfoForCustomer:self.currentCustomer];
 }
