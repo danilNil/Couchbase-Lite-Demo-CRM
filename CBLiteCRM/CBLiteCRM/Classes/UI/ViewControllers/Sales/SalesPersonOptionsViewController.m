@@ -40,8 +40,15 @@
         self.nameField.text = self.salesPerson.username;
         self.phoneField.text = self.salesPerson.phoneNumber;
         self.mailField.text = self.salesPerson.email;
-        self.deleteButton.hidden =![self isMe:self.salesPerson];
+        [self blockForEditing:[self isMe:self.salesPerson]];
     }
+}
+
+- (void)blockForEditing:(BOOL)canEdit{
+    self.deleteButton.hidden =!canEdit;
+    self.nameField.enabled = canEdit;
+    self.phoneField.enabled = canEdit;
+    self.mailField.enabled = canEdit;
 }
 
 - (IBAction)save:(id)sender
