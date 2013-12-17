@@ -20,12 +20,16 @@
 #import "Customer.h"
 
 @interface ContactDetailsViewController ()
+<
+UITextFieldDelegate
+>
 {
     UIImage* selectedImage;
     UITapGestureRecognizer* photoTapRecognizer;
     ImagePickerAngel * imagePickerAngel;
     Customer *customer;
     UIAlertView *currentAlertView;
+    id currentFirstResponder;
 }
 
 @end
@@ -37,7 +41,8 @@
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self.baseScrollView setContentSize:self.contentView.frame.size];
-    if(!photoTapRecognizer){
+    if(!photoTapRecognizer)
+    {
         photoTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapOnPhoto)];
         [self.photoView addGestureRecognizer:photoTapRecognizer];
         self.photoView.userInteractionEnabled = YES;
@@ -50,7 +55,8 @@
     self.mailField.enabled = !ct;
     self.deleteButton.hidden = !ct ? YES : NO;
 
-    if(ct){
+    if(ct)
+    {
         customer = ct.customer;
         self.nameField.text = ct.name;
         self.companyField.text = customer.companyName;
@@ -72,7 +78,9 @@
     return photo;
 }
 
-- (void)didTapOnPhoto{
+- (void)didTapOnPhoto
+{
+    [currentFirstResponder resignFirstResponder];
     [self pickNewImage];
 }
 
@@ -184,8 +192,16 @@
 }
 
 #pragma mark - UITextFieldDelegate
-- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    currentFirstResponder = textField;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
     [textField resignFirstResponder];
+    currentFirstResponder = nil;
     return YES;
 }
 
