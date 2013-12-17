@@ -13,14 +13,12 @@
 @property (nonatomic, strong) SalesPerson* user;
 
 /** The local logged-in user's username. */
-- (void) setUsername:(NSString *)username;
-- (NSString*)username;
+- (void) setUserID:(NSString *)userID;
+- (NSString*)userID;
 
 /** Gets a UserProfile for a user given their username. */
 - (SalesPerson*) profileWithUsername: (NSString*)username;
 @property (readonly) CBLQuery* allUsersQuery;
 
 @property (readonly) NSArray* allOtherUsers;    /**< UserProfile objects of other users */
-
-- (void) createFakeSalesPersons;
 @end

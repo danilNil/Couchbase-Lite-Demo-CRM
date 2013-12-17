@@ -19,12 +19,13 @@
 @end
 
 @implementation SalePersonsStore
+
 - (id) initWithDatabase: (CBLDatabase*)database {
     self = [super initWithDatabase:database];
     if (self) {
         NSString* savedUserName = [[NSUserDefaults standardUserDefaults] stringForKey: kCBLPrefKeyUserID];
         if(savedUserName)
-            self.username = savedUserName;
+            self.userID = savedUserName;
 
         [self.database.modelFactory registerClass: [SalesPerson class] forDocumentType: kSalesPersonDocType];
         _salesPersonsView = [self.database viewNamed: @"salesPersonsByName"];
@@ -48,52 +49,17 @@
     return self;
 }
 
-
-- (void) createFakeSalesPersons {
-    for (NSDictionary *dict in [self getFakeSalesPersonsDictionary]) {
-        SalesPerson* profile = [self profileWithUsername: [dict objectForKey:kEmail]];
-        if (!profile) {
-            profile = [[SalesPerson alloc] initInDatabase:self.database
-                                          withEmail: [dict objectForKey:kEmail]];
-            profile.phoneNumber = [dict objectForKey:kPhone];
-            profile.username = [dict objectForKey:kName];
-            NSError *error;
-            if (![profile save:&error])
-                [[[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil] show];
-        }
-    }
-}
-
-- (NSArray*)getFakeSalesPersonsDictionary {
-    return @[[NSDictionary dictionaryWithObjectsAndKeys:
-              kExampleUserName, kEmail,
-              @"+8 321 2490", kPhone,
-              @"Archibald", kName, nil],
-             [NSDictionary dictionaryWithObjectsAndKeys:
-              @"DaveMarkus@mail.com", kEmail,
-              @"+3 634 2983", kPhone,
-              @"Dave", kName, nil],
-             [NSDictionary dictionaryWithObjectsAndKeys:
-              @"MichaelMarkulli@mail.com", kEmail,
-              @"+4 623 1234", kPhone,
-              @"Michael", kName, nil],
-             [NSDictionary dictionaryWithObjectsAndKeys:
-              @"EugeneVolnov@mail.com", kEmail,
-              @"+2 132 9162", kPhone,
-              @"Eugene", kName, nil]];
-}
-
 //TODO: need to refactor. for more clearly logic of login adn logout. we need to init this class with database after we already logged in so username and current user should be already created and provided fron outside
 
 - (SalesPerson*) user {
     if(_user)
         return _user;
-    if (![self username])
+    if (![self userID])
         return nil;
     _user = [[SalesPerson alloc] initInDatabase: self.database
-                                                 withEmail: self.username];
+                                                 withUserName:[self userID] andMail:[self userID]];
     if (!_user) {
-        _user = [self profileWithUsername: [self username]];
+        _user = [self profileWithUsername: [self userID]];
     }
     return _user;
 }
@@ -108,21 +74,21 @@
 
 
 
-- (void) setUsername:(NSString *)username {
-    if (![username isEqualToString: self.username]) {
-        NSLog(@"Setting username to '%@'", username);
-        [[NSUserDefaults standardUserDefaults] setObject: username forKey: kCBLPrefKeyUserID];
+- (void) setUserID:(NSString *)userID {
+    if (![userID isEqualToString: [self userID]]) {
+        NSLog(@"Setting username to '%@'", userID);
+        [[NSUserDefaults standardUserDefaults] setObject: userID forKey: kCBLPrefKeyUserID];
         [[NSUserDefaults standardUserDefaults] synchronize];
-        SalesPerson* myProfile = [self profileWithUsername: self.username];
+        SalesPerson* myProfile = [self profileWithUsername: [self userID]];
         if (!myProfile) {
             myProfile = [[SalesPerson  alloc] initInDatabase: self.database
-                                            withEmail: self.username];
+                                            withUserName:[self userID] andMail:[self userID]];
             NSLog(@"Created user profile %@", myProfile);
         }
     }
 }
 
-- (NSString*)username{
+- (NSString*)userID{
     NSString* un =[[NSUserDefaults standardUserDefaults] objectForKey: kCBLPrefKeyUserID];
     NSLog(@"current username: %@", un);
     return un;
@@ -141,7 +107,7 @@
     NSMutableArray* users = [NSMutableArray array];
     for (CBLQueryRow* row in [self.allUsersQuery rows:nil].allObjects) {
         SalesPerson* user = [SalesPerson modelForDocument: row.document];
-        if (![user.username isEqualToString: self.username])
+        if (![user.username isEqualToString: [self userID]])
             [users addObject: user];
     }
     return users;

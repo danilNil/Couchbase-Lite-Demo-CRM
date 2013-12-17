@@ -46,7 +46,6 @@ static DataStore* sInstance;
 - (void)createFakeDB{
     BOOL isCreated = [[NSUserDefaults standardUserDefaults] boolForKey:kCreatedFakeKey];
     if(!isCreated){
-        [self.salePersonsStore createFakeSalesPersons];
         [self.customersStore createFakeCustomers];
         [self.opportunitiesStore createFakeOpportunities];
         [self.contactsStore createFakeContacts];

@@ -11,11 +11,14 @@
 #import "DeviceSoftware.h"
 
 #import "DataStore.h"
+#import "SalePersonsStore.h"
+
 @interface SalesPersonOptionsViewController ()
 
 @end
 
 @implementation SalesPersonOptionsViewController
+@synthesize needLogout;
 
 - (void)viewDidLoad
 {
@@ -37,12 +40,18 @@
         self.nameField.text = self.salesPerson.username;
         self.phoneField.text = self.salesPerson.phoneNumber;
         self.mailField.text = self.salesPerson.email;
+        self.deleteButton.hidden =![self isMe:self.salesPerson];
     }
 }
 
 - (IBAction)save:(id)sender
 {
     [self updateInfoForSalesPerson:self.salesPerson];
+}
+
+- (BOOL)isMe:(SalesPerson*)sp{
+    BOOL isMe = [[DataStore sharedInstance].salePersonsStore.user.user_id isEqualToString:sp.user_id];
+    return isMe;
 }
 
 - (void)updateInfoForSalesPerson:(SalesPerson*)sp
@@ -62,8 +71,17 @@
     if (![self.salesPerson deleteDocument:&error])
         [[[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil] show];
     else
-        [self.navigationController popViewControllerAnimated:YES];
+        [self logout];
 
+}
+
+- (void)logout{
+    for (id<LogoutProtocol> vc in self.navigationController.viewControllers) {
+        if([vc respondsToSelector:@selector(setNeedLogout:)]){
+            vc.needLogout = YES;
+        }
+    }
+    [self.navigationController popToRootViewControllerAnimated:NO];
 }
 
 @end

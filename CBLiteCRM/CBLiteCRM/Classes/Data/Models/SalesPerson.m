@@ -12,16 +12,16 @@
 @dynamic username, phoneNumber, email, approved, user_id, type, isAdmin;
 
 - (instancetype) initInDatabase: (CBLDatabase*)database
-                   withUserData: (NSDictionary*)userData
+                   withUserName: (NSString*)username
                       andMail: (NSString*)mail
 {
-    NSParameterAssert(userData); 
+    NSParameterAssert(username);
     NSParameterAssert(mail);
     
     self = [self initInDatabase:database withEmail:mail];
     if (self) {
         self.user_id = mail;
-        self.username = userData[@"name"];
+        self.username = username;
         self.approved = NO;
         self.isAdmin = NO;
     }

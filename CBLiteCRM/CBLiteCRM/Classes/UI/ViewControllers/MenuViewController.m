@@ -13,6 +13,13 @@
 @end
 
 @implementation MenuViewController
+@synthesize needLogout;
+
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    if(self.needLogout)
+        [self logout:self];
+}
 
 - (IBAction)logout:(id)sender {
     AppDelegate* app = [UIApplication sharedApplication].delegate;

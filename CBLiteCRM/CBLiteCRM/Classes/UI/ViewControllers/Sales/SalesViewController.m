@@ -22,7 +22,7 @@
 @end
 
 @implementation SalesViewController
-
+@synthesize needLogout;
 -(void)viewDidLoad
 {
     [super viewDidLoad];
@@ -55,8 +55,8 @@
                deleteRow:(CBLQueryRow*)row{
     SalesPerson *salesPerson = [SalesPerson modelForDocument: row.document];
     BOOL isMe = [self isRowMe:row];
-    AppDelegate* app = [UIApplication sharedApplication].delegate;
-    [app logout];
+    if(isMe)
+        [self logout];
     NSError* err;
     [salesPerson deleteDocument:&err];
     if(err){
@@ -69,6 +69,15 @@
     SalesPerson *salesPerson = [SalesPerson modelForDocument: row.document];
     BOOL isMe = [[DataStore sharedInstance].salePersonsStore.user.user_id isEqualToString:salesPerson.user_id];
     return isMe;
+}
+
+- (void)logout{
+    for (id<LogoutProtocol> vc in self.navigationController.viewControllers) {
+        if([vc respondsToSelector:@selector(setNeedLogout:)]){
+            vc.needLogout = YES;
+        }
+    }
+    [self.navigationController popToRootViewControllerAnimated:NO];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

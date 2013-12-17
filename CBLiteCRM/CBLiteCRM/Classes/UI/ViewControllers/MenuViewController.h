@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 Danil. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "LogoutProtocol.h"
 
-@interface MenuViewController : UIViewController
+@interface MenuViewController : UIViewController<LogoutProtocol>
 
 - (IBAction)logout:(id)sender;
 @end

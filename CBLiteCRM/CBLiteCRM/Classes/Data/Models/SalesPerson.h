@@ -22,9 +22,7 @@
 
 
 - (instancetype) initInDatabase: (CBLDatabase*)database
-                      withUserData: (NSDictionary*)userData
-                      andMail: (NSString*)mail;
-- (instancetype) initInDatabase: (CBLDatabase*)database
-                      withEmail: (NSString*)mail;
+                   withUserName: (NSString*)username
+                        andMail: (NSString*)mail;
 
 @end

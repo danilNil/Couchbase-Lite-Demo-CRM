@@ -7,7 +7,8 @@
 //
 
 #import "FilteringViewController.h"
+#import "LogoutProtocol.h"
 
-@interface SalesViewController : FilteringViewController
+@interface SalesViewController : FilteringViewController<LogoutProtocol>
 
 @end
