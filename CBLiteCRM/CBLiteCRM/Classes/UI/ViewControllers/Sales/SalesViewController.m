@@ -10,7 +10,7 @@
 #import "SalesViewController.h"
 #import "SalesPersonOptionsViewController.h"
 #import "SalesPersonCell.h"
-
+#import "AppDelegate.h"
 //Data
 #import "DataStore.h"
 #import "SalePersonsStore.h"
@@ -43,6 +43,32 @@
     cell.salesPerson = salesPerson;
     cell.checkmark.hidden = ![[DataStore sharedInstance] salePersonsStore].user.isAdmin;
     return cell;
+}
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath{
+    CBLQueryRow *row = [self.dataSource rowAtIndex:indexPath.row];
+    BOOL isMe = [self isRowMe:row];
+    return isMe;
+}
+
+- (bool)couchTableSource:(CBLUITableSource*)source
+               deleteRow:(CBLQueryRow*)row{
+    SalesPerson *salesPerson = [SalesPerson modelForDocument: row.document];
+    BOOL isMe = [self isRowMe:row];
+    AppDelegate* app = [UIApplication sharedApplication].delegate;
+    [app logout];
+    NSError* err;
+    [salesPerson deleteDocument:&err];
+    if(err){
+        NSLog(@"err in deleting: %@", err);
+    }
+    return isMe;
+}
+
+- (BOOL)isRowMe:(CBLQueryRow*)row{
+    SalesPerson *salesPerson = [SalesPerson modelForDocument: row.document];
+    BOOL isMe = [[DataStore sharedInstance].salePersonsStore.user.user_id isEqualToString:salesPerson.user_id];
+    return isMe;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
