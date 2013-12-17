@@ -11,16 +11,7 @@
 
 NSString *kSalesPersonCell = @"SalesPersonCell";
 
-@interface SalesPersonCell ()
-
-@end
-
 @implementation SalesPersonCell
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
-    [super setSelected:selected animated:animated];
-}
 
 - (IBAction)checkmarkTapped:(id)sender
 {

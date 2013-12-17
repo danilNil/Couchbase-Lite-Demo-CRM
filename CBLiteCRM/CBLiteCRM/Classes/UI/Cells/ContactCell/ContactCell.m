@@ -14,11 +14,6 @@ NSString *kContactCellIdentifier = @"ContactCell";
 
 @implementation ContactCell
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
-    [super setSelected:selected animated:animated];
-}
-
 - (void)setContact:(Contact *)contact {
     _contact = contact;
     
