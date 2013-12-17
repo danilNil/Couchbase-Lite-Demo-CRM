@@ -49,6 +49,7 @@
 - (void)loadInfoForContact:(Contact*)ct{
     self.mailField.enabled = !ct;
     self.deleteButton.hidden = !ct ? YES : NO;
+
     if(ct){
         customer = ct.customer;
         self.nameField.text = ct.name;
@@ -101,7 +102,6 @@
 
 - (IBAction)opportunities:(id)sender
 {
-    [self saveContact];
     [self performSegueWithIdentifier:@"presentOpportunitiesForContact" sender:self];
 }
 
