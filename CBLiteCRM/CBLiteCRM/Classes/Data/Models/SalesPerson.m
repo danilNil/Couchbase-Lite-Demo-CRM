@@ -40,7 +40,7 @@
     self = doc.modelObject;
 
     if(!self)
-        self = [super initWithDocument:doc];
+        self = [SalesPerson modelForDocument:doc];
 
     if (self) {
         NSLog(@"[[self class] docType]: %@",[[self class] docType]);
