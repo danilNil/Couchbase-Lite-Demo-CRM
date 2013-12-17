@@ -88,6 +88,7 @@
     } else if ([segue.destinationViewController isKindOfClass:[ContactsViewController class]]) {
         ContactsViewController *vc = (ContactsViewController*)segue.destinationViewController;
         vc.filteredCustomer = self.currentCustomer;
+        vc.navigationItem.rightBarButtonItem = nil;
     }
 }
 
