@@ -14,8 +14,8 @@
 @property (strong) NSString* position;
 @property (strong) NSString* phoneNumber;
 @property (readonly, copy) NSString* email;
-@property (copy) NSString* address;
-@property (copy) NSArray* opportunities;
+@property (strong) NSString* address;
+@property (strong) NSArray* opportunities;
 
 - (instancetype) initInDatabase: (CBLDatabase*)database
                  withEmail: (NSString*)mail;
