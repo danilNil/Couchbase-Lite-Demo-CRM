@@ -81,12 +81,15 @@
     }
 }
 
-- (void)loginAndSync: (void (^)())complete asAdmin:(BOOL)asAdmin{
+- (void)loginAndSync: (void (^)())complete asAdmin:(BOOL)asAdmin
+{
+    // TODO: removed that variable after CBLSyncManager refactoring
+    self.asAdmin = asAdmin;
+
     if (_cblSync.userID) {
+        [self updateUserWithRole:self.asAdmin];
         complete();
     } else {
-//        TODO: removed that variable after CBLSyncManager refactoring
-        self.asAdmin = asAdmin;
         [_cblSync beforeFirstSync:^(NSString *userID, NSDictionary *userData, NSError **outError) {
             [self updateUserWithRole:self.asAdmin];
             complete();
@@ -98,7 +101,7 @@
 - (void)updateUserWithRole:(BOOL)adminRole{
     NSError* err;
     SalesPerson *myProfile = [DataStore sharedInstance].salePersonsStore.user;
-    myProfile.isAdmin = self.asAdmin;
+    myProfile.isAdmin = adminRole;
     [myProfile save:&err];
     if(err){
         NSLog(@"error on updateUserWithRole: %@", err);
