@@ -10,6 +10,7 @@
 
 @interface WelcomeViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UISwitch *asAdmin;
-- (IBAction)facebookLogin:(id)sender;
+
+- (IBAction)facebookLogin;
 
 @end
