@@ -59,7 +59,7 @@
         [self updateInfoForCustomer:newCustomer];
         [self dismissViewControllerAnimated:YES completion:NULL];
     } else
-        [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Please fill company name field" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil] show];
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Please fill Company field" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil] show];
 }
 
 - (IBAction)deleteItem:(id)sender {
