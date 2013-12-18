@@ -41,6 +41,7 @@
     for (CBLQueryRow *r in [q rows:&er]) {
         ContactOpportunity *ctOpp = [ContactOpportunity modelForDocument:r.document];
         [ctOpp deleteDocument:&er];
+        [ctOpp save:&er];
     }
     return [super deleteDocument:outError];
 }

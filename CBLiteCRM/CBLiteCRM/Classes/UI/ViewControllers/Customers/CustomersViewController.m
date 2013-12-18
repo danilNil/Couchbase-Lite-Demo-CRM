@@ -67,4 +67,10 @@ CBLUITableDelegate
     }
 }
 
+-(bool)couchTableSource:(CBLUITableSource *)source deleteRow:(CBLQueryRow *)row
+{
+    NSError *error;
+    return [[Customer modelForDocument:row.document] deleteDocument:&error];
+}
+
 @end

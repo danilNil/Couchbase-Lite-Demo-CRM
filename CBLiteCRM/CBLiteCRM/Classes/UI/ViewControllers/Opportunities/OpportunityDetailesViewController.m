@@ -91,7 +91,7 @@
         [UIAlertView showErrorMessage:@"Please fill win probability field with numeric value"];
         return NO;
     }
-    else if (!customer.companyName)
+    else if (!customer)
     {
         [UIAlertView showErrorMessage:@"Please select customer"];
         return NO;
@@ -275,7 +275,7 @@
 
 - (NSString*) customerTitle
 {
-    if (customer.companyName)
+    if (customer)
         return [NSString stringWithFormat:@"Customer: %@", customer.companyName];
     
     return @"Select Customer";
