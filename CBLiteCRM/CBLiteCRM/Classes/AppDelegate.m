@@ -50,7 +50,7 @@
 
 - (void)setupAppearance {
     [[UINavigationBar appearance] setBarTintColor:kBaseBlueColor];
-    [[UIBarButtonItem appearance] setTintColor:[UIColor whiteColor]];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
 
     [[UITextField appearance] setTintColor:[UIColor grayColor]];
     [[UIToolbar appearance] setTintColor:[UIColor blackColor]];

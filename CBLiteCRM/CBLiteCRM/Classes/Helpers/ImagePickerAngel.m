@@ -72,6 +72,14 @@
     [self callOnPickedImageBlockWithImage:pickedImage];
 }
 
+- (void)navigationController:(UINavigationController *)navigationController
+      willShowViewController:(UIViewController *)viewController
+                    animated:(BOOL)animated
+{
+    // After Image Picker is shown status bar is set to black for some reason
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+}
+
 #pragma mark - Utils
 
 - (BOOL) isParentViewControllerNotAvailable
