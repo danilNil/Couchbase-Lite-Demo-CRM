@@ -45,6 +45,7 @@
     self.deleteButton.hidden =!canEdit;
     self.nameField.enabled = canEdit;
     self.phoneField.enabled = canEdit;
+    self.navigationItem.rightBarButtonItem.enabled = canEdit;
 }
 
 - (IBAction)save:(id)sender
