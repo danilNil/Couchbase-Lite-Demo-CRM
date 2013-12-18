@@ -34,7 +34,6 @@
 		493498D4185A430E00ADA646 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 493498CE185A430E00ADA646 /* libTestFlight.a */; };
 		493498D5185A430E00ADA646 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 493498CF185A430E00ADA646 /* README.md */; };
 		493498D6185A430E00ADA646 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 493498D0185A430E00ADA646 /* release_notes.md */; };
-		493498D9185A474F00ADA646 /* BorderedToggleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 493498D8185A474F00ADA646 /* BorderedToggleButton.m */; };
 		49C103DA1859EB0F00D58426 /* RoundedImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C103D91859EB0F00D58426 /* RoundedImageView.m */; };
 		49C103DD1859F86200D58426 /* Contact+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C103DC1859F86200D58426 /* Contact+Helper.m */; };
 		81833B57184B9D4600F788A2 /* FilteringViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81833B56184B9D4600F788A2 /* FilteringViewController.m */; };
@@ -150,8 +149,6 @@
 		493498D1185A430E00ADA646 /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
 		493498D2185A430E00ADA646 /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
 		493498D3185A430E00ADA646 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
-		493498D7185A474F00ADA646 /* BorderedToggleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BorderedToggleButton.h; sourceTree = "<group>"; };
-		493498D8185A474F00ADA646 /* BorderedToggleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BorderedToggleButton.m; sourceTree = "<group>"; };
 		49C103D81859EB0F00D58426 /* RoundedImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundedImageView.h; sourceTree = "<group>"; };
 		49C103D91859EB0F00D58426 /* RoundedImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundedImageView.m; sourceTree = "<group>"; };
 		49C103DB1859F86200D58426 /* Contact+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Contact+Helper.h"; sourceTree = "<group>"; };
@@ -621,8 +618,6 @@
 				83CEAADC1846EC240002D040 /* ImagePickerAngel.m */,
 				49C103D81859EB0F00D58426 /* RoundedImageView.h */,
 				49C103D91859EB0F00D58426 /* RoundedImageView.m */,
-				493498D7185A474F00ADA646 /* BorderedToggleButton.h */,
-				493498D8185A474F00ADA646 /* BorderedToggleButton.m */,
 				493498CA185A3EC200ADA646 /* UIAlertView+Helper.h */,
 				493498CB185A3EC200ADA646 /* UIAlertView+Helper.m */,
 			);
@@ -785,7 +780,6 @@
 				447A2C741845F214008786AF /* SalesPersonCell.m in Sources */,
 				83CC79C8184F39A600557A9B /* DateHelper.m in Sources */,
 				493498CC185A3EC200ADA646 /* UIAlertView+Helper.m in Sources */,
-				493498D9185A474F00ADA646 /* BorderedToggleButton.m in Sources */,
 				44B3A6701856C79700CF4BAE /* ContactOpportunityStore.m in Sources */,
 				44726BF51855B9FF00AC88D2 /* ContactOpportunity.m in Sources */,
 				83173106184F21890043F865 /* ContactsStore.m in Sources */,
