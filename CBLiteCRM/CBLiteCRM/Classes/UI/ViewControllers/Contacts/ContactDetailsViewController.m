@@ -12,12 +12,15 @@
 #import "CustomersViewController.h"
 #import "OpportunitesByContactViewController.h"
 #import "ContactsByOpportunityViewController.h"
+#import "UIImage+Tools.h"
 
 //Data
 #import "DataStore.h"
 #import "ContactsStore.h"
 #import "Contact.h"
 #import "Customer.h"
+
+#define kContactDetailsViewControllerImageSize 300
 
 @interface ContactDetailsViewController ()
 <
@@ -99,7 +102,7 @@ UITextFieldDelegate
 - (ImagePickerAngelBlock) createOnPickedImageBlock
 {
     __weak typeof(self) weakSelf = self;
-    return ^(UIImage * image) { weakSelf.photoView.image = image; selectedImage = image;};
+    return ^(UIImage * image) { [weakSelf setPhotoImage:image]; };
 }
 
 - (ImagePickerAngelDeleteBlock) createOnDeleteImageBlock {
@@ -108,6 +111,13 @@ UITextFieldDelegate
         weakSelf.photoView.image = [UIImage imageNamed:@"PhotoPlaceholder"];
         selectedImage = nil;
     };
+}
+
+- (void)setPhotoImage:(UIImage*)image
+{
+    UIImage * scaledImage = [image scaledSquiredImageToSize:kContactDetailsViewControllerImageSize];
+    
+    self.photoView.image = selectedImage = scaledImage;
 }
 
 - (IBAction)back:(id)sender {

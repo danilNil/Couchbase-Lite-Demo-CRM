@@ -36,6 +36,7 @@
 		493498D6185A430E00ADA646 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 493498D0185A430E00ADA646 /* release_notes.md */; };
 		49C103DA1859EB0F00D58426 /* RoundedImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C103D91859EB0F00D58426 /* RoundedImageView.m */; };
 		49C103DD1859F86200D58426 /* Contact+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C103DC1859F86200D58426 /* Contact+Helper.m */; };
+		49EB988618638CA6003A49F3 /* UIImage+Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EB988518638CA6003A49F3 /* UIImage+Tools.m */; };
 		81833B57184B9D4600F788A2 /* FilteringViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81833B56184B9D4600F788A2 /* FilteringViewController.m */; };
 		830D51AC1848570900044A19 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 830D51AB1848570900044A19 /* BaseModel.m */; };
 		830D51B01848968800044A19 /* OpportunityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 830D51AF1848968800044A19 /* OpportunityCell.m */; };
@@ -152,6 +153,8 @@
 		49C103D91859EB0F00D58426 /* RoundedImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundedImageView.m; sourceTree = "<group>"; };
 		49C103DB1859F86200D58426 /* Contact+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Contact+Helper.h"; sourceTree = "<group>"; };
 		49C103DC1859F86200D58426 /* Contact+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Contact+Helper.m"; sourceTree = "<group>"; };
+		49EB988418638CA6003A49F3 /* UIImage+Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Tools.h"; sourceTree = "<group>"; };
+		49EB988518638CA6003A49F3 /* UIImage+Tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Tools.m"; sourceTree = "<group>"; };
 		81833B55184B9D4600F788A2 /* FilteringViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilteringViewController.h; sourceTree = "<group>"; };
 		81833B56184B9D4600F788A2 /* FilteringViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilteringViewController.m; sourceTree = "<group>"; };
 		830D51AA1848570900044A19 /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
@@ -612,6 +615,8 @@
 		83CEAADA1846EC240002D040 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				49EB988418638CA6003A49F3 /* UIImage+Tools.h */,
+				49EB988518638CA6003A49F3 /* UIImage+Tools.m */,
 				832845321851882F008FBFCD /* UIView+Activity.h */,
 				832845331851882F008FBFCD /* UIView+Activity.m */,
 				83CC79C6184F39A600557A9B /* DateHelper.h */,
@@ -777,6 +782,7 @@
 				447A2C6B1845D808008786AF /* WelcomeViewController.m in Sources */,
 				83CEAAE31846ECE10002D040 /* ActionSheet.m in Sources */,
 				83CEAADD1846EC240002D040 /* ImagePickerAngel.m in Sources */,
+				49EB988618638CA6003A49F3 /* UIImage+Tools.m in Sources */,
 				81833B57184B9D4600F788A2 /* FilteringViewController.m in Sources */,
 				831FFCE01844364900C7CB22 /* main.m in Sources */,
 				831FFD341844542F00C7CB22 /* DataStore.m in Sources */,
