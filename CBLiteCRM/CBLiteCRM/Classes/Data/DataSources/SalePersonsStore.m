@@ -12,7 +12,7 @@
 
 @interface SalePersonsStore()
 {
-    CBLView* _salesPersonsView;
+    CBLView* salesPersonsView;
 }
 
 @end
@@ -22,13 +22,13 @@
 - (id) initWithDatabase: (CBLDatabase*)database {
     self = [super initWithDatabase:database];
     if (self) {
-        NSString* savedUserName = [[NSUserDefaults standardUserDefaults] stringForKey: kCBLPrefKeyUserID];
+        NSString* savedUserName = [self loadUserId];
         if(savedUserName)
             self.userID = savedUserName;
 
         [self.database.modelFactory registerClass: [SalesPerson class] forDocumentType: kSalesPersonDocType];
-        _salesPersonsView = [self.database viewNamed: @"salesPersonsByName"];
-        [_salesPersonsView setMapBlock: MAPBLOCK({
+        salesPersonsView = [self.database viewNamed: @"salesPersonsByName"];
+        [salesPersonsView setMapBlock: MAPBLOCK({
             if ([doc[@"type"] isEqualToString: kSalesPersonDocType]) {
                 if (doc[@"email"])
                     emit(doc[@"email"], doc[@"email"]);
@@ -63,11 +63,15 @@
 
 
 
+- (void)storeUserId:(NSString *)userID {
+    [[NSUserDefaults standardUserDefaults] setObject: userID forKey: kCBLPrefKeyUserID];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
 - (void) setUserID:(NSString *)userID {
     if (![userID isEqualToString: [self userID]]) {
         NSLog(@"Setting username to '%@'", userID);
-        [[NSUserDefaults standardUserDefaults] setObject: userID forKey: kCBLPrefKeyUserID];
-        [[NSUserDefaults standardUserDefaults] synchronize];
+        [self storeUserId:userID];
         SalesPerson* myProfile = [self profileWithUsername: [self userID]];
         if (!myProfile) {
             myProfile = [[SalesPerson  alloc] initInDatabase: self.database
@@ -77,19 +81,23 @@
     }
 }
 
+- (NSString *)loadUserId {
+    return [[NSUserDefaults standardUserDefaults] objectForKey: kCBLPrefKeyUserID];
+}
+
 - (NSString*)userID{
-    NSString* un =[[NSUserDefaults standardUserDefaults] objectForKey: kCBLPrefKeyUserID];
+    NSString *un = [self loadUserId];
     NSLog(@"current username: %@", un);
     return un;
 }
 
 
 - (CBLQuery*) allUsersQuery {
-    return [_salesPersonsView createQuery];
+    return [salesPersonsView createQuery];
 }
 
 - (CBLQuery*) filteredQuery {
-    return [_salesPersonsView createQuery];
+    return [salesPersonsView createQuery];
 }
 
 - (NSArray*) allOtherUsers {

@@ -22,9 +22,15 @@
         [self setValue:ct forKey:@"contact"];
         [self setValue:opp forKey:@"opportunity"];
     }
-    NSError* error;
-    if (![self save: &error])
+
+    NSError* error = nil;
+    if(![self save: &error]) {
+        
+        NSLog(@"ContactOpportunity Error: %@", [error localizedDescription]);
+        
         return nil;
+    }
+    
     return self;
 }
 

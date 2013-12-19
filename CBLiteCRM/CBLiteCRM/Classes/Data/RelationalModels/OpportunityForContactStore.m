@@ -6,12 +6,12 @@
 //  Copyright (c) 2013 Danil. All rights reserved.
 //
 
-#import "OpportunityContactStore.h"
+#import "OpportunityForContactStore.h"
 #import "ContactOpportunity.h"
 #import "Opportunity.h"
 #import "Contact.h"
 
-@interface OpportunityContactStore ()
+@interface OpportunityForContactStore ()
 {
     CBLView* _contactOpportunityView;
     CBLView* _filteredOpportunitiesContactView;
@@ -19,7 +19,7 @@
 
 @end
 
-@implementation OpportunityContactStore
+@implementation OpportunityForContactStore
 
 -(id)initWithDatabase:(CBLDatabase *)database
 {

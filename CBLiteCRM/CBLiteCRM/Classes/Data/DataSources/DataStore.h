@@ -1,11 +1,11 @@
 @class SalesPerson, Contact, Customer, Opportunity;
-@class SalePersonsStore,CustomersStore, OpportunitiesStore, ContactsStore, ContactOpportunityStore, OpportunityContactStore;
+@class SalePersonsStore,CustomersStore, OpportunitiesStore, ContactsStore, ContactOpportunityStore, OpportunityForContactStore;
 
 @interface DataStore : NSObject
 
 - (id) initWithDatabase: (CBLDatabase*)database;
 
-+ (DataStore*) sharedInstance;
++ (DataStore*) sharedInstance; // will not create database by default
 
 @property (readonly) CBLDatabase* database;
 @property (readonly, strong) SalePersonsStore* salePersonsStore;
@@ -13,6 +13,6 @@
 @property (readonly, strong) OpportunitiesStore* opportunitiesStore;
 @property (readonly, strong) ContactsStore* contactsStore;
 @property (readonly, strong) ContactOpportunityStore *contactOpportunityStore;
-@property (readonly, strong) OpportunityContactStore *opportunityContactStore;
+@property (readonly, strong) OpportunityForContactStore *opportunityContactStore;
 
 @end

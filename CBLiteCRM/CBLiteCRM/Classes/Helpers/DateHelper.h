@@ -11,4 +11,5 @@
 @interface DateHelper : NSObject
 
 + (NSDateFormatter*)preparedOpportDateFormatter;
+
 @end

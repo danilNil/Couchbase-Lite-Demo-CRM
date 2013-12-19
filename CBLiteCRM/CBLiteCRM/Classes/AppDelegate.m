@@ -19,7 +19,7 @@
 #define kFBAppId @"220375198143968"
 
 @interface AppDelegate()
-@property (readonly) DataStore* dataStore;
+@property (nonatomic) DataStore* dataStore;
 @property (nonatomic) BOOL asAdmin;
 @end
 
@@ -29,22 +29,9 @@
 {
     [self setupTestflight];
     [self setupAppearance];
-    // create a shared instance of CBLManager
-    CBLManager *manager = [CBLManager sharedInstance];
+    [self setupDatabase];
+    [self setupCBLSync]; // TODO: also starts replication process
     
-    // create a database
-    NSError *error;
-    self.database = [manager databaseNamed: @"fb_sg" error: &error];
-    if (error) {
-        NSLog(@"error getting database %@",error);
-        exit(-1);
-    }
-    _dataStore = [[DataStore alloc] initWithDatabase: _database];
-    
-    [self setupCBLSync];
-    if (error) {
-        NSLog(@"data base creation error: %@", error);
-    }
     return YES;
 }
 
@@ -63,19 +50,32 @@
 
 #pragma mark - Sync
 
+- (void)setupDatabase
+{
+    CBLManager *manager = [CBLManager sharedInstance];
+    
+    NSError *error;
+    self.database = [manager databaseNamed: @"fb_sg" error: &error];
+   
+    if (error) {
+        NSLog(@"error getting database %@",error);
+    }
+    
+    self.dataStore = [[DataStore alloc] initWithDatabase:self.database];
+}
+
 - (void) setupCBLSync {
-    _cblSync = [[CBLSyncManager alloc] initSyncForDatabase:_database withURL:[NSURL URLWithString:kSyncUrl]];
+    self.cblSync = [[CBLSyncManager alloc] initSyncForDatabase:_database withURL:[NSURL URLWithString:kSyncUrl]];
     
     // Tell the Sync Manager to use Facebook for login.
-    _cblSync.authenticator = [[CBLFacebookAuthenticator alloc] initWithAppID:kFBAppId];
+    self.cblSync.authenticator = [[CBLFacebookAuthenticator alloc] initWithAppID:kFBAppId];
     
-    if (_cblSync.userID) {
-        //        we are logged in, go ahead and sync
-        [_cblSync start];
+    if  (self.cblSync.userID) { // we are logged in, go ahead and sync
+        [self.cblSync start];
     } else {
         // Application callback to create the user profile.
         // this will be triggered after we call [_cblSync start]
-        [_cblSync beforeFirstSync:^(NSString *userID, NSDictionary *userData,  NSError **outError) {
+        [self.cblSync beforeFirstSync:^(NSString *userID, NSDictionary *userData,  NSError **outError) {
             [self updateUserWithRole:self.asAdmin];
         }];
     }
@@ -98,13 +98,14 @@
     }
 }
 
-- (void)updateUserWithRole:(BOOL)adminRole{
-    NSError* err;
+- (void)updateUserWithRole:(BOOL)adminRole
+{
+    NSError* error;
     SalesPerson *myProfile = [DataStore sharedInstance].salePersonsStore.user;
     myProfile.isAdmin = adminRole;
-    [myProfile save:&err];
-    if(err){
-        NSLog(@"error on updateUserWithRole: %@", err);
+    [myProfile save:&error];
+    if(error){
+        NSLog(@"error on updateUserWithRole: %@", error);
     }
     NSLog(@"my profile doc properties: %@", myProfile.document.properties);
 }

@@ -62,8 +62,20 @@
 
 -(CBLQuery *)queryOpportunitiesForCustomer:(Customer *)customer
 {
+    CBLView * view  = [self createOpportunitiesForCustomerView];
+    CBLQuery* query = [view createQuery];
+    NSString* myCustID = customer.document.documentID;
+    query.startKey = @[myCustID, @{}];
+    query.endKey   = @[myCustID];
+    return query;
+}
+
+#pragma mark - Views
+
+- (CBLView *)createOpportunitiesForCustomerView
+{
     CBLView* view = [self.database viewNamed: @"OpportunitiesForCustomer"];
-    if (!view.mapBlock) {
+    if(!view.mapBlock) {
         NSString* const kOppDocType = [Opportunity docType];
         [view setMapBlock: MAPBLOCK({
             if ([doc[@"type"] isEqualToString: kOppDocType]) {
@@ -75,11 +87,7 @@
             }
         }) reduceBlock: nil version: @"2"]; // bump version any time you change the MAPBLOCK body!
     }
-    CBLQuery* query = [view createQuery];
-    NSString* myCustID = customer.document.documentID;
-    query.startKey = @[myCustID, @{}];
-    query.endKey = @[myCustID];
-    return query;
+    return view;
 }
 
 @end

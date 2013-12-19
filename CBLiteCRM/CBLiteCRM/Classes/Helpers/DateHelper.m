@@ -13,7 +13,7 @@
 static NSDateFormatter* opportDateFormatter;
 
 + (NSDateFormatter*)preparedOpportDateFormatter {
-    if (!opportDateFormatter) {
+    if(!opportDateFormatter) {
         opportDateFormatter = [[NSDateFormatter alloc] init];
         opportDateFormatter.dateStyle = NSDateFormatterMediumStyle;
     }

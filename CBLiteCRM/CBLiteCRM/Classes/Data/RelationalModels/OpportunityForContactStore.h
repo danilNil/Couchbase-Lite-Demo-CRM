@@ -10,7 +10,7 @@
 
 @class Contact;
 
-@interface OpportunityContactStore : BaseStore
+@interface OpportunityForContactStore : BaseStore
 
 -(CBLQuery *)queryOpportunitiesForContact:(Contact *)ct;
 

@@ -7,7 +7,7 @@
 //
 
 #import "Contact.h"
-#import "OpportunityContactStore.h"
+#import "OpportunityForContactStore.h"
 #import "ContactOpportunity.h"
 #import "DataStore.h"
 
@@ -35,7 +35,7 @@
 
 - (BOOL)deleteDocument: (NSError**)outError
 {
-    OpportunityContactStore *oppCtStore = [DataStore sharedInstance].opportunityContactStore;
+    OpportunityForContactStore *oppCtStore = [DataStore sharedInstance].opportunityContactStore;
     CBLQuery *q = [oppCtStore queryOpportunitiesForContact:self];
     NSError *er;
     for (CBLQueryRow *r in [q rows:&er]) {

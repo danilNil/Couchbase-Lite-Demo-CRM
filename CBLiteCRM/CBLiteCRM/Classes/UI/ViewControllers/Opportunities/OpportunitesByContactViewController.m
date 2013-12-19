@@ -10,12 +10,12 @@
 
 #import "DataStore.h"
 #import "ContactOpportunity.h"
-#import "OpportunityContactStore.h"
+#import "OpportunityForContactStore.h"
 #import "Opportunity.h"
 #import "Customer.h"
 
 @interface OpportunitesByContactViewController ()
-@property (nonatomic, weak) OpportunityContactStore *store;
+@property (nonatomic, weak) OpportunityForContactStore *store;
 @end
 
 @implementation OpportunitesByContactViewController
@@ -24,7 +24,7 @@
 {
     self.store = [DataStore sharedInstance].opportunityContactStore;
     if (self.filteringContact)
-        self.dataSource.query = [[(OpportunityContactStore*)self.store queryOpportunitiesForContact:self.filteringContact] asLiveQuery];
+        self.dataSource.query = [[(OpportunityForContactStore*)self.store queryOpportunitiesForContact:self.filteringContact] asLiveQuery];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -56,7 +56,7 @@
 -(void)filterContentForSearchText:(NSString *)searchText scope:(NSString *)scope
 {
     NSError *err;
-    CBLQuery *query = [(OpportunityContactStore*)self.store filteredQuery];
+    CBLQuery *query = [(OpportunityForContactStore*)self.store filteredQuery];
     CBLQueryEnumerator *enumer = [self.dataSource.query rows:&err];
 
     NSMutableArray *matches = [NSMutableArray new];
