@@ -55,7 +55,6 @@
 
 - (CBLQuery*) queryContacts {
     CBLQuery* query = [_contactsView createQuery];
-    query.descending = YES;
     return query;
 }
 
