@@ -1,6 +1,6 @@
 //
 //  ImagePickerAngel.m
-//  ProfileCode
+//  
 //
 //  Created by Andrew on 18.09.13.
 //  Copyright (c) 2013 Al Digit Ltd. All rights reserved.
@@ -15,23 +15,39 @@
 {
     if ([self isParentViewControllerNotAvailable]) return;
     
-    if ([self canUseCameraToPickImage])
-        [self presentImagePickerActionSheet];
-    else
-        [self presentImagePickerForPhotoLibrary];
+    [self presentImagePickerActionSheet];
 }
 
 - (void) presentImagePickerActionSheet
 {
     ActionSheet * actionSheet = [[ActionSheet new] withCancelButtonDefault];
     
-    [self actionSheet:actionSheet addButton:NSLocalizedString(@"Take A Photo", @"Take A Photo")             withPickerType:UIImagePickerControllerSourceTypeCamera];
-    [self actionSheet:actionSheet addButton:NSLocalizedString(@"Choose An Existing Photo",@"Choose An Existing Photo") withPickerType:UIImagePickerControllerSourceTypePhotoLibrary];
-    [actionSheet addOtherButton:NSLocalizedString(@"Delete Photo",@"Delete Photo") block:^{
-        self.onDeleteImage();
-    }];
+    if ([self canUseCameraToPickImage]) {
+        [self addTakePhotoActionToSheet:actionSheet];
+    }
+    [self addUseLibraryActionToSheet:actionSheet];
+    [self addDeleteActionToSheet:actionSheet];
 
     [actionSheet showInView:self.parentViewController.view];
+}
+
+- (void)addTakePhotoActionToSheet:(ActionSheet *)actionSheet
+{
+    [self actionSheet:actionSheet
+            addButton:NSLocalizedString(@"Take A Photo", @"Take A Photo")
+       withPickerType:UIImagePickerControllerSourceTypeCamera];
+}
+
+- (void)addUseLibraryActionToSheet:(ActionSheet *)actionSheet
+{
+    [self actionSheet:actionSheet
+            addButton:NSLocalizedString(@"Choose An Existing Photo",@"Choose An Existing Photo")
+       withPickerType:UIImagePickerControllerSourceTypePhotoLibrary];
+}
+
+- (void)addDeleteActionToSheet:(ActionSheet *)actionSheet
+{
+    [actionSheet addOtherButton:NSLocalizedString(@"Delete Photo",@"Delete Photo") block:self.onDeleteImage];
 }
 
 - (void)actionSheet:(ActionSheet *)actionSheet addButton:(NSString *)title withPickerType:(UIImagePickerControllerSourceType)pickerType

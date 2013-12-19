@@ -1,6 +1,6 @@
 //
 //  ImagePickerAngel.h
-//  ProfileCode
+//  
 //
 //  Created by Andrew on 18.09.13.
 //  Copyright (c) 2013 Al Digit Ltd. All rights reserved.
