@@ -65,6 +65,7 @@ UITextFieldDelegate
         self.mailField.text = ct.email;
         self.addressField.text = ct.address;
         self.photoView.image = [self photoImageForContact:ct];
+        selectedImage = [self photoImageForContact:ct];
     }
 }
 

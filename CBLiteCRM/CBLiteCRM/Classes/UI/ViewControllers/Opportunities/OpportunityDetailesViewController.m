@@ -88,7 +88,7 @@
     }
     else if (![self checkThatTextFieldTextIsNumeric:self.winField])
     {
-        [UIAlertView showErrorMessage:@"Please fill win probability field with numeric value"];
+        [UIAlertView showErrorMessage:@"Please fill win probability field with float value"];
         return NO;
     }
     else if (!customer)
