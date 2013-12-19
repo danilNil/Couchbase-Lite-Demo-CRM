@@ -91,6 +91,7 @@ UITextFieldDelegate
         imagePickerAngel.parentViewController = self;
     }
     imagePickerAngel.onPickedImage = [self createOnPickedImageBlock];
+    imagePickerAngel.onDeleteImage = [self createOnDeleteImageBlock];
     [imagePickerAngel presentImagePicker];
 }
 
@@ -98,6 +99,14 @@ UITextFieldDelegate
 {
     __weak typeof(self) weakSelf = self;
     return ^(UIImage * image) { weakSelf.photoView.image = image; selectedImage = image;};
+}
+
+- (ImagePickerAngelDeleteBlock) createOnDeleteImageBlock {
+    __weak typeof(self) weakSelf = self;
+    return ^(void){
+        weakSelf.photoView.image = nil;
+        selectedImage = nil;
+    };
 }
 
 - (IBAction)back:(id)sender {
@@ -152,6 +161,8 @@ UITextFieldDelegate
     ct.opportunities = [self selectedOpportunities];
     if(selectedImage)
         [ct setAttachmentNamed:@"photo" withContentType:@"image/png" content:UIImagePNGRepresentation(selectedImage)];
+    else
+        [ct removeAttachmentNamed:@"photo"];
     NSError* error;
     if(![ct save:&error])
         NSLog(@"error in save contact: %@", error);

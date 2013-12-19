@@ -27,7 +27,10 @@
     
     [self actionSheet:actionSheet addButton:NSLocalizedString(@"Take A Photo", @"Take A Photo")             withPickerType:UIImagePickerControllerSourceTypeCamera];
     [self actionSheet:actionSheet addButton:NSLocalizedString(@"Choose An Existing Photo",@"Choose An Existing Photo") withPickerType:UIImagePickerControllerSourceTypePhotoLibrary];
-    
+    [actionSheet addOtherButton:NSLocalizedString(@"Delete Photo",@"Delete Photo") block:^{
+        self.onDeleteImage();
+    }];
+
     [actionSheet showInView:self.parentViewController.view];
 }
 
