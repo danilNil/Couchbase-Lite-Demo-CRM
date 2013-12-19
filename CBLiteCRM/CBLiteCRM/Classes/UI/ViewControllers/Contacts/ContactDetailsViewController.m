@@ -104,7 +104,7 @@ UITextFieldDelegate
 - (ImagePickerAngelDeleteBlock) createOnDeleteImageBlock {
     __weak typeof(self) weakSelf = self;
     return ^(void){
-        weakSelf.photoView.image = nil;
+        weakSelf.photoView.image = [UIImage imageNamed:@"PhotoPlaceholder"];
         selectedImage = nil;
     };
 }
