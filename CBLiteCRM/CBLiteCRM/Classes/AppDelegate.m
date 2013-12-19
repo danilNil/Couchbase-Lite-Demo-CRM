@@ -15,7 +15,9 @@
 #import "Constants.h"
 #import "TestFlight.h"
 
-#define kSyncUrl @"http://sync.couchbasecloud.com:4984/cbl_crm_sg8"
+//#define kSyncUrl @"http://sync.couchbasecloud.com:4984/cbl_crm_sg8"
+#define kSyncUrl @"http://localhost:4984/chat/"
+
 #define kFBAppId @"220375198143968"
 
 @interface AppDelegate()
