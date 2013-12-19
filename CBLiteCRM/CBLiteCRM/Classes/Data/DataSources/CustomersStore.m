@@ -10,9 +10,8 @@
 #import "Customer.h"
 #import "Opportunity.h"
 
-@interface CustomersStore(){
+@interface CustomersStore() {
     CBLView* _customersView;
-    CBLView* _filteredCustomersView;
 }
 @end
 
@@ -29,53 +28,8 @@
                     emit(doc[@"companyName"], doc[@"companyName"]);
             }
         }) version: @"1"];
-        
-        _filteredCustomersView = [self.database viewNamed: @"filteredCustomers"];
-        
-        [_filteredCustomersView setMapBlock: MAPBLOCK({
-            if ([doc[@"type"] isEqualToString:kCustomerDocType]) {
-                NSString* companyName = doc[@"companyName"];
-                if (companyName)
-                    emit(companyName, doc);
-            }
-        }) version: @"1"];
     }
     return self;
-}
-
-
-- (void) createFakeCustomers {
-    for (NSDictionary *dict in [self getFakeCustomersDictionary]) {
-        Customer* customer = [self customerWithName: [dict objectForKey:kName]];
-        if (!customer) {
-            customer = [[Customer alloc] initInDatabase:self.database
-                                 withCustomerName: [dict objectForKey:kName]];
-            customer.email = [dict objectForKey:kEmail];
-            customer.phone = [dict objectForKey:kPhone];
-            NSError* error;
-            if (![customer save:&error])
-                NSLog(@"%@", error);
-        }
-    }
-}
-
-- (NSArray*)getFakeCustomersDictionary {
-    return @[[NSDictionary dictionaryWithObjectsAndKeys:
-              @"Acme@mail.com", kEmail,
-              @"+3 456 8490", kPhone,
-              @"Gerald", kName, nil],
-             [NSDictionary dictionaryWithObjectsAndKeys:
-              @"Orange@mail.com", kEmail,
-              @"+3 654 0983", kPhone,
-              @"Pauloktus", kName, nil],
-             [NSDictionary dictionaryWithObjectsAndKeys:
-              @"Montansa@mail.com", kEmail,
-              @"+4 613 1234", kPhone,
-              @"Franky", kName, nil],
-             [NSDictionary dictionaryWithObjectsAndKeys:
-              @"GreyButter@mail.com", kEmail,
-              @"+1 111 9122", kPhone,
-              @"Vito", kName, nil]];
 }
 
 - (Customer*) createCustomerWithNameOrReturnExist: (NSString*)name{
@@ -98,7 +52,7 @@
 
 - (CBLQuery *)filteredQuery
 {
-    return [_filteredCustomersView createQuery];
+    return [_customersView createQuery];
 }
 
 @end

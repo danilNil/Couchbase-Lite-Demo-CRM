@@ -20,10 +20,8 @@ static NSString const *kEmail = @"email";
 static NSString const *kPhone = @"phone";
 static NSString const *kPosition = @"position";
 static NSString const *kCompanyName = @"companyName";
-static NSString *kCreatedFakeKey = @"createdFakeDBKey";
 
 #define kCBLPrefKeyUserID @"CBLFBUserID"
-#define kFakeDataBase 0
 #define kBaseBlueColor [UIColor colorWithRed:39.0/255.0  green:202.0/255.0 blue:255.0/255.0 alpha:1.0]
 #define kBaseGrayColor [UIColor colorWithRed:201.f/255.f green:201.f/255.f blue:206.f/255.f alpha:1.f]
 static NSString* const kExampleUserName = @"foo@example.com";

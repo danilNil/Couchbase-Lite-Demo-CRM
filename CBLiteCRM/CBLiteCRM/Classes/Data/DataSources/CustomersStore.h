@@ -12,5 +12,5 @@
 @property (readonly) CBLQuery* allCustomersQuery;
 
 - (Customer*) createCustomerWithNameOrReturnExist: (NSString*)name;
-- (void) createFakeCustomers;
+
 @end

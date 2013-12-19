@@ -18,7 +18,6 @@
 @interface ContactsStore()
 {
     CBLView* _contactsView;
-    CBLView* _filteredContactsView;
 }
 @end
 
@@ -35,63 +34,10 @@
                     emit(doc[@"email"], doc[@"email"]);
             }
         }) version: @"1"];
-        
-        _filteredContactsView = [self.database viewNamed: @"filteredContacts"];
-        [_filteredContactsView setMapBlock: MAPBLOCK({
-            if ([doc[@"type"] isEqualToString: kContactDocType]) {
-                NSString* email = doc[@"email"];
-                if (email)
-                    emit(email, doc);
-            }
-        }) version: @"2"];
-
     }
     return self;
 }
 
-
-- (void) createFakeContacts {
-    for (NSDictionary *dict in [self getFakeContactsDictionary]) {
-        Contact* contact = [self contactWithMail: [dict objectForKey:kEmail]];
-        if (!contact) {
-            contact = [[Contact alloc] initInDatabase:self.database
-                                            withEmail: [dict objectForKey:kEmail]];
-            contact.phoneNumber = [dict objectForKey:kPhone];
-            contact.name = [dict objectForKey:kName];
-            contact.position = [dict objectForKey:kPosition];
-            NSError *error;
-            if (![contact save:&error])
-                NSLog(@"%@", error);
-        }
-    }
-}
-
-- (NSArray*)getFakeContactsDictionary {
-    return @[[NSDictionary dictionaryWithObjectsAndKeys:
-              kExampleUserName, kEmail,
-              @"+8 321 2490", kPhone,
-              @"Archibald", kName,
-              @"Sales consultant", kPosition,
-              @"Thomson Reuters", kCompanyName, nil],
-             [NSDictionary dictionaryWithObjectsAndKeys:
-              @"Tovarish@mail.com", kEmail,
-              @"+3 634 2983", kPhone,
-              @"Dave", kName,
-              @"Presales consultant", kPosition,
-              @"Brittish Telecommunications", kCompanyName, nil],
-             [NSDictionary dictionaryWithObjectsAndKeys:
-              @"Sestra@mail.com", kEmail,
-              @"+4 623 1234", kPhone,
-              @"Michael", kName,
-              @"SOA", kPosition,
-              @"Monitise", kCompanyName, nil],
-             [NSDictionary dictionaryWithObjectsAndKeys:
-              @"Brat@mail.com", kEmail,
-              @"+2 132 9162", kPhone,
-              @"Eugene", kName,
-              @"Lead developer", kPosition,
-              @"Hewlett-Packard", kCompanyName, nil]];
-}
 
 - (Contact*) createContactWithMailOrReturnExist: (NSString*)mail{
     Contact* ct = [self contactWithMail:mail];
@@ -155,7 +101,7 @@
 }
 - (CBLQuery *)filteredQuery
 {
-    return [_filteredContactsView createQuery];
+    return [_contactsView createQuery];
 }
 
 @end

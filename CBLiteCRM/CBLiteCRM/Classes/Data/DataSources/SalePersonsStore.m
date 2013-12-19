@@ -13,7 +13,6 @@
 @interface SalePersonsStore()
 {
     CBLView* _salesPersonsView;
-    CBLView* _filteredPersonsView;
 }
 
 @end
@@ -35,16 +34,6 @@
                     emit(doc[@"email"], doc[@"email"]);
             }
         }) version: @"1"];
-
-        _filteredPersonsView = [self.database viewNamed: @"filteredSalesPerson"];
-
-        [_filteredPersonsView setMapBlock: MAPBLOCK({
-            if ([doc[@"type"] isEqualToString:kSalesPersonDocType]) {
-                NSString* email = doc[@"email"];
-                if (email)
-                    emit(email, doc);
-            }
-        }) version: @"4"];
     }
     return self;
 }
@@ -100,7 +89,7 @@
 }
 
 - (CBLQuery*) filteredQuery {
-    return [_filteredPersonsView createQuery];
+    return [_salesPersonsView createQuery];
 }
 
 - (NSArray*) allOtherUsers {

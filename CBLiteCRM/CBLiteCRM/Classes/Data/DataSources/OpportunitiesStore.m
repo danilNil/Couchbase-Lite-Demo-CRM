@@ -12,7 +12,6 @@
 
 @interface OpportunitiesStore(){
     CBLView* _opportView;
-    CBLView* _filteredOpportView;
 }
 @end
 
@@ -27,30 +26,8 @@
                 emit(doc[@"title"], doc[@"title"]);
             }
         }) version: @"1"];
-
-        _filteredOpportView = [self.database viewNamed: @"filteredOpportunities"];
-
-        [_filteredOpportView setMapBlock: MAPBLOCK({
-            if ([doc[@"type"] isEqualToString:kOpportDocType]) {
-                NSString* title = doc[@"title"];
-                if (title)
-                    emit(title, doc);
-            }
-        }) version: @"2"];
     }
     return self;
-}
-
-
-- (void) createFakeOpportunities {
-    NSArray *array = @[@"OPP1", @"OPP2", @"OPP3", @"OPP4"];
-    for (NSString *title in array) {
-        Opportunity* profile = [self opportunityWithTitle:title];
-        if (!profile) {
-            profile = [[Opportunity alloc] initInDatabase:self.database
-                                                withTitle: title];
-        }
-    }
 }
 
 - (Opportunity*) opportunityWithTitle: (NSString*)title {
@@ -61,15 +38,11 @@
 }
 
 -(CBLQuery *)filteredQuery {
-    CBLQuery* query = [_filteredOpportView createQuery];
-    query.descending = YES;
-    return query;
+    return [_opportView createQuery];
 }
 
 - (CBLQuery*) queryOpportunities {
-    CBLQuery* query = [_opportView createQuery];
-    query.descending = YES;
-    return query;
+    return [_opportView createQuery];
 }
 
 -(Opportunity *)createOpportunityWithTitleOrReturnExist:(NSString *)title
@@ -104,8 +77,8 @@
     }
     CBLQuery* query = [view createQuery];
     NSString* myCustID = customer.document.documentID;
-    query.startKey = @[myCustID];
-    query.endKey = @[myCustID, @{}];
+    query.startKey = @[myCustID, @{}];
+    query.endKey = @[myCustID];
     return query;
 }
 

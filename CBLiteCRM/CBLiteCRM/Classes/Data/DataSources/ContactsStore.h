@@ -14,7 +14,6 @@
 - (Contact*) contactWithMail: (NSString*)mail;
 - (CBLQuery*) queryContacts;
 
-- (void) createFakeContacts;
 - (CBLQuery*) queryContactsByCustomer:(Customer*)cust;
 - (CBLQuery*) queryContactsForOpportunity:(Opportunity*)opp;
 
