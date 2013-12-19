@@ -22,7 +22,6 @@
     if (self) {
         self.user_id = mail;
         self.username = username;
-        self.approved = NO;
         self.isAdmin = NO;
     }
     return self;

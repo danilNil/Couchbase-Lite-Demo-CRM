@@ -32,9 +32,11 @@
 }
 
 -(void)updateStateForUser:(SalesPerson*)user{
-    self.contactsButton.enabled = (user.isAdmin || user.approved);
-    self.customersButton.enabled = (user.isAdmin || user.approved);
-    self.oppButton.enabled = (user.isAdmin || user.approved);
+    BOOL needToShow =user.isAdmin || user.approved;
+    NSLog(@"admin: %i approved: %i", user.isAdmin, user.approved);
+    self.contactsButton.enabled = needToShow;
+    self.customersButton.enabled = needToShow;
+    self.oppButton.enabled = needToShow;
 }
 
 @end
