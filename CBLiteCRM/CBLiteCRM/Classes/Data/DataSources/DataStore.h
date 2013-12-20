@@ -3,7 +3,7 @@
 
 @interface DataStore : NSObject
 
-- (id) initWithDatabase: (CBLDatabase*)database;
+- (id) init;
 
 + (DataStore*) sharedInstance; // will not create database by default
 

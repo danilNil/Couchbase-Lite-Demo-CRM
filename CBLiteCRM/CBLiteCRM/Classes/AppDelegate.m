@@ -52,20 +52,11 @@
 
 - (void)setupDatabase
 {
-    CBLManager *manager = [CBLManager sharedInstance];
-    
-    NSError *error;
-    self.database = [manager databaseNamed: @"fb_sg" error: &error];
-   
-    if (error) {
-        NSLog(@"error getting database %@",error);
-    }
-    
-    self.dataStore = [[DataStore alloc] initWithDatabase:self.database];
+    self.dataStore = [DataStore sharedInstance];
 }
 
 - (void) setupCBLSync {
-    self.cblSync = [[CBLSyncManager alloc] initSyncForDatabase:_database withURL:[NSURL URLWithString:kSyncUrl]];
+    self.cblSync = [[CBLSyncManager alloc] initSyncForDatabase:self.dataStore.database withURL:[NSURL URLWithString:kSyncUrl]];
     
     // Tell the Sync Manager to use Facebook for login.
     self.cblSync.authenticator = [[CBLFacebookAuthenticator alloc] initWithAppID:kFBAppId];

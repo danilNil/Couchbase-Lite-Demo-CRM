@@ -10,25 +10,33 @@
 @interface DataStore()
 @end
 
-static DataStore* sInstance;
-
 @implementation DataStore
 
 
-- (id) initWithDatabase: (CBLDatabase*)database {
+- (id) init{
     self = [super init];
     if (self) {
-        NSAssert(!sInstance, @"Cannot create more than one DataStore");
-        sInstance = self;
-        _database = database;
+        CBLManager *manager = [CBLManager sharedInstance];
+        
+        NSError *error;
+        _database = [manager databaseNamed: @"fb_sg" error: &error];;
+        if (error) {
+            NSLog(@"error getting database %@",error);
+        }
         [self initStores];
     }
     return self;
 }
 
-
-+ (DataStore*) sharedInstance {
-    return sInstance;
++ (DataStore *) sharedInstance{
+    static dispatch_once_t predicate = 0;
+    static DataStore *object = nil;
+    
+    dispatch_once(&predicate, ^{
+        object = [self new];
+    });
+    
+	return object;
 }
 
 - (void)initStores{
