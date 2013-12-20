@@ -95,7 +95,7 @@
     }
     else if (!customer)
     {
-        [UIAlertView showErrorMessage:@"Please select customer"];
+        [UIAlertView showErrorMessage:@"Please select a customer"];
         return NO;
     }
     return YES;
