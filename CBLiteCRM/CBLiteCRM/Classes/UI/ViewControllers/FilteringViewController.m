@@ -89,4 +89,9 @@
     self.currentSource = self.filteredDataSource;
 }
 
+- (void)dealloc {
+    self.tableView.dataSource = nil;
+}
+
+
 @end
