@@ -591,36 +591,6 @@
                                                     <outlet property="delegate" destination="tN3-ye-q8X" id="FOP-Rx-X8z"/>
                                                 </connections>
                                             </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="m4S-Rf-q8k">
-                                                <rect key="frame" x="14" y="288" width="290" height="44"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" red="0.35686274509999999" green="0.83921568629999999" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="18"/>
-                                                <state key="normal" title="Show Contacts">
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <state key="disabled">
-                                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="showContacts:" destination="tN3-ye-q8X" eventType="touchUpInside" id="1sn-CL-3Do"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="MnG-pZ-lRp">
-                                                <rect key="frame" x="14" y="340" width="290" height="44"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" red="0.96470588239999999" green="0.70196078429999997" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="18"/>
-                                                <state key="normal" title="Delete">
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <state key="disabled">
-                                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="deleteItem:" destination="tN3-ye-q8X" eventType="touchUpInside" id="Rkg-8Q-kWo"/>
-                                                </connections>
-                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" id="6KV-qq-ehq">
                                                 <rect key="frame" x="14" y="236" width="205" height="44"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -648,6 +618,43 @@
                                                     <action selector="customerDetails:" destination="tN3-ye-q8X" eventType="touchUpInside" id="pYT-X2-3NW"/>
                                                 </connections>
                                             </button>
+                                            <view contentMode="scaleToFill" id="2a2-9K-GlH">
+                                                <rect key="frame" x="16" y="288" width="290" height="96"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="PA9-Ox-Q3i">
+                                                        <rect key="frame" x="0.0" y="0.0" width="290" height="44"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <color key="backgroundColor" red="0.35686274509999999" green="0.83921568629999999" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="18"/>
+                                                        <state key="normal" title="Show Contacts">
+                                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
+                                                        <state key="disabled">
+                                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="showContacts:" destination="tN3-ye-q8X" eventType="touchUpInside" id="rwA-Q9-yfc"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="KeV-Ko-jfF">
+                                                        <rect key="frame" x="0.0" y="52" width="290" height="44"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <color key="backgroundColor" red="0.96470588239999999" green="0.70196078429999997" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="18"/>
+                                                        <state key="normal" title="Delete">
+                                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
+                                                        <state key="disabled">
+                                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="deleteItem:" destination="tN3-ye-q8X" eventType="touchUpInside" id="NXw-Fw-LO5"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     </view>
@@ -671,14 +678,13 @@
                     </navigationItem>
                     <connections>
                         <outlet property="baseScrollView" destination="3Tq-TI-Tm3" id="Qwx-Vh-ZoA"/>
+                        <outlet property="buttonsView" destination="2a2-9K-GlH" id="azy-1m-Oke"/>
                         <outlet property="contentView" destination="qKj-wr-JUC" id="Z1w-QP-eVy"/>
                         <outlet property="customerButton" destination="6KV-qq-ehq" id="f4o-uZ-MdP"/>
                         <outlet property="customerDetailsButton" destination="ZDn-8Q-AID" id="gtN-kL-8Xq"/>
                         <outlet property="dateField" destination="3pF-gR-KXa" id="yJf-nx-lj4"/>
-                        <outlet property="deleteButton" destination="MnG-pZ-lRp" id="2Tk-lZ-axd"/>
                         <outlet property="nameField" destination="eUD-c5-Dk5" id="lxP-YS-YBC"/>
                         <outlet property="revenueField" destination="q54-bn-r8A" id="ofH-l6-8lo"/>
-                        <outlet property="showContactsButton" destination="m4S-Rf-q8k" id="21f-Uo-oTc"/>
                         <outlet property="stageField" destination="8Hz-8A-88H" id="9IC-oA-Dgv"/>
                         <outlet property="winField" destination="8xy-VZ-6oJ" id="DyI-Qp-7us"/>
                         <segue destination="DoK-bY-Hq0" kind="modal" identifier="presentMyCustomer" id="sb8-08-2KH"/>

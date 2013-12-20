@@ -147,8 +147,7 @@
 
 - (void)loadInfoForOpportunity:(Opportunity*)opp {
     self.nameField.enabled = !opp;
-    self.deleteButton.enabled = opp ? YES: NO;
-    self.showContactsButton.enabled = opp ? YES : NO;
+    self.buttonsView.hidden = !opp;
     if (opp) {
         customer = self.currentOpport.customer;
         self.nameField.text = opp.title;
