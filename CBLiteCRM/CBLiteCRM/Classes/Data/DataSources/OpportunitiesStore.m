@@ -67,8 +67,8 @@
     CBLView * view  = [self createOpportunitiesForCustomerView];
     CBLQuery* query = [view createQuery];
     NSString* myCustID = customer.document.documentID;
-    query.startKey = @[myCustID, @{}];
-    query.endKey   = @[myCustID];
+    query.startKey = @[myCustID];
+    query.endKey   = @[myCustID, @{}];
     return query;
 }
 
