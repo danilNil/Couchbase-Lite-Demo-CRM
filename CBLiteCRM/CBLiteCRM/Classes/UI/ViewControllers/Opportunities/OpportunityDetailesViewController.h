@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *deleteButton;
 @property (weak, nonatomic) IBOutlet UIButton *customerButton;
 @property (weak, nonatomic) IBOutlet UIButton *customerDetailsButton;
+@property (weak, nonatomic) IBOutlet UIButton *showContactsButton;
 
 - (IBAction)back:(id)sender;
 - (IBAction)saveItem:(id)sender;
