@@ -3,7 +3,7 @@
 //  CBLiteCRM
 //
 //  Created by Danil on 04/12/13.
-//  Copyright (c) 2013 Danil. All rights reserved.
+//  Copyright (c) 2013 Couchbase. All rights reserved.
 //
 
 #import "ContactsStore.h"

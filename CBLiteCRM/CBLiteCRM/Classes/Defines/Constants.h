@@ -1,9 +1,9 @@
 //
 //  Constants.h
-//  ProfileCode
+//  Couchbase
 //
 //  Created by Andrew on 05.03.13.
-//  Copyright (c) 2013 Al Digit Ltd. All rights reserved.
+//  Copyright (c) 2013 Couchbase All rights reserved.
 //
 
 #ifndef CBLiteCRM_Constants_h

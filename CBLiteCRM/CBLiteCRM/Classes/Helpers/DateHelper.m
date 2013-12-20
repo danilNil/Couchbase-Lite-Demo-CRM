@@ -1,9 +1,9 @@
 //
 //  DateHelper.m
-//  ProfileCode
+//  Couchbase
 //
 //  Created by Danil on 5/15/13.
-//  Copyright (c) 2013 Al Digit Ltd. All rights reserved.
+//  Copyright (c) 2013 Couchbase All rights reserved.
 //
 
 #import "DateHelper.h"

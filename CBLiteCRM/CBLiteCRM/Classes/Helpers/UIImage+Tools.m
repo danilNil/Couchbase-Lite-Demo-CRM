@@ -3,7 +3,7 @@
 //
 //
 //  Created by Andrew on 12.03.13.
-//  Copyright (c) 2013 Al Digit Ltd. All rights reserved.
+//  Copyright (c) 2013 Couchbase All rights reserved.
 //
 
 #import "UIImage+Tools.h"

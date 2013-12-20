@@ -3,7 +3,7 @@
 //  CBLiteCRM
 //
 //  Created by Ruslan on 12/10/13.
-//  Copyright (c) 2013 Danil. All rights reserved.
+//  Copyright (c) 2013 Couchbase. All rights reserved.
 //
 
 #import "ContactsViewController.h"

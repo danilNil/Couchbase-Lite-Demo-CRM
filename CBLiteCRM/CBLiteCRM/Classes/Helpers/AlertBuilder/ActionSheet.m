@@ -3,7 +3,7 @@
 //  
 //
 //  Created by Andrew on 17.06.13.
-//  Copyright (c) 2013 Al Digit Ltd. All rights reserved.
+//  Copyright (c) 2013 Couchbase All rights reserved.
 //
 
 #import "ActionSheet.h"

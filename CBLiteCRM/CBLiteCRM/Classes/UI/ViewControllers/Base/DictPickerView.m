@@ -1,9 +1,9 @@
 //
 //  DictPickerView.m
-//  ProfileCode
+//  Couchbase
 //
 //  Created by Danil on 10/1/13.
-//  Copyright (c) 2013 Al Digit Ltd. All rights reserved.
+//  Copyright (c) 2013 Couchbase All rights reserved.
 //
 
 #import "DictPickerView.h"
