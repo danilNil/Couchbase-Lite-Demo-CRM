@@ -41,19 +41,19 @@
 {
     ContactsStore *ctStore = [DataStore sharedInstance].contactsStore;
     CBLQuery *cQ = [ctStore queryContactsByCustomer:self];
-    NSError *er;
-    for (CBLQueryRow *r in [cQ rows:&er]) {
+    NSError *error;
+    for (CBLQueryRow *r in [cQ rows:&error]) {
         Contact *c = [Contact modelForDocument:r.document];
         c.customer = nil;
-        [c save:&er];
+        [c save:&error];
     }
 
     OpportunitiesStore *oppStore = [DataStore sharedInstance].opportunitiesStore;
     CBLQuery *oppQ = [oppStore queryOpportunitiesForCustomer:self];
-    for (CBLQueryRow *r in [oppQ rows:&er]) {
+    for (CBLQueryRow *r in [oppQ rows:&error]) {
         Opportunity *opp = [Opportunity modelForDocument:r.document];
         opp.customer = nil;
-        [opp save:&er];
+        [opp save:&error];
     }
 
     return [super deleteDocument:outError];

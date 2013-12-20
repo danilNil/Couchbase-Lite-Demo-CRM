@@ -63,11 +63,11 @@
 }
 
 - (IBAction)deleteItem:(id)sender {
-    NSError *err;
-    if ([self.currentCustomer deleteDocument:&err]) {
+    NSError *error;
+    if ([self.currentCustomer deleteDocument:&error]) {
         [self  dismissViewControllerAnimated:YES completion:^{}];
     } else {
-        [[[UIAlertView alloc] initWithTitle:@"Error" message:[err localizedDescription] delegate:Nil cancelButtonTitle:@"ok" otherButtonTitles: nil] show];
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:Nil cancelButtonTitle:@"ok" otherButtonTitles: nil] show];
     }
 }
 

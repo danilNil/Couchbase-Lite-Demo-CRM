@@ -22,8 +22,8 @@ NSString *kSalesPersonCell = @"SalesPersonCell";
 {
     self.salesPerson.approved = checked;
 
-    NSError *err;
-    if ([self.salesPerson save:&err]) {
+    NSError *error;
+    if ([self.salesPerson save:&error]) {
         _checked = checked;
         if (checked == YES)
             [self.checkmark setSelected:YES];

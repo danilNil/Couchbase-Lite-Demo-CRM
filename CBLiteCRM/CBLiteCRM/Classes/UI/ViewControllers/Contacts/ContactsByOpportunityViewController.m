@@ -71,9 +71,9 @@
 
 -(void)filterContentForSearchText:(NSString *)searchText scope:(NSString *)scope
 {
-    NSError *err;
+    NSError *error;
     CBLQuery *query = [self.store filteredQuery];
-    CBLQueryEnumerator *enumer = [self.dataSource.query rows:&err];
+    CBLQueryEnumerator *enumer = [self.dataSource.query rows:&error];
 
     NSMutableArray *matches = [NSMutableArray new];
     for (NSUInteger i = 0; i < enumer.count; i++) {

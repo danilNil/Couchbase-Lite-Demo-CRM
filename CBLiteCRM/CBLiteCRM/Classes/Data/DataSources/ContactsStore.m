@@ -53,7 +53,10 @@
     return [Contact modelForDocument: doc];
 }
 
-- (CBLQuery*) queryContacts {
+#pragma mark - Queries
+
+- (CBLQuery*) queryContacts
+{
     CBLQuery* query = [_contactsView createQuery];
     return query;
 }
@@ -68,12 +71,12 @@
 - (NSMutableArray *)getFilteringKeysMatchedForOpportunity:(Opportunity *)opp query:(CBLQuery *)query
 {
     CBLQuery *addedContactsQuery = [[DataStore sharedInstance].contactOpportunityStore queryContactsForOpportunity:opp];
-    NSError *err;
+    NSError *error;
     NSMutableArray *keys = [NSMutableArray new];
-    for (CBLQueryRow *r in [query rows:&err]) {
+    for (CBLQueryRow *r in [query rows:&error]) {
         Contact *ct = [Contact modelForDocument:r.document];
         BOOL exist = NO;
-        for (CBLQueryRow *row in [addedContactsQuery rows:&err]) {
+        for (CBLQueryRow *row in [addedContactsQuery rows:&error]) {
             ContactOpportunity *ctOpp = [ContactOpportunity modelForDocument:row.document];
             if ([ct.email isEqualToString:ctOpp.contact.email])
                 exist = YES;
@@ -102,6 +105,7 @@
     query.keys = @[myCustID];
     return query;
 }
+
 - (CBLQuery *)filteredQuery
 {
     return [_contactsView createQuery];

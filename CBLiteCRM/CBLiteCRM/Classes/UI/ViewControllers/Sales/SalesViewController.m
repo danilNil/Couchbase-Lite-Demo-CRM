@@ -57,10 +57,10 @@
     BOOL isMe = [self isRowMe:row];
     if(isMe)
         [self logout];
-    NSError* err;
-    [salesPerson deleteDocument:&err];
-    if(err){
-        NSLog(@"err in deleting: %@", err);
+    NSError* error;
+    [salesPerson deleteDocument:&error];
+    if(error){
+        NSLog(@"error in deleting: %@", error);
     }
     return isMe;
 }
