@@ -69,16 +69,7 @@
     
     // Tell the Sync Manager to use Facebook for login.
     self.cblSync.authenticator = [[CBLFacebookAuthenticator alloc] initWithAppID:kFBAppId];
-    
-    if  (self.cblSync.userID) { // we are logged in, go ahead and sync
-        [self.cblSync start];
-    } else {
-        // Application callback to create the user profile.
-        // this will be triggered after we call [_cblSync start]
-        [self.cblSync beforeFirstSync:^(NSString *userID, NSDictionary *userData,  NSError **outError) {
-            [self updateUserWithRole:self.asAdmin];
-        }];
-    }
+
 }
 
 - (void)loginAndSync: (void (^)())complete asAdmin:(BOOL)asAdmin
