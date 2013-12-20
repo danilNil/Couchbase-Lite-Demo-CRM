@@ -9,8 +9,8 @@
 
 @interface BaseModel : CBLModel
 @property (strong) NSString* uniqueField;
-@property (strong) NSString* docType;
+@property (strong) NSString* type;
 
 - (instancetype) initInDatabase: (CBLDatabase*)database;
-+ (NSString*) docType;
++ (NSString*) type;
 @end

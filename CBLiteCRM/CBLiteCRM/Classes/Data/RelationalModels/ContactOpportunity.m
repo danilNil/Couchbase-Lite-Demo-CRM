@@ -18,7 +18,7 @@
 {
     self = [super initWithNewDocumentInDatabase:database];
     if(self){
-        [self setValue: [[self class] docType] ofProperty: @"type"];
+        [self setValue: [[self class] type] ofProperty: @"type"];
         [self setValue:ct forKey:@"contact"];
         [self setValue:opp forKey:@"opportunity"];
     }
@@ -35,7 +35,7 @@
 }
 
 
-+ (NSString*) docType{
++ (NSString*) type{
     return kContactOpportunityDocType;
 }
 

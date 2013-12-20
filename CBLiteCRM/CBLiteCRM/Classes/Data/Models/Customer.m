@@ -17,7 +17,7 @@
 @implementation Customer
 @dynamic companyName, industry, phone, email, websiteUrl, address;
 
-+ (NSString*) docType{
++ (NSString*) type{
     return kCustomerDocType;
 }
 
@@ -32,8 +32,10 @@
     }
 
     NSError* error;
-    if (![self save: &error])
+    if (![self save: &error]){
+        NSLog(@"error: %@", error);
         return nil;
+    }
     return self;
 }
 

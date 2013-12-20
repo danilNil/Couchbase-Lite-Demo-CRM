@@ -78,7 +78,7 @@
 {
     CBLView* view = [self.database viewNamed: @"OpportunitiesForCustomer"];
     if(!view.mapBlock) {
-        NSString* const kOppDocType = [Opportunity docType];
+        NSString* const kOppDocType = [Opportunity type];
         [view setMapBlock: MAPBLOCK({
             if ([doc[@"type"] isEqualToString: kOppDocType]) {
                 NSString* customerId = doc[@"customer"];

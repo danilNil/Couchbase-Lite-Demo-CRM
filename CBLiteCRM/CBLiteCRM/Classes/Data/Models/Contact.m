@@ -14,7 +14,7 @@
 @implementation Contact
 @dynamic customer, name, position, phoneNumber, email, address, opportunities;
 
-+ (NSString*) docType{
++ (NSString*) type{
    return kContactDocType;
 }
 
@@ -24,12 +24,14 @@
     NSParameterAssert(mail);
     self = [super initInDatabase:database];
     if(self){
-        [self setValue: mail ofProperty: @"email"];
+        self.email = mail;
     }
 
     NSError* error;
-    if (![self save: &error])
+    if (![self save: &error]){
+        NSLog(@"error: %@", error);
         return nil;
+    }    
     return self;
 }
 

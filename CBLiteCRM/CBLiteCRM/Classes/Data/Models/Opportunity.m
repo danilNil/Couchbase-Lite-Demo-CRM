@@ -15,7 +15,7 @@
 @dynamic customer, creationDate, revenueSize, winProbability, salesStage, contacts, title;
 
 
-+ (NSString*) docType{
++ (NSString*) type{
     return kOpportDocType;
 }
 
@@ -29,8 +29,10 @@
     }
     
     NSError* error;
-    if (![self save: &error])
+    if (![self save: &error]){
+        NSLog(@"error: %@", error);
         return nil;
+    }
     return self;
 
 }

@@ -9,18 +9,17 @@
 #import "BaseModel.h"
 
 @implementation BaseModel
-@dynamic uniqueField,docType;
+@dynamic uniqueField, type;
 
 - (instancetype) initInDatabase: (CBLDatabase*)database{
     self = [super initWithNewDocumentInDatabase:database];
     if(self){
-        [self setValue: [[self class] docType] ofProperty: @"type"];
+        self.type = [[self class] type];
     }
-
     return self;
 }
 
-+ (NSString*) docType{
++ (NSString*) type{
     NSAssert(YES, @"implement doc type in your class");
     return nil;
 }

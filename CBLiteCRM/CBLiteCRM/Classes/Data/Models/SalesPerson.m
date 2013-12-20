@@ -24,6 +24,11 @@
         self.username = username;
         self.isAdmin = NO;
     }
+    NSError* error;
+    if (![self save: &error]){
+        NSLog(@"error: %@", error);
+        return nil;
+    }
     return self;
 }
 
@@ -42,32 +47,32 @@
         self = [SalesPerson modelForDocument:doc];
 
     if (self) {
-        NSLog(@"[[self class] docType]: %@",[[self class] docType]);
-        self.type = [[self class] docType];
+        NSLog(@"[[self class] type]: %@",[[self class] type]);
+        self.type = [[self class] type];
         self.email = mail;
     }
     return self;
 }
 
 + (NSString*) docIDForUserId: (NSString*)userId {
-    return [self docIDForUniqueField:userId forDocType:[self docType]];
+    return [self docIDForUniqueField:userId forDocType:[self type]];
 }
 
 + (NSString*) userIdFromDocID: (NSString*)docID{
-    return [self uniqueFieldFromDocID:docID forDocType:[self docType]];
+    return [self uniqueFieldFromDocID:docID forDocType:[self type]];
 }
 
 
-+ (NSString*) docType{
++ (NSString*) type{
     return kSalesPersonDocType;
 }
 
-+ (NSString*) docIDForUniqueField: (NSString*)uniqueValue forDocType:(NSString*)docType{
-    return [NSString stringWithFormat:@"%@:%@",docType,uniqueValue];
++ (NSString*) docIDForUniqueField: (NSString*)uniqueValue forDocType:(NSString*)type{
+    return [NSString stringWithFormat:@"%@:%@",type,uniqueValue];
 }
 
-+ (NSString*) uniqueFieldFromDocID: (NSString*)docID forDocType:(NSString*)docType{
-    return [docID substringFromIndex:docType.length+1];
++ (NSString*) uniqueFieldFromDocID: (NSString*)docID forDocType:(NSString*)type{
+    return [docID substringFromIndex:type.length+1];
 }
 
 
