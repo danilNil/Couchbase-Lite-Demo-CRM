@@ -42,7 +42,9 @@
 
 - (void) onEpicFail
 {
-    [self.view hideActivity];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.view hideActivity];
+    });
 }
 
 #pragma mark - ViewController
