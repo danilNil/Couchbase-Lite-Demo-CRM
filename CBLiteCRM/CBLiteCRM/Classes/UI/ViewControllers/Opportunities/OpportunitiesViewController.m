@@ -48,10 +48,10 @@ CBLUITableDelegate
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
     [self.tableView reloadData];
     [self.searchDisplayController.searchResultsTableView reloadData];
 }
-
 
 #pragma mark - Segue
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

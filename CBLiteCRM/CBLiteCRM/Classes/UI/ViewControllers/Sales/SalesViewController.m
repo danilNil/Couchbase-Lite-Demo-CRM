@@ -35,6 +35,14 @@
     self.dataSource.query = [[(SalePersonsStore*)self.store allUsersQuery] asLiveQuery];
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.tableView reloadData];
+    [self.searchDisplayController.searchResultsTableView reloadData];
+
+}
+
 - (UITableViewCell *)couchTableSource:(CBLUITableSource*)source cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     SalesPersonCell *cell = [[source tableView] dequeueReusableCellWithIdentifier:kSalesPersonCell];
