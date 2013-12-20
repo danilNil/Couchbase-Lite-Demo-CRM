@@ -18,14 +18,25 @@
 @implementation MenuViewController
 @synthesize needLogout;
 
+-(void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    self.salesButton.exclusiveTouch     = YES;
+    self.contactsButton.exclusiveTouch  = YES;
+    self.customersButton.exclusiveTouch = YES;
+    self.oppButton.exclusiveTouch       = YES;
+}
+
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     [self updateStateForUser:[DataStore sharedInstance].salePersonsStore.user];
-    if(self.needLogout)
-        [self logout:self];
+
+    if  (self.needLogout)
+        [self logout];
 }
 
-- (IBAction)logout:(id)sender {
+- (IBAction)logout {
     AppDelegate* app = [UIApplication sharedApplication].delegate;
     [app logout];
     [self dismissViewControllerAnimated:YES completion:NULL];

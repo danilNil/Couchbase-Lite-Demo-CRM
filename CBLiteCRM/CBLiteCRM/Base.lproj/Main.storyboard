@@ -134,7 +134,7 @@
                     <navigationItem key="navigationItem" title="Menu" id="SuN-mq-cSE">
                         <barButtonItem key="rightBarButtonItem" title="Logout" id="cnT-sL-qSO">
                             <connections>
-                                <action selector="logout:" destination="cR9-vg-w5q" id="5Vq-CS-bXz"/>
+                                <action selector="logout" destination="cR9-vg-w5q" id="wod-nL-HYy"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -142,6 +142,7 @@
                         <outlet property="contactsButton" destination="J5t-Xn-IKo" id="eW9-lk-4cu"/>
                         <outlet property="customersButton" destination="v6c-Vo-TjJ" id="0AN-mN-m3r"/>
                         <outlet property="oppButton" destination="uYR-2i-ili" id="rUU-os-NoI"/>
+                        <outlet property="salesButton" destination="6jY-i8-izR" id="fTY-cL-H4O"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0JA-6r-ZWB" userLabel="First Responder" sceneMemberID="firstResponder"/>

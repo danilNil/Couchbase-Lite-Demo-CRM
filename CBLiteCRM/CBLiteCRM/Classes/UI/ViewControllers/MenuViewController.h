@@ -10,9 +10,11 @@
 
 @interface MenuViewController : UIViewController<LogoutProtocol>
 
+@property (weak, nonatomic) IBOutlet UIButton *salesButton;
 @property (weak, nonatomic) IBOutlet UIButton *contactsButton;
 @property (weak, nonatomic) IBOutlet UIButton *customersButton;
 @property (weak, nonatomic) IBOutlet UIButton *oppButton;
 
-- (IBAction)logout:(id)sender;
+- (IBAction)logout;
+
 @end
