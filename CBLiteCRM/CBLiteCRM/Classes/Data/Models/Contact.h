@@ -13,7 +13,7 @@
 @property (strong) NSString* name;
 @property (strong) NSString* position;
 @property (strong) NSString* phoneNumber;
-@property (readonly, copy) NSString* email;
+@property (strong) NSString* email;
 @property (strong) NSString* address;
 @property (strong) NSArray* opportunities;
 

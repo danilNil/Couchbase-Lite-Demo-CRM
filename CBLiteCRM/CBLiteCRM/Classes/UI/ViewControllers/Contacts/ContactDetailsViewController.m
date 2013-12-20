@@ -55,9 +55,7 @@ UITextFieldDelegate
 }
 
 - (void)loadInfoForContact:(Contact*)ct{
-    self.mailField.enabled = !ct;
-    self.deleteButton.hidden = !ct ? YES : NO;
-
+    self.buttonsView.hidden = !ct;
     if(ct)
     {
         customer = ct.customer;
@@ -170,6 +168,7 @@ UITextFieldDelegate
     ct.phoneNumber = self.phoneField.text;
     ct.address = self.addressField.text;
     ct.opportunities = [self selectedOpportunities];
+    ct.email = self.mailField.text;
     if(selectedImage)
         [ct setAttachmentNamed:@"photo" withContentType:@"image/png" content:UIImagePNGRepresentation(selectedImage)];
     else
@@ -183,7 +182,6 @@ UITextFieldDelegate
 
 -(void)setCurrentContact:(Contact *)currentContact {
     _currentContact = currentContact;
-    self.buttonsView.hidden = !currentContact;
 }
 
 - (NSArray*)selectedOpportunities{

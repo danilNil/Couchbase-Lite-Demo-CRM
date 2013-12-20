@@ -158,7 +158,6 @@
 }
 
 - (void)loadInfoForOpportunity:(Opportunity*)opp {
-    self.nameField.enabled = !opp;
     self.buttonsView.hidden = !opp;
     if (opp) {
         customer = self.currentOpport.customer;

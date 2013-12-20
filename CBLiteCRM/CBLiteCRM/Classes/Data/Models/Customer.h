@@ -9,7 +9,7 @@
 #import "BaseModel.h"
 
 @interface Customer : BaseModel
-@property (strong, readonly) NSString* companyName;
+@property (strong) NSString* companyName;
 @property (strong) NSString* industry;
 @property (strong) NSString* phone;
 @property (strong) NSString* email;

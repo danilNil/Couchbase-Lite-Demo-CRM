@@ -30,9 +30,7 @@
 }
 
 - (void)loadInfoForCustomer:(Customer*)cm{
-
     self.buttonsView.hidden = (cm == nil);
-    
     if(cm) {
         self.companyNameField.text = cm.companyName.length > 0 ? cm.companyName : @"";
         self.industryField.text = cm.industry;
@@ -40,7 +38,6 @@
         self.mailField.text = cm.email;
         self.addressField.text = cm.address;
         self.URLField.text = cm.websiteUrl;
-        self.companyNameField.enabled = NO;
     }else{
         self.navigationItem.title = @"Add New Customer";
     }
@@ -92,7 +89,9 @@
     }
 }
 
-- (void)updateInfoForCustomer:(Customer*)cm{
+- (void)updateInfoForCustomer:(Customer*)cm
+{
+    cm.companyName  = self.companyNameField.text;
     cm.industry = self.industryField.text;
     cm.phone = self.phoneField.text;
     cm.address = self.addressField.text;
