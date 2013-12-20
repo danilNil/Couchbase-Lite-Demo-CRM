@@ -23,21 +23,21 @@
 
 @implementation ContactsStore
 
-- (id) initWithDatabase: (CBLDatabase*)database {
-    self = [super initWithDatabase:database];
-    if (self) {
-        [self.database.modelFactory registerClass: [Contact class] forDocumentType: kContactDocType];
-        _contactsView = [self.database viewNamed: @"contactsByName"];
-        [_contactsView setMapBlock: MAPBLOCK({
-            if ([doc[@"type"] isEqualToString: kContactDocType]) {
-                if (doc[@"email"])
-                    emit(doc[@"email"], doc[@"email"]);
-            }
-        }) version: @"1"];
-    }
-    return self;
+-(void)registerCBLClass
+{
+    [self.database.modelFactory registerClass: [Contact class] forDocumentType: kContactDocType];
 }
 
+- (void)createView
+{
+    _contactsView = [self.database viewNamed: @"contactsByName"];
+    [_contactsView setMapBlock: MAPBLOCK({
+        if ([doc[@"type"] isEqualToString: kContactDocType]) {
+            if (doc[@"email"])
+                emit(doc[@"email"], doc[@"email"]);
+        }
+    }) version: @"1"];
+}
 
 - (Contact*) createContactWithMailOrReturnExist: (NSString*)mail{
     Contact* ct = [self contactWithMail:mail];
@@ -61,10 +61,15 @@
 - (CBLQuery*) queryContactsForOpportunity:(Opportunity*)opp
 {
     CBLQuery* query = [_contactsView createQuery];
+    query.keys = [self getFilteringKeysMatchedForOpportunity:opp query:query];
+    return query;
+}
+
+- (NSMutableArray *)getFilteringKeysMatchedForOpportunity:(Opportunity *)opp query:(CBLQuery *)query
+{
     CBLQuery *addedContactsQuery = [[DataStore sharedInstance].contactOpportunityStore queryContactsForOpportunity:opp];
     NSError *err;
-    NSMutableArray *keys;
-    keys = [NSMutableArray new];
+    NSMutableArray *keys = [NSMutableArray new];
     for (CBLQueryRow *r in [query rows:&err]) {
         Contact *ct = [Contact modelForDocument:r.document];
         BOOL exist = NO;
@@ -76,8 +81,7 @@
         if (!exist)
             [keys addObject:ct.email];
     }
-    query.keys = keys;
-    return query;
+    return keys;
 }
 
 - (CBLQuery *)queryContactsByCustomer:(Customer *)cust

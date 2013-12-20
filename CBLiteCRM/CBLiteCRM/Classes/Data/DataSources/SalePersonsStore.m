@@ -25,17 +25,24 @@
         NSString* savedUserName = [self loadUserId];
         if(savedUserName)
             self.userID = savedUserName;
-
-        [self.database.modelFactory registerClass: [SalesPerson class] forDocumentType: kSalesPersonDocType];
-        salesPersonsView = [self.database viewNamed: @"salesPersonsByName"];
-        [salesPersonsView setMapBlock: MAPBLOCK({
-            if ([doc[@"type"] isEqualToString: kSalesPersonDocType]) {
-                if (doc[@"email"])
-                    emit(doc[@"email"], doc[@"email"]);
-            }
-        }) version: @"1"];
     }
     return self;
+}
+
+-(void)registerCBLClass
+{
+    [self.database.modelFactory registerClass: [SalesPerson class] forDocumentType: kSalesPersonDocType];
+}
+
+-(void)createView
+{
+    salesPersonsView = [self.database viewNamed: @"salesPersonsByName"];
+    [salesPersonsView setMapBlock: MAPBLOCK({
+        if ([doc[@"type"] isEqualToString: kSalesPersonDocType]) {
+            if (doc[@"email"])
+                emit(doc[@"email"], doc[@"email"]);
+        }
+    }) version: @"1"];
 }
 
 //TODO: need to refactor. for more clearly logic of login adn logout. we need to init this class with database after we already logged in so username and current user should be already created and provided fron outside

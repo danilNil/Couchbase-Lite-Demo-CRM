@@ -17,17 +17,12 @@
 
 @implementation CustomersStore
 
-- (id) initWithDatabase: (CBLDatabase*)database
+-(void)registerCBLClass
 {
-    self = [super initWithDatabase:database];
-    if  (self) {
-        [self.database.modelFactory registerClass:[Customer class] forDocumentType: kCustomerDocType];
-        [self createCustomerView];
-    }
-    return self;
+    [self.database.modelFactory registerClass:[Customer class] forDocumentType: kCustomerDocType];
 }
 
-- (void)createCustomerView
+- (void)createView
 {
     customersView = [self.database viewNamed:@"customersByName"];
     [customersView setMapBlock: MAPBLOCK({

@@ -16,18 +16,20 @@
 @end
 
 @implementation OpportunitiesStore
-- (id) initWithDatabase: (CBLDatabase*)database {
-    self = [super initWithDatabase:database];
-    if (self) {
-        [self.database.modelFactory registerClass:[Opportunity class] forDocumentType: kOpportDocType];
-        _opportView = [self.database viewNamed: @"oppByName"];
-        [_opportView setMapBlock: MAPBLOCK({
-            if ([doc[@"type"] isEqualToString: kOpportDocType]) {
-                emit(doc[@"title"], doc[@"title"]);
-            }
-        }) version: @"1"];
-    }
-    return self;
+
+-(void)registerCBLClass
+{
+    [self.database.modelFactory registerClass:[Opportunity class] forDocumentType: kOpportDocType];
+}
+
+-(void)createView
+{
+    _opportView = [self.database viewNamed: @"oppByName"];
+    [_opportView setMapBlock: MAPBLOCK({
+        if ([doc[@"type"] isEqualToString: kOpportDocType]) {
+            emit(doc[@"title"], doc[@"title"]);
+        }
+    }) version: @"1"];
 }
 
 - (Opportunity*) opportunityWithTitle: (NSString*)title {

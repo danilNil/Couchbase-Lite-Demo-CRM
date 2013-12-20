@@ -17,7 +17,13 @@
     self = [super init];
     if (self) {
         _database = database;
+        [self registerCBLClass];
+        [self createView];
     }
     return self;
 }
+
+-(void)registerCBLClass {}
+-(void)createView {}
+
 @end

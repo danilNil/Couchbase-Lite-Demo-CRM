@@ -13,4 +13,7 @@
 @property (readonly) CBLQuery* filteredQuery;
 
 - (id) initWithDatabase: (CBLDatabase*)database;
+- (void)registerCBLClass;
+- (void)createView;
+
 @end
