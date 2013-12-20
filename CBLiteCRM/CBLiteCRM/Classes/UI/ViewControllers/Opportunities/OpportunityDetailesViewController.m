@@ -30,6 +30,7 @@
     DictPickerView *stagePicker;
     Customer *customer;
     UITextField *currentFirstResponder;
+    DictPickerView *winProbabilityPicker;
 }
 @end
 
@@ -40,6 +41,7 @@
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self setupStagePicker];
+    [self setupWinProbabilityPicker];
     [self setStageFieldInputView];
 
     [self.baseScrollView setContentSize:self.contentView.frame.size];
@@ -86,9 +88,9 @@
         [UIAlertView showErrorMessage:@"Please fill revenue field with numeric value"];
         return NO;
     }
-    else if (![self checkThatTextFieldTextIsNumeric:self.winField])
+    else if (![self checkThatWinFieldValueCorrect])
     {
-        [UIAlertView showErrorMessage:@"Please fill win probability field with float value"];
+        [UIAlertView showErrorMessage:@"Please fill win probability field with correct value"];
         return NO;
     }
     else if (!customer)
@@ -105,6 +107,16 @@
         return YES;
     for (NSString *stageValue in stagePicker.itemNames)
         if ([stageValue isEqualToString:self.stageField.text])
+            return YES;
+    return NO;
+}
+
+- (BOOL)checkThatWinFieldValueCorrect
+{
+    if ([self.winField.text isEqualToString:@""])
+        return YES;
+    for (NSString *winValue in winProbabilityPicker.itemNames)
+        if ([winValue isEqualToString:self.winField.text])
             return YES;
     return NO;
 }
@@ -154,20 +166,22 @@
         if (opp.salesStage) {
             self.stageField.text = opp.salesStage;
             ((DictPickerView*)self.stageField.inputView).selectedItemName = opp.salesStage;
-        }else{
+        } else {
             self.stageField.text =@"New";
         }
         if (opp.creationDate) {
             self.dateField.text = [self stringFromDate:opp.creationDate];
             creationDatePicker.date = opp.creationDate;
         }
-        if([opp getValueOfProperty:@"revenueSize"]){
+        if([opp getValueOfProperty:@"revenueSize"]) {
             if(opp.revenueSize)
                 self.revenueField.text = [NSString stringWithFormat:@"%lli",opp.revenueSize];
         }
-        if([opp getValueOfProperty:@"winProbability"]){
-            if(opp.winProbability)
-                self.winField.text =[NSString stringWithFormat:@"%.02f",opp.winProbability];
+        if([opp getValueOfProperty:@"winProbability"]) {
+            if(opp.winProbability) {
+                self.winField.text = [NSString stringWithFormat:@"%.0f\%%", opp.winProbability * 100];
+                winProbabilityPicker.selectedItemName = [NSString stringWithFormat:@"%.0f\%%", opp.winProbability * 100];
+            }
         }
         [self setCustomer:opp.customer];
     }else{
@@ -180,7 +194,7 @@
     opp.title = self.nameField.text;
     opp.salesStage = self.stageField.text;
     opp.revenueSize = [self.revenueField.text longLongValue];
-    opp.winProbability = [self.winField.text floatValue];
+    opp.winProbability = [self.winField.text floatValue] / 100;
     opp.creationDate = creationDatePicker.date;
     opp.customer = customer;
 }
@@ -222,10 +236,26 @@
     [self.stageField setInputAccessoryView:[self toolBar]];
 }
 
+- (void)setupWinProbabilityPicker
+{
+    winProbabilityPicker = [DictPickerView new];
+    NSMutableArray *values = [NSMutableArray new];
+    for (NSUInteger i = 0; i <= 100; i++) {
+        [values addObject:[NSString stringWithFormat:@"%u\%%", i]];
+    }
+    winProbabilityPicker.itemNames = values;
+    winProbabilityPicker.pickerDelegate = self;
+    [winProbabilityPicker setSelectedItemName:stagePicker.itemNames.firstObject];
+    self.winField.inputView = winProbabilityPicker;
+    [self.winField setInputAccessoryView:[self toolBar]];
+}
+
 - (void)itemPicker:(id)picker didSelectItemWithName:(NSString *)name
 {
     if(picker == stagePicker)
         self.stageField.text = name;
+    else if (picker == winProbabilityPicker)
+        self.winField.text = name;
 }
 
 - (UIToolbar*) toolBar
@@ -286,6 +316,8 @@
         self.stageField.text = stagePicker.selectedItemName;
     } else if ([self.dateField isFirstResponder]) {
         self.dateField.text = [self stringFromDate:creationDatePicker.date];
+    } else if ([self.winField isFirstResponder]) {
+        self.winField.text = winProbabilityPicker.selectedItemName;
     }
     [currentFirstResponder resignFirstResponder];
 }
