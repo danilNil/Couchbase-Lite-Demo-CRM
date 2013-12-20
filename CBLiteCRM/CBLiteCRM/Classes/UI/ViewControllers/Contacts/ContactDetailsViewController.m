@@ -158,7 +158,7 @@ UITextFieldDelegate
         [self updateInfoForContact:newContact];
         return YES;
     } else {
-        currentAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Please fill contact email field" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil];
+        currentAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Please fill Email field" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil];
         return NO;
     }
 }
