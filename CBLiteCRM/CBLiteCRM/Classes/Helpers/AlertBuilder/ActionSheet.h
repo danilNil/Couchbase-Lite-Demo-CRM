@@ -26,7 +26,5 @@ typedef void (^ActionSheetButtonBlock) ();
 - (id)  withCancelButtonDefault; // Cancel TITLE with no BLOCK
 
 - (void) showInView:(UIView*)view;
-- (void) disableButton:(NSString*)button;
-
 
 @end

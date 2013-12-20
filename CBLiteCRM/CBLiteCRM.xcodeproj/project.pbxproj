@@ -86,7 +86,6 @@
 		83CC79C8184F39A600557A9B /* DateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 83CC79C7184F39A600557A9B /* DateHelper.m */; };
 		83CEAADD1846EC240002D040 /* ImagePickerAngel.m in Sources */ = {isa = PBXBuildFile; fileRef = 83CEAADC1846EC240002D040 /* ImagePickerAngel.m */; };
 		83CEAAE31846ECE10002D040 /* ActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 83CEAAE01846ECE10002D040 /* ActionSheet.m */; };
-		83CEAAE71846ED0F0002D040 /* UIActionSheet+ButtonState.m in Sources */ = {isa = PBXBuildFile; fileRef = 83CEAAE61846ED0F0002D040 /* UIActionSheet+ButtonState.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -229,8 +228,6 @@
 		83CEAADC1846EC240002D040 /* ImagePickerAngel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagePickerAngel.m; sourceTree = "<group>"; };
 		83CEAADF1846ECE10002D040 /* ActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheet.h; sourceTree = "<group>"; };
 		83CEAAE01846ECE10002D040 /* ActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheet.m; sourceTree = "<group>"; };
-		83CEAAE51846ED0F0002D040 /* UIActionSheet+ButtonState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIActionSheet+ButtonState.h"; path = "../UIActionSheet+ButtonState.h"; sourceTree = "<group>"; };
-		83CEAAE61846ED0F0002D040 /* UIActionSheet+ButtonState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIActionSheet+ButtonState.m"; path = "../UIActionSheet+ButtonState.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -635,8 +632,6 @@
 		83CEAADE1846ECE10002D040 /* AlertBuilder */ = {
 			isa = PBXGroup;
 			children = (
-				83CEAAE51846ED0F0002D040 /* UIActionSheet+ButtonState.h */,
-				83CEAAE61846ED0F0002D040 /* UIActionSheet+ButtonState.m */,
 				83CEAADF1846ECE10002D040 /* ActionSheet.h */,
 				83CEAAE01846ECE10002D040 /* ActionSheet.m */,
 			);
@@ -764,7 +759,6 @@
 				448980C0184D9AD2000D9B5A /* DictPickerView.m in Sources */,
 				447A2C641845D808008786AF /* ContactDetailsViewController.m in Sources */,
 				44B3A6731856DC7F00CF4BAE /* ContactsByOpportunityViewController.m in Sources */,
-				83CEAAE71846ED0F0002D040 /* UIActionSheet+ButtonState.m in Sources */,
 				447A2C681845D808008786AF /* OpportunitiesViewController.m in Sources */,
 				447A2C651845D808008786AF /* ContactsViewController.m in Sources */,
 				447A2C6A1845D808008786AF /* SalesViewController.m in Sources */,

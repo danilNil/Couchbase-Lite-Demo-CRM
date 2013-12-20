@@ -30,7 +30,7 @@
     [self setupTestflight];
     [self setupAppearance];
     [self setupDatabase];
-    [self setupCBLSync]; // TODO: also starts replication process
+    [self setupCBLSync];
     
     return YES;
 }
@@ -69,7 +69,6 @@
     
     // Tell the Sync Manager to use Facebook for login.
     self.cblSync.authenticator = [[CBLFacebookAuthenticator alloc] initWithAppID:kFBAppId];
-
 }
 
 - (void)loginAndSync: (void (^)())complete asAdmin:(BOOL)asAdmin

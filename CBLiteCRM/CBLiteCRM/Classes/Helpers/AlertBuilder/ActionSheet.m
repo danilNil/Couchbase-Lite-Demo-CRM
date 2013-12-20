@@ -8,13 +8,11 @@
 
 #import "ActionSheet.h"
 #import <objc/runtime.h>
-#import "UIActionSheet+ButtonState.h"
 
 @interface ActionSheet(/*Private*/)
 @property (nonatomic, strong) NSMutableArray * otherButtonTitles;
 @property (nonatomic, strong) NSString *      cancelButtonTitle;
 @property (nonatomic, strong) NSString * destructiveButtonTitle;
-@property (nonatomic) NSInteger disabledButtonIndex;
 @property (nonatomic, strong) NSMutableDictionary * actionSheetButtons;
 @end
 
@@ -70,11 +68,6 @@
     return self;
 }
 
-- (void) disableButton:(NSString*)button{
-    self.disabledButtonIndex = [self.otherButtonTitles indexOfObject:button];
-}
-
-
 - (id)  withTitle: (NSString*)title
 {
     self.title = title;
@@ -97,7 +90,6 @@
     if (self = [super init]) {
         self.actionSheetButtons = [NSMutableDictionary new];
         self.otherButtonTitles  = [NSMutableArray new];
-        self.disabledButtonIndex = NSNotFound;
     }
     return self;
 }
@@ -111,9 +103,6 @@
                                                      otherButtonTitles:nil];
     [self addAllButtonTitlesToActionSheet:actionSheet];
 
-    if(self.disabledButtonIndex != NSNotFound)
-        [actionSheet setButton:self.disabledButtonIndex toState:NO];
-    
     [self attachSelfToView:actionSheet];
     
     return actionSheet;
