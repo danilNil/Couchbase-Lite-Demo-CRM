@@ -64,11 +64,11 @@
 - (CBLQuery*) queryContactsForOpportunity:(Opportunity*)opp
 {
     CBLQuery* query = [_contactsView createQuery];
-    query.keys = [self getFilteringKeysMatchedForOpportunity:opp query:query];
+    query.keys = [self getFilteringEmailKeysMatchedForOpportunity:opp query:query];
     return query;
 }
 
-- (NSMutableArray *)getFilteringKeysMatchedForOpportunity:(Opportunity *)opp query:(CBLQuery *)query
+- (NSMutableArray *)getFilteringEmailKeysMatchedForOpportunity:(Opportunity *)opp query:(CBLQuery *)query
 {
     CBLQuery *addedContactsQuery = [[DataStore sharedInstance].contactOpportunityStore queryContactsForOpportunity:opp];
     NSError *error;
