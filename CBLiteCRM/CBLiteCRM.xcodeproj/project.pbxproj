@@ -84,7 +84,7 @@
 		83284539185188D1008FBFCD /* CBLSyncManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 83284538185188D1008FBFCD /* CBLSyncManager.m */; };
 		8328453B185188DF008FBFCD /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8328453A185188DF008FBFCD /* Accounts.framework */; };
 		83295C5D186840BE00D87502 /* CBLSyncController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83295C5C186840BE00D87502 /* CBLSyncController.m */; };
-		83295C60186840DC00D87502 /* CBLAuthController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83295C5F186840DC00D87502 /* CBLAuthController.m */; };
+		83295C60186840DC00D87502 /* CBLFacebookAuthManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 83295C5F186840DC00D87502 /* CBLFacebookAuthManager.m */; };
 		83CC79C8184F39A600557A9B /* DateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 83CC79C7184F39A600557A9B /* DateHelper.m */; };
 		83CEAADD1846EC240002D040 /* ImagePickerAngel.m in Sources */ = {isa = PBXBuildFile; fileRef = 83CEAADC1846EC240002D040 /* ImagePickerAngel.m */; };
 		83CEAAE31846ECE10002D040 /* ActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 83CEAAE01846ECE10002D040 /* ActionSheet.m */; };
@@ -226,8 +226,9 @@
 		8328453A185188DF008FBFCD /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		83295C5B186840BE00D87502 /* CBLSyncController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBLSyncController.h; sourceTree = "<group>"; };
 		83295C5C186840BE00D87502 /* CBLSyncController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBLSyncController.m; sourceTree = "<group>"; };
-		83295C5E186840DC00D87502 /* CBLAuthController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBLAuthController.h; sourceTree = "<group>"; };
-		83295C5F186840DC00D87502 /* CBLAuthController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBLAuthController.m; sourceTree = "<group>"; };
+		83295C5E186840DC00D87502 /* CBLFacebookAuthManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBLFacebookAuthManager.h; sourceTree = "<group>"; };
+		83295C5F186840DC00D87502 /* CBLFacebookAuthManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBLFacebookAuthManager.m; sourceTree = "<group>"; };
+		83295C6118684EE700D87502 /* CBLAuthProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBLAuthProtocol.h; sourceTree = "<group>"; };
 		83CC79C6184F39A600557A9B /* DateHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateHelper.h; sourceTree = "<group>"; };
 		83CC79C7184F39A600557A9B /* DateHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateHelper.m; sourceTree = "<group>"; };
 		83CEAADB1846EC240002D040 /* ImagePickerAngel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagePickerAngel.h; sourceTree = "<group>"; };
@@ -492,8 +493,9 @@
 		831FFD0818443AA300C7CB22 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				83295C5E186840DC00D87502 /* CBLAuthController.h */,
-				83295C5F186840DC00D87502 /* CBLAuthController.m */,
+				83295C6118684EE700D87502 /* CBLAuthProtocol.h */,
+				83295C5E186840DC00D87502 /* CBLFacebookAuthManager.h */,
+				83295C5F186840DC00D87502 /* CBLFacebookAuthManager.m */,
 				83295C5B186840BE00D87502 /* CBLSyncController.h */,
 				83295C5C186840BE00D87502 /* CBLSyncController.m */,
 				83284537185188D1008FBFCD /* CBLSyncManager.h */,
@@ -766,7 +768,7 @@
 			files = (
 				49C103DA1859EB0F00D58426 /* RoundedImageView.m in Sources */,
 				832845341851882F008FBFCD /* UIView+Activity.m in Sources */,
-				83295C60186840DC00D87502 /* CBLAuthController.m in Sources */,
+				83295C60186840DC00D87502 /* CBLFacebookAuthManager.m in Sources */,
 				448980C0184D9AD2000D9B5A /* DictPickerView.m in Sources */,
 				447A2C641845D808008786AF /* ContactDetailsViewController.m in Sources */,
 				44B3A6731856DC7F00CF4BAE /* ContactsByOpportunityViewController.m in Sources */,

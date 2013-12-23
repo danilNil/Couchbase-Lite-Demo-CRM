@@ -9,5 +9,9 @@
 #import <Foundation/Foundation.h>
 
 @interface CBLSyncController : NSObject
+- (CBLSyncController*)initWithDatabase:(CBLDatabase*)database
+                          andServerURL:(NSString*)serverURL;
+
+- (void)startReplicationWithBlock: (void (^)(NSError *error))block;
 
 @end

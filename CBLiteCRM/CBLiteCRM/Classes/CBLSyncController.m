@@ -8,6 +8,17 @@
 
 #import "CBLSyncController.h"
 
-@implementation CBLSyncController
+@interface CBLSyncController()
 
+@end
+
+@implementation CBLSyncController
+- (CBLSyncController*)initWithDatabase:(CBLDatabase*)database
+                          andServerURL:(NSString*)serverURL{
+    return nil;
+}
+
+- (void)startReplicationWithBlock: (void (^)(NSError *error))block{
+    
+}
 @end
