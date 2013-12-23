@@ -19,7 +19,7 @@
 - (NSString*)positionAtCompanyForLabel:(UILabel *)label
 {
     CGSize expectedLabelSize2 = [self sizeForString:[self getFullPositionAtCompany] inLabel:label];
-    if ([self hasCompanyName] && [self hasPosition] && expectedLabelSize2.width > label.bounds.size.width)
+    if (([self hasCompanyName] || [self hasPosition]) && expectedLabelSize2.width > label.bounds.size.width)
         return [self getTruncatedPositionAtCompanyToFitLabel:label];
     else
         return [self getFullPositionAtCompany];
@@ -27,22 +27,30 @@
 
 - (NSString*)getTruncatedPositionAtCompanyToFitLabel:(UILabel*)label {
     NSString *position = self.position;
-    NSString *company = [NSString stringWithFormat:@" at %@", [self customerCompanyName]];
     float halfWidth = label.bounds.size.width / 2.;
-
-    CGSize companySize = [self sizeForString:company inLabel:label];
     CGSize positionSize = [self sizeForString:position inLabel:label];
     CGSize dotsSize = [self sizeForString:@"..." inLabel:label];
+    NSString *company = @"";
+    CGSize companySize = CGSizeZero;
 
-    if (companySize.width + positionSize.width > label.bounds.size.width) {
-        float fitWidth = MAX(label.bounds.size.width - positionSize.width, halfWidth);
-        while (companySize.width + dotsSize.width > fitWidth) {
-            company = [self substringString:company];
-            companySize = [self sizeForString:company inLabel:label];
+    if ([self hasCompanyName]) {
+        if ([self hasPosition])
+            company = [NSString stringWithFormat:@" at %@", [self customerCompanyName]];
+        else
+            company = [NSString stringWithFormat:@"at %@", [self customerCompanyName]];
+
+        companySize = [self sizeForString:company inLabel:label];
+
+        if (companySize.width + positionSize.width > label.bounds.size.width) {
+            float fitWidth = MAX(label.bounds.size.width - positionSize.width, halfWidth);
+            while (companySize.width + dotsSize.width > fitWidth) {
+                company = [self substringString:company];
+                companySize = [self sizeForString:company inLabel:label];
+            }
+            company = [company stringByAppendingString:@"..."];
         }
-        company = [company stringByAppendingString:@"..."];
+        companySize = [self sizeForString:company inLabel:label];
     }
-    companySize = [self sizeForString:company inLabel:label];
 
     if (positionSize.width + companySize.width > label.bounds.size.width) {
         while (positionSize.width + companySize.width + dotsSize.width > label.bounds.size.width) {
