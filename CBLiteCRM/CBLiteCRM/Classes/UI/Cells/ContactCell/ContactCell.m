@@ -19,7 +19,7 @@ NSString *kContactCellIdentifier = @"ContactCell";
     
     self.avatar.image   = [self avatarImageForContact:contact];
     self.name.text      = [contact email];
-    self.position.text  = [contact positionAtCompany];
+    self.position.text  = [contact positionAtCompanyForLabel:self.position];
 }
 
 - (UIImage*)avatarImageForContact:(Contact*)contact

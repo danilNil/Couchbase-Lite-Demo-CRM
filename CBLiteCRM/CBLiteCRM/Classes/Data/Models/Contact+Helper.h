@@ -12,6 +12,6 @@
 
 - (NSString*)customerCompanyName;
 
-- (NSString*)positionAtCompany;
+- (NSString*)positionAtCompanyForLabel:(UILabel*)label;
 
 @end
