@@ -13,7 +13,6 @@
 
 @interface ContactOpportunityStore ()
 {
-    CBLView* _contactOpportunityView;
     CBLView* _filteredContactsOpportunityView;
 }
 
@@ -26,14 +25,6 @@
     self = [super initWithDatabase:database];
     if (self) {
         [self.database.modelFactory registerClass: [ContactOpportunity class] forDocumentType: kContactOpportunityDocType];
-        _contactOpportunityView = [self.database viewNamed: @"ContactsOpportunity"];
-        [_contactOpportunityView setMapBlock: MAPBLOCK({
-            if ([doc[@"type"] isEqualToString: kContactOpportunityDocType]) {
-                if (doc[@"contact"])
-                    emit(doc[@"contact"], doc);
-            }
-        }) version: @"1"];
-        
         _filteredContactsOpportunityView = [self.database viewNamed: @"filteredContactsOpportunities"];
         [_filteredContactsOpportunityView setMapBlock: MAPBLOCK({
             if ([doc[@"type"] isEqualToString: kContactOpportunityDocType]) {
