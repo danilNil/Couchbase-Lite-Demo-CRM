@@ -12,6 +12,6 @@
 
 - (NSString*)customerCompanyName;
 
-- (NSString*)positionAtCompanyForLabel:(UILabel*)label;
+- (NSString*)positionAtCompanyForSize:(CGSize)size font:(UIFont*)font;
 
 @end
