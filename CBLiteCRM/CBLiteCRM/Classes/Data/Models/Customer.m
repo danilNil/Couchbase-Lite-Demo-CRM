@@ -57,7 +57,6 @@
         opp.customer = nil;
         [opp save:&error];
     }
-
     return [super deleteDocument:outError];
 }
 

@@ -14,6 +14,7 @@
 #import "Customer.h"
 #import "DataStore.h"
 #import "CustomersStore.h"
+#import "CBLModel+DeleteHelper.h"
 
 @interface CustomerDetailsViewController ()
 
@@ -59,13 +60,18 @@
         [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Please fill Company field" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil] show];
 }
 
+-(DeleteBlock)createOnDeleteBlock
+{
+    __weak typeof(self) weakSelf = self;
+    return ^(BOOL shouldDelete){
+        if (shouldDelete)
+            [weakSelf dismissViewControllerAnimated:YES completion:^{}];
+    };
+}
+
 - (IBAction)deleteItem:(id)sender {
-    NSError *error;
-    if ([self.currentCustomer deleteDocument:&error]) {
-        [self  dismissViewControllerAnimated:YES completion:^{}];
-    } else {
-        [[[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:Nil cancelButtonTitle:@"ok" otherButtonTitles: nil] show];
-    }
+    self.currentCustomer.deleteAlertBlock = [self createOnDeleteBlock];
+    [self.currentCustomer showDeletionAlert];
 }
 
 - (IBAction)opportunities:(id)sender
