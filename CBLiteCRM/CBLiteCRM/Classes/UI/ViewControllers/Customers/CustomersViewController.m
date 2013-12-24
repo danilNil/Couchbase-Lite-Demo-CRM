@@ -20,6 +20,7 @@
 CBLUITableDelegate
 >
 @property(nonatomic, strong) Customer* selectedCellData;
+@property (nonatomic, weak) CustomersStore* store;
 
 @end
 
@@ -36,7 +37,7 @@ CBLUITableDelegate
 - (void) updateQuery
 {
     self.store = [DataStore sharedInstance].customersStore;
-    self.dataSource.query = [[(CustomersStore*)self.store allCustomersQuery] asLiveQuery];
+    self.dataSource.query = [[self.store allCustomersQuery] asLiveQuery];
 }
 
 - (void)didChooseCustomer:(Customer*)cust{
@@ -55,7 +56,8 @@ CBLUITableDelegate
         [self performSegueWithIdentifier:@"presentCustomerDetails" sender:self];
 }
 
-- (Customer*)customerForPath:(NSIndexPath*)indexPath{
+- (Customer*)customerForPath:(NSIndexPath*)indexPath
+{
     CBLQueryRow *row = [self.currentSource rowAtIndex:indexPath.row];
     return [Customer modelForDocument: row.document];
 }
@@ -67,7 +69,7 @@ CBLUITableDelegate
     }
 }
 
--(bool)couchTableSource:(CBLUITableSource *)source deleteRow:(CBLQueryRow *)row
+- (bool)couchTableSource:(CBLUITableSource *)source deleteRow:(CBLQueryRow *)row
 {
     NSError *error;
     return [[Customer modelForDocument:row.document] deleteDocument:&error];
