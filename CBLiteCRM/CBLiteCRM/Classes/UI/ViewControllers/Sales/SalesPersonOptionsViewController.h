@@ -16,5 +16,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *phoneField;
 @property (weak, nonatomic) IBOutlet UITextField *mailField;
 @property (weak, nonatomic) IBOutlet UIButton *deleteButton;
+@property (strong, nonatomic) IBOutletCollection(UITextField) NSArray *textFields;
 
 @end
