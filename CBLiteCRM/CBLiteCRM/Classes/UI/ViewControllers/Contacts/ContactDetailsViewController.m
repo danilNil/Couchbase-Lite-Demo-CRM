@@ -13,6 +13,7 @@
 #import "OpportunitesByContactViewController.h"
 #import "ContactsByOpportunityViewController.h"
 #import "UIImage+Tools.h"
+#import "CustomerDetailsViewController.h"
 
 //Data
 #import "DataStore.h"
@@ -63,7 +64,8 @@ UIAlertViewDelegate
     {
         customer = ct.customer;
         self.nameField.text = ct.name;
-        self.companyField.text = customer.companyName;
+        [self.companyButton setTitle:[self customerTitle] forState:UIControlStateNormal];
+        self.detailsButton.enabled = customer != nil;
         self.positionField.text = ct.position;
         self.phoneField.text = ct.phoneNumber;
         self.mailField.text = ct.email;
@@ -146,6 +148,11 @@ UIAlertViewDelegate
     }];
 }
 
+- (IBAction)details:(id)sender {
+    if(customer)
+        [self performSegueWithIdentifier:@"presentMyCustomer" sender:self];
+}
+
 - (void)saveContact {
     Contact* newContact = self.currentContact;
     if(!newContact)
@@ -223,14 +230,26 @@ UIAlertViewDelegate
         CustomersViewController* vc = (CustomersViewController*)segue.destinationViewController;
         [vc setOnSelectCustomer:^(Customer *cust) {
             customer = cust;
-            self.companyField.text = cust.companyName;
+            [self.companyButton setTitle:[self customerTitle] forState:UIControlStateNormal];
+            self.detailsButton.enabled = customer != nil;
         }];
         vc.chooser = YES;
     } else if ([segue.destinationViewController isKindOfClass:[OpportunitesByContactViewController class]]) {
         OpportunitesByContactViewController *vc = (OpportunitesByContactViewController*)segue.destinationViewController;
         vc.navigationItem.rightBarButtonItem.enabled = NO;
         vc.filteringContact = self.currentContact;
+    } else if([segue.identifier isEqualToString:@"presentMyCustomer"]){
+        CustomerDetailsViewController* vc = (CustomerDetailsViewController*)((UINavigationController*)segue.destinationViewController).topViewController;
+        vc.currentCustomer = customer;
     }
+}
+
+- (NSString*) customerTitle
+{
+    if (customer)
+        return [NSString stringWithFormat:@"Company: %@", customer.companyName];
+
+    return @"Select Company";
 }
 
 #pragma mark - UITextFieldDelegate
