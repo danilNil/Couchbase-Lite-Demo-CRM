@@ -17,7 +17,12 @@
 #import "Contact.h"
 
 @interface ContactsViewController ()
-
+<
+UIAlertViewDelegate
+>
+{
+    CBLQueryRow *deletionRow;
+}
 @property(nonatomic, strong) Contact* selectedContact;
 
 @end
@@ -76,9 +81,24 @@
 
 - (bool)couchTableSource:(CBLUITableSource *)source deleteRow:(CBLQueryRow *)row
 {
-    NSError *error;
-    return [[Contact modelForDocument:row.document] deleteDocument:&error];
+    deletionRow = row;
+    [self showDeletionAlert];
+    return NO;
 }
+
+- (void)showDeletionAlert {
+    [[[UIAlertView alloc] initWithTitle:@"Delete contact" message:@"Are you sure you want to remove contact" delegate:self cancelButtonTitle:@"NO" otherButtonTitles:@"YES", nil] show];
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1) {
+        NSError *error;
+        [[Contact modelForDocument:deletionRow.document] deleteDocument:&error];
+        [alertView dismissWithClickedButtonIndex:buttonIndex animated:YES];
+    }
+}
+
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if([segue.destinationViewController isKindOfClass:[UINavigationController class]] && sender == self){

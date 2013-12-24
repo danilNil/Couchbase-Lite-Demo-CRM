@@ -26,7 +26,8 @@ typedef void (^ValidationBlock)(BOOL isValid, NSString *msg);
 
 @interface ContactDetailsViewController ()
 <
-UITextFieldDelegate
+UITextFieldDelegate,
+UIAlertViewDelegate
 >
 {
     UIImage* selectedImage;
@@ -153,12 +154,25 @@ UITextFieldDelegate
 
 - (IBAction)deleteItem:(id)sender
 {
-    NSError *error;
-    if (![self.currentContact deleteDocument:&error])
-        [[[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil] show];
-    else
-        [self dismissViewControllerAnimated:YES completion:^{}];
+    [self showDeletionAlert];
 }
+
+- (void)showDeletionAlert {
+    [[[UIAlertView alloc] initWithTitle:@"Delete contact" message:@"Are you sure you want to remove contact" delegate:self cancelButtonTitle:@"NO" otherButtonTitles:@"YES", nil] show];
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1) {
+        NSError *error;
+        if (![self.currentContact deleteDocument:&error])
+            [[[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil] show];
+        else
+            [self dismissViewControllerAnimated:YES completion:^{}];
+        [alertView dismissWithClickedButtonIndex:buttonIndex animated:YES];
+    }
+}
+
 
 - (void)isAllRequiredFieldsValid:(ValidationBlock)result {
     if (self.mailField.text && ![self.mailField.text isEqualToString:@""] && customer)
