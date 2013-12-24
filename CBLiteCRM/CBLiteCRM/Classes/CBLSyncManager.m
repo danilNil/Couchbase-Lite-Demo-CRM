@@ -7,10 +7,10 @@
 //
 
 #import "CBLSyncManager.h"
+#import <FacebookSDK/FacebookSDK.h>
 
 
-
-@interface CBLSyncManager () {
+@interface CBLSyncManager()<FBLoginViewDelegate>  {
     CBLReplication *pull;
     CBLReplication *push;
     NSArray *beforeSyncBlocks;
@@ -235,25 +235,15 @@
 
 -(void) getCredentials: (void (^)(NSString *userID, NSDictionary *userData))block {
     
-    [self getFaceBookAccessToken:^(NSString* accessToken, ACAccount* fbAccount){
-        
-        [self getFacebookUserInfoWithAccessToken:accessToken facebookAccount: fbAccount onCompletion: ^(NSDictionary* userData){
-
-            NSString *userID = userData[@"email"];
-            if(!accessToken){
-                NSLog(@"ERROR: here is should be token");
-                block(nil, nil);
-            }else{
-                if(!userID)
-                    userID = [userData[@"name"] stringByReplacingOccurrencesOfString:@" " withString:@""].lowercaseString;
-                // Store the access_token for later.
-                [[NSUserDefaults standardUserDefaults] setObject: userID forKey: kCBLPrefKeyUserID];
-                [[NSUserDefaults standardUserDefaults] setObject: accessToken forKey: [self accessTokenKeyForUserID:userID]];
-                [[NSUserDefaults standardUserDefaults] synchronize];
-                block(userID, userData);
-            }
-        }];
-    }];
+    [FBSession openActiveSessionWithReadPermissions:@[@"basic_info"]
+                                       allowLoginUI:YES
+                                  completionHandler:
+     ^(FBSession *session, FBSessionState state, NSError *error) {
+         if (FBSession.activeSession.state == FBSessionStateOpen
+             || FBSession.activeSession.state == FBSessionStateOpenTokenExtended){
+//             block(FB)
+         }
+     }];
 }
 
 -(void) registerCredentialsWithReplications: (NSArray *)repls {
@@ -273,75 +263,14 @@
     if (!userID) {
         NSLog(@"here is should be self.syncManager.userID");
     }else{
+        [FBSession.activeSession closeAndClearTokenInformation];
         [[NSUserDefaults standardUserDefaults] setObject: nil forKey: [self accessTokenKeyForUserID:userID]];
         [[NSUserDefaults standardUserDefaults] synchronize];
-
     }
-}
-
-- (void)getFacebookUserInfoWithAccessToken: (NSString*)accessToken facebookAccount:(ACAccount *)fbAccount onCompletion: (void (^)(NSDictionary* userData))complete
-{
-    SLRequest *request = [SLRequest requestForServiceType:SLServiceTypeFacebook
-                                            requestMethod:SLRequestMethodGET
-                                                      URL:[NSURL URLWithString:@"https://graph.facebook.com/me"]
-                                               parameters:nil];
-    request.account = fbAccount;
-    [request performRequestWithHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        if (error == nil && ((NSHTTPURLResponse *)response).statusCode == 200) {
-            NSError *deserializationError;
-            NSDictionary *userData = [NSJSONSerialization JSONObjectWithData:data options:0 error:&deserializationError];
-            
-            if (userData != nil && deserializationError == nil) {
-                complete(userData);
-            }
-        }
-    }];
 }
 
 - (NSString*) accessTokenKeyForUserID: (NSString *)userID {
     return [@"CBLFBAT-" stringByAppendingString: userID];
 }
-
-- (void)getFaceBookAccessToken: (void (^)(NSString* accessToken, ACAccount* fbAccount))complete
-{
-    ACAccountStore *accountStore = [[ACAccountStore alloc]init];
-    
-    
-    ACAccountType *FBaccountType= [accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierFacebook];
-    
-    NSDictionary *dictFB = [NSDictionary dictionaryWithObjectsAndKeys:_facebookAppID, ACFacebookAppIdKey, @[@"email"], ACFacebookPermissionsKey, nil];
-    
-    
-    [accountStore requestAccessToAccountsWithType:FBaccountType options:dictFB completion:
-     ^(BOOL granted, NSError *e) {
-         if (granted) {
-             NSArray *accounts = [accountStore accountsWithAccountType:FBaccountType];
-             ACAccount *fbAccount = [accounts lastObject];
-             // Get the access token
-             ACAccountCredential *fbCredential = [fbAccount credential];
-             NSString *accessToken = [fbCredential oauthToken];
-             complete(accessToken, fbAccount);
-         } else {
-             //Fail gracefully...
-             NSLog(@"error getting permission %@",e);
-
-             [self performSelectorOnMainThread:@selector(showFacebookAlert) withObject:nil waitUntilDone:NO];
-
-             // temporary fix for #29287
-             [[NSNotificationCenter defaultCenter] postNotificationName:@"authentication.fail" object:nil];
-         }
-     }];
-}
-
--(void) showFacebookAlert {
-    UIAlertView* alert= [[UIAlertView alloc] initWithTitle: @"No Facebook Account"
-                                                   message: @"Please log into your Facebook account in Settings."
-                                                  delegate: nil
-                                         cancelButtonTitle: @"OK"
-                                         otherButtonTitles: nil];
-    alert.alertViewStyle = UIAlertViewStyleDefault;
-    [alert show];
-}
-
 
 @end
