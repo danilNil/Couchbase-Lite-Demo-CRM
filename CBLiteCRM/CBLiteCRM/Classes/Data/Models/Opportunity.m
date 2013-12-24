@@ -42,7 +42,7 @@
     ContactOpportunityStore *ctOppStore = [DataStore sharedInstance].contactOpportunityStore;
     CBLQuery *q = [ctOppStore queryContactsForOpportunity:self];
     NSError *error;
-    for (CBLQueryRow *r in [q rows:&error]) {
+    for (CBLQueryRow *r in [q run:&error]) {
         ContactOpportunity *ctOpp = [ContactOpportunity modelForDocument:r.document];
         [ctOpp deleteDocument:&error];
     }

@@ -8,17 +8,17 @@
 
 #import <Foundation/Foundation.h>
 #import "CBLView.h"
-@class CBLManager, CBLDocument, CBLSavedRevision, CBLView, CBLQuery, CBLReplication;
+@class CBLManager, CBLDocument, CBLRevision, CBLSavedRevision, CBLView, CBLQuery, CBLReplication;
 @protocol CBLValidationContext;
 
 
 /** Validation block, used to approve revisions being added to the database.
     The block should call `[context reject]` or `[context rejectWithMessage:]` if the proposed
     new revision is invalid. */
-typedef void (^CBLValidationBlock) (CBLSavedRevision* newRevision,
+typedef void (^CBLValidationBlock) (CBLRevision* newRevision,
                                    id<CBLValidationContext> context);
 
-#define VALIDATIONBLOCK(BLOCK) ^void(CBLSavedRevision* newRevision, id<CBLValidationContext> context)\
+#define VALIDATIONBLOCK(BLOCK) ^void(CBLRevision* newRevision, id<CBLValidationContext> context)\
                                     {BLOCK}
 
 /** Filter block, used in changes feeds and replication. */
@@ -187,25 +187,18 @@ typedef BOOL (^CBLFilterBlock) (CBLSavedRevision* revision, NSDictionary* params
 
 #pragma mark - REPLICATION:
 
-/** Returns an array of all current CBLReplications involving this database. */
+/** Returns an array of all current, running CBLReplications involving this database. */
 - (NSArray*) allReplications;
 
-/** Creates a replication that will 'push' to a database at the given URL, or returns an existing
-    such replication if there already is one.
-    It will initially be non-persistent; set its .persistent property to YES to make it persist. */
+/** Creates a replication that will 'push' this database to a remote database at the given URL.
+    This always creates a new replication, even if there is already one to the given URL.
+    You must call -start on the replication to start it. */
 - (CBLReplication*) replicationToURL: (NSURL*)url;
 
-/** Creates a replication that will 'pull' from a database at the given URL, or returns an existing
-    such replication if there already is one.
-    It will initially be non-persistent; set its .persistent property to YES to make it persist. */
+/** Creates a replication that will 'pull' from a remote database at the given URL to this database.
+    This always creates a new replication, even if there is already one from the given URL.
+    You must call -start on the replication to start it. */
 - (CBLReplication*) replicationFromURL: (NSURL*)url;
-
-/** Creates a pair of replications to both pull and push to database at the given URL, or returns existing replications if there are any.
-    @param otherDbURL  The URL of the remote database, or nil for none.
-    @param exclusively  If YES, any previously existing replications to or from otherDbURL will be deleted.
-    @return  An array whose first element is the "pull" replication and second is the "push".
-    It will initially be non-persistent; set its .persistent property to YES to make it persist. */
-- (NSArray*) replicationsWithURL: (NSURL*)otherDbURL exclusively: (bool)exclusively;
 
 
 #ifdef CBL_DEPRECATED
@@ -220,8 +213,8 @@ typedef BOOL (^CBLFilterBlock) (CBLSavedRevision* revision, NSDictionary* params
         __attribute__((deprecated("use replicationToURL, then call -start")));
 - (CBLReplication*) pullFromURL: (NSURL*)url
         __attribute__((deprecated("use replicationFromURL, then call -start")));
-- (NSArray*) replicateWithURL: (NSURL*)otherDbURL exclusively: (bool)exclusively
-        __attribute__((deprecated("use replicationsWithURL:, then call -start")));
+- (NSArray*) replicationsWithURL: (NSURL*)otherDbURL exclusively: (bool)exclusively
+        __attribute__((deprecated("call replicationToURL: and replicationFromURL:")));
 #endif
 
 @end
@@ -262,17 +255,14 @@ typedef BOOL (^CBLChangeEnumeratorBlock) (NSString* key, id oldValue, id newValu
 /** Returns an array of all the keys whose values are different between the current and new revisions. */
 @property (readonly) NSArray* changedKeys;
 
-/** Returns YES if only the keys given in the 'allowedKeys' array have changed; else rejects the
-    revision, sets a default error message naming the offending key, and returns NO. */
-- (BOOL) allowChangesOnlyTo: (NSArray*)allowedKeys;
-
-/** Returns YES if none of the keys given in the 'disallowedKeys' array have changed; else rejects
-    the revision, sets a default error message naming the offending key, and returns NO. */
-- (BOOL) disallowChangesTo: (NSArray*)disallowedKeys;
-
 /** Calls the 'enumerator' block for each key that's changed, passing both the old and new values.
     If the block returns NO, the enumeration stops and rejects the revision, and the method returns
     NO; else the method returns YES. */
-- (BOOL) enumerateChanges: (CBLChangeEnumeratorBlock)enumerator;
+- (BOOL) validateChanges: (CBLChangeEnumeratorBlock)enumerator;
 
+#ifdef CBL_DEPRECATED
+- (BOOL) allowChangesOnlyTo: (NSArray*)allowedKeys __attribute__((deprecated()));
+- (BOOL) disallowChangesTo: (NSArray*)disallowedKeys __attribute__((deprecated()));
+- (BOOL) enumerateChanges: (CBLChangeEnumeratorBlock)enumerator __attribute__((deprecated("renamed validateChanges:")));
+#endif
 @end

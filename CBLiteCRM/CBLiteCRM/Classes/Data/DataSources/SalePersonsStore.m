@@ -109,7 +109,7 @@
 
 - (NSArray*) allOtherUsers {
     NSMutableArray* users = [NSMutableArray array];
-    for (CBLQueryRow* row in [self.allUsersQuery rows:nil].allObjects) {
+    for (CBLQueryRow* row in [self.allUsersQuery run:nil].allObjects) {
         SalesPerson* user = [SalesPerson modelForDocument: row.document];
         if (![user.username isEqualToString: [self userID]])
             [users addObject: user];

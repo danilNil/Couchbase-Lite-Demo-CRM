@@ -13,8 +13,6 @@
 /** Option flags for CBLManager initialization. */
 typedef struct CBLManagerOptions {
     bool readOnly;      /**< No modifications to databases are allowed. */
-    bool noReplicator;  /**< Persistent replications will not run (until/unless
-                             -startPersistentReplications is called.) */
 } CBLManagerOptions;
 
 
@@ -114,10 +112,6 @@ typedef struct CBLManagerOptions {
     This method is only available if you've linked with the CouchbaseLiteListener framework. */
 @property (readonly) NSURL* internalURL;
 
-/** If the manager was instantiated with the noReplicator option, persistent replications won't
-    run at startup. If you want to start them later, call this. */
-- (void) startPersistentReplications;
-
 /** Enables Couchbase Lite logging of the given type, process-wide. A partial list of types is here:
     http://docs.couchbase.com/couchbase-lite/cbl-ios/#useful-logging-channels 
     It's usually more convenient to enable logging via command-line args, as discussed on that
@@ -125,6 +119,7 @@ typedef struct CBLManagerOptions {
     other criteria to enable logging. */
 + (void) enableLogging: (NSString*)type;
 
+@property (readonly, nonatomic) NSMutableDictionary* customHTTPHeaders;
 
 #ifdef CBL_DEPRECATED
 - (CBLDatabase*) createDatabaseNamed: (NSString*)name

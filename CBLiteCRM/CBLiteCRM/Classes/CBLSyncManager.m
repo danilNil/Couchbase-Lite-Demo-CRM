@@ -142,9 +142,10 @@
     CBLReplicationStatus status = kCBLReplicationStopped;
     NSError* error = nil;
     for (CBLReplication* repl in @[pull, push]) {
+        NSLog(@"current status: %i for repl: %@", repl.status, repl);
         status = MAX(status, repl.status);
         if (!error)
-            error = repl.error;
+            error = repl.lastError;
         if (repl.status == kCBLReplicationActive) {
             active = true;
             completed += repl.completedChangesCount;
@@ -159,7 +160,13 @@
             NSAssert2([newUserID isEqualToString:_userID], @"can't change userID from %@ to %@, need to reinstall", _userID,  newUserID);
         }];
     }
-    
+    [self updateActuvityForStatus:status];
+    //TODO: need to be removed after 'status' will be fixed.
+    if(total == completed){
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    }else{
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    }
     if (active != _active || completed != _completed || total != _total || status != _status
         || error != _error) {
         _active = active;
@@ -173,6 +180,7 @@
 //        [[NSNotificationCenter defaultCenter]
 //         postNotificationName: SyncManagerStateChangedNotification
 //         object: self];
+        
     }
 }
 
@@ -181,6 +189,16 @@
     NSLog(@"startSync");
     [pull start];
     [push start];
+}
+
+- (void)updateActuvityForStatus:(CBLReplicationStatus)st{
+    NSLog(@"current status: %i", st);
+    if(st == kCBLReplicationStopped || st == kCBLReplicationIdle){
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    }else{
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    }
+
 }
 
 #pragma mark - User ID related
