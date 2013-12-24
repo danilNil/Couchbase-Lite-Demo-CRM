@@ -12,6 +12,9 @@
 #import "DataStore.h"
 #import "SalePersonsStore.h"
 
+static NSString* const kEditTitle = @"Edit";
+static NSString* const kSaveTitle = @"Save";
+
 @interface SalesPersonOptionsViewController ()
 
 @end
@@ -27,34 +30,61 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [self loadUserData];
+    [self blockItemForEditing:[self isMe:self.salesPerson]];
+    BOOL editMode;
+    if(self.salesPerson)
+        editMode = NO;
+    else
+        editMode = YES;
+    [self setEditMode:editMode];
 }
 
 - (void)loadUserData
 {
-    self.mailField.enabled = !self.salesPerson;
     if (self.salesPerson) {
         [self.navigationItem setTitle:self.salesPerson.username];
         self.nameField.text = self.salesPerson.username;
         self.phoneField.text = self.salesPerson.phoneNumber;
         self.mailField.text = self.salesPerson.email;
-        [self blockForEditing:[self isMe:self.salesPerson]];
     }
 }
 
-- (void)blockForEditing:(BOOL)canEdit{
+- (void)blockItemForEditing:(BOOL)canEdit{
     self.deleteButton.hidden =!canEdit;
-    self.nameField.enabled = canEdit;
-    self.phoneField.enabled = canEdit;
     self.navigationItem.rightBarButtonItem.enabled = canEdit;
+    for (UITextField* tf in self.textFields) {
+        tf.enabled = canEdit;
+    }
+}
+- (void)setEditMode:(BOOL)editMode{
+    [self changeRightButtonTitleForMode:editMode];
+    self.deleteButton.hidden = !editMode;
+    for (UITextField* tf in self.textFields) {
+        tf.enabled = editMode;
+    }
+}
+
+- (void)changeRightButtonTitleForMode:(BOOL)editMode{
+    if(editMode)
+        self.navigationItem.rightBarButtonItem.title = kSaveTitle;
+    else
+        self.navigationItem.rightBarButtonItem.title = kEditTitle;
 }
 
 - (IBAction)save:(id)sender
 {
-    [self updateInfoForSalesPerson:self.salesPerson];
+    if([self.navigationItem.rightBarButtonItem.title isEqualToString:kSaveTitle])
+        [self updateInfoForSalesPerson:self.salesPerson];
+    else if([self.navigationItem.rightBarButtonItem.title isEqualToString:kEditTitle])
+        [self setEditMode:YES];
 }
 
 - (BOOL)isMe:(SalesPerson*)sp{
-    BOOL isMe = [[DataStore sharedInstance].salePersonsStore.user.user_id isEqualToString:sp.user_id];
+    BOOL isMe;
+    if(!sp)
+        isMe = NO;
+    else
+        isMe = [[DataStore sharedInstance].salePersonsStore.user.user_id isEqualToString:sp.user_id];
     return isMe;
 }
 
