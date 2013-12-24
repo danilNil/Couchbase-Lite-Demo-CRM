@@ -95,6 +95,7 @@ UIAlertViewDelegate
     if (buttonIndex == 1) {
         NSError *error;
         [[Contact modelForDocument:deletionRow.document] deleteDocument:&error];
+        [self.currentSource.tableView reloadData];
         [alertView dismissWithClickedButtonIndex:buttonIndex animated:YES];
     }
 }
