@@ -27,8 +27,8 @@
 }
 
 - (instancetype) initSyncForDatabase:(CBLDatabase*)database
-                      withURL:(NSURL*)remoteURL
-                       asUser:(NSString*)userID {
+                             withURL:(NSURL*)remoteURL
+                              asUser:(NSString*)userID {
     self = [super init];
     if (self) {
         _database = database;
@@ -93,22 +93,22 @@
         [[NSUserDefaults standardUserDefaults] setObject:nil forKey:kCBLPrefKeyUserID];
         _userID = nil;
         [[NSUserDefaults standardUserDefaults] synchronize];
-
+        
     }
 }
 
 - (void) launchSync {
     NSLog(@"launch Sync");
-
+    
     [self defineSync];
     
-
+    
     [self startSync];
     
-//    void (^onSyncStartedBlock)();
-//    for (onSyncStartedBlock in onSyncStartedBlocks) {
-//        onSyncStartedBlock();
-//    }
+    //    void (^onSyncStartedBlock)();
+    //    for (onSyncStartedBlock in onSyncStartedBlocks) {
+    //        onSyncStartedBlock();
+    //    }
     
 }
 
@@ -116,12 +116,12 @@
 {
     pull = [_database replicationFromURL:_remoteURL];
     pull.continuous = YES;
-//    pull.persistent = YES;
+    //    pull.persistent = YES;
     
     push = [_database replicationToURL:_remoteURL];
     push.continuous = YES;
-//    push.persistent = YES;
-
+    //    push.persistent = YES;
+    
     [self listenForReplicationEvents: push];
     [self listenForReplicationEvents: pull];
     
@@ -156,7 +156,7 @@
     if (error != _error && error.code == 401) {
         // Auth needed (or auth is incorrect), ask the _authenticator to get new credentials.
         [_authenticator getCredentials:^(NSString *newUserID, NSDictionary *userData) {
-//            todo this should call our onSyncAuthError callback
+            //            todo this should call our onSyncAuthError callback
             NSAssert2([newUserID isEqualToString:_userID], @"can't change userID from %@ to %@, need to reinstall", _userID,  newUserID);
         }];
     }
@@ -177,9 +177,9 @@
         _error = error;
         NSLog(@"SYNCMGR: active=%d; status=%d; %u/%u; %@",
               active, status, completed, total, error.localizedDescription); //FIX: temporary logging
-//        [[NSNotificationCenter defaultCenter]
-//         postNotificationName: SyncManagerStateChangedNotification
-//         object: self];
+        //        [[NSNotificationCenter defaultCenter]
+        //         postNotificationName: SyncManagerStateChangedNotification
+        //         object: self];
         
     }
 }
@@ -198,7 +198,7 @@
     }else{
         [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     }
-
+    
 }
 
 #pragma mark - User ID related
@@ -239,10 +239,26 @@
                                        allowLoginUI:YES
                                   completionHandler:
      ^(FBSession *session, FBSessionState state, NSError *error) {
-         if (FBSession.activeSession.state == FBSessionStateOpen
-             || FBSession.activeSession.state == FBSessionStateOpenTokenExtended){
-//             block(FB)
-         }
+         FBRequest* request =[FBRequest requestForMe];
+         [request startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *me_error) {
+             if(!error){
+                 NSDictionary* userData = result;
+                 NSString *userID = userData[@"email"];
+                 if(!session.accessTokenData){
+                     NSLog(@"ERROR: here is should be token");
+                     block(nil, nil);
+                 }else{
+                     if(!userID)
+                         userID = [userData[@"name"] stringByReplacingOccurrencesOfString:@" " withString:@""].lowercaseString;
+                     // Store the access_token for later.
+                     [[NSUserDefaults standardUserDefaults] setObject: session.accessTokenData.accessToken forKey: [self accessTokenKeyForUserID:userID]];
+                     block(userID, userData);
+                 }
+             }else {
+                 NSLog(@"error: %@", error);
+                 
+             }
+         }];
      }];
 }
 
