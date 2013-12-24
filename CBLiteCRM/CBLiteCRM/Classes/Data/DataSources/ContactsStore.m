@@ -73,10 +73,10 @@
     CBLQuery *addedContactsQuery = [[DataStore sharedInstance].contactOpportunityStore queryContactsForOpportunity:opp];
     NSError *error;
     NSMutableArray *keys = [NSMutableArray new];
-    for (CBLQueryRow *r in [query rows:&error]) {
+    for (CBLQueryRow *r in [query run:&error]) {
         Contact *ct = [Contact modelForDocument:r.document];
         BOOL exist = NO;
-        for (CBLQueryRow *row in [addedContactsQuery rows:&error]) {
+        for (CBLQueryRow *row in [addedContactsQuery run:&error]) {
             ContactOpportunity *ctOpp = [ContactOpportunity modelForDocument:row.document];
             if ([ct.email isEqualToString:ctOpp.contact.email])
                 exist = YES;
