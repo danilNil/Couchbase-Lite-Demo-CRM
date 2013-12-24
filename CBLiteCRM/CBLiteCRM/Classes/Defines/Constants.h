@@ -21,7 +21,8 @@ static NSString* const kSyncUrl = @"http://sync.couchbasecloud.com:4984/cbl_crm_
 static NSString* const kFBAppId = @"220375198143968";
 static NSString* const kTestFlightID = @"220375198143968";
 
-
+static NSString* const kEditTitle = @"Edit";
+static NSString* const kSaveTitle = @"Save";
 
 
 #define kBaseBlueColor [UIColor colorWithRed:39.0/255.0  green:202.0/255.0 blue:255.0/255.0 alpha:1.0]

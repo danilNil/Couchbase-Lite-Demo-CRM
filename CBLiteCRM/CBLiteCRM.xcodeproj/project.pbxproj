@@ -48,6 +48,7 @@
 		831C09AA1869A8E7002CB53A /* SalesPersonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 831C09A31869A8E7002CB53A /* SalesPersonCell.m */; };
 		831C09AB1869A8E7002CB53A /* SalesPersonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 831C09A41869A8E7002CB53A /* SalesPersonCell.xib */; };
 		831C09AC1869A8E7002CB53A /* DictPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 831C09A61869A8E7002CB53A /* DictPickerView.m */; };
+		831C09B31869ACC9002CB53A /* UIViewController+ReadOnlyOrWriteMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 831C09B21869ACC9002CB53A /* UIViewController+ReadOnlyOrWriteMode.m */; };
 		831FFCD41844364900C7CB22 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 831FFCD31844364900C7CB22 /* Foundation.framework */; };
 		831FFCD61844364900C7CB22 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 831FFCD51844364900C7CB22 /* CoreGraphics.framework */; };
 		831FFCD81844364900C7CB22 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 831FFCD71844364900C7CB22 /* UIKit.framework */; };
@@ -178,6 +179,8 @@
 		831C09A51869A8E7002CB53A /* DictPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DictPickerView.h; sourceTree = "<group>"; };
 		831C09A61869A8E7002CB53A /* DictPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DictPickerView.m; sourceTree = "<group>"; };
 		831C09AD1869AA10002CB53A /* LogoutProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LogoutProtocol.h; sourceTree = "<group>"; };
+		831C09B11869ACC9002CB53A /* UIViewController+ReadOnlyOrWriteMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ReadOnlyOrWriteMode.h"; sourceTree = "<group>"; };
+		831C09B21869ACC9002CB53A /* UIViewController+ReadOnlyOrWriteMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ReadOnlyOrWriteMode.m"; sourceTree = "<group>"; };
 		831FFCD01844364900C7CB22 /* CBLiteCRM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CBLiteCRM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		831FFCD31844364900C7CB22 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		831FFCD51844364900C7CB22 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -298,6 +301,8 @@
 			isa = PBXGroup;
 			children = (
 				831C09AD1869AA10002CB53A /* LogoutProtocol.h */,
+				831C09B11869ACC9002CB53A /* UIViewController+ReadOnlyOrWriteMode.h */,
+				831C09B21869ACC9002CB53A /* UIViewController+ReadOnlyOrWriteMode.m */,
 				831C09951869A8CC002CB53A /* FilteringViewController.h */,
 				831C09961869A8CC002CB53A /* FilteringViewController.m */,
 				447A2C4D1845D808008786AF /* TextFieldsViewController.h */,
@@ -782,6 +787,7 @@
 				447A2C6A1845D808008786AF /* SalesViewController.m in Sources */,
 				83173109184F238D0043F865 /* BaseStore.m in Sources */,
 				447A2C691845D808008786AF /* SalesPersonOptionsViewController.m in Sources */,
+				831C09B31869ACC9002CB53A /* UIViewController+ReadOnlyOrWriteMode.m in Sources */,
 				83173100184F211C0043F865 /* OpportunitiesStore.m in Sources */,
 				831FFD1018443AA300C7CB22 /* AppDelegate.m in Sources */,
 				83284539185188D1008FBFCD /* CBLSyncManager.m in Sources */,

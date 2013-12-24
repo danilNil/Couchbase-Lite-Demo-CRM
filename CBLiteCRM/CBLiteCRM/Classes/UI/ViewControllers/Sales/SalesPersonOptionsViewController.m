@@ -12,15 +12,13 @@
 #import "DataStore.h"
 #import "SalePersonsStore.h"
 
-static NSString* const kEditTitle = @"Edit";
-static NSString* const kSaveTitle = @"Save";
 
 @interface SalesPersonOptionsViewController ()
 
 @end
 
 @implementation SalesPersonOptionsViewController
-@synthesize needLogout;
+@synthesize needLogout, textFields, deleteButton;
 
 - (void)viewDidLoad
 {
@@ -55,20 +53,6 @@ static NSString* const kSaveTitle = @"Save";
     for (UITextField* tf in self.textFields) {
         tf.enabled = canEdit;
     }
-}
-- (void)setEditMode:(BOOL)editMode{
-    [self changeRightButtonTitleForMode:editMode];
-    self.deleteButton.hidden = !editMode;
-    for (UITextField* tf in self.textFields) {
-        tf.enabled = editMode;
-    }
-}
-
-- (void)changeRightButtonTitleForMode:(BOOL)editMode{
-    if(editMode)
-        self.navigationItem.rightBarButtonItem.title = kSaveTitle;
-    else
-        self.navigationItem.rightBarButtonItem.title = kEditTitle;
 }
 
 - (IBAction)save:(id)sender
