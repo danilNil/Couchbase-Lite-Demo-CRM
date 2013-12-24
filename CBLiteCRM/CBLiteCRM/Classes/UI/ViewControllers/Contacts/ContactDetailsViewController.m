@@ -22,6 +22,8 @@
 
 #define kContactDetailsViewControllerImageSize 300
 
+typedef void (^ValidationBlock)(BOOL isValid, NSString *msg);
+
 @interface ContactDetailsViewController ()
 <
 UITextFieldDelegate
@@ -31,7 +33,6 @@ UITextFieldDelegate
     UITapGestureRecognizer* photoTapRecognizer;
     ImagePickerAngel * imagePickerAngel;
     Customer *customer;
-    UIAlertView *currentAlertView;
     id currentFirstResponder;
 }
 
@@ -132,10 +133,22 @@ UITextFieldDelegate
 }
 
 - (IBAction)saveItem:(id)sender {
-    if ([self saveContact])
-        [self dismissViewControllerAnimated:YES completion:NULL];
-    else
-        [currentAlertView show];
+    __weak typeof(self) weakSelf = self;
+    [self isAllRequiredFieldsValid:^(BOOL isValid, NSString *msg) {
+        if(isValid){
+            [weakSelf saveContact];
+            [weakSelf dismissViewControllerAnimated:YES completion:NULL];
+        } else {
+            [[[UIAlertView alloc] initWithTitle:@"Error" message:msg delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil] show];
+        }
+    }];
+}
+
+- (void)saveContact {
+    Contact* newContact = self.currentContact;
+    if(!newContact)
+        newContact = [[DataStore sharedInstance].contactsStore createContactWithMailOrReturnExist:self.mailField.text];
+    [self updateInfoForContact:newContact];
 }
 
 - (IBAction)deleteItem:(id)sender
@@ -147,17 +160,16 @@ UITextFieldDelegate
         [self dismissViewControllerAnimated:YES completion:^{}];
 }
 
-- (BOOL)saveContact
-{
-    if(self.mailField.text && ![self.mailField.text isEqualToString:@""]){
-        Contact* newContact = self.currentContact;
-        if(!newContact)
-            newContact = [[DataStore sharedInstance].contactsStore createContactWithMailOrReturnExist:self.mailField.text];
-        [self updateInfoForContact:newContact];
-        return YES;
-    } else {
-        currentAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Please fill Email field" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil];
-        return NO;
+- (void)isAllRequiredFieldsValid:(ValidationBlock)result {
+    if (self.mailField.text && ![self.mailField.text isEqualToString:@""] && customer)
+        result(YES, @"");
+    else {
+        NSMutableString *msg = [NSMutableString new];
+        if (!customer)
+            [msg appendString:@"Please select a company\n"];
+        if (!self.mailField.text && [self.mailField.text isEqualToString:@""])
+            [msg appendString:@"Please fill Email field"];
+        result(NO, msg);
     }
 }
 
