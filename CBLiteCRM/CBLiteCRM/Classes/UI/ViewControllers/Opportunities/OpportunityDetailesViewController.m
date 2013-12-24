@@ -22,6 +22,7 @@
 #import "DateHelper.h"
 #import "ContactOpportunityStore.h"
 #import "ContactOpportunity.h"
+#import "CBLModel+DeleteHelper.h"
 
 @interface OpportunityDetailesViewController ()
 <DictPickerViewDelegate, UITextFieldDelegate>
@@ -211,11 +212,17 @@
 
 - (IBAction)deleteItem:(id)sender
 {
-    NSError *error;
-    if (![self.currentOpport deleteDocument:&error])
-        [[[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil] show];
-    else
-        [self dismissViewControllerAnimated:YES completion:^{}];
+    self.currentOpport.deleteAlertBlock = [self createOnDeleteBlock];
+    [self.currentOpport showDeletionAlert];
+}
+
+-(DeleteBlock)createOnDeleteBlock
+{
+    __weak typeof(self) weakSelf = self;
+    return ^(BOOL shouldDelete){
+        if (shouldDelete)
+            [weakSelf dismissViewControllerAnimated:YES completion:^{}];
+    };
 }
 
 - (IBAction)changeCustomer:(id)sender {}

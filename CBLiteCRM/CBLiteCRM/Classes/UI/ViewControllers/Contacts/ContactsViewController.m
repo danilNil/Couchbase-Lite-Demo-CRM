@@ -15,14 +15,13 @@
 #import "DataStore.h"
 #import "ContactsStore.h"
 #import "Contact.h"
+#import "CBLModel+DeleteHelper.h"
 
 @interface ContactsViewController ()
 <
 UIAlertViewDelegate
 >
-{
-    CBLQueryRow *deletionRow;
-}
+
 @property(nonatomic, strong) Contact* selectedContact;
 
 @end
@@ -81,25 +80,11 @@ UIAlertViewDelegate
 
 - (bool)couchTableSource:(CBLUITableSource *)source deleteRow:(CBLQueryRow *)row
 {
-    deletionRow = row;
-    [self showDeletionAlert];
+    Contact *ct = [Contact modelForDocument:row.document];
+    ct.deleteAlertBlock = [self createOnDeleteBlock];
+    [ct showDeletionAlert];
     return NO;
 }
-
-- (void)showDeletionAlert {
-    [[[UIAlertView alloc] initWithTitle:@"Delete contact" message:@"Are you sure you want to remove contact" delegate:self cancelButtonTitle:@"NO" otherButtonTitles:@"YES", nil] show];
-}
-
--(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if (buttonIndex == 1) {
-        NSError *error;
-        [[Contact modelForDocument:deletionRow.document] deleteDocument:&error];
-        [self.currentSource.tableView reloadData];
-        [alertView dismissWithClickedButtonIndex:buttonIndex animated:YES];
-    }
-}
-
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if([segue.destinationViewController isKindOfClass:[UINavigationController class]] && sender == self){
@@ -109,6 +94,17 @@ UIAlertViewDelegate
             vc.currentContact = self.selectedContact;
         }
     }
+}
+
+#pragma mark - CBLModel+DeleteHelper
+
+-(DeleteBlock)createOnDeleteBlock
+{
+    __weak typeof(self) weakSelf = self;
+    return ^(BOOL shouldDelete){
+        if (shouldDelete)
+            [weakSelf.currentSource.tableView reloadData];
+    };
 }
 
 @end

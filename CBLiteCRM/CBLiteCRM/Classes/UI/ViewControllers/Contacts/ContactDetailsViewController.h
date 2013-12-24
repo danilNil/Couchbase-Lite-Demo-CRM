@@ -10,7 +10,8 @@
 @class Contact;
 @interface ContactDetailsViewController : TextFieldsViewController
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
-@property (weak, nonatomic) IBOutlet UITextField *companyField;
+@property (weak, nonatomic) IBOutlet UIButton *companyButton;
+@property (weak, nonatomic) IBOutlet UIButton *detailsButton;
 @property (weak, nonatomic) IBOutlet UITextField *positionField;
 @property (weak, nonatomic) IBOutlet UITextField *phoneField;
 @property (weak, nonatomic) IBOutlet UITextField *mailField;

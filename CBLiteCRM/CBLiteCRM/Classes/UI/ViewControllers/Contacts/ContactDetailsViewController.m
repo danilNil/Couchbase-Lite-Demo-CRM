@@ -13,12 +13,14 @@
 #import "OpportunitesByContactViewController.h"
 #import "ContactsByOpportunityViewController.h"
 #import "UIImage+Tools.h"
+#import "CustomerDetailsViewController.h"
 
 //Data
 #import "DataStore.h"
 #import "ContactsStore.h"
 #import "Contact.h"
 #import "Customer.h"
+#import "CBLModel+DeleteHelper.h"
 
 #define kContactDetailsViewControllerImageSize 300
 
@@ -62,7 +64,8 @@ UIAlertViewDelegate
     {
         customer = ct.customer;
         self.nameField.text = ct.name;
-        self.companyField.text = customer.companyName;
+        [self.companyButton setTitle:[self customerTitle] forState:UIControlStateNormal];
+        self.detailsButton.enabled = customer != nil;
         self.positionField.text = ct.position;
         self.phoneField.text = ct.phoneNumber;
         self.mailField.text = ct.email;
@@ -145,6 +148,11 @@ UIAlertViewDelegate
     }];
 }
 
+- (IBAction)details:(id)sender {
+    if(customer)
+        [self performSegueWithIdentifier:@"presentMyCustomer" sender:self];
+}
+
 - (void)saveContact {
     Contact* newContact = self.currentContact;
     if(!newContact)
@@ -154,25 +162,18 @@ UIAlertViewDelegate
 
 - (IBAction)deleteItem:(id)sender
 {
-    [self showDeletionAlert];
+    self.currentContact.deleteAlertBlock = [self createOnDeleteBlock];
+    [self.currentContact showDeletionAlert];
 }
 
-- (void)showDeletionAlert {
-    [[[UIAlertView alloc] initWithTitle:@"Delete contact" message:@"Are you sure you want to remove contact" delegate:self cancelButtonTitle:@"NO" otherButtonTitles:@"YES", nil] show];
+- (DeleteBlock) createOnDeleteBlock {
+    __weak typeof(self) weakSelf = self;
+    return ^(BOOL shouldDelete){
+        if (shouldDelete) {
+            [weakSelf dismissViewControllerAnimated:YES completion:^{}];
+        }
+    };
 }
-
--(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if (buttonIndex == 1) {
-        NSError *error;
-        if (![self.currentContact deleteDocument:&error])
-            [[[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil] show];
-        else
-            [self dismissViewControllerAnimated:YES completion:^{}];
-        [alertView dismissWithClickedButtonIndex:buttonIndex animated:YES];
-    }
-}
-
 
 - (void)isAllRequiredFieldsValid:(ValidationBlock)result {
     if (![self.mailField.text isEqualToString:@""] && customer && ![self.nameField.text isEqualToString:@""])
@@ -229,14 +230,26 @@ UIAlertViewDelegate
         CustomersViewController* vc = (CustomersViewController*)segue.destinationViewController;
         [vc setOnSelectCustomer:^(Customer *cust) {
             customer = cust;
-            self.companyField.text = cust.companyName;
+            [self.companyButton setTitle:[self customerTitle] forState:UIControlStateNormal];
+            self.detailsButton.enabled = customer != nil;
         }];
         vc.chooser = YES;
     } else if ([segue.destinationViewController isKindOfClass:[OpportunitesByContactViewController class]]) {
         OpportunitesByContactViewController *vc = (OpportunitesByContactViewController*)segue.destinationViewController;
         vc.navigationItem.rightBarButtonItem.enabled = NO;
         vc.filteringContact = self.currentContact;
+    } else if([segue.identifier isEqualToString:@"presentMyCustomer"]){
+        CustomerDetailsViewController* vc = (CustomerDetailsViewController*)((UINavigationController*)segue.destinationViewController).topViewController;
+        vc.currentCustomer = customer;
     }
+}
+
+- (NSString*) customerTitle
+{
+    if (customer)
+        return [NSString stringWithFormat:@"Company: %@", customer.companyName];
+
+    return @"Select Company";
 }
 
 #pragma mark - UITextFieldDelegate

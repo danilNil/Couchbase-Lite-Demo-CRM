@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <deployment defaultVersion="1792" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <scenes>
         <!--Welcome View Controller-->
@@ -25,7 +25,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="facebookLogin" destination="vXZ-lx-hvc" eventType="touchUpInside" id="3R0-kU-IbY"/>
+                                    <action selector="facebookLogin" destination="vXZ-lx-hvc" eventType="touchUpInside" id="eqn-Xz-0wG"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login as admin" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GHs-9X-pfb">
@@ -351,15 +351,15 @@
             <objects>
                 <viewController id="Xt6-34-7OD" customClass="ContactDetailsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pHb-wM-tne">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Eqz-fr-KN8">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" heightSizable="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" id="NkD-al-MDr">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="516"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" id="DCH-dR-yCh">
@@ -382,14 +382,8 @@
                                                     <outlet property="delegate" destination="Xt6-34-7OD" id="sfh-Oe-LcL"/>
                                                 </connections>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Company" textAlignment="center" minimumFontSize="17" background="input_field.png" id="SsA-Fp-cOF">
-                                                <rect key="frame" x="15" y="232" width="290" height="37"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Position" textAlignment="center" minimumFontSize="17" background="input_field.png" id="I8x-kn-3Kq">
-                                                <rect key="frame" x="15" y="273" width="290" height="37"/>
+                                                <rect key="frame" x="15" y="232" width="290" height="37"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -398,7 +392,7 @@
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone" textAlignment="center" minimumFontSize="17" background="input_field.png" id="wdg-R9-28s">
-                                                <rect key="frame" x="15" y="314" width="290" height="37"/>
+                                                <rect key="frame" x="15" y="273" width="290" height="37"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
@@ -416,7 +410,7 @@
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Address" textAlignment="center" minimumFontSize="17" background="input_field.png" id="rMJ-AY-OVw">
-                                                <rect key="frame" x="15" y="355" width="290" height="37"/>
+                                                <rect key="frame" x="15" y="314" width="290" height="37"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -424,47 +418,67 @@
                                                     <outlet property="delegate" destination="Xt6-34-7OD" id="QXS-vY-xTw"/>
                                                 </connections>
                                             </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="RYl-kT-3Ua">
-                                                <rect key="frame" x="15" y="232" width="290" height="37"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" id="cLg-rZ-hVq">
+                                                <rect key="frame" x="15" y="359" width="205" height="44"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="backgroundColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="18"/>
+                                                <state key="normal" title="Company">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
                                                 <connections>
-                                                    <segue destination="Dc7-B9-xyB" kind="push" id="zHw-JE-Ekg"/>
+                                                    <segue destination="Dc7-B9-xyB" kind="push" id="yjT-5x-rcy"/>
                                                 </connections>
                                             </button>
-                                            <view contentMode="scaleToFill" id="7rv-hO-51B" userLabel="buttonsView">
-                                                <rect key="frame" x="0.0" y="396" width="320" height="108"/>
+                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="A4Y-Bq-i6s">
+                                                <rect key="frame" x="228" y="359" width="77" height="44"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="hUv-Oh-E0j">
-                                                        <rect key="frame" x="15" y="3" width="290" height="44"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <color key="backgroundColor" red="0.35686274509803922" green="0.83921568627450982" blue="0.2627450980392157" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="19"/>
-                                                        <state key="normal" title="Opportunities">
-                                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="opportunities:" destination="Xt6-34-7OD" eventType="touchUpInside" id="BEB-SH-boh"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="2C2-UJ-N4e">
-                                                        <rect key="frame" x="15" y="54" width="290" height="44"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <color key="backgroundColor" red="0.96470588235294119" green="0.70196078431372544" blue="0.16470588235294117" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="19"/>
-                                                        <state key="normal" title="Delete">
-                                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="deleteItem:" destination="Xt6-34-7OD" eventType="touchUpInside" id="DL4-bY-DBD"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                            </view>
+                                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="18"/>
+                                                <state key="normal" title="Details">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <state key="disabled">
+                                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="customerDetails:" destination="tN3-ye-q8X" eventType="touchUpInside" id="ldI-aO-bVh"/>
+                                                    <action selector="details:" destination="Xt6-34-7OD" eventType="touchUpInside" id="vJ2-KR-GTv"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" id="7rv-hO-51B" userLabel="buttonsView">
+                                        <rect key="frame" x="0.0" y="408" width="320" height="108"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="hUv-Oh-E0j">
+                                                <rect key="frame" x="15" y="3" width="290" height="44"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="0.35686274509803922" green="0.83921568627450982" blue="0.2627450980392157" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="19"/>
+                                                <state key="normal" title="Opportunities">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="opportunities:" destination="Xt6-34-7OD" eventType="touchUpInside" id="BEB-SH-boh"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="2C2-UJ-N4e">
+                                                <rect key="frame" x="15" y="54" width="290" height="44"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="0.96470588235294119" green="0.70196078431372544" blue="0.16470588235294117" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="19"/>
+                                                <state key="normal" title="Delete">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="deleteItem:" destination="Xt6-34-7OD" eventType="touchUpInside" id="DL4-bY-DBD"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                 </subviews>
                             </scrollView>
@@ -483,20 +497,21 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="addressField" destination="rMJ-AY-OVw" id="chs-Na-H1B"/>
                         <outlet property="baseScrollView" destination="Eqz-fr-KN8" id="2wt-do-48k"/>
                         <outlet property="buttonsView" destination="7rv-hO-51B" id="XdY-oG-LMn"/>
-                        <outlet property="companyField" destination="SsA-Fp-cOF" id="tzd-EH-WS3"/>
+                        <outlet property="companyButton" destination="cLg-rZ-hVq" id="cD5-3E-YMI"/>
                         <outlet property="contentView" destination="NkD-al-MDr" id="61m-0N-OdD"/>
                         <outlet property="deleteButton" destination="2C2-UJ-N4e" id="Cb5-7i-g5z"/>
+                        <outlet property="detailsButton" destination="A4Y-Bq-i6s" id="zC2-rP-V3j"/>
                         <outlet property="mailField" destination="5mM-HQ-Oru" id="TW9-PZ-mMv"/>
                         <outlet property="nameField" destination="KGO-lG-Wez" id="ohX-Wu-5nY"/>
                         <outlet property="phoneField" destination="wdg-R9-28s" id="N6u-HG-cQN"/>
                         <outlet property="photoView" destination="JdH-AX-qt3" id="8aJ-6T-DTM"/>
                         <outlet property="positionField" destination="I8x-kn-3Kq" id="ld2-Eo-jHC"/>
                         <segue destination="zWg-jE-NQp" kind="push" identifier="presentOpportunitiesForContact" id="33B-kY-8zX"/>
+                        <segue destination="DoK-bY-Hq0" kind="modal" identifier="presentMyCustomer" id="LHW-MO-w8p"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fwK-Yb-awM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1094,11 +1109,11 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="wax-He-xAT"/>
         <segue reference="dLH-wr-6PA"/>
         <segue reference="I7d-Ci-gP9"/>
-        <segue reference="sb8-08-2KH"/>
-        <segue reference="wax-He-xAT"/>
+        <segue reference="LHW-MO-w8p"/>
         <segue reference="3kk-cj-LW4"/>
-        <segue reference="zHw-JE-Ekg"/>
+        <segue reference="yjT-5x-rcy"/>
     </inferredMetricsTieBreakers>
 </document>

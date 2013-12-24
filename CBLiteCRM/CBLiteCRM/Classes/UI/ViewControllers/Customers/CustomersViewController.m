@@ -14,6 +14,7 @@
 #import "DataStore.h"
 #import "CustomersStore.h"
 #import "Customer.h"
+#import "CBLModel+DeleteHelper.h"
 
 @interface CustomersViewController ()
 <
@@ -71,8 +72,20 @@ CBLUITableDelegate
 
 - (bool)couchTableSource:(CBLUITableSource *)source deleteRow:(CBLQueryRow *)row
 {
-    NSError *error;
+//    Customer* customer = [Customer modelForDocument:row.document];
+//    customer.deleteAlertBlock = [self createOnDeleteBlock];
+//    [customer showDeletionAlert];
+    NSError* error;
     return [[Customer modelForDocument:row.document] deleteDocument:&error];
+}
+
+-(DeleteBlock)createOnDeleteBlock
+{
+    __weak typeof(self) weakSelf = self;
+    return ^(BOOL shouldDelete){
+        if (shouldDelete)
+            [weakSelf.currentSource.tableView reloadData];
+    };
 }
 
 @end

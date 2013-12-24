@@ -14,6 +14,7 @@
 #import "OpportunitiesStore.h"
 #import "Opportunity.h"
 #import "Customer.h"
+#import "CBLModel+DeleteHelper.h"
 
 @interface OpportunitiesViewController ()
 <
@@ -86,8 +87,20 @@ CBLUITableDelegate
 
 - (bool)couchTableSource:(CBLUITableSource *)source deleteRow:(CBLQueryRow *)row
 {
-    NSError *error;
+//    Opportunity *opp = [Opportunity modelForDocument:row.document];
+//    opp.deleteAlertBlock = [self createOnDeleteBlock];
+//    [opp showDeletionAlert];
+    NSError* error;
     return [[Opportunity modelForDocument:row.document] deleteDocument:&error];
+}
+
+-(DeleteBlock)createOnDeleteBlock
+{
+    __weak typeof(self) weakSelf = self;
+    return ^(BOOL shouldDelete){
+        if (shouldDelete)
+            [weakSelf.currentSource.tableView reloadData];
+    };
 }
 
 -(void)filterContentForSearchText:(NSString *)searchText scope:(NSString *)scope
