@@ -7,16 +7,17 @@
 //
 
 #import "AppDelegate.h"
+
 #import "DataStore.h"
 #import "CBLSyncManager.h"
 
 #import "SalesPerson.h"
 #import "SalePersonsStore.h"
-#import "Constants.h"
+
+#import <FacebookSDK/FacebookSDK.h>
 #import "TestFlight.h"
 
-#define kSyncUrl @"http://sync.couchbasecloud.com:4984/cbl_crm_sg8"
-#define kFBAppId @"220375198143968"
+
 
 @interface AppDelegate()
 @property (nonatomic) DataStore* dataStore;
@@ -31,22 +32,41 @@
     [self setupAppearance];
     [self setupDatabase];
     [self setupCBLSync];
-    
     return YES;
 }
 
 - (void)setupAppearance {
     [[UINavigationBar appearance] setBarTintColor:kBaseBlueColor];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
-
+    
     [[UITextField appearance] setTintColor:[UIColor grayColor]];
     [[UIToolbar appearance] setTintColor:[UIColor blackColor]];
     [[UIToolbar appearance] setBackgroundColor:[UIColor lightGrayColor]];
     
     NSDictionary *navbarTitleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
-
+    
     [[UINavigationBar appearance] setTitleTextAttributes:navbarTitleTextAttributes];
 }
+
+// During the Facebook login flow, your app passes control to the Facebook iOS app or Facebook in a mobile browser.
+// After authentication, your app will be called back with the session information.
+// Override application:openURL:sourceApplication:annotation to call the FBsession object that handles the incoming URL
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation
+{
+    return [FBSession.activeSession handleOpenURL:url];
+}
+
+- (void)applicationDidBecomeActive:(UIApplication *)application
+{
+    
+    // Handle the user leaving the app while the Facebook login dialog is being shown
+    // For example: when the user presses the iOS "home" button while the login dialog is active
+    [FBAppCall handleDidBecomeActive];
+}
+
 
 #pragma mark - Sync
 
@@ -66,7 +86,7 @@
 {
     // TODO: removed that variable after CBLSyncManager refactoring
     self.asAdmin = asAdmin;
-
+    
     if (_cblSync.userID) {
         [self updateUserWithRole:self.asAdmin];
         complete();
