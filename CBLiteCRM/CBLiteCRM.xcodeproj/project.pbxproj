@@ -177,6 +177,7 @@
 		831C09A41869A8E7002CB53A /* SalesPersonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SalesPersonCell.xib; sourceTree = "<group>"; };
 		831C09A51869A8E7002CB53A /* DictPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DictPickerView.h; sourceTree = "<group>"; };
 		831C09A61869A8E7002CB53A /* DictPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DictPickerView.m; sourceTree = "<group>"; };
+		831C09AD1869AA10002CB53A /* LogoutProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LogoutProtocol.h; sourceTree = "<group>"; };
 		831FFCD01844364900C7CB22 /* CBLiteCRM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CBLiteCRM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		831FFCD31844364900C7CB22 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		831FFCD51844364900C7CB22 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -218,7 +219,6 @@
 		8322B3971859BB89008A7907 /* opportunities_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "opportunities_icon@2x.png"; sourceTree = "<group>"; };
 		8322B39A1859BB89008A7907 /* sales_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sales_icon.png; sourceTree = "<group>"; };
 		8322B39B1859BB89008A7907 /* sales_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sales_icon@2x.png"; sourceTree = "<group>"; };
-		832368D0186009FD00F01658 /* LogoutProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LogoutProtocol.h; sourceTree = "<group>"; };
 		8326BEF718586DF200B605EB /* input_field.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = input_field.png; sourceTree = "<group>"; };
 		8326BEF818586DF200B605EB /* input_field@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "input_field@2x.png"; sourceTree = "<group>"; };
 		832845321851882F008FBFCD /* UIView+Activity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Activity.h"; sourceTree = "<group>"; };
@@ -290,7 +290,6 @@
 				447A2C581845D808008786AF /* MenuViewController.m */,
 				447A2C611845D808008786AF /* WelcomeViewController.h */,
 				447A2C621845D808008786AF /* WelcomeViewController.m */,
-				832368D0186009FD00F01658 /* LogoutProtocol.h */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -298,6 +297,7 @@
 		447A2C4C1845D808008786AF /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				831C09AD1869AA10002CB53A /* LogoutProtocol.h */,
 				831C09951869A8CC002CB53A /* FilteringViewController.h */,
 				831C09961869A8CC002CB53A /* FilteringViewController.m */,
 				447A2C4D1845D808008786AF /* TextFieldsViewController.h */,
