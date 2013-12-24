@@ -28,6 +28,7 @@
 		44B3A6761857132D00CF4BAE /* OpportunitesByContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44B3A6751857132D00CF4BAE /* OpportunitesByContactViewController.m */; };
 		44CABE1D18487FF30060263F /* ContactCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44CABE1C18487FF30060263F /* ContactCell.xib */; };
 		44D6DAF7184718920097262E /* CustomerDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44D6DAF6184718920097262E /* CustomerDetailsViewController.m */; };
+		44F81D1E18696C6E00B3212A /* CBLModel+DeleteHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 44F81D1D18696C6E00B3212A /* CBLModel+DeleteHelper.m */; };
 		493498C8185A20B800ADA646 /* input_field_disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 493498C6185A20B800ADA646 /* input_field_disabled.png */; };
 		493498C9185A20B800ADA646 /* input_field_disabled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 493498C7185A20B800ADA646 /* input_field_disabled@2x.png */; };
 		493498CC185A3EC200ADA646 /* UIAlertView+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 493498CB185A3EC200ADA646 /* UIAlertView+Helper.m */; };
@@ -138,6 +139,8 @@
 		44CABE1C18487FF30060263F /* ContactCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactCell.xib; sourceTree = "<group>"; };
 		44D6DAF5184718920097262E /* CustomerDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerDetailsViewController.h; sourceTree = "<group>"; };
 		44D6DAF6184718920097262E /* CustomerDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerDetailsViewController.m; sourceTree = "<group>"; };
+		44F81D1C18696C6E00B3212A /* CBLModel+DeleteHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CBLModel+DeleteHelper.h"; sourceTree = "<group>"; };
+		44F81D1D18696C6E00B3212A /* CBLModel+DeleteHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CBLModel+DeleteHelper.m"; sourceTree = "<group>"; };
 		493498C6185A20B800ADA646 /* input_field_disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = input_field_disabled.png; sourceTree = "<group>"; };
 		493498C7185A20B800ADA646 /* input_field_disabled@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "input_field_disabled@2x.png"; sourceTree = "<group>"; };
 		493498CA185A3EC200ADA646 /* UIAlertView+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Helper.h"; sourceTree = "<group>"; };
@@ -552,6 +555,8 @@
 				831FFD461844702E00C7CB22 /* Opportunity.m */,
 				830D51AA1848570900044A19 /* BaseModel.h */,
 				830D51AB1848570900044A19 /* BaseModel.m */,
+				44F81D1C18696C6E00B3212A /* CBLModel+DeleteHelper.h */,
+				44F81D1D18696C6E00B3212A /* CBLModel+DeleteHelper.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -776,6 +781,7 @@
 				447A2C6B1845D808008786AF /* WelcomeViewController.m in Sources */,
 				83CEAAE31846ECE10002D040 /* ActionSheet.m in Sources */,
 				83CEAADD1846EC240002D040 /* ImagePickerAngel.m in Sources */,
+				44F81D1E18696C6E00B3212A /* CBLModel+DeleteHelper.m in Sources */,
 				49EB988618638CA6003A49F3 /* UIImage+Tools.m in Sources */,
 				81833B57184B9D4600F788A2 /* FilteringViewController.m in Sources */,
 				831FFCE01844364900C7CB22 /* main.m in Sources */,

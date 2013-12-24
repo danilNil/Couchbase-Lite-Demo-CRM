@@ -19,6 +19,7 @@
 #import "ContactsStore.h"
 #import "Contact.h"
 #import "Customer.h"
+#import "CBLModel+DeleteHelper.h"
 
 #define kContactDetailsViewControllerImageSize 300
 
@@ -154,25 +155,18 @@ UIAlertViewDelegate
 
 - (IBAction)deleteItem:(id)sender
 {
-    [self showDeletionAlert];
+    self.currentContact.deleteAlertBlock = [self createOnDeleteBlock];
+    [self.currentContact showDeletionAlert];
 }
 
-- (void)showDeletionAlert {
-    [[[UIAlertView alloc] initWithTitle:@"Delete contact" message:@"Are you sure you want to remove contact" delegate:self cancelButtonTitle:@"NO" otherButtonTitles:@"YES", nil] show];
+- (DeleteBlock) createOnDeleteBlock {
+    __weak typeof(self) weakSelf = self;
+    return ^(BOOL shouldDelete){
+        if (shouldDelete) {
+            [weakSelf dismissViewControllerAnimated:YES completion:^{}];
+        }
+    };
 }
-
--(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if (buttonIndex == 1) {
-        NSError *error;
-        if (![self.currentContact deleteDocument:&error])
-            [[[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil] show];
-        else
-            [self dismissViewControllerAnimated:YES completion:^{}];
-        [alertView dismissWithClickedButtonIndex:buttonIndex animated:YES];
-    }
-}
-
 
 - (void)isAllRequiredFieldsValid:(ValidationBlock)result {
     if (![self.mailField.text isEqualToString:@""] && customer && ![self.nameField.text isEqualToString:@""])
