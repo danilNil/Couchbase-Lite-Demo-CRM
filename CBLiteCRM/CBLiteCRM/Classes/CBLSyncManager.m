@@ -251,12 +251,12 @@
                      if(!userID)
                          userID = [userData[@"name"] stringByReplacingOccurrencesOfString:@" " withString:@""].lowercaseString;
                      // Store the access_token for later.
+                     [[NSUserDefaults standardUserDefaults] setObject: userID forKey: kCBLPrefKeyUserID];
                      [[NSUserDefaults standardUserDefaults] setObject: session.accessTokenData.accessToken forKey: [self accessTokenKeyForUserID:userID]];
                      block(userID, userData);
                  }
              }else {
                  NSLog(@"error: %@", error);
-                 
              }
          }];
      }];
