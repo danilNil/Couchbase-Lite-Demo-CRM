@@ -237,14 +237,10 @@ UIAlertViewDelegate
 #pragma mark - Fields Validation
 
 - (void)isAllRequiredFieldsValid:(ValidationBlock)result {
-    if (![self.mailField.text isEqualToString:@""] && customer && ![self.nameField.text isEqualToString:@""])
+    if (![self.nameField.text isEqualToString:@""])
         result(YES, @"");
     else {
         NSMutableString *msg = [NSMutableString new];
-        if (!customer)
-            [msg appendString:@"Please select a company\n"];
-        if ([self.mailField.text isEqualToString:@""])
-            [msg appendString:@"Please fill Email field\n"];
         if ([self.nameField.text isEqualToString:@""])
             [msg appendString:@"Please fill Name field"];
         result(NO, msg);

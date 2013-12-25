@@ -35,7 +35,7 @@ UIAlertViewDelegate
 {
     [super viewDidLoad];
     self.modelClass = [Contact class];
-    self.firstLevelSearchableProperty = @"email";
+    self.firstLevelSearchableProperty = @"name";
     deleteHelper = [CBLModelDeleteHelper new];
 }
 

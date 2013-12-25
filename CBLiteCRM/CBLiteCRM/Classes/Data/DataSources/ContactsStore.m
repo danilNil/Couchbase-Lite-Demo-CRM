@@ -33,10 +33,10 @@
     _contactsView = [self.database viewNamed: @"contactsByName"];
     [_contactsView setMapBlock: MAPBLOCK({
         if ([doc[@"type"] isEqualToString: kContactDocType]) {
-            if (doc[@"email"])
-                emit(doc[@"email"], doc[@"email"]);
+            if (doc[@"name"])
+                emit(doc[@"name"], doc);
         }
-    }) version: @"1"];
+    }) version: @"2"];
 }
 
 - (Contact*) createContactWithMailOrReturnExist: (NSString*)mail{
