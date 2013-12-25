@@ -751,7 +751,7 @@
                                                     <outlet property="delegate" destination="TLO-se-8qL" id="1hL-T4-Zf3"/>
                                                 </connections>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Industry" textAlignment="center" minimumFontSize="17" background="input_field.png" id="i8t-rW-i8a">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Industry" textAlignment="center" minimumFontSize="17" background="input_field.png" disabledBackground="input_field_disabled.png" id="i8t-rW-i8a">
                                                 <rect key="frame" x="14" y="49" width="293" height="37"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -760,7 +760,7 @@
                                                     <outlet property="delegate" destination="TLO-se-8qL" id="Lcr-7O-ANy"/>
                                                 </connections>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone" textAlignment="center" minimumFontSize="17" background="input_field.png" id="33M-G7-N2v">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone" textAlignment="center" minimumFontSize="17" background="input_field.png" disabledBackground="input_field_disabled.png" id="33M-G7-N2v">
                                                 <rect key="frame" x="14" y="91" width="293" height="37"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -769,7 +769,7 @@
                                                     <outlet property="delegate" destination="TLO-se-8qL" id="1iX-bj-kjp"/>
                                                 </connections>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="center" minimumFontSize="17" background="input_field.png" id="Ogp-Je-lhE">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="center" minimumFontSize="17" background="input_field.png" disabledBackground="input_field_disabled.png" id="Ogp-Je-lhE">
                                                 <rect key="frame" x="14" y="133" width="293" height="37"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -778,7 +778,7 @@
                                                     <outlet property="delegate" destination="TLO-se-8qL" id="bkX-A6-2i3"/>
                                                 </connections>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Address" textAlignment="center" minimumFontSize="17" background="input_field.png" id="SD8-B9-1C5">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Address" textAlignment="center" minimumFontSize="17" background="input_field.png" disabledBackground="input_field_disabled.png" id="SD8-B9-1C5">
                                                 <rect key="frame" x="14" y="218" width="293" height="37"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -787,7 +787,7 @@
                                                     <outlet property="delegate" destination="TLO-se-8qL" id="7dw-nl-YXo"/>
                                                 </connections>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="URL" textAlignment="center" minimumFontSize="17" background="input_field.png" id="Cdn-Rp-SO3">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="URL" textAlignment="center" minimumFontSize="17" background="input_field.png" disabledBackground="input_field_disabled.png" id="Cdn-Rp-SO3">
                                                 <rect key="frame" x="14" y="175" width="293" height="37"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -870,6 +870,12 @@
                         <outlet property="industryField" destination="i8t-rW-i8a" id="did-Vt-HgJ"/>
                         <outlet property="mailField" destination="Ogp-Je-lhE" id="Ab4-xP-ZAf"/>
                         <outlet property="phoneField" destination="33M-G7-N2v" id="RFY-Ne-dY2"/>
+                        <outletCollection property="textFields" destination="SD8-B9-1C5" id="JPH-lJ-0nZ"/>
+                        <outletCollection property="textFields" destination="Cdn-Rp-SO3" id="UXc-PP-NnH"/>
+                        <outletCollection property="textFields" destination="Ogp-Je-lhE" id="JcJ-2v-gvW"/>
+                        <outletCollection property="textFields" destination="33M-G7-N2v" id="e2K-dE-JBA"/>
+                        <outletCollection property="textFields" destination="i8t-rW-i8a" id="XQ2-xa-a9I"/>
+                        <outletCollection property="textFields" destination="ZEi-QX-lQV" id="gob-eE-6wf"/>
                         <segue destination="5ij-MH-fTa" kind="push" identifier="presentOpportunitiesForCustomer" id="3kk-cj-LW4"/>
                         <segue destination="hp4-NH-ICy" kind="push" identifier="presentContactsForCustomer" id="I7d-Ci-gP9"/>
                     </connections>

@@ -7,9 +7,11 @@
 //
 
 #import "TextFieldsViewController.h"
+#import "UIViewController+ReadOnlyOrWriteMode.h"
+
 @class Customer;
 
-@interface CustomerDetailsViewController : TextFieldsViewController
+@interface CustomerDetailsViewController : TextFieldsViewController<EditableViewControllers>
 
 @property (weak, nonatomic) IBOutlet UITextField *companyNameField;
 @property (weak, nonatomic) IBOutlet UITextField *industryField;
@@ -19,7 +21,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *addressField;
 @property (weak, nonatomic) IBOutlet UIView *contentView;
 @property (weak, nonatomic) IBOutlet UIView *buttonsView;
-@property (weak, nonatomic) IBOutlet UIButton *deleteButton;
 
 @property (strong, nonatomic) Customer *currentCustomer;
 

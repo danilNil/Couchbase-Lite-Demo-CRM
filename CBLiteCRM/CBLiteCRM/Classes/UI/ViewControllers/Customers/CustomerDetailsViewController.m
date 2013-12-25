@@ -21,6 +21,7 @@
 @end
 
 @implementation CustomerDetailsViewController
+@synthesize deleteButton, textFields;
 
 - (void)viewDidLoad
 {
@@ -28,6 +29,17 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self.baseScrollView setContentSize:self.contentView.frame.size];
     [self loadInfoForCustomer:self.currentCustomer];
+    [self setupMode];
+}
+
+- (void)setupMode
+{
+    BOOL editMode;
+    if(self.currentCustomer)
+        editMode = NO;
+    else
+        editMode = YES;
+    [self setEditMode:editMode];
 }
 
 - (void)loadInfoForCustomer:(Customer*)cm{
@@ -50,14 +62,17 @@
 }
 
 - (IBAction)saveItem:(id)sender {
-    if(self.companyNameField.text && ![self.companyNameField.text isEqualToString:@""]) {
-        Customer* newCustomer = self.currentCustomer;
-        if(!newCustomer)
-            newCustomer = [[DataStore sharedInstance].customersStore createCustomerWithNameOrReturnExist:self.companyNameField.text];
-        [self updateInfoForCustomer:newCustomer];
-        [self dismissViewControllerAnimated:YES completion:NULL];
-    } else
-        [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Please fill Company field" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil] show];
+    if([self.navigationItem.rightBarButtonItem.title isEqualToString:kSaveTitle]){
+        if(self.companyNameField.text && ![self.companyNameField.text isEqualToString:@""]) {
+            Customer* newCustomer = self.currentCustomer;
+            if(!newCustomer)
+                newCustomer = [[DataStore sharedInstance].customersStore createCustomerWithNameOrReturnExist:self.companyNameField.text];
+            [self updateInfoForCustomer:newCustomer];
+            [self dismissViewControllerAnimated:YES completion:NULL];
+        } else
+            [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Please fill Company field" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil] show];
+    }else if([self.navigationItem.rightBarButtonItem.title isEqualToString:kEditTitle])
+        [self setEditMode:YES];
 }
 
 -(DeleteBlock)createOnDeleteBlock
