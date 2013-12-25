@@ -7,6 +7,7 @@
 //
 
 #import "UIViewController+ReadOnlyOrWriteMode.h"
+#import "TextFieldView.h"
 
 @implementation UIViewController (ReadOnlyOrWriteMode)
 @dynamic deleteButton, textFields;
@@ -14,9 +15,13 @@
 - (void)setEditMode:(BOOL)editMode{
     [self changeRightButtonTitleForMode:editMode];
     self.deleteButton.hidden = !editMode;
-    for (UITextField* tf in self.textFields) {
-        tf.enabled = editMode;
+    for (TextFieldView* view in self.textFields) {
+        view.editMode = editMode;
     }
+}
+
+- (BOOL)isEditMode {
+    return self.navigationItem.rightBarButtonItem.title == kSaveTitle;
 }
 
 - (void)changeRightButtonTitleForMode:(BOOL)editMode{

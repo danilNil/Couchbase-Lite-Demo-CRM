@@ -324,9 +324,9 @@
                         <outlet property="mailField" destination="Vce-uM-Vu5" id="NPv-TT-tF8"/>
                         <outlet property="nameField" destination="2cq-SL-IR2" id="U6F-wh-fb7"/>
                         <outlet property="phoneField" destination="8Tv-6X-tnh" id="wDh-dP-imF"/>
-                        <outletCollection property="textFields" destination="2cq-SL-IR2" id="TVo-L6-brk"/>
-                        <outletCollection property="textFields" destination="8Tv-6X-tnh" id="7Y3-cU-Rxy"/>
-                        <outletCollection property="textFields" destination="Vce-uM-Vu5" id="4m8-Hq-fE8"/>
+                        <outletCollection property="textFields" destination="sRz-8c-ylA" id="J6R-dZ-9zI"/>
+                        <outletCollection property="textFields" destination="qgo-Zm-GRc" id="DGX-5a-dSv"/>
+                        <outletCollection property="textFields" destination="CED-T6-0Pb" id="0Nc-SY-j9j"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nql-vy-yKY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -464,7 +464,7 @@
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     </imageView>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="5mM-HQ-Oru">
-                                                        <rect key="frame" x="99" y="0.0" width="191" height="37"/>
+                                                        <rect key="frame" x="99" y="1" width="191" height="37"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
@@ -654,11 +654,12 @@
                         <outlet property="phoneField" destination="wdg-R9-28s" id="N6u-HG-cQN"/>
                         <outlet property="photoView" destination="JdH-AX-qt3" id="8aJ-6T-DTM"/>
                         <outlet property="positionField" destination="I8x-kn-3Kq" id="ld2-Eo-jHC"/>
-                        <outletCollection property="textFields" destination="5mM-HQ-Oru" id="PqE-RZ-QCp"/>
-                        <outletCollection property="textFields" destination="KGO-lG-Wez" id="uUx-lM-noU"/>
-                        <outletCollection property="textFields" destination="I8x-kn-3Kq" id="wSu-4g-jFY"/>
-                        <outletCollection property="textFields" destination="wdg-R9-28s" id="Ab6-aW-iwP"/>
-                        <outletCollection property="textFields" destination="rMJ-AY-OVw" id="8IU-H2-f3A"/>
+                        <outletCollection property="textFields" destination="HLc-O4-V52" id="VGz-Jh-8Vh"/>
+                        <outletCollection property="textFields" destination="mNj-h1-ehp" id="PYC-Pq-Q4m"/>
+                        <outletCollection property="textFields" destination="rm4-WF-LYs" id="Upq-Fh-oIJ"/>
+                        <outletCollection property="textFields" destination="9VK-14-Ve9" id="0mN-5v-2MU"/>
+                        <outletCollection property="textFields" destination="9VK-14-Ve9" id="eVp-dG-mhf"/>
+                        <outletCollection property="textFields" destination="eY8-hr-Tv5" id="FUs-Xv-zqb"/>
                         <segue destination="zWg-jE-NQp" kind="push" identifier="presentOpportunitiesForContact" id="33B-kY-8zX"/>
                         <segue destination="DoK-bY-Hq0" kind="modal" identifier="presentMyCustomer" id="LHW-MO-w8p"/>
                     </connections>
@@ -947,18 +948,18 @@
                         <outlet property="revenueField" destination="q54-bn-r8A" id="ofH-l6-8lo"/>
                         <outlet property="stageField" destination="8Hz-8A-88H" id="9IC-oA-Dgv"/>
                         <outlet property="winField" destination="8xy-VZ-6oJ" id="DyI-Qp-7us"/>
-                        <outletCollection property="textFields" destination="eUD-c5-Dk5" id="hjd-pn-wuM"/>
-                        <outletCollection property="textFields" destination="8Hz-8A-88H" id="h4i-tY-URF"/>
-                        <outletCollection property="textFields" destination="3pF-gR-KXa" id="v9V-Ky-IOl"/>
-                        <outletCollection property="textFields" destination="q54-bn-r8A" id="rc1-Lf-6jU"/>
-                        <outletCollection property="textFields" destination="8xy-VZ-6oJ" id="8yZ-Uk-kqa"/>
+                        <outletCollection property="textFields" destination="a63-VZ-Fak" id="HSw-fd-YJT"/>
+                        <outletCollection property="textFields" destination="4d3-5P-G0H" id="VcO-qJ-2GO"/>
+                        <outletCollection property="textFields" destination="WHB-3Z-XaU" id="T8D-7A-Wae"/>
+                        <outletCollection property="textFields" destination="P8O-c3-iJA" id="cmS-ob-mSr"/>
+                        <outletCollection property="textFields" destination="n2C-XR-dTs" id="342-Ff-NwR"/>
                         <segue destination="DoK-bY-Hq0" kind="modal" identifier="presentMyCustomer" id="sb8-08-2KH"/>
                         <segue destination="1hK-A1-uop" kind="push" identifier="presentContactsForOpportunity" id="eya-Yd-xZB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dzf-aQ-KNO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1857" y="1269"/>
+            <point key="canvasLocation" x="1854" y="1215"/>
         </scene>
         <!--Customer Details View Controller - Customer-->
         <scene sceneID="c5f-lt-CfQ">
@@ -977,7 +978,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" id="pjq-Zq-vU6" userLabel="company field" customClass="TextFieldView">
-                                                <rect key="frame" x="14" y="4" width="293" height="37"/>
+                                                <rect key="frame" x="14" y="7" width="293" height="37"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="input_field.png" id="z04-Bp-bcG">
@@ -1212,12 +1213,12 @@
                         <outlet property="industryField" destination="i8t-rW-i8a" id="did-Vt-HgJ"/>
                         <outlet property="mailField" destination="Ogp-Je-lhE" id="Ab4-xP-ZAf"/>
                         <outlet property="phoneField" destination="33M-G7-N2v" id="RFY-Ne-dY2"/>
-                        <outletCollection property="textFields" destination="ZEi-QX-lQV" id="gob-eE-6wf"/>
-                        <outletCollection property="textFields" destination="i8t-rW-i8a" id="XQ2-xa-a9I"/>
-                        <outletCollection property="textFields" destination="33M-G7-N2v" id="e2K-dE-JBA"/>
-                        <outletCollection property="textFields" destination="Ogp-Je-lhE" id="JcJ-2v-gvW"/>
-                        <outletCollection property="textFields" destination="Cdn-Rp-SO3" id="UXc-PP-NnH"/>
-                        <outletCollection property="textFields" destination="SD8-B9-1C5" id="JPH-lJ-0nZ"/>
+                        <outletCollection property="textFields" destination="pjq-Zq-vU6" id="gKG-Uf-lIh"/>
+                        <outletCollection property="textFields" destination="0Qt-Gd-QIi" id="wbP-6J-ogM"/>
+                        <outletCollection property="textFields" destination="UE4-kj-D3F" id="cFJ-ui-gyL"/>
+                        <outletCollection property="textFields" destination="uxK-2W-Bi7" id="vbf-Kf-ReR"/>
+                        <outletCollection property="textFields" destination="Gys-L6-64Q" id="foh-I1-SBo"/>
+                        <outletCollection property="textFields" destination="Pm2-ze-lLg" id="NTF-TD-QEa"/>
                         <segue destination="5ij-MH-fTa" kind="push" identifier="presentOpportunitiesForCustomer" id="3kk-cj-LW4"/>
                         <segue destination="hp4-NH-ICy" kind="push" identifier="presentContactsForCustomer" id="I7d-Ci-gP9"/>
                     </connections>

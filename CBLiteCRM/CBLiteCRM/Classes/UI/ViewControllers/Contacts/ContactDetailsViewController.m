@@ -215,6 +215,11 @@ UIAlertViewDelegate
         CustomersViewController* vc = (CustomersViewController*)segue.destinationViewController;
         [vc setOnSelectCustomer:^(Customer *cust) {
             customer = cust;
+            if (![self isEditMode]) {
+                self.currentContact.customer = cust;
+                NSError *error;
+                [self.currentContact save:&error];
+            }
             [self.companyButton setTitle:[self titleForCustomer:customer] forState:UIControlStateNormal];
             self.detailsButton.enabled = customer != nil;
         }];

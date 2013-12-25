@@ -8,4 +8,6 @@
 
 @interface TextFieldView : UIView
 
+@property (nonatomic) BOOL editMode;
+
 @end

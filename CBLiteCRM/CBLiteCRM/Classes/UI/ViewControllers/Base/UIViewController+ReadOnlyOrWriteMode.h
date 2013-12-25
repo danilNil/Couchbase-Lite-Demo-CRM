@@ -8,11 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@class TextFieldView;
+
 @protocol EditableViewControllers
 
-@property (strong, nonatomic) IBOutletCollection(UITextField) NSArray *textFields;
+@property (strong, nonatomic) IBOutletCollection(TextFieldView) NSArray *textFields;
 @property (weak, nonatomic) IBOutlet UIButton *deleteButton;
 
+- (BOOL)isEditMode;
 - (void)setEditMode:(BOOL)editMode;
 - (void)changeRightButtonTitleForMode:(BOOL)editMode;
 

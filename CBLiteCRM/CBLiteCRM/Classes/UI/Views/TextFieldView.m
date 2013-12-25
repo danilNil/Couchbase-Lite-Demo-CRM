@@ -26,10 +26,7 @@
             self.background = (UIImageView*)view;
         }
     }
-    if (self.textField.enabled)
-        [self.background setImage:[UIImage imageNamed:@"input_field.png"]];
-    else
-        [self.background setImage:[UIImage imageNamed:@"input_field_disabled.png"]];
+    self.editMode = self.textField.enabled;
     NSAssert(self.textField, @"textField should not be nil");
 }
 
@@ -37,7 +34,15 @@
 {
     [super touchesEnded:touches withEvent:event];
     [self.textField becomeFirstResponder];
-    NSLog(@"%u", [self.textField isFirstResponder]);
+}
+
+- (void)setEditMode:(BOOL)editMode {
+    _editMode = editMode;
+    self.textField.enabled = editMode;
+    if (editMode)
+        [self.background setImage:[UIImage imageNamed:@"input_field.png"]];
+    else
+        [self.background setImage:[UIImage imageNamed:@"input_field_disabled.png"]];
 }
 
 @end
