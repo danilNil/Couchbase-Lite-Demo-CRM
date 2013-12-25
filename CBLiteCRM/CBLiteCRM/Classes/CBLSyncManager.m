@@ -239,26 +239,28 @@
                                        allowLoginUI:YES
                                   completionHandler:
      ^(FBSession *session, FBSessionState state, NSError *error) {
-         FBRequest* request =[FBRequest requestForMe];
-         [request startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *me_error) {
-             if(!error){
-                 NSDictionary* userData = result;
-                 NSString *userID = userData[@"email"];
-                 if(!session.accessTokenData){
-                     NSLog(@"ERROR: here is should be token");
-                     block(nil, nil);
-                 }else{
-                     if(!userID)
-                         userID = [userData[@"name"] stringByReplacingOccurrencesOfString:@" " withString:@""].lowercaseString;
-                     // Store the access_token for later.
-                     [[NSUserDefaults standardUserDefaults] setObject: userID forKey: kCBLPrefKeyUserID];
-                     [[NSUserDefaults standardUserDefaults] setObject: session.accessTokenData.accessToken forKey: [self accessTokenKeyForUserID:userID]];
-                     block(userID, userData);
+         if(state!=FBSessionStateClosed){
+             FBRequest* request =[FBRequest requestForMe];
+             [request startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *me_error) {
+                 if(!me_error){
+                     NSDictionary* userData = result;
+                     NSString *userID = userData[@"email"];
+                     if(!session.accessTokenData){
+                         NSLog(@"ERROR: here is should be token");
+                         block(nil, nil);
+                     }else{
+                         if(!userID)
+                             userID = [userData[@"name"] stringByReplacingOccurrencesOfString:@" " withString:@""].lowercaseString;
+                         // Store the access_token for later.
+                         [[NSUserDefaults standardUserDefaults] setObject: userID forKey: kCBLPrefKeyUserID];
+                         [[NSUserDefaults standardUserDefaults] setObject: session.accessTokenData.accessToken forKey: [self accessTokenKeyForUserID:userID]];
+                         block(userID, userData);
+                     }
+                 }else {
+                     NSLog(@"error: %@", me_error);
                  }
-             }else {
-                 NSLog(@"error: %@", error);
-             }
-         }];
+             }];
+         }
      }];
 }
 
