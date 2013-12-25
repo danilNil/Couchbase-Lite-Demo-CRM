@@ -42,20 +42,25 @@ UIAlertViewDelegate
 @end
 
 @implementation ContactDetailsViewController
+@synthesize deleteButton, textFields;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.automaticallyAdjustsScrollViewInsets = NO;
-    [self.baseScrollView setContentSize:self.contentView.frame.size];
-    if(!photoTapRecognizer)
-    {
-        photoTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapOnPhoto)];
-        [self.photoView addGestureRecognizer:photoTapRecognizer];
-        self.photoView.userInteractionEnabled = YES;
-    }
+    [self setupScrollView];
+    [self setupPhotoView];
     [self loadInfoForContact:self.currentContact];
-    self.currentContact = _currentContact;
+    [self setupMode];
+}
+
+- (void)setupMode
+{
+    BOOL editMode;
+    if(self.currentContact)
+        editMode = NO;
+    else
+        editMode = YES;
+    [self setEditMode:editMode];
 }
 
 - (void)loadInfoForContact:(Contact*)ct{
@@ -64,7 +69,7 @@ UIAlertViewDelegate
     {
         customer = ct.customer;
         self.nameField.text = ct.name;
-        [self.companyButton setTitle:[self customerTitle] forState:UIControlStateNormal];
+        [self.companyButton setTitle:[self titleForCustomer:customer] forState:UIControlStateNormal];
         self.detailsButton.enabled = customer != nil;
         self.positionField.text = ct.position;
         self.phoneField.text = ct.phoneNumber;
@@ -74,6 +79,24 @@ UIAlertViewDelegate
         selectedImage = [self photoImageForContact:ct];
     }
 }
+
+- (void)setupScrollView
+{
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    [self.baseScrollView setContentSize:self.contentView.frame.size];
+}
+
+- (void)setupPhotoView
+{
+    if(!photoTapRecognizer)
+    {
+        photoTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapOnPhoto)];
+        [self.photoView addGestureRecognizer:photoTapRecognizer];
+        self.photoView.userInteractionEnabled = YES;
+    }
+}
+
+#pragma mark - Photo logic
 
 - (UIImage*)photoImageForContact:(Contact*)contact
 {
@@ -123,6 +146,8 @@ UIAlertViewDelegate
     self.photoView.image = selectedImage = scaledImage;
 }
 
+#pragma mark - Actions
+
 - (IBAction)back:(id)sender {
     self.currentContact = nil;
     if ([[((UINavigationController*)self.presentingViewController).viewControllers lastObject] isKindOfClass:[ContactsViewController class]])
@@ -137,6 +162,18 @@ UIAlertViewDelegate
 }
 
 - (IBAction)saveItem:(id)sender {
+    if([self.navigationItem.rightBarButtonItem.title isEqualToString:kSaveTitle]){
+        [self validateAndSave];
+    }else if([self.navigationItem.rightBarButtonItem.title isEqualToString:kEditTitle])
+        [self setEditMode:YES];
+}
+
+- (IBAction)details:(id)sender {
+    if(customer)
+        [self performSegueWithIdentifier:@"presentMyCustomer" sender:self];
+}
+
+- (void)validateAndSave {
     __weak typeof(self) weakSelf = self;
     [self isAllRequiredFieldsValid:^(BOOL isValid, NSString *msg) {
         if(isValid){
@@ -146,11 +183,6 @@ UIAlertViewDelegate
             [[[UIAlertView alloc] initWithTitle:@"Error" message:msg delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil] show];
         }
     }];
-}
-
-- (IBAction)details:(id)sender {
-    if(customer)
-        [self performSegueWithIdentifier:@"presentMyCustomer" sender:self];
 }
 
 - (void)saveContact {
@@ -175,6 +207,27 @@ UIAlertViewDelegate
     };
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.destinationViewController isKindOfClass:[CustomersViewController class]]) {
+        CustomersViewController* vc = (CustomersViewController*)segue.destinationViewController;
+        [vc setOnSelectCustomer:^(Customer *cust) {
+            customer = cust;
+            [self.companyButton setTitle:[self titleForCustomer:customer] forState:UIControlStateNormal];
+            self.detailsButton.enabled = customer != nil;
+        }];
+        vc.chooser = YES;
+    } else if ([segue.destinationViewController isKindOfClass:[OpportunitesByContactViewController class]]) {
+        OpportunitesByContactViewController *vc = (OpportunitesByContactViewController*)segue.destinationViewController;
+        vc.navigationItem.rightBarButtonItem.enabled = NO;
+        vc.filteringContact = self.currentContact;
+    } else if([segue.identifier isEqualToString:@"presentMyCustomer"]){
+        CustomerDetailsViewController* vc = (CustomerDetailsViewController*)((UINavigationController*)segue.destinationViewController).topViewController;
+        vc.currentCustomer = customer;
+    }
+}
+
+#pragma mark - Fields Validation
+
 - (void)isAllRequiredFieldsValid:(ValidationBlock)result {
     if (![self.mailField.text isEqualToString:@""] && customer && ![self.nameField.text isEqualToString:@""])
         result(YES, @"");
@@ -189,6 +242,8 @@ UIAlertViewDelegate
         result(NO, msg);
     }
 }
+
+#pragma mark - helpers methods
 
 - (void)updateInfoForContact:(Contact*)ct{
     ct.name = self.nameField.text;
@@ -225,29 +280,10 @@ UIAlertViewDelegate
     return [UIImage imageWithData:attach.content];
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.destinationViewController isKindOfClass:[CustomersViewController class]]) {
-        CustomersViewController* vc = (CustomersViewController*)segue.destinationViewController;
-        [vc setOnSelectCustomer:^(Customer *cust) {
-            customer = cust;
-            [self.companyButton setTitle:[self customerTitle] forState:UIControlStateNormal];
-            self.detailsButton.enabled = customer != nil;
-        }];
-        vc.chooser = YES;
-    } else if ([segue.destinationViewController isKindOfClass:[OpportunitesByContactViewController class]]) {
-        OpportunitesByContactViewController *vc = (OpportunitesByContactViewController*)segue.destinationViewController;
-        vc.navigationItem.rightBarButtonItem.enabled = NO;
-        vc.filteringContact = self.currentContact;
-    } else if([segue.identifier isEqualToString:@"presentMyCustomer"]){
-        CustomerDetailsViewController* vc = (CustomerDetailsViewController*)((UINavigationController*)segue.destinationViewController).topViewController;
-        vc.currentCustomer = customer;
-    }
-}
-
-- (NSString*) customerTitle
+- (NSString*) titleForCustomer:(Customer*)cstm
 {
-    if (customer)
-        return [NSString stringWithFormat:@"Company: %@", customer.companyName];
+    if (cstm)
+        return [NSString stringWithFormat:@"Company: %@", cstm.companyName];
 
     return @"Select Company";
 }

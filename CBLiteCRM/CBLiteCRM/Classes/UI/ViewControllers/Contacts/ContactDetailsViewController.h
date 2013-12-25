@@ -7,8 +7,10 @@
 //
 
 #import "TextFieldsViewController.h"
+#import "UIViewController+ReadOnlyOrWriteMode.h"
+
 @class Contact;
-@interface ContactDetailsViewController : TextFieldsViewController
+@interface ContactDetailsViewController : TextFieldsViewController<EditableViewControllers>
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
 @property (weak, nonatomic) IBOutlet UIButton *companyButton;
 @property (weak, nonatomic) IBOutlet UIButton *detailsButton;
@@ -18,7 +20,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *addressField;
 @property (weak, nonatomic) IBOutlet UIImageView *photoView;
 @property (weak, nonatomic) IBOutlet UIView *contentView;
-@property (weak, nonatomic) IBOutlet UIButton *deleteButton;
 @property (weak, nonatomic) IBOutlet UIView *buttonsView;
 
 @property (strong, nonatomic) Contact *currentContact;

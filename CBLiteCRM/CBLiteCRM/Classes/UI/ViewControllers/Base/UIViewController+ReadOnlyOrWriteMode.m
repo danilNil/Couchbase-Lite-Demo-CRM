@@ -9,16 +9,13 @@
 #import "UIViewController+ReadOnlyOrWriteMode.h"
 
 @implementation UIViewController (ReadOnlyOrWriteMode)
-@dynamic deleteButton, textFields, buttons;
+@dynamic deleteButton, textFields;
 
 - (void)setEditMode:(BOOL)editMode{
     [self changeRightButtonTitleForMode:editMode];
     self.deleteButton.hidden = !editMode;
     for (UITextField* tf in self.textFields) {
         tf.enabled = editMode;
-    }
-    for (UIButton* bt in self.buttons) {
-        bt.enabled = NO;
     }
 }
 

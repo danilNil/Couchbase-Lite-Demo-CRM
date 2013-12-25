@@ -373,7 +373,7 @@
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                             </view>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="center" minimumFontSize="17" background="input_field.png" id="KGO-lG-Wez">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="center" minimumFontSize="17" background="input_field.png" disabledBackground="input_field_disabled.png" id="KGO-lG-Wez">
                                                 <rect key="frame" x="15" y="191" width="290" height="37"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -382,7 +382,7 @@
                                                     <outlet property="delegate" destination="Xt6-34-7OD" id="sfh-Oe-LcL"/>
                                                 </connections>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Position" textAlignment="center" minimumFontSize="17" background="input_field.png" id="I8x-kn-3Kq">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Position" textAlignment="center" minimumFontSize="17" background="input_field.png" disabledBackground="input_field_disabled.png" id="I8x-kn-3Kq">
                                                 <rect key="frame" x="15" y="232" width="290" height="37"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="14"/>
@@ -391,7 +391,7 @@
                                                     <outlet property="delegate" destination="Xt6-34-7OD" id="Xfn-mD-4yV"/>
                                                 </connections>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone" textAlignment="center" minimumFontSize="17" background="input_field.png" id="wdg-R9-28s">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone" textAlignment="center" minimumFontSize="17" background="input_field.png" disabledBackground="input_field_disabled.png" id="wdg-R9-28s">
                                                 <rect key="frame" x="15" y="273" width="290" height="37"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="14"/>
@@ -400,7 +400,7 @@
                                                     <outlet property="delegate" destination="Xt6-34-7OD" id="XEi-bi-PYH"/>
                                                 </connections>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="center" minimumFontSize="17" background="input_field.png" id="5mM-HQ-Oru">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="center" minimumFontSize="17" background="input_field.png" disabledBackground="input_field_disabled.png" id="5mM-HQ-Oru">
                                                 <rect key="frame" x="15" y="150" width="290" height="37"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="14"/>
@@ -409,7 +409,7 @@
                                                     <outlet property="delegate" destination="Xt6-34-7OD" id="yNd-N1-uyH"/>
                                                 </connections>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Address" textAlignment="center" minimumFontSize="17" background="input_field.png" id="rMJ-AY-OVw">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Address" textAlignment="center" minimumFontSize="17" background="input_field.png" disabledBackground="input_field_disabled.png" id="rMJ-AY-OVw">
                                                 <rect key="frame" x="15" y="314" width="290" height="37"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="14"/>
@@ -510,6 +510,11 @@
                         <outlet property="phoneField" destination="wdg-R9-28s" id="N6u-HG-cQN"/>
                         <outlet property="photoView" destination="JdH-AX-qt3" id="8aJ-6T-DTM"/>
                         <outlet property="positionField" destination="I8x-kn-3Kq" id="ld2-Eo-jHC"/>
+                        <outletCollection property="textFields" destination="5mM-HQ-Oru" id="PqE-RZ-QCp"/>
+                        <outletCollection property="textFields" destination="KGO-lG-Wez" id="uUx-lM-noU"/>
+                        <outletCollection property="textFields" destination="I8x-kn-3Kq" id="wSu-4g-jFY"/>
+                        <outletCollection property="textFields" destination="wdg-R9-28s" id="Ab6-aW-iwP"/>
+                        <outletCollection property="textFields" destination="rMJ-AY-OVw" id="8IU-H2-f3A"/>
                         <segue destination="zWg-jE-NQp" kind="push" identifier="presentOpportunitiesForContact" id="33B-kY-8zX"/>
                         <segue destination="DoK-bY-Hq0" kind="modal" identifier="presentMyCustomer" id="LHW-MO-w8p"/>
                     </connections>
@@ -1116,10 +1121,10 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="I7d-Ci-gP9"/>
-        <segue reference="sb8-08-2KH"/>
-        <segue reference="wax-He-xAT"/>
+        <segue reference="LHW-MO-w8p"/>
         <segue reference="dLH-wr-6PA"/>
-        <segue reference="2JB-Zq-Ixq"/>
+        <segue reference="yjT-5x-rcy"/>
+        <segue reference="wax-He-xAT"/>
         <segue reference="3kk-cj-LW4"/>
     </inferredMetricsTieBreakers>
 </document>
