@@ -36,6 +36,7 @@
 @end
 
 @implementation OpportunityDetailesViewController
+@synthesize deleteButton, buttons, textFields;
 
 - (void)viewDidLoad
 {
@@ -49,6 +50,13 @@
     [self loadInfoForOpportunity:self.currentOpport];
     self.revenueField.inputAccessoryView = [self toolBar];
     self.winField.inputAccessoryView = [self toolBar];
+    BOOL editMode;
+    if(self.currentOpport)
+        editMode = NO;
+    else
+        editMode = YES;
+    [self setEditMode:editMode];
+
 }
 
 - (void)setStageFieldInputView
@@ -136,26 +144,28 @@
 
 - (IBAction)saveItem:(id)sender
 {
-    if ([self saveItem])
-        [self dismissViewControllerAnimated:YES completion:NULL];
+    if([self.navigationItem.rightBarButtonItem.title isEqualToString:kSaveTitle]){
+        if ([self saveItem])
+            [self dismissViewControllerAnimated:YES completion:NULL];
+    }else if([self.navigationItem.rightBarButtonItem.title isEqualToString:kEditTitle])
+        [self setEditMode:YES];
 }
 
 - (BOOL)saveItem {
+    BOOL saved = NO;
     if([self validateAllFields]){
-        Opportunity* newOpportunity = self.currentOpport;
-        if(!newOpportunity) {
-            newOpportunity = [[DataStore sharedInstance].opportunitiesStore createOpportunityWithTitleOrReturnExist:self.nameField.text];
-            self.currentOpport = newOpportunity;
+        if(!self.currentOpport) {
+            self.currentOpport = [[DataStore sharedInstance].opportunitiesStore createOpportunityWithTitle:self.nameField.text];
         }
-        [self updateInfoForOpportunity:newOpportunity];
+        [self updateInfoForOpportunity:self.currentOpport];
         NSError* error;
-        if(![newOpportunity save:&error]) {
+        if([self.currentOpport save:&error]) {
+            saved = YES;
+        }else{
             NSLog(@"error in save opportunity: %@", error);
-            return NO;
         }
-        return YES;
     }
-    return NO;
+    return saved;
 }
 
 - (void)loadInfoForOpportunity:(Opportunity*)opp {

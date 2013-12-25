@@ -12,7 +12,7 @@
 
 @property (strong, nonatomic) IBOutletCollection(UITextField) NSArray *textFields;
 @property (weak, nonatomic) IBOutlet UIButton *deleteButton;
-
+@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *buttons;
 
 - (void)setEditMode:(BOOL)editMode;
 - (void)changeRightButtonTitleForMode:(BOOL)editMode;

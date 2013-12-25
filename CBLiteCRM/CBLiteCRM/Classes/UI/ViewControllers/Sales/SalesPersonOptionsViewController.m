@@ -18,7 +18,7 @@
 @end
 
 @implementation SalesPersonOptionsViewController
-@synthesize needLogout, textFields, deleteButton;
+@synthesize needLogout, textFields, deleteButton, buttons;
 
 - (void)viewDidLoad
 {

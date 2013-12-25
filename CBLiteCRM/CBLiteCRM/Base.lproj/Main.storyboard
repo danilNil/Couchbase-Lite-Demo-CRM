@@ -575,7 +575,7 @@
                                                     <outlet property="delegate" destination="tN3-ye-q8X" id="eE2-QD-mBa"/>
                                                 </connections>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Stage" textAlignment="center" minimumFontSize="17" background="input_field.png" id="8Hz-8A-88H">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Stage" textAlignment="center" minimumFontSize="17" background="input_field.png" disabledBackground="input_field_disabled.png" id="8Hz-8A-88H">
                                                 <rect key="frame" x="14" y="52" width="290" height="37"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -584,7 +584,7 @@
                                                     <outlet property="delegate" destination="tN3-ye-q8X" id="yBe-km-a26"/>
                                                 </connections>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Creation Date" textAlignment="center" minimumFontSize="17" background="input_field.png" id="3pF-gR-KXa">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Creation Date" textAlignment="center" minimumFontSize="17" background="input_field.png" disabledBackground="input_field_disabled.png" id="3pF-gR-KXa">
                                                 <rect key="frame" x="14" y="97" width="290" height="37"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -593,7 +593,7 @@
                                                     <outlet property="delegate" destination="tN3-ye-q8X" id="ig2-3c-Fgq"/>
                                                 </connections>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Revenue Size" textAlignment="center" minimumFontSize="17" background="input_field.png" id="q54-bn-r8A">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Revenue Size" textAlignment="center" minimumFontSize="17" background="input_field.png" disabledBackground="input_field_disabled.png" id="q54-bn-r8A">
                                                 <rect key="frame" x="15" y="142" width="290" height="37"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -602,7 +602,7 @@
                                                     <outlet property="delegate" destination="tN3-ye-q8X" id="OCw-qf-sgW"/>
                                                 </connections>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Win Probability" textAlignment="center" minimumFontSize="17" background="input_field.png" id="8xy-VZ-6oJ">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Win Probability" textAlignment="center" minimumFontSize="17" background="input_field.png" disabledBackground="input_field_disabled.png" id="8xy-VZ-6oJ">
                                                 <rect key="frame" x="15" y="188" width="290" height="37"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -703,10 +703,16 @@
                         <outlet property="customerButton" destination="6KV-qq-ehq" id="f4o-uZ-MdP"/>
                         <outlet property="customerDetailsButton" destination="ZDn-8Q-AID" id="gtN-kL-8Xq"/>
                         <outlet property="dateField" destination="3pF-gR-KXa" id="yJf-nx-lj4"/>
+                        <outlet property="deleteButton" destination="KeV-Ko-jfF" id="dl2-fl-gll"/>
                         <outlet property="nameField" destination="eUD-c5-Dk5" id="lxP-YS-YBC"/>
                         <outlet property="revenueField" destination="q54-bn-r8A" id="ofH-l6-8lo"/>
                         <outlet property="stageField" destination="8Hz-8A-88H" id="9IC-oA-Dgv"/>
                         <outlet property="winField" destination="8xy-VZ-6oJ" id="DyI-Qp-7us"/>
+                        <outletCollection property="textFields" destination="eUD-c5-Dk5" id="hjd-pn-wuM"/>
+                        <outletCollection property="textFields" destination="8Hz-8A-88H" id="h4i-tY-URF"/>
+                        <outletCollection property="textFields" destination="3pF-gR-KXa" id="v9V-Ky-IOl"/>
+                        <outletCollection property="textFields" destination="q54-bn-r8A" id="rc1-Lf-6jU"/>
+                        <outletCollection property="textFields" destination="8xy-VZ-6oJ" id="8yZ-Uk-kqa"/>
                         <segue destination="DoK-bY-Hq0" kind="modal" identifier="presentMyCustomer" id="sb8-08-2KH"/>
                         <segue destination="1hK-A1-uop" kind="push" identifier="presentContactsForOpportunity" id="eya-Yd-xZB"/>
                     </connections>
@@ -1109,11 +1115,11 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="I7d-Ci-gP9"/>
+        <segue reference="sb8-08-2KH"/>
         <segue reference="wax-He-xAT"/>
         <segue reference="dLH-wr-6PA"/>
-        <segue reference="I7d-Ci-gP9"/>
-        <segue reference="LHW-MO-w8p"/>
+        <segue reference="2JB-Zq-Ixq"/>
         <segue reference="3kk-cj-LW4"/>
-        <segue reference="yjT-5x-rcy"/>
     </inferredMetricsTieBreakers>
 </document>

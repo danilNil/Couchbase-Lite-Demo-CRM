@@ -7,9 +7,10 @@
 //
 
 #import "TextFieldsViewController.h"
+#import "UIViewController+ReadOnlyOrWriteMode.h"
 
 @class Opportunity;
-@interface OpportunityDetailesViewController : TextFieldsViewController
+@interface OpportunityDetailesViewController : TextFieldsViewController<EditableViewControllers>
 @property (weak, nonatomic) IBOutlet UIView *contentView;
 @property(nonatomic, strong) Opportunity* currentOpport;
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
