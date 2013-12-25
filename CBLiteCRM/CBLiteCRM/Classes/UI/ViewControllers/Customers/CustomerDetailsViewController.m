@@ -26,10 +26,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.automaticallyAdjustsScrollViewInsets = NO;
-    [self.baseScrollView setContentSize:self.contentView.frame.size];
+    [self setupScrollView];
     [self loadInfoForCustomer:self.currentCustomer];
     [self setupMode];
+}
+
+- (void)setupScrollView
+{
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    [self.baseScrollView setContentSize:self.contentView.frame.size];
 }
 
 - (void)setupMode
@@ -55,6 +60,8 @@
         self.navigationItem.title = @"Add New Customer";
     }
 }
+
+#pragma mark - Actions
 
 - (IBAction)back:(id)sender {
     self.currentCustomer = nil;
@@ -109,6 +116,8 @@
         vc.navigationItem.rightBarButtonItem = nil;
     }
 }
+
+#pragma mark -
 
 - (void)updateInfoForCustomer:(Customer*)cm
 {
