@@ -15,12 +15,15 @@
 #import "DataStore.h"
 #import "ContactsStore.h"
 #import "Contact.h"
-#import "CBLModel+DeleteHelper.h"
+#import "CBLModelDeleteHelper.h"
 
 @interface ContactsViewController ()
 <
 UIAlertViewDelegate
 >
+{
+    CBLModelDeleteHelper* deleteHelper;
+}
 
 @property(nonatomic, strong) Contact* selectedContact;
 
@@ -33,6 +36,7 @@ UIAlertViewDelegate
     [super viewDidLoad];
     self.modelClass = [Contact class];
     self.firstLevelSearchableProperty = @"email";
+    deleteHelper = [CBLModelDeleteHelper new];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -80,9 +84,9 @@ UIAlertViewDelegate
 
 - (bool)couchTableSource:(CBLUITableSource *)source deleteRow:(CBLQueryRow *)row
 {
-    Contact *ct = [Contact modelForDocument:row.document];
-    ct.deleteAlertBlock = [self createOnDeleteBlock];
-    [ct showDeletionAlert];
+    deleteHelper.item = [Contact modelForDocument:row.document];
+    deleteHelper.deleteAlertBlock = [self createOnDeleteBlock];
+    [deleteHelper showDeletionAlert];
     return NO;
 }
 

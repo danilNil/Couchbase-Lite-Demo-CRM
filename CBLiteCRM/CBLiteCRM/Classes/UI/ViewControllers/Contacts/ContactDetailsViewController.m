@@ -20,7 +20,7 @@
 #import "ContactsStore.h"
 #import "Contact.h"
 #import "Customer.h"
-#import "CBLModel+DeleteHelper.h"
+#import "CBLModelDeleteHelper.h"
 
 #define kContactDetailsViewControllerImageSize 300
 
@@ -37,6 +37,7 @@ UIAlertViewDelegate
     ImagePickerAngel * imagePickerAngel;
     Customer *customer;
     id currentFirstResponder;
+    CBLModelDeleteHelper* deleteHelper;
 }
 
 @end
@@ -51,6 +52,7 @@ UIAlertViewDelegate
     [self setupPhotoView];
     [self loadInfoForContact:self.currentContact];
     [self setupMode];
+    deleteHelper = [CBLModelDeleteHelper new];
 }
 
 - (void)setupMode
@@ -194,8 +196,9 @@ UIAlertViewDelegate
 
 - (IBAction)deleteItem:(id)sender
 {
-    self.currentContact.deleteAlertBlock = [self createOnDeleteBlock];
-    [self.currentContact showDeletionAlert];
+    deleteHelper.item = self.currentContact;
+    deleteHelper.deleteAlertBlock = [self createOnDeleteBlock];
+    [deleteHelper showDeletionAlert];
 }
 
 - (DeleteBlock) createOnDeleteBlock {

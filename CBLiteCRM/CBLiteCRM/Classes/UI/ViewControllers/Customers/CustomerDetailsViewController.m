@@ -14,10 +14,12 @@
 #import "Customer.h"
 #import "DataStore.h"
 #import "CustomersStore.h"
-#import "CBLModel+DeleteHelper.h"
+#import "CBLModelDeleteHelper.h"
 
 @interface CustomerDetailsViewController ()
-
+{
+    CBLModelDeleteHelper* deleteHelper;
+}
 @end
 
 @implementation CustomerDetailsViewController
@@ -29,6 +31,7 @@
     [self setupScrollView];
     [self loadInfoForCustomer:self.currentCustomer];
     [self setupMode];
+    deleteHelper = [CBLModelDeleteHelper new];
 }
 
 - (void)setupScrollView
@@ -92,8 +95,9 @@
 }
 
 - (IBAction)deleteItem:(id)sender {
-    self.currentCustomer.deleteAlertBlock = [self createOnDeleteBlock];
-    [self.currentCustomer showDeletionAlert];
+    deleteHelper.item = self.currentCustomer;
+    deleteHelper.deleteAlertBlock = [self createOnDeleteBlock];
+    [deleteHelper showDeletionAlert];
 }
 
 - (IBAction)opportunities:(id)sender

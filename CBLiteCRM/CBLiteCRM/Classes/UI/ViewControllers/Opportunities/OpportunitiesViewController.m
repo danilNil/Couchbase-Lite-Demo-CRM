@@ -14,13 +14,15 @@
 #import "OpportunitiesStore.h"
 #import "Opportunity.h"
 #import "Customer.h"
-#import "CBLModel+DeleteHelper.h"
+#import "CBLModelDeleteHelper.h"
 
 @interface OpportunitiesViewController ()
 <
 CBLUITableDelegate
 >
-
+{
+    CBLModelDeleteHelper* deleteHelper;
+}
 @property (nonatomic, weak) OpportunitiesStore* store;
 
 @end
@@ -32,6 +34,8 @@ CBLUITableDelegate
     [super viewDidLoad];
     self.modelClass = [Opportunity class];
     self.firstLevelSearchableProperty = @"title";
+    deleteHelper = [CBLModelDeleteHelper new];
+
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -87,11 +91,10 @@ CBLUITableDelegate
 
 - (bool)couchTableSource:(CBLUITableSource *)source deleteRow:(CBLQueryRow *)row
 {
-//    Opportunity *opp = [Opportunity modelForDocument:row.document];
-//    opp.deleteAlertBlock = [self createOnDeleteBlock];
-//    [opp showDeletionAlert];
-    NSError* error;
-    return [[Opportunity modelForDocument:row.document] deleteDocument:&error];
+    deleteHelper.item = [Opportunity modelForDocument:row.document];
+    deleteHelper.deleteAlertBlock = [self createOnDeleteBlock];
+    [deleteHelper showDeletionAlert];
+    return NO;
 }
 
 -(DeleteBlock)createOnDeleteBlock

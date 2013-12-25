@@ -14,12 +14,15 @@
 #import "DataStore.h"
 #import "CustomersStore.h"
 #import "Customer.h"
-#import "CBLModel+DeleteHelper.h"
+#import "CBLModelDeleteHelper.h"
 
 @interface CustomersViewController ()
 <
 CBLUITableDelegate
 >
+{
+    CBLModelDeleteHelper* deleteHelper;
+}
 @property(nonatomic, strong) Customer* selectedCellData;
 @property (nonatomic, weak) CustomersStore* store;
 
@@ -33,6 +36,7 @@ CBLUITableDelegate
     self.modelClass = [Customer class];
     self.firstLevelSearchableProperty = @"companyName";
     self.filteredDataSource.labelProperty = self.firstLevelSearchableProperty;
+    deleteHelper = [CBLModelDeleteHelper new];
 }
 
 - (void) updateQuery
@@ -72,11 +76,10 @@ CBLUITableDelegate
 
 - (bool)couchTableSource:(CBLUITableSource *)source deleteRow:(CBLQueryRow *)row
 {
-//    Customer* customer = [Customer modelForDocument:row.document];
-//    customer.deleteAlertBlock = [self createOnDeleteBlock];
-//    [customer showDeletionAlert];
-    NSError* error;
-    return [[Customer modelForDocument:row.document] deleteDocument:&error];
+    deleteHelper.item = [Customer modelForDocument:row.document];
+    deleteHelper.deleteAlertBlock = [self createOnDeleteBlock];
+    [deleteHelper showDeletionAlert];
+    return NO;
 }
 
 -(DeleteBlock)createOnDeleteBlock

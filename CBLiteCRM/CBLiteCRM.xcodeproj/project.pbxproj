@@ -19,11 +19,11 @@
 		447A2C6A1845D808008786AF /* SalesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 447A2C601845D808008786AF /* SalesViewController.m */; };
 		447A2C6B1845D808008786AF /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 447A2C621845D808008786AF /* WelcomeViewController.m */; };
 		449204CF18445EB30036D3A9 /* CouchbaseLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 449204CE18445EB30036D3A9 /* CouchbaseLite.framework */; };
+		44A20749186A8D4E00A60345 /* CBLModelDeleteHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A20748186A8D4E00A60345 /* CBLModelDeleteHelper.m */; };
 		44B3A6701856C79700CF4BAE /* ContactOpportunityStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 44B3A66F1856C79700CF4BAE /* ContactOpportunityStore.m */; };
 		44B3A6731856DC7F00CF4BAE /* ContactsByOpportunityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44B3A6721856DC7F00CF4BAE /* ContactsByOpportunityViewController.m */; };
 		44B3A6761857132D00CF4BAE /* OpportunitesByContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44B3A6751857132D00CF4BAE /* OpportunitesByContactViewController.m */; };
 		44D6DAF7184718920097262E /* CustomerDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44D6DAF6184718920097262E /* CustomerDetailsViewController.m */; };
-		44F81D1E18696C6E00B3212A /* CBLModel+DeleteHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 44F81D1D18696C6E00B3212A /* CBLModel+DeleteHelper.m */; };
 		493498C8185A20B800ADA646 /* input_field_disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 493498C6185A20B800ADA646 /* input_field_disabled.png */; };
 		493498C9185A20B800ADA646 /* input_field_disabled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 493498C7185A20B800ADA646 /* input_field_disabled@2x.png */; };
 		493498CC185A3EC200ADA646 /* UIAlertView+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 493498CB185A3EC200ADA646 /* UIAlertView+Helper.m */; };
@@ -125,6 +125,8 @@
 		447A2C611845D808008786AF /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
 		447A2C621845D808008786AF /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
 		449204CE18445EB30036D3A9 /* CouchbaseLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CouchbaseLite.framework; sourceTree = "<group>"; };
+		44A20747186A8D4E00A60345 /* CBLModelDeleteHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBLModelDeleteHelper.h; sourceTree = "<group>"; };
+		44A20748186A8D4E00A60345 /* CBLModelDeleteHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBLModelDeleteHelper.m; sourceTree = "<group>"; };
 		44B3A66E1856C79700CF4BAE /* ContactOpportunityStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContactOpportunityStore.h; path = ../RelationalModels/ContactOpportunityStore.h; sourceTree = "<group>"; };
 		44B3A66F1856C79700CF4BAE /* ContactOpportunityStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContactOpportunityStore.m; path = ../RelationalModels/ContactOpportunityStore.m; sourceTree = "<group>"; };
 		44B3A6711856DC7F00CF4BAE /* ContactsByOpportunityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactsByOpportunityViewController.h; sourceTree = "<group>"; };
@@ -133,8 +135,6 @@
 		44B3A6751857132D00CF4BAE /* OpportunitesByContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpportunitesByContactViewController.m; sourceTree = "<group>"; };
 		44D6DAF5184718920097262E /* CustomerDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerDetailsViewController.h; sourceTree = "<group>"; };
 		44D6DAF6184718920097262E /* CustomerDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerDetailsViewController.m; sourceTree = "<group>"; };
-		44F81D1C18696C6E00B3212A /* CBLModel+DeleteHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CBLModel+DeleteHelper.h"; sourceTree = "<group>"; };
-		44F81D1D18696C6E00B3212A /* CBLModel+DeleteHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CBLModel+DeleteHelper.m"; sourceTree = "<group>"; };
 		493498C6185A20B800ADA646 /* input_field_disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = input_field_disabled.png; sourceTree = "<group>"; };
 		493498C7185A20B800ADA646 /* input_field_disabled@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "input_field_disabled@2x.png"; sourceTree = "<group>"; };
 		493498CA185A3EC200ADA646 /* UIAlertView+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Helper.h"; sourceTree = "<group>"; };
@@ -582,8 +582,6 @@
 				831FFD461844702E00C7CB22 /* Opportunity.m */,
 				830D51AA1848570900044A19 /* BaseModel.h */,
 				830D51AB1848570900044A19 /* BaseModel.m */,
-				44F81D1C18696C6E00B3212A /* CBLModel+DeleteHelper.h */,
-				44F81D1D18696C6E00B3212A /* CBLModel+DeleteHelper.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -647,6 +645,8 @@
 				49C103D91859EB0F00D58426 /* RoundedImageView.m */,
 				493498CA185A3EC200ADA646 /* UIAlertView+Helper.h */,
 				493498CB185A3EC200ADA646 /* UIAlertView+Helper.m */,
+				44A20747186A8D4E00A60345 /* CBLModelDeleteHelper.h */,
+				44A20748186A8D4E00A60345 /* CBLModelDeleteHelper.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -778,6 +778,7 @@
 			files = (
 				49C103DA1859EB0F00D58426 /* RoundedImageView.m in Sources */,
 				832845341851882F008FBFCD /* UIView+Activity.m in Sources */,
+				44A20749186A8D4E00A60345 /* CBLModelDeleteHelper.m in Sources */,
 				831C09AA1869A8E7002CB53A /* SalesPersonCell.m in Sources */,
 				447A2C641845D808008786AF /* ContactDetailsViewController.m in Sources */,
 				831C09AC1869A8E7002CB53A /* DictPickerView.m in Sources */,
@@ -799,7 +800,6 @@
 				447A2C6B1845D808008786AF /* WelcomeViewController.m in Sources */,
 				83CEAAE31846ECE10002D040 /* ActionSheet.m in Sources */,
 				83CEAADD1846EC240002D040 /* ImagePickerAngel.m in Sources */,
-				44F81D1E18696C6E00B3212A /* CBLModel+DeleteHelper.m in Sources */,
 				49EB988618638CA6003A49F3 /* UIImage+Tools.m in Sources */,
 				831FFCE01844364900C7CB22 /* main.m in Sources */,
 				831FFD341844542F00C7CB22 /* DataStore.m in Sources */,

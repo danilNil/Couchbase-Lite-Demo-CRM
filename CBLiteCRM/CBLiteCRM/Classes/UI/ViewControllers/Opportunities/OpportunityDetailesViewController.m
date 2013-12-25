@@ -22,7 +22,7 @@
 #import "DateHelper.h"
 #import "ContactOpportunityStore.h"
 #import "ContactOpportunity.h"
-#import "CBLModel+DeleteHelper.h"
+#import "CBLModelDeleteHelper.h"
 
 @interface OpportunityDetailesViewController ()
 <DictPickerViewDelegate, UITextFieldDelegate>
@@ -32,6 +32,7 @@
     Customer *customer;
     UITextField *currentFirstResponder;
     DictPickerView *winProbabilityPicker;
+    CBLModelDeleteHelper* deleteHelper;
 }
 @end
 
@@ -45,7 +46,7 @@
     [self setupPickers];
     [self loadInfoForOpportunity:self.currentOpport];
     [self setupMode];
-
+    deleteHelper = [CBLModelDeleteHelper new];
 }
 
 - (void)setupScrollView
@@ -209,8 +210,9 @@
 
 - (IBAction)deleteItem:(id)sender
 {
-    self.currentOpport.deleteAlertBlock = [self createOnDeleteBlock];
-    [self.currentOpport showDeletionAlert];
+    deleteHelper.item = self.currentOpport;
+    deleteHelper.deleteAlertBlock = [self createOnDeleteBlock];
+    [deleteHelper showDeletionAlert];
 }
 
 - (IBAction)showContacts:(id)sender
