@@ -22,13 +22,15 @@
 
 - (void)viewDidLoad
 {
+    [super viewDidLoad];
     self.mailField.enabled = NO;
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
     [self loadUserData];
     [self blockItemForEditing:[self isMe:self.salesPerson]];
+    [self setupMode];
+}
+
+- (void)setupMode
+{
     BOOL editMode;
     if(self.salesPerson)
         editMode = NO;
@@ -63,6 +65,16 @@
         [self setEditMode:YES];
 }
 
+- (IBAction)delete:(id)sender
+{
+    NSError *error;
+    if (![self.salesPerson deleteDocument:&error])
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil] show];
+    else
+        [self logout];
+    
+}
+
 - (BOOL)isMe:(SalesPerson*)sp{
     BOOL isMe;
     if(!sp)
@@ -81,16 +93,6 @@
         [[[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil] show];
     else
         [self.navigationController popViewControllerAnimated:YES];
-}
-
-- (IBAction)delete:(id)sender
-{
-    NSError *error;
-    if (![self.salesPerson deleteDocument:&error])
-        [[[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil] show];
-    else
-        [self logout];
-
 }
 
 - (void)logout{
