@@ -226,6 +226,11 @@
         vc.chooser = YES;
         [vc setOnSelectCustomer:^(Customer * newCustomer) {
             [self setCustomer:newCustomer];
+            if (![self isEditMode]) {
+                self.currentOpport.customer = newCustomer;
+                NSError *error;
+                [self.currentOpport save:&error];
+            }
         }];
     }else if([segue.identifier isEqualToString:@"presentMyCustomer"]){
         CustomerDetailsViewController* vc = (CustomerDetailsViewController*)((UINavigationController*)segue.destinationViewController).topViewController;
