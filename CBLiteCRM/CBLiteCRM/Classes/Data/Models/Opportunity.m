@@ -25,7 +25,7 @@
     NSParameterAssert(title);
     self = [super initInDatabase:database];
     if(self){
-        [self setValue: title ofProperty: @"title"];
+        self.title = title;
     }
     
     NSError* error;

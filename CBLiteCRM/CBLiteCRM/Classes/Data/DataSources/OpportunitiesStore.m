@@ -47,15 +47,15 @@
     return [_opportView createQuery];
 }
 
--(Opportunity *)createOpportunityWithTitleOrReturnExist:(NSString *)title
+-(Opportunity *)createOpportunityWithTitle:(NSString *)title
 {
-    Opportunity* opp = [self opportunityWithTitle:title];
+    Opportunity* opp = [self newOpporunity];
     if(!opp)
         opp = [[Opportunity alloc] initInDatabase:self.database withTitle:title];
     return opp;
 }
 
-- (Opportunity*) opporunityWithTitle: (NSString*)title{
+- (Opportunity*) newOpporunity{
     CBLDocument* doc = [self.database createDocument];
     if (!doc.currentRevisionID)
         return nil;

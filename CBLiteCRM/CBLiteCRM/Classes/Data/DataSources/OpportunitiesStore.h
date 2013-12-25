@@ -14,6 +14,6 @@
 
 - (CBLQuery*) queryOpportunities;
 
-- (Opportunity*) createOpportunityWithTitleOrReturnExist: (NSString*)title;
+- (Opportunity*) createOpportunityWithTitle: (NSString*)title;
 
 @end
