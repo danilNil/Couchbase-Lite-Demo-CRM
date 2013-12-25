@@ -13,6 +13,7 @@
 @interface SalePersonsStore()
 {
     CBLView* salesPersonsView;
+    CBLView* approvedSalesPersonsView;
 }
 
 @end
@@ -43,6 +44,14 @@
                 emit(doc[@"email"], doc[@"email"]);
         }
     }) version: @"1"];
+
+    approvedSalesPersonsView = [self.database viewNamed:@"approvedSalesPersons"];
+    [approvedSalesPersonsView setMapBlock: MAPBLOCK({
+        if ([doc[@"type"] isEqualToString: kSalesPersonDocType]) {
+            if (doc[@"approved"])
+                emit(doc[@"approved"], doc[@"approved"]);
+        }
+    }) version: @"2"];
 }
 
 //TODO: need to refactor. for more clearly logic of login adn logout. we need to init this class with database after we already logged in so username and current user should be already created and provided fron outside
@@ -101,6 +110,20 @@
 
 - (CBLQuery*) allUsersQuery {
     return [salesPersonsView createQuery];
+}
+
+- (CBLQuery*) approvedUsersQuery
+{
+    CBLQuery* q = [approvedSalesPersonsView createQuery];
+    q.keys = @[@YES];
+    return q;
+}
+
+- (CBLQuery*) nonAdminNonApprovedUsersQuery:(NSString*)userEmail
+{
+    CBLQuery* q = [salesPersonsView createQuery];
+    q.keys = @[userEmail];
+    return q;
 }
 
 - (CBLQuery*) filteredQuery {

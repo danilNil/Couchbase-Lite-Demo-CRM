@@ -19,6 +19,9 @@
 /** Gets a UserProfile for a user given their username. */
 - (SalesPerson*) profileWithUsername: (NSString*)username;
 @property (readonly) CBLQuery* allUsersQuery;
-
 @property (readonly) NSArray* allOtherUsers;    /**< UserProfile objects of other users */
+@property (readonly) CBLQuery* approvedUsersQuery;
+
+- (CBLQuery*) nonAdminNonApprovedUsersQuery:(NSString*)userEmail;
+
 @end

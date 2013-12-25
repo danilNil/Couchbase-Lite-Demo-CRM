@@ -19,6 +19,7 @@
 
 @interface SalesViewController ()
 @property(nonatomic, strong) SalesPerson* selectedCellData;
+@property(nonatomic, weak) SalePersonsStore* store;
 @end
 
 @implementation SalesViewController
@@ -32,7 +33,14 @@
 - (void) updateQuery
 {
     self.store = [DataStore sharedInstance].salePersonsStore;
-    self.dataSource.query = [[(SalePersonsStore*)self.store allUsersQuery] asLiveQuery];
+    SalesPerson *user = [[DataStore sharedInstance] salePersonsStore].user;
+    if (user.approved && !user.isAdmin) {
+        self.dataSource.query = [[self.store approvedUsersQuery] asLiveQuery];
+    } else if (!user.approved && !user.isAdmin) {
+        self.dataSource.query = [[self.store nonAdminNonApprovedUsersQuery:user.email] asLiveQuery];
+    } else if (user.isAdmin){
+        self.dataSource.query = [[self.store allUsersQuery] asLiveQuery];
+    }
 }
 
 -(void)viewWillAppear:(BOOL)animated
