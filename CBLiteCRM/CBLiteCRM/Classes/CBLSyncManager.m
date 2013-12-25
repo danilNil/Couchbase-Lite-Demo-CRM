@@ -52,11 +52,6 @@
     }
 }
 
-//- (void)useFacebookAppID: (NSString *)myAppID {
-//    _authenticator = [[CBLFacebookAuthenticator alloc]initWithAppID: myAppID];
-//}
-
-
 - (void)beforeFirstSync: (void (^)(NSString *userID, NSDictionary *userData, NSError **outError))block {
     beforeSyncBlocks = [beforeSyncBlocks arrayByAddingObject:block];
 }
@@ -98,18 +93,8 @@
 }
 
 - (void) launchSync {
-    NSLog(@"launch Sync");
-    
     [self defineSync];
-    
-    
     [self startSync];
-    
-    //    void (^onSyncStartedBlock)();
-    //    for (onSyncStartedBlock in onSyncStartedBlocks) {
-    //        onSyncStartedBlock();
-    //    }
-    
 }
 
 - (void)defineSync
@@ -177,10 +162,6 @@
         _error = error;
         NSLog(@"SYNCMGR: active=%d; status=%d; %u/%u; %@",
               active, status, completed, total, error.localizedDescription); //FIX: temporary logging
-        //        [[NSNotificationCenter defaultCenter]
-        //         postNotificationName: SyncManagerStateChangedNotification
-        //         object: self];
-        
     }
 }
 
