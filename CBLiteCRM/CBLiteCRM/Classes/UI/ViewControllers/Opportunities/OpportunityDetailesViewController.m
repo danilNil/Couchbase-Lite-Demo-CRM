@@ -226,7 +226,7 @@
         vc.chooser = YES;
         [vc setOnSelectCustomer:^(Customer * newCustomer) {
             [self setCustomer:newCustomer];
-            if (![self isEditMode]) {
+            if (self.currentOpport) {
                 self.currentOpport.customer = newCustomer;
                 NSError *error;
                 [self.currentOpport save:&error];

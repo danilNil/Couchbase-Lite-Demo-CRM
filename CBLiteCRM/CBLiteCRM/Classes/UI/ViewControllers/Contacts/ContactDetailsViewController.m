@@ -215,7 +215,7 @@ UIAlertViewDelegate
         CustomersViewController* vc = (CustomersViewController*)segue.destinationViewController;
         [vc setOnSelectCustomer:^(Customer *cust) {
             customer = cust;
-            if (![self isEditMode]) {
+            if (self.currentContact) {
                 self.currentContact.customer = cust;
                 NSError *error;
                 [self.currentContact save:&error];
