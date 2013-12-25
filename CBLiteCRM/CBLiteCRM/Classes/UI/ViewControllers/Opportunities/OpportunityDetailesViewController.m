@@ -41,23 +41,71 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self setupScrollView];
+    [self setupPickers];
+    [self loadInfoForOpportunity:self.currentOpport];
+    [self setupMode];
+
+}
+
+- (void)setupScrollView
+{
     self.automaticallyAdjustsScrollViewInsets = NO;
+    [self.baseScrollView setContentSize:self.contentView.frame.size];
+}
+
+- (void)setupPickers
+{
     [self setupStagePicker];
     [self setupWinProbabilityPicker];
     [self setStageFieldInputView];
-
-    [self.baseScrollView setContentSize:self.contentView.frame.size];
-    [self loadInfoForOpportunity:self.currentOpport];
     self.revenueField.inputAccessoryView = [self toolBar];
     self.winField.inputAccessoryView = [self toolBar];
+    
+}
+
+- (void)setupMode
+{
     BOOL editMode;
     if(self.currentOpport)
         editMode = NO;
     else
         editMode = YES;
     [self setEditMode:editMode];
-
 }
+
+- (void)loadInfoForOpportunity:(Opportunity*)opp {
+    self.buttonsView.hidden = !opp;
+    if (opp) {
+        customer = self.currentOpport.customer;
+        self.nameField.text = opp.title;
+        if (opp.salesStage) {
+            self.stageField.text = opp.salesStage;
+            ((DictPickerView*)self.stageField.inputView).selectedItemName = opp.salesStage;
+        } else {
+            self.stageField.text =@"New";
+        }
+        if (opp.creationDate) {
+            self.dateField.text = [self stringFromDate:opp.creationDate];
+            creationDatePicker.date = opp.creationDate;
+        }
+        if([opp getValueOfProperty:@"revenueSize"]) {
+            if(opp.revenueSize)
+                self.revenueField.text = [NSString stringWithFormat:@"%lli",opp.revenueSize];
+        }
+        if([opp getValueOfProperty:@"winProbability"]) {
+            if(opp.winProbability) {
+                self.winField.text = [NSString stringWithFormat:@"%.0f\%%", opp.winProbability * 100];
+                winProbabilityPicker.selectedItemName = [NSString stringWithFormat:@"%.0f\%%", opp.winProbability * 100];
+            }
+        }
+        [self setCustomer:opp.customer];
+    }else{
+        self.stageField.text =@"New";
+    }
+}
+
+#pragma mark - pickers
 
 - (void)setStageFieldInputView
 {
@@ -69,16 +117,124 @@
     [self.dateField setInputAccessoryView:[self toolBar]];
 }
 
-- (NSString*)stringFromDate:(NSDate*)date
+- (void)dateFieldChange
 {
-    NSString *dateString = [[DateHelper preparedOpportDateFormatter] stringFromDate:date];
-    return dateString;
+    self.dateField.text = [NSString stringWithFormat:@"%@",
+                           [[DateHelper preparedOpportDateFormatter] stringFromDate:creationDatePicker.date]];
 }
+
+- (void)setupStagePicker
+{
+    stagePicker = [DictPickerView new];
+    stagePicker.itemNames = @[@"New", @"In Progress", @"Finished"];
+    stagePicker.pickerDelegate = self;
+    [stagePicker setSelectedItemName:stagePicker.itemNames.firstObject];
+    self.stageField.inputView = stagePicker;
+    [self.stageField setInputAccessoryView:[self toolBar]];
+}
+
+- (void)setupWinProbabilityPicker
+{
+    winProbabilityPicker = [DictPickerView new];
+    NSMutableArray *values = [NSMutableArray new];
+    for (NSUInteger i = 0; i <= 100; i++) {
+        [values addObject:[NSString stringWithFormat:@"%u\%%", i]];
+    }
+    winProbabilityPicker.itemNames = values;
+    winProbabilityPicker.pickerDelegate = self;
+    [winProbabilityPicker setSelectedItemName:stagePicker.itemNames.firstObject];
+    self.winField.inputView = winProbabilityPicker;
+    [self.winField setInputAccessoryView:[self toolBar]];
+}
+
+- (void)itemPicker:(id)picker didSelectItemWithName:(NSString *)name
+{
+    if(picker == stagePicker)
+        self.stageField.text = name;
+    else if (picker == winProbabilityPicker)
+        self.winField.text = name;
+}
+
+- (UIToolbar*) toolBar
+{
+    UIToolbar *toolbar = [UIToolbar new];
+    
+    UIBarButtonItem *flex = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemFlexibleSpace
+                                                                          target: self
+                                                                          action: nil];
+    
+    UIBarButtonItem *done = [[UIBarButtonItem alloc] initWithTitle: NSLocalizedString(@"Done", nil)
+                                                             style: UIBarButtonItemStyleBordered
+                                                            target: self
+                                                            action: @selector(done)];
+    [toolbar setItems: @[flex, done]];
+    [toolbar sizeToFit];
+    
+    return toolbar;
+}
+
+- (void)done
+{
+    if ([self.stageField isFirstResponder]) {
+        self.stageField.text = stagePicker.selectedItemName;
+    } else if ([self.dateField isFirstResponder]) {
+        self.dateField.text = [self stringFromDate:creationDatePicker.date];
+    } else if ([self.winField isFirstResponder]) {
+        self.winField.text = winProbabilityPicker.selectedItemName;
+    }
+    [currentFirstResponder resignFirstResponder];
+}
+
+
+#pragma mark - Actions
 
 - (IBAction)back:(id)sender {
     self.currentOpport = nil;
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
+
+- (IBAction)saveItem:(id)sender
+{
+    if([self.navigationItem.rightBarButtonItem.title isEqualToString:kSaveTitle]){
+        if ([self saveItem])
+            [self dismissViewControllerAnimated:YES completion:NULL];
+    }else if([self.navigationItem.rightBarButtonItem.title isEqualToString:kEditTitle])
+        [self setEditMode:YES];
+}
+
+- (IBAction)customerDetails:(id)sender{
+    if(customer)
+        [self performSegueWithIdentifier:@"presentMyCustomer" sender:self];
+}
+
+- (IBAction)deleteItem:(id)sender
+{
+    self.currentOpport.deleteAlertBlock = [self createOnDeleteBlock];
+    [self.currentOpport showDeletionAlert];
+}
+
+- (IBAction)showContacts:(id)sender
+{
+    [self performSegueWithIdentifier:@"presentContactsForOpportunity" sender:self];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if([segue.destinationViewController isKindOfClass:[CustomersViewController class]]){
+        CustomersViewController* vc = (CustomersViewController*)segue.destinationViewController;
+        vc.chooser = YES;
+        [vc setOnSelectCustomer:^(Customer * newCustomer) {
+            [self setCustomer:newCustomer];
+        }];
+    }else if([segue.identifier isEqualToString:@"presentMyCustomer"]){
+        CustomerDetailsViewController* vc = (CustomerDetailsViewController*)((UINavigationController*)segue.destinationViewController).topViewController;
+        vc.currentCustomer = customer;
+    } else if ([segue.destinationViewController isKindOfClass:[ContactsViewController class]]) {
+        ContactsByOpportunityViewController* vc = (ContactsByOpportunityViewController*)segue.destinationViewController;
+        vc.filteredOpp = self.currentOpport;
+    }
+}
+
+#pragma mark - info validation
 
 - (BOOL)validateAllFields
 {
@@ -142,13 +298,16 @@
     return isNumeric;
 }
 
-- (IBAction)saveItem:(id)sender
+#pragma mark - save delete item helper methods
+
+- (void)updateInfoForOpportunity:(Opportunity*)opp
 {
-    if([self.navigationItem.rightBarButtonItem.title isEqualToString:kSaveTitle]){
-        if ([self saveItem])
-            [self dismissViewControllerAnimated:YES completion:NULL];
-    }else if([self.navigationItem.rightBarButtonItem.title isEqualToString:kEditTitle])
-        [self setEditMode:YES];
+    opp.title = self.nameField.text;
+    opp.salesStage = self.stageField.text;
+    opp.revenueSize = [self.revenueField.text longLongValue];
+    opp.winProbability = [self.winField.text floatValue] / 100;
+    opp.creationDate = creationDatePicker.date;
+    opp.customer = customer;
 }
 
 - (BOOL)saveItem {
@@ -168,64 +327,6 @@
     return saved;
 }
 
-- (void)loadInfoForOpportunity:(Opportunity*)opp {
-    self.buttonsView.hidden = !opp;
-    if (opp) {
-        customer = self.currentOpport.customer;
-        self.nameField.text = opp.title;
-        if (opp.salesStage) {
-            self.stageField.text = opp.salesStage;
-            ((DictPickerView*)self.stageField.inputView).selectedItemName = opp.salesStage;
-        } else {
-            self.stageField.text =@"New";
-        }
-        if (opp.creationDate) {
-            self.dateField.text = [self stringFromDate:opp.creationDate];
-            creationDatePicker.date = opp.creationDate;
-        }
-        if([opp getValueOfProperty:@"revenueSize"]) {
-            if(opp.revenueSize)
-                self.revenueField.text = [NSString stringWithFormat:@"%lli",opp.revenueSize];
-        }
-        if([opp getValueOfProperty:@"winProbability"]) {
-            if(opp.winProbability) {
-                self.winField.text = [NSString stringWithFormat:@"%.0f\%%", opp.winProbability * 100];
-                winProbabilityPicker.selectedItemName = [NSString stringWithFormat:@"%.0f\%%", opp.winProbability * 100];
-            }
-        }
-        [self setCustomer:opp.customer];
-    }else{
-        self.stageField.text =@"New";
-    }
-}
-
-- (void)updateInfoForOpportunity:(Opportunity*)opp
-{
-    opp.title = self.nameField.text;
-    opp.salesStage = self.stageField.text;
-    opp.revenueSize = [self.revenueField.text longLongValue];
-    opp.winProbability = [self.winField.text floatValue] / 100;
-    opp.creationDate = creationDatePicker.date;
-    opp.customer = customer;
-}
-
-- (IBAction)customerDetails:(id)sender{
-    if(customer)
-        [self performSegueWithIdentifier:@"presentMyCustomer" sender:self];
-}
-
-- (void)dateFieldChange
-{
-    self.dateField.text = [NSString stringWithFormat:@"%@",
-                      [[DateHelper preparedOpportDateFormatter] stringFromDate:creationDatePicker.date]];
-}
-
-- (IBAction)deleteItem:(id)sender
-{
-    self.currentOpport.deleteAlertBlock = [self createOnDeleteBlock];
-    [self.currentOpport showDeletionAlert];
-}
-
 -(DeleteBlock)createOnDeleteBlock
 {
     __weak typeof(self) weakSelf = self;
@@ -233,109 +334,6 @@
         if (shouldDelete)
             [weakSelf dismissViewControllerAnimated:YES completion:^{}];
     };
-}
-
-- (IBAction)changeCustomer:(id)sender {}
-
-- (IBAction)showContacts:(id)sender
-{
-    [self performSegueWithIdentifier:@"presentContactsForOpportunity" sender:self];
-}
-
-- (void)setupStagePicker
-{
-    stagePicker = [DictPickerView new];
-    stagePicker.itemNames = @[@"New", @"In Progress", @"Finished"];
-    stagePicker.pickerDelegate = self;
-    [stagePicker setSelectedItemName:stagePicker.itemNames.firstObject];
-    self.stageField.inputView = stagePicker;
-    [self.stageField setInputAccessoryView:[self toolBar]];
-}
-
-- (void)setupWinProbabilityPicker
-{
-    winProbabilityPicker = [DictPickerView new];
-    NSMutableArray *values = [NSMutableArray new];
-    for (NSUInteger i = 0; i <= 100; i++) {
-        [values addObject:[NSString stringWithFormat:@"%u\%%", i]];
-    }
-    winProbabilityPicker.itemNames = values;
-    winProbabilityPicker.pickerDelegate = self;
-    [winProbabilityPicker setSelectedItemName:stagePicker.itemNames.firstObject];
-    self.winField.inputView = winProbabilityPicker;
-    [self.winField setInputAccessoryView:[self toolBar]];
-}
-
-- (void)itemPicker:(id)picker didSelectItemWithName:(NSString *)name
-{
-    if(picker == stagePicker)
-        self.stageField.text = name;
-    else if (picker == winProbabilityPicker)
-        self.winField.text = name;
-}
-
-- (UIToolbar*) toolBar
-{
-    UIToolbar *toolbar = [UIToolbar new];
-
-    UIBarButtonItem *flex = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemFlexibleSpace
-                                                                          target: self
-                                                                          action: nil];
-
-    UIBarButtonItem *done = [[UIBarButtonItem alloc] initWithTitle: NSLocalizedString(@"Done", nil)
-                                                             style: UIBarButtonItemStyleBordered
-                                                            target: self
-                                                            action: @selector(done)];
-    [toolbar setItems: @[flex, done]];
-    [toolbar sizeToFit];
-    
-    return toolbar;
-}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if([segue.destinationViewController isKindOfClass:[CustomersViewController class]]){
-        CustomersViewController* vc = (CustomersViewController*)segue.destinationViewController;
-        vc.chooser = YES;
-        [vc setOnSelectCustomer:^(Customer * newCustomer) {
-            [self setCustomer:newCustomer];
-        }];
-    }else if([segue.identifier isEqualToString:@"presentMyCustomer"]){
-        CustomerDetailsViewController* vc = (CustomerDetailsViewController*)((UINavigationController*)segue.destinationViewController).topViewController;
-        vc.currentCustomer = customer;
-    } else if ([segue.destinationViewController isKindOfClass:[ContactsViewController class]]) {
-        ContactsByOpportunityViewController* vc = (ContactsByOpportunityViewController*)segue.destinationViewController;
-        vc.filteredOpp = self.currentOpport;
-    }
-}
-
-- (void)setCustomer:(Customer*)newCustomer
-{
-    customer = newCustomer;
-    
-    [self.customerButton setTitle:[self customerTitle]
-                         forState:UIControlStateNormal];
-    
-    [self.customerDetailsButton setEnabled:(customer.companyName != nil)];
-}
-
-- (NSString*) customerTitle
-{
-    if (customer)
-        return [NSString stringWithFormat:@"Customer: %@", customer.companyName];
-    
-    return @"Select Customer";
-}
-
-- (void)done
-{
-    if ([self.stageField isFirstResponder]) {
-        self.stageField.text = stagePicker.selectedItemName;
-    } else if ([self.dateField isFirstResponder]) {
-        self.dateField.text = [self stringFromDate:creationDatePicker.date];
-    } else if ([self.winField isFirstResponder]) {
-        self.winField.text = winProbabilityPicker.selectedItemName;
-    }
-    [currentFirstResponder resignFirstResponder];
 }
 
 #pragma mark - UITextFieldDelegate
@@ -348,6 +346,33 @@
 -(void)textFieldDidBeginEditing:(UITextField *)textField
 {
     currentFirstResponder = textField;
+}
+
+
+#pragma mark - helper methods
+
+- (NSString*)stringFromDate:(NSDate*)date
+{
+    NSString *dateString = [[DateHelper preparedOpportDateFormatter] stringFromDate:date];
+    return dateString;
+}
+
+
+- (NSString*) customerTitle
+{
+    if (customer)
+        return [NSString stringWithFormat:@"Customer: %@", customer.companyName];
+    return @"Select Customer";
+}
+
+- (void)setCustomer:(Customer*)newCustomer
+{
+    customer = newCustomer;
+    
+    [self.customerButton setTitle:[self customerTitle]
+                         forState:UIControlStateNormal];
+    
+    [self.customerDetailsButton setEnabled:(customer.companyName != nil)];
 }
 
 @end
