@@ -65,6 +65,10 @@ CBLUITableDelegate
         UINavigationController* navc = (UINavigationController*)segue.destinationViewController;
         OpportunityDetailesViewController* vc = (OpportunityDetailesViewController*)navc.topViewController;
         vc.currentOpport = self.selectedCellData;
+    } else if ([segue.identifier isEqualToString:@"opportDetails"] && self.filteredCustomer) {
+        UINavigationController* navc = (UINavigationController*)segue.destinationViewController;
+        OpportunityDetailesViewController* vc = (OpportunityDetailesViewController*)navc.topViewController;
+        vc.preselectedCustomer = self.filteredCustomer;
     }
 }
 

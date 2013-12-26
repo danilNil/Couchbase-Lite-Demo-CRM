@@ -9,10 +9,11 @@
 #import "TextFieldsViewController.h"
 #import "UIViewController+ReadOnlyOrWriteMode.h"
 
-@class Opportunity;
+@class Opportunity, Customer;
 @interface OpportunityDetailesViewController : TextFieldsViewController<EditableViewControllers>
 
 @property(nonatomic, strong) Opportunity* currentOpport;
+@property (nonatomic, strong) Customer* preselectedCustomer;
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
 @property (weak, nonatomic) IBOutlet UITextField *stageField;
 @property (weak, nonatomic) IBOutlet UITextField *dateField;
