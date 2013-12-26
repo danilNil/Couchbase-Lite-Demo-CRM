@@ -99,7 +99,6 @@
         }
         [self setCustomer:opp.customer];
     }else{
-        [self setCustomer:self.preselectedCustomer];
         self.stageField.text =@"New";
     }
 }

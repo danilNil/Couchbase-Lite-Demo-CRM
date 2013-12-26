@@ -68,7 +68,7 @@ CBLUITableDelegate
     } else if ([segue.identifier isEqualToString:@"opportDetails"] && self.filteredCustomer) {
         UINavigationController* navc = (UINavigationController*)segue.destinationViewController;
         OpportunityDetailesViewController* vc = (OpportunityDetailesViewController*)navc.topViewController;
-        vc.preselectedCustomer = self.filteredCustomer;
+        [vc setCustomer:self.filteredCustomer];
     }
 }
 

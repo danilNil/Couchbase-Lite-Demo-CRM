@@ -13,7 +13,6 @@
 @interface OpportunityDetailesViewController : TextFieldsViewController<EditableViewControllers>
 
 @property(nonatomic, strong) Opportunity* currentOpport;
-@property (nonatomic, strong) Customer* preselectedCustomer;
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
 @property (weak, nonatomic) IBOutlet UITextField *stageField;
 @property (weak, nonatomic) IBOutlet UITextField *dateField;
@@ -28,4 +27,6 @@
 - (IBAction)saveItem:(id)sender;
 - (IBAction)deleteItem:(id)sender;
 - (IBAction)customerDetails:(id)sender;
+- (void)setCustomer:(Customer*)newCustomer;
+
 @end
