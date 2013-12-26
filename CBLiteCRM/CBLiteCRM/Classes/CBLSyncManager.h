@@ -51,18 +51,11 @@
 //// setup the facebook authenticator
 - (void)setAuthenticator:(NSObject<CBLSyncAuthenticator> *)authenticator;
 
-//- (void)useFacebookAppID: (NSString *)myAppID;
-
 // register a callback for when we discover the user info
 - (void)beforeFirstSync: (void (^)(NSString *userID, NSDictionary *userData, NSError **outError))block;
 
 // register a callback for after the sync begins making progress
 - (void)onSyncConnected: (void (^)())block;
-
-// register a callback in case of errors
-// should make errors that can be resolved by refreshing the login
-// token clearly distinct from errors the user can't do much about
-//- (void)onSyncError: (void (^)())block;
 
 - (void)start;
 - (void)logout;
