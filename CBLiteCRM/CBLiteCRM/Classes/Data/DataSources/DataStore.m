@@ -19,7 +19,7 @@
         CBLManager *manager = [CBLManager sharedInstance];
         
         NSError *error;
-        _database = [manager databaseNamed: @"fb_sg" error: &error];;
+        _database = [manager databaseNamed: @"fb_sg" error: &error];
         if (error) {
             NSLog(@"error getting database %@",error);
         }
