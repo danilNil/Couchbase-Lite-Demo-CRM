@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <deployment defaultVersion="1792" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
         <!--Welcome View Controller-->
@@ -77,11 +77,11 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="6jY-i8-izR">
-                                <rect key="frame" x="17" y="115" width="135" height="135"/>
+                                <rect key="frame" x="20" y="101" width="124" height="145"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" image="sales_icon.png">
+                                <state key="normal" image="sales_icon">
                                     <color key="titleColor" red="0.13333334029999999" green="0.76470595600000002" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -90,11 +90,11 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="v6c-Vo-TjJ">
-                                <rect key="frame" x="167" y="296" width="143" height="143"/>
+                                <rect key="frame" x="176" y="290" width="124" height="145"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" image="customers_icon.png">
+                                <state key="normal" image="customers_icon">
                                     <color key="titleColor" red="0.13333334029999999" green="0.76470595600000002" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -103,11 +103,11 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="J5t-Xn-IKo">
-                                <rect key="frame" x="163" y="101" width="150" height="150"/>
+                                <rect key="frame" x="176" y="101" width="124" height="145"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" image="contacts_icon.png">
+                                <state key="normal" image="contacts_icon">
                                     <color key="titleColor" red="0.13333334029999999" green="0.76470595600000002" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -116,11 +116,11 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="uYR-2i-ili">
-                                <rect key="frame" x="9" y="290" width="150" height="150"/>
+                                <rect key="frame" x="20" y="290" width="124" height="149"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" image="opportunities_icon.png">
+                                <state key="normal" image="opportunities_icon">
                                     <color key="titleColor" red="0.13333334029999999" green="0.76470595600000002" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -1256,7 +1256,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <searchBar key="tableHeaderView" contentMode="redraw" id="Sgb-jp-9VB">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                    <rect key="frame" x="0.0" y="64" width="320" height="44"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <textInputTraits key="textInputTraits"/>
                                     <connections>
@@ -1309,7 +1309,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <searchBar key="tableHeaderView" contentMode="redraw" id="vkm-r4-6ex">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                    <rect key="frame" x="0.0" y="64" width="320" height="44"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <textInputTraits key="textInputTraits"/>
                                     <connections>
@@ -1471,12 +1471,12 @@
         <image name="FacebookButton" width="282" height="66"/>
         <image name="PhotoPlaceholder" width="142" height="142"/>
         <image name="WelcomeBackground" width="320" height="480"/>
-        <image name="contacts_icon.png" width="150" height="150"/>
-        <image name="customers_icon.png" width="143" height="143"/>
+        <image name="contacts_icon" width="124" height="145"/>
+        <image name="customers_icon" width="124" height="145"/>
         <image name="input_field.png" width="293" height="37"/>
         <image name="input_field_disabled.png" width="293" height="37"/>
-        <image name="opportunities_icon.png" width="150" height="150"/>
-        <image name="sales_icon.png" width="135" height="135"/>
+        <image name="opportunities_icon" width="124" height="149"/>
+        <image name="sales_icon" width="124" height="145"/>
     </resources>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -1485,11 +1485,11 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="wax-He-xAT"/>
+        <segue reference="HKR-Id-rJ9"/>
+        <segue reference="rju-Nc-jGo"/>
+        <segue reference="oD6-Gt-h5e"/>
         <segue reference="dLH-wr-6PA"/>
-        <segue reference="I7d-Ci-gP9"/>
-        <segue reference="sb8-08-2KH"/>
-        <segue reference="3kk-cj-LW4"/>
-        <segue reference="2JB-Zq-Ixq"/>
+        <segue reference="LHW-MO-w8p"/>
+        <segue reference="wax-He-xAT"/>
     </inferredMetricsTieBreakers>
 </document>
