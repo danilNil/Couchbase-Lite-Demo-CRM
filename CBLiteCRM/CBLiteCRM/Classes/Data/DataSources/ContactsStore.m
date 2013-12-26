@@ -78,11 +78,11 @@
         BOOL exist = NO;
         for (CBLQueryRow *row in [addedContactsQuery run:&error]) {
             ContactOpportunity *ctOpp = [ContactOpportunity modelForDocument:row.document];
-            if ([ct.email isEqualToString:ctOpp.contact.email])
+            if ([ct.name isEqualToString:ctOpp.contact.name])
                 exist = YES;
         }
         if (!exist)
-            [keys addObject:ct.email];
+            [keys addObject:ct.name];
     }
     return keys;
 }
