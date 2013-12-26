@@ -180,7 +180,7 @@ UIAlertViewDelegate
     [self isAllRequiredFieldsValid:^(BOOL isValid, NSString *msg) {
         if(isValid){
             [weakSelf saveContact];
-            [weakSelf dismissViewControllerAnimated:YES completion:NULL];
+            [weakSelf setEditMode:NO];
         } else {
             [[[UIAlertView alloc] initWithTitle:@"Error" message:msg delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil] show];
         }

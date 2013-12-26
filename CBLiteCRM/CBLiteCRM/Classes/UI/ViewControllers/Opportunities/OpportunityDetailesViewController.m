@@ -198,7 +198,7 @@
 {
     if([self.navigationItem.rightBarButtonItem.title isEqualToString:kSaveTitle]){
         if ([self saveItem])
-            [self dismissViewControllerAnimated:YES completion:NULL];
+            [self setEditMode:NO];
     }else if([self.navigationItem.rightBarButtonItem.title isEqualToString:kEditTitle])
         [self setEditMode:YES];
 }

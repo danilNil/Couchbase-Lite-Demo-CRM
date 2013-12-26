@@ -92,7 +92,7 @@
     if (![sp save:&error])
         [[[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil] show];
     else
-        [self.navigationController popViewControllerAnimated:YES];
+        [self setEditMode:NO];
 }
 
 - (void)logout{
