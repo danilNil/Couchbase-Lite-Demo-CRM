@@ -14,10 +14,12 @@
 
 @property (strong, nonatomic) IBOutletCollection(TextFieldView) NSArray *textFields;
 @property (weak, nonatomic) IBOutlet UIButton *deleteButton;
+@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *buttons;
 
 - (BOOL)isEditMode;
 - (void)setEditMode:(BOOL)editMode;
 - (void)changeRightButtonTitleForMode:(BOOL)editMode;
+- (void)editModeChanged:(BOOL)editMode;
 
 @end
 

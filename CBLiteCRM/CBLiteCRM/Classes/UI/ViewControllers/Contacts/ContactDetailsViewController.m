@@ -43,7 +43,7 @@ UIAlertViewDelegate
 @end
 
 @implementation ContactDetailsViewController
-@synthesize deleteButton, textFields;
+@synthesize deleteButton, textFields, buttons;
 
 - (void)viewDidLoad
 {
@@ -112,8 +112,10 @@ UIAlertViewDelegate
 
 - (void)didTapOnPhoto
 {
-    [currentFirstResponder resignFirstResponder];
-    [self pickNewImage];
+    if ([self isEditMode]) {
+        [currentFirstResponder resignFirstResponder];
+        [self pickNewImage];
+    }
 }
 
 - (void) pickNewImage
