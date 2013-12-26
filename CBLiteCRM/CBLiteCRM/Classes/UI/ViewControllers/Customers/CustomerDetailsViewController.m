@@ -122,6 +122,8 @@
 
 - (void)editModeChanged:(BOOL)editMode
 {
+    self.buttonsView.hidden = !self.currentCustomer;
+    self.opportunitiesButton.hidden = !self.currentCustomer;
     if (editMode)
         [self.opportunitiesButton setTitle:@"Edit Opportunities" forState:UIControlStateNormal];
     else
@@ -141,6 +143,8 @@
     NSError* error;
     if(![cm save:&error])
         NSLog(@"error in save customer: %@", error);
+    else
+        self.currentCustomer = cm;
 }
 
 #pragma mark - UITextFieldDelegate
