@@ -228,7 +228,7 @@ UIAlertViewDelegate
         vc.chooser = YES;
     } else if ([segue.destinationViewController isKindOfClass:[OpportunitesByContactViewController class]]) {
         OpportunitesByContactViewController *vc = (OpportunitesByContactViewController*)segue.destinationViewController;
-        vc.navigationItem.rightBarButtonItem.enabled = NO;
+        vc.navigationItem.rightBarButtonItem = nil;
         vc.filteringContact = self.currentContact;
     } else if([segue.identifier isEqualToString:@"presentMyCustomer"]){
         CustomerDetailsViewController* vc = (CustomerDetailsViewController*)((UINavigationController*)segue.destinationViewController).topViewController;

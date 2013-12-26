@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *addressField;
 @property (weak, nonatomic) IBOutlet UIView *contentView;
 @property (weak, nonatomic) IBOutlet UIView *buttonsView;
+@property (weak, nonatomic) IBOutlet UIButton* opportunitiesButton;
 
 @property (strong, nonatomic) Customer *currentCustomer;
 

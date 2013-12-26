@@ -114,11 +114,20 @@
     if ([segue.destinationViewController isKindOfClass:[OpportunitiesViewController class]]) {
         OpportunitiesViewController *vc = (OpportunitiesViewController*)segue.destinationViewController;
         vc.filteredCustomer = self.currentCustomer;
+        vc.navigationItem.rightBarButtonItem = ![self isEditMode] ? nil : vc.navigationItem.rightBarButtonItem;
     } else if ([segue.destinationViewController isKindOfClass:[ContactsViewController class]]) {
         ContactsViewController *vc = (ContactsViewController*)segue.destinationViewController;
         vc.filteredCustomer = self.currentCustomer;
         vc.navigationItem.rightBarButtonItem = nil;
     }
+}
+
+- (void)editModeChanged:(BOOL)editMode
+{
+    if (editMode)
+        [self.opportunitiesButton setTitle:@"Edit Opportunities" forState:UIControlStateNormal];
+    else
+        [self.opportunitiesButton setTitle:@"Show Opportunities" forState:UIControlStateNormal];
 }
 
 #pragma mark -

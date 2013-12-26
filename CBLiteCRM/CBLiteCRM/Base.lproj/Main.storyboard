@@ -1227,6 +1227,7 @@
                         <outlet property="deleteButton" destination="c3T-bE-FLg" id="8of-uu-YRc"/>
                         <outlet property="industryField" destination="i8t-rW-i8a" id="did-Vt-HgJ"/>
                         <outlet property="mailField" destination="Ogp-Je-lhE" id="Ab4-xP-ZAf"/>
+                        <outlet property="opportunitiesButton" destination="EGh-NO-uxC" id="fYI-zh-uH2"/>
                         <outlet property="phoneField" destination="33M-G7-N2v" id="RFY-Ne-dY2"/>
                         <outletCollection property="textFields" destination="pjq-Zq-vU6" id="gKG-Uf-lIh"/>
                         <outletCollection property="textFields" destination="0Qt-Gd-QIi" id="wbP-6J-ogM"/>
@@ -1234,7 +1235,6 @@
                         <outletCollection property="textFields" destination="uxK-2W-Bi7" id="vbf-Kf-ReR"/>
                         <outletCollection property="textFields" destination="Gys-L6-64Q" id="foh-I1-SBo"/>
                         <outletCollection property="textFields" destination="Pm2-ze-lLg" id="NTF-TD-QEa"/>
-                        <outletCollection property="buttons" destination="EGh-NO-uxC" id="RPg-Ll-aTt"/>
                         <segue destination="5ij-MH-fTa" kind="push" identifier="presentOpportunitiesForCustomer" id="3kk-cj-LW4"/>
                         <segue destination="hp4-NH-ICy" kind="push" identifier="presentContactsForCustomer" id="I7d-Ci-gP9"/>
                     </connections>
