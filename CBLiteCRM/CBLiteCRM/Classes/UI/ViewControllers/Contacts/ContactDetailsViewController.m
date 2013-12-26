@@ -240,7 +240,7 @@ typedef void (^ValidationBlock)(BOOL isValid, NSString *msg);
     else {
         NSMutableString *msg = [NSMutableString new];
         if ([self.nameField.text isEqualToString:@""])
-            [msg appendString:@"Please fill Name field"];
+            [msg appendString:@"Please fill Name field\n"];
         if (![self actualCustomer])
             [msg appendString:@"Please select Company"];
 
