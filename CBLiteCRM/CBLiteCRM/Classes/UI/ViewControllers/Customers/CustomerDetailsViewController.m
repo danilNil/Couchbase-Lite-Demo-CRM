@@ -23,7 +23,7 @@
 @end
 
 @implementation CustomerDetailsViewController
-@synthesize deleteButton, textFields;
+@synthesize deleteButton, textFields, buttons;
 
 - (void)viewDidLoad
 {

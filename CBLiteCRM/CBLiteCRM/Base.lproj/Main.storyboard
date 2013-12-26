@@ -435,6 +435,9 @@
                                                 <state key="normal" title="Company">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <state key="disabled">
+                                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
                                                 <connections>
                                                     <segue destination="Dc7-B9-xyB" kind="push" id="yjT-5x-rcy"/>
                                                 </connections>
@@ -660,6 +663,7 @@
                         <outletCollection property="textFields" destination="9VK-14-Ve9" id="0mN-5v-2MU"/>
                         <outletCollection property="textFields" destination="9VK-14-Ve9" id="eVp-dG-mhf"/>
                         <outletCollection property="textFields" destination="eY8-hr-Tv5" id="FUs-Xv-zqb"/>
+                        <outletCollection property="buttons" destination="cLg-rZ-hVq" id="SVS-Rs-GfD"/>
                         <segue destination="zWg-jE-NQp" kind="push" identifier="presentOpportunitiesForContact" id="33B-kY-8zX"/>
                         <segue destination="DoK-bY-Hq0" kind="modal" identifier="presentMyCustomer" id="LHW-MO-w8p"/>
                     </connections>
@@ -859,6 +863,9 @@
                                                 <state key="normal" title="Customer">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <state key="disabled">
+                                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
                                                 <connections>
                                                     <segue destination="Dc7-B9-xyB" kind="push" id="2JB-Zq-Ixq"/>
                                                 </connections>
@@ -939,6 +946,7 @@
                     <connections>
                         <outlet property="baseScrollView" destination="3Tq-TI-Tm3" id="Qwx-Vh-ZoA"/>
                         <outlet property="buttonsView" destination="2a2-9K-GlH" id="azy-1m-Oke"/>
+                        <outlet property="contactsButton" destination="PA9-Ox-Q3i" id="j1y-9P-K07"/>
                         <outlet property="contentView" destination="qKj-wr-JUC" id="Z1w-QP-eVy"/>
                         <outlet property="customerButton" destination="6KV-qq-ehq" id="f4o-uZ-MdP"/>
                         <outlet property="customerDetailsButton" destination="ZDn-8Q-AID" id="gtN-kL-8Xq"/>
@@ -953,6 +961,7 @@
                         <outletCollection property="textFields" destination="WHB-3Z-XaU" id="T8D-7A-Wae"/>
                         <outletCollection property="textFields" destination="P8O-c3-iJA" id="cmS-ob-mSr"/>
                         <outletCollection property="textFields" destination="n2C-XR-dTs" id="342-Ff-NwR"/>
+                        <outletCollection property="buttons" destination="6KV-qq-ehq" id="Fyb-Po-JEd"/>
                         <segue destination="DoK-bY-Hq0" kind="modal" identifier="presentMyCustomer" id="sb8-08-2KH"/>
                         <segue destination="1hK-A1-uop" kind="push" identifier="presentContactsForOpportunity" id="eya-Yd-xZB"/>
                     </connections>
@@ -1163,6 +1172,9 @@
                                                         <state key="normal" title="Opportunities">
                                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
+                                                        <state key="disabled">
+                                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="opportunities:" destination="TLO-se-8qL" eventType="touchUpInside" id="G2e-f4-ti0"/>
                                                         </connections>
@@ -1174,6 +1186,9 @@
                                                         <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="18"/>
                                                         <state key="normal" title="Show contacts">
                                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
+                                                        <state key="disabled">
+                                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="showContacts:" destination="TLO-se-8qL" eventType="touchUpInside" id="WNR-2x-yS1"/>
@@ -1219,6 +1234,7 @@
                         <outletCollection property="textFields" destination="uxK-2W-Bi7" id="vbf-Kf-ReR"/>
                         <outletCollection property="textFields" destination="Gys-L6-64Q" id="foh-I1-SBo"/>
                         <outletCollection property="textFields" destination="Pm2-ze-lLg" id="NTF-TD-QEa"/>
+                        <outletCollection property="buttons" destination="EGh-NO-uxC" id="RPg-Ll-aTt"/>
                         <segue destination="5ij-MH-fTa" kind="push" identifier="presentOpportunitiesForCustomer" id="3kk-cj-LW4"/>
                         <segue destination="hp4-NH-ICy" kind="push" identifier="presentContactsForCustomer" id="I7d-Ci-gP9"/>
                     </connections>
@@ -1458,27 +1474,6 @@
         <image name="contacts_icon.png" width="150" height="150"/>
         <image name="customers_icon.png" width="143" height="143"/>
         <image name="input_field.png" width="293" height="37"/>
-        <image name="input_field.png" width="293" height="37"/>
-        <image name="input_field.png" width="293" height="37"/>
-        <image name="input_field.png" width="293" height="37"/>
-        <image name="input_field.png" width="293" height="37"/>
-        <image name="input_field.png" width="293" height="37"/>
-        <image name="input_field.png" width="293" height="37"/>
-        <image name="input_field.png" width="293" height="37"/>
-        <image name="input_field.png" width="293" height="37"/>
-        <image name="input_field.png" width="293" height="37"/>
-        <image name="input_field.png" width="293" height="37"/>
-        <image name="input_field.png" width="293" height="37"/>
-        <image name="input_field.png" width="293" height="37"/>
-        <image name="input_field.png" width="293" height="37"/>
-        <image name="input_field.png" width="293" height="37"/>
-        <image name="input_field.png" width="293" height="37"/>
-        <image name="input_field.png" width="293" height="37"/>
-        <image name="input_field.png" width="293" height="37"/>
-        <image name="input_field.png" width="293" height="37"/>
-        <image name="input_field_disabled.png" width="293" height="37"/>
-        <image name="input_field_disabled.png" width="293" height="37"/>
-        <image name="input_field_disabled.png" width="293" height="37"/>
         <image name="input_field_disabled.png" width="293" height="37"/>
         <image name="opportunities_icon.png" width="150" height="150"/>
         <image name="sales_icon.png" width="135" height="135"/>
@@ -1493,8 +1488,8 @@
         <segue reference="wax-He-xAT"/>
         <segue reference="dLH-wr-6PA"/>
         <segue reference="I7d-Ci-gP9"/>
-        <segue reference="LHW-MO-w8p"/>
+        <segue reference="sb8-08-2KH"/>
         <segue reference="3kk-cj-LW4"/>
-        <segue reference="yjT-5x-rcy"/>
+        <segue reference="2JB-Zq-Ixq"/>
     </inferredMetricsTieBreakers>
 </document>

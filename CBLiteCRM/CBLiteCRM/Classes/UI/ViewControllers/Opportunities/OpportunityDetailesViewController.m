@@ -37,7 +37,7 @@
 @end
 
 @implementation OpportunityDetailesViewController
-@synthesize deleteButton, textFields;
+@synthesize deleteButton, textFields, buttons;
 
 - (void)viewDidLoad
 {
@@ -238,6 +238,7 @@
     } else if ([segue.destinationViewController isKindOfClass:[ContactsViewController class]]) {
         ContactsByOpportunityViewController* vc = (ContactsByOpportunityViewController*)segue.destinationViewController;
         vc.filteredOpp = self.currentOpport;
+        vc.navigationItem.rightBarButtonItem.enabled = [self isEditMode];
     }
 }
 
@@ -331,6 +332,14 @@
         if (shouldDelete)
             [weakSelf dismissViewControllerAnimated:YES completion:^{}];
     };
+}
+
+- (void)editModeChanged:(BOOL)editMode
+{
+    if (editMode)
+        [self.contactsButton setTitle:@"Edit Contacts" forState:UIControlStateNormal];
+    else
+        [self.contactsButton setTitle:@"Show Contacts" forState:UIControlStateNormal];
 }
 
 #pragma mark - UITextFieldDelegate

@@ -87,4 +87,9 @@
     self.filteredDataSource.query = [query asLiveQuery];
 }
 
+- (void)editModeChanged:(BOOL)editMode
+{
+    
+}
+
 @end
