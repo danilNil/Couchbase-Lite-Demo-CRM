@@ -44,9 +44,14 @@
     [super viewDidLoad];
     [self setupScrollView];
     [self setupPickers];
-    [self loadInfoForOpportunity:self.currentOpport];
     [self setupMode];
     deleteHelper = [CBLModelDeleteHelper new];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self loadInfoForOpportunity:self.currentOpport];
 }
 
 - (void)setupScrollView

@@ -50,9 +50,14 @@ UIAlertViewDelegate
     [super viewDidLoad];
     [self setupScrollView];
     [self setupPhotoView];
-    [self loadInfoForContact:self.currentContact];
     [self setupMode];
     deleteHelper = [CBLModelDeleteHelper new];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self loadInfoForContact:self.currentContact];
 }
 
 - (void)setupMode

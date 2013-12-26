@@ -29,9 +29,14 @@
 {
     [super viewDidLoad];
     [self setupScrollView];
-    [self loadInfoForCustomer:self.currentCustomer];
     [self setupMode];
     deleteHelper = [CBLModelDeleteHelper new];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self loadInfoForCustomer:self.currentCustomer];
 }
 
 - (void)setupScrollView
