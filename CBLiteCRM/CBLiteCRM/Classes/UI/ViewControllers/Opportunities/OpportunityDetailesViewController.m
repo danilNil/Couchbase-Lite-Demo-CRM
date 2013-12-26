@@ -245,29 +245,19 @@
 
 - (BOOL)validateAllFields
 {
+    NSMutableString* errorMsg = [NSMutableString new];
     if ([self.nameField.text isEqualToString:@""])
-    {
-        [UIAlertView showErrorMessage:@"Please fill opportunity name field"];
-        return NO;
-    }
-    else if (![self checkThatStageFieldValueCorrect])
-    {
-        [UIAlertView showErrorMessage:@"Please fill stage field with correct value"];
-        return NO;
-    }
-    else if (![self checkThatTextFieldTextIsNumeric:self.revenueField])
-    {
-        [UIAlertView showErrorMessage:@"Please fill revenue field with numeric value"];
-        return NO;
-    }
-    else if (![self checkThatWinFieldValueCorrect])
-    {
-        [UIAlertView showErrorMessage:@"Please fill win probability field with correct value"];
-        return NO;
-    }
-    else if (!customer)
-    {
-        [UIAlertView showErrorMessage:@"Please select a customer"];
+        [errorMsg appendString:@"Please fill opportunity name field\n"];
+    if (![self checkThatStageFieldValueCorrect])
+        [errorMsg appendString:@"Please fill stage field with correct value\n"];
+    if (![self checkThatTextFieldTextIsNumeric:self.revenueField])
+        [errorMsg appendString:@"Please fill revenue field with numeric value\n"];
+    if (![self checkThatWinFieldValueCorrect])
+        [errorMsg appendString:@"Please fill win probability field with correct value\n"];
+    if (!customer)
+        [errorMsg appendString:@"Please select a customer"];
+    if (errorMsg.length > 0) {
+        [UIAlertView showErrorMessage:errorMsg];
         return NO;
     }
     return YES;
