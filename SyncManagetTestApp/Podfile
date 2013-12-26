@@ -1,5 +1,5 @@
 platform :ios, "6.0"
 
 target :SyncManagetTestAppTests, :exclusive => true do
-  pod 'Kiwi'
+  pod 'Kiwi/XCTest'
 end
