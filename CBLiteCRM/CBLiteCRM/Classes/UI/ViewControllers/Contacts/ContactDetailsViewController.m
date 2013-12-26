@@ -35,7 +35,7 @@ UIAlertViewDelegate
     UIImage* selectedImage;
     UITapGestureRecognizer* photoTapRecognizer;
     ImagePickerAngel * imagePickerAngel;
-    Customer *customer;
+    Customer *selectedCustomer;
     id currentFirstResponder;
     CBLModelDeleteHelper* deleteHelper;
 }
@@ -74,10 +74,9 @@ UIAlertViewDelegate
     self.buttonsView.hidden = !ct;
     if(ct)
     {
-        customer = ct.customer;
         self.nameField.text = ct.name;
-        [self.companyButton setTitle:[self titleForCustomer:customer] forState:UIControlStateNormal];
-        self.detailsButton.enabled = customer != nil;
+        [self.companyButton setTitle:[self titleForCustomer:[self actualCustomer]] forState:UIControlStateNormal];
+        self.detailsButton.enabled = [self actualCustomer] != nil;
         self.positionField.text = ct.position;
         self.phoneField.text = ct.phoneNumber;
         self.mailField.text = ct.email;
@@ -178,7 +177,7 @@ UIAlertViewDelegate
 }
 
 - (IBAction)details:(id)sender {
-    if(customer)
+    if([self actualCustomer])
         [self performSegueWithIdentifier:@"presentMyCustomer" sender:self];
 }
 
@@ -221,14 +220,14 @@ UIAlertViewDelegate
     if ([segue.destinationViewController isKindOfClass:[CustomersViewController class]]) {
         CustomersViewController* vc = (CustomersViewController*)segue.destinationViewController;
         [vc setOnSelectCustomer:^(Customer *cust) {
-            customer = cust;
-            if (self.currentContact) {
+            selectedCustomer = cust;
+            if(self.currentContact){
                 self.currentContact.customer = cust;
                 NSError *error;
                 [self.currentContact save:&error];
             }
-            [self.companyButton setTitle:[self titleForCustomer:customer] forState:UIControlStateNormal];
-            self.detailsButton.enabled = customer != nil;
+            [self.companyButton setTitle:[self titleForCustomer:selectedCustomer] forState:UIControlStateNormal];
+            self.detailsButton.enabled = selectedCustomer != nil;
         }];
         vc.chooser = YES;
     } else if ([segue.destinationViewController isKindOfClass:[OpportunitesByContactViewController class]]) {
@@ -237,19 +236,22 @@ UIAlertViewDelegate
         vc.filteringContact = self.currentContact;
     } else if([segue.identifier isEqualToString:@"presentMyCustomer"]){
         CustomerDetailsViewController* vc = (CustomerDetailsViewController*)((UINavigationController*)segue.destinationViewController).topViewController;
-        vc.currentCustomer = customer;
+        vc.currentCustomer = [self actualCustomer];
     }
 }
 
 #pragma mark - Fields Validation
 
 - (void)isAllRequiredFieldsValid:(ValidationBlock)result {
-    if (![self.nameField.text isEqualToString:@""])
+    if (![self.nameField.text isEqualToString:@""] && [self actualCustomer])
         result(YES, @"");
     else {
         NSMutableString *msg = [NSMutableString new];
         if ([self.nameField.text isEqualToString:@""])
             [msg appendString:@"Please fill Name field"];
+        if (![self actualCustomer])
+            [msg appendString:@"Please select Company"];
+
         result(NO, msg);
     }
 }
@@ -258,7 +260,8 @@ UIAlertViewDelegate
 
 - (void)updateInfoForContact:(Contact*)ct{
     ct.name = self.nameField.text;
-    ct.customer = [self selectedCustomer];
+    if(selectedCustomer)
+        ct.customer = selectedCustomer;
     ct.position = self.positionField.text;
     ct.phoneNumber = self.phoneField.text;
     ct.address = self.addressField.text;
@@ -283,8 +286,13 @@ UIAlertViewDelegate
     return @[];
 }
 
-- (Customer*)selectedCustomer{
-    return customer;
+- (Customer*)actualCustomer{
+    Customer* actualCustomer;
+    if(self.currentContact)
+        actualCustomer = self.currentContact.customer;
+    else
+        actualCustomer = selectedCustomer;
+    return actualCustomer;
 }
 
 - (UIImage*)imageFromAttachment:(CBLAttachment*)attach{

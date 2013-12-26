@@ -458,7 +458,7 @@
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" id="HLc-O4-V52" userLabel="email field" customClass="TextFieldView">
-                                                <rect key="frame" x="15" y="150" width="290" height="37"/>
+                                                <rect key="frame" x="15" y="191" width="290" height="37"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="input_field.png" id="XCY-fY-bZa">
@@ -485,7 +485,7 @@
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                             </view>
                                             <view contentMode="scaleToFill" id="rm4-WF-LYs" userLabel="name field" customClass="TextFieldView">
-                                                <rect key="frame" x="15" y="191" width="290" height="37"/>
+                                                <rect key="frame" x="15" y="150" width="290" height="37"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="input_field.png" id="DSc-1w-II0">
@@ -1484,10 +1484,10 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="HKR-Id-rJ9"/>
-        <segue reference="rju-Nc-jGo"/>
         <segue reference="oD6-Gt-h5e"/>
+        <segue reference="rju-Nc-jGo"/>
         <segue reference="dLH-wr-6PA"/>
+        <segue reference="yjT-5x-rcy"/>
         <segue reference="LHW-MO-w8p"/>
         <segue reference="wax-He-xAT"/>
     </inferredMetricsTieBreakers>
