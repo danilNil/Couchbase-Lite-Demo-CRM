@@ -25,7 +25,7 @@
 
 - (BOOL)isEditMode
 {
-    return self.navigationItem.rightBarButtonItem.title == kSaveTitle;
+    return [self.navigationItem.rightBarButtonItem.title isEqualToString:kSaveTitle];
 }
 
 - (void)changeRightButtonTitleForMode:(BOOL)editMode
