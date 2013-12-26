@@ -333,6 +333,8 @@
 
 - (void)editModeChanged:(BOOL)editMode
 {
+    self.contactsButton.hidden = !self.currentOpport;
+    self.buttonsView.hidden = !editMode;
     if (editMode)
         [self.contactsButton setTitle:@"Edit Contacts" forState:UIControlStateNormal];
     else
