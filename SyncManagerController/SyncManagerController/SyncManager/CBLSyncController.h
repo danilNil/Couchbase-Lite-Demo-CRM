@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CouchbaseLite/CouchbaseLite.h>
+
 
 @interface CBLSyncController : NSObject
 - (CBLSyncController*)initWithDatabase:(CBLDatabase*)database
