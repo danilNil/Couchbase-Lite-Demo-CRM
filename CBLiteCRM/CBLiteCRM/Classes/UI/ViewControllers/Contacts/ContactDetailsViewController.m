@@ -27,10 +27,7 @@
 typedef void (^ValidationBlock)(BOOL isValid, NSString *msg);
 
 @interface ContactDetailsViewController ()
-<
-UITextFieldDelegate,
-UIAlertViewDelegate
->
+<UITextFieldDelegate,UIAlertViewDelegate>
 {
     UIImage* selectedImage;
     UITapGestureRecognizer* photoTapRecognizer;
@@ -48,7 +45,6 @@ UIAlertViewDelegate
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self setupScrollView];
     [self setupPhotoView];
     [self setupMode];
     deleteHelper = [CBLModelDeleteHelper new];
@@ -86,11 +82,7 @@ UIAlertViewDelegate
     }
 }
 
-- (void)setupScrollView
-{
-    self.automaticallyAdjustsScrollViewInsets = NO;
-    [self.baseScrollView setContentSize:self.contentView.frame.size];
-}
+
 
 - (void)setupPhotoView
 {

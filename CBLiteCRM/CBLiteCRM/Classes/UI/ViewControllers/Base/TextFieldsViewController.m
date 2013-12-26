@@ -21,6 +21,11 @@
 
 #pragma mark - View controller
 
+-(void)viewDidLoad{
+    [super viewDidLoad];
+    [self setupScrollView];
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self registerKeyboardObserver];
@@ -34,6 +39,12 @@
 - (void)dealloc
 {
     [self unregisterKeyboardObserver];
+}
+
+- (void)setupScrollView
+{
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    [self.baseScrollView setContentSize:self.contentView.frame.size];
 }
 
 #pragma mark - Keyboard observer

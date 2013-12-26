@@ -8,4 +8,6 @@
 
 @interface TextFieldsViewController : UIViewController
 @property(nonatomic, weak) IBOutlet UIScrollView* baseScrollView;
+@property (weak, nonatomic) IBOutlet UIView *contentView;
+
 @end

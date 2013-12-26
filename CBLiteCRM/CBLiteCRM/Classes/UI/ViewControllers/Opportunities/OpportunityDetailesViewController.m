@@ -42,7 +42,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self setupScrollView];
     [self setupPickers];
     [self setupMode];
     deleteHelper = [CBLModelDeleteHelper new];
@@ -54,12 +53,6 @@
     [self loadInfoForOpportunity:self.currentOpport];
 }
 
-- (void)setupScrollView
-{
-    self.automaticallyAdjustsScrollViewInsets = NO;
-    [self.baseScrollView setContentSize:self.contentView.frame.size];
-}
-
 - (void)setupPickers
 {
     [self setupStagePicker];
@@ -67,7 +60,6 @@
     [self setStageFieldInputView];
     self.revenueField.inputAccessoryView = [self toolBar];
     self.winField.inputAccessoryView = [self toolBar];
-    
 }
 
 - (void)setupMode

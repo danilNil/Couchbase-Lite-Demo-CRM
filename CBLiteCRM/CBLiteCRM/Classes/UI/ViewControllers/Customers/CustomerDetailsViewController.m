@@ -28,7 +28,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self setupScrollView];
     [self setupMode];
     deleteHelper = [CBLModelDeleteHelper new];
 }
@@ -37,12 +36,6 @@
 {
     [super viewWillAppear:animated];
     [self loadInfoForCustomer:self.currentCustomer];
-}
-
-- (void)setupScrollView
-{
-    self.automaticallyAdjustsScrollViewInsets = NO;
-    [self.baseScrollView setContentSize:self.contentView.frame.size];
 }
 
 - (void)setupMode

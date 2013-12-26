@@ -11,7 +11,7 @@
 
 @class Opportunity;
 @interface OpportunityDetailesViewController : TextFieldsViewController<EditableViewControllers>
-@property (weak, nonatomic) IBOutlet UIView *contentView;
+
 @property(nonatomic, strong) Opportunity* currentOpport;
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
 @property (weak, nonatomic) IBOutlet UITextField *stageField;

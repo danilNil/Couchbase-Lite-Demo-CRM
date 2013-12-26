@@ -19,7 +19,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *mailField;
 @property (weak, nonatomic) IBOutlet UITextField *URLField;
 @property (weak, nonatomic) IBOutlet UITextField *addressField;
-@property (weak, nonatomic) IBOutlet UIView *contentView;
 @property (weak, nonatomic) IBOutlet UIView *buttonsView;
 @property (weak, nonatomic) IBOutlet UIButton* opportunitiesButton;
 
