@@ -57,6 +57,18 @@ describe(@"initialisation all services", ^{
             });
         });
 
+        context(@"on app didFinishLaunchingWithOptions actions", ^{
+            it(@"should setup all nesesary managers and UI appearance", ^{
+                
+                [[app should] receive:@selector(setupAppearance)];
+                [[app should] receive:@selector(setupDatabase:)];
+                [[app should] receive:@selector(setupCBLSync)];
+                [app.cblSync shouldNotBeNil];
+                [app application:[KWMock nullMock] didFinishLaunchingWithOptions:[KWMock nullMock]];
+                
+            });
+        });
+        
         context(@"on logout actions", ^{
             it(@"should call logout for DataStore and CBLSyncManager", ^{
                 
