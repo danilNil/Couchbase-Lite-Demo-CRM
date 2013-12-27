@@ -45,12 +45,13 @@
     [self setupPickers];
     [self setupMode];
     deleteHelper = [CBLModelDeleteHelper new];
+    [self loadInfoForOpportunity:self.currentOpport];
 }
 
--(void)viewWillAppear:(BOOL)animated
+- (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self loadInfoForOpportunity:self.currentOpport];
+    [self setCustomer:self.currentOpport.customer];
 }
 
 - (void)setupPickers
