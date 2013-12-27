@@ -66,6 +66,10 @@ typedef void (^ValidationBlock)(BOOL isValid, NSString *msg);
     [self setEditMode:editMode];
 }
 
+- (void)editModeChanged:(BOOL)editMode {
+    self.buttonsView.hidden = !self.currentContact;
+}
+
 - (void)loadInfoForContact:(Contact*)ct{
     self.buttonsView.hidden = !ct;
     if(ct)
