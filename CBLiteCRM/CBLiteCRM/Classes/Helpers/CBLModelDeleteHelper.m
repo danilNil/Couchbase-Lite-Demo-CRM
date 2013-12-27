@@ -8,13 +8,6 @@
 
 #import "CBLModelDeleteHelper.h"
 
-@interface CBLModelDeleteHelper ()
-<
-UIAlertViewDelegate
->
-
-@end
-
 @implementation CBLModelDeleteHelper
 
 - (id)initWithItem:(CBLModel*)item
@@ -43,4 +36,5 @@ UIAlertViewDelegate
         }
     }
 }
+
 @end

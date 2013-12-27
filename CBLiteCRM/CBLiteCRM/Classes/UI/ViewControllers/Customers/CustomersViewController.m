@@ -14,14 +14,14 @@
 #import "DataStore.h"
 #import "CustomersStore.h"
 #import "Customer.h"
-#import "CBLModelDeleteHelper.h"
+#import "CustomerDeleteHelper.h"
 
 @interface CustomersViewController ()
 <
 CBLUITableDelegate
 >
 {
-    CBLModelDeleteHelper* deleteHelper;
+    CustomerDeleteHelper* deleteHelper;
 }
 @property(nonatomic, strong) Customer* selectedCellData;
 @property (nonatomic, weak) CustomersStore* store;
@@ -36,7 +36,7 @@ CBLUITableDelegate
     self.modelClass = [Customer class];
     self.firstLevelSearchableProperty = @"companyName";
     self.filteredDataSource.labelProperty = self.firstLevelSearchableProperty;
-    deleteHelper = [CBLModelDeleteHelper new];
+    deleteHelper = [CustomerDeleteHelper new];
 }
 
 - (void) updateQuery

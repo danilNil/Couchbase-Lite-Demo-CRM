@@ -14,7 +14,7 @@
 - (Contact*) contactWithMail: (NSString*)mail;
 - (CBLQuery*) queryContacts;
 
-- (CBLQuery*) queryContactsByCustomer:(Customer*)cust;
+- (CBLQuery*) queryContactsForCustomer:(Customer*)cust;
 - (CBLQuery*) queryContactsForOpportunity:(Opportunity*)opp;
 
 @end
