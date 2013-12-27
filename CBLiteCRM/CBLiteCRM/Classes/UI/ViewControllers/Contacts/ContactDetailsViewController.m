@@ -295,10 +295,10 @@ typedef void (^ValidationBlock)(BOOL isValid, NSString *msg);
     return [UIImage imageWithData:attach.content];
 }
 
-- (NSString*) titleForCustomer:(Customer*)cstm
+- (NSString*) titleForCustomer:(Customer*)customer
 {
-    if (cstm)
-        return [NSString stringWithFormat:@"Company: %@", cstm.companyName];
+    if (customer.companyName.length > 0)
+        return [NSString stringWithFormat:@"Company: %@", customer.companyName];
 
     return @"Select Company";
 }
