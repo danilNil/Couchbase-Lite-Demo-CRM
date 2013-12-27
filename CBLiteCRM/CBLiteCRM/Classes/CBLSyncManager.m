@@ -8,7 +8,8 @@
 
 #import "CBLSyncManager.h"
 #import <FacebookSDK/FacebookSDK.h>
-
+#import <Accounts/Accounts.h>
+#import <Social/Social.h>
 
 @interface CBLSyncManager()<FBLoginViewDelegate>  {
     CBLReplication *pull;
@@ -16,6 +17,13 @@
     NSArray *beforeSyncBlocks;
     NSArray *onSyncStartedBlocks;
 }
+
+@property (nonatomic, readonly) unsigned completed, total;
+@property (nonatomic, readonly) float progress;
+@property (nonatomic, readonly) bool active;
+@property (nonatomic, readonly) CBLReplicationStatus status;
+@property (nonatomic, readonly) NSError* error;
+
 @end
 
 @implementation CBLSyncManager

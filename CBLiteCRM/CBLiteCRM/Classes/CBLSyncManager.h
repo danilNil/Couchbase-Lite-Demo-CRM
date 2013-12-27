@@ -6,13 +6,11 @@
 //  Copyright (c) 2013 Chris Anderson. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import <Accounts/Accounts.h>
-#import <Social/Social.h>
+
 
 //#import "CBLSyncAuthenticator.h"
 
-@class CBLSyncManager;
+@class CBLSyncManager, CBLDatabase;
 
 #pragma mark - Authenticators
 
@@ -61,11 +59,7 @@
 - (void)logout;
 
 // These are not KVO-observable; observe SyncManagerStateChangedNotification instead
-@property (nonatomic, readonly) unsigned completed, total;
-@property (nonatomic, readonly) float progress;
-@property (nonatomic, readonly) bool active;
-@property (nonatomic, readonly) CBLReplicationStatus status;
-@property (nonatomic, readonly) NSError* error;
+
 
 
 @end

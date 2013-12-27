@@ -39,6 +39,7 @@
 		830B8C8E186D3902007CBF3F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 831FFCD71844364900C7CB22 /* UIKit.framework */; };
 		830B8C94186D3902007CBF3F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 830B8C92186D3902007CBF3F /* InfoPlist.strings */; };
 		830B8C9F186D3948007CBF3F /* Kiwi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 830B8C7F186D3204007CBF3F /* Kiwi.framework */; };
+		830B8CA3186D3DBF007CBF3F /* AppDelegateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 830B8CA2186D3DBF007CBF3F /* AppDelegateTest.m */; };
 		830D51AC1848570900044A19 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 830D51AB1848570900044A19 /* BaseModel.m */; };
 		830D51B31848973900044A19 /* OpportunityDetailesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 830D51B21848973900044A19 /* OpportunityDetailesViewController.m */; };
 		831730FD184F21090043F865 /* CustomersStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 831730FC184F21090043F865 /* CustomersStore.m */; };
@@ -152,6 +153,7 @@
 		830B8C91186D3902007CBF3F /* CBLiteCRMKiwiTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CBLiteCRMKiwiTests-Info.plist"; sourceTree = "<group>"; };
 		830B8C93186D3902007CBF3F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		830B8C97186D3902007CBF3F /* CBLiteCRMKiwiTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CBLiteCRMKiwiTests-Prefix.pch"; sourceTree = "<group>"; };
+		830B8CA2186D3DBF007CBF3F /* AppDelegateTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegateTest.m; sourceTree = "<group>"; };
 		830D51AA1848570900044A19 /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
 		830D51AB1848570900044A19 /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
 		830D51B11848973900044A19 /* OpportunityDetailesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpportunityDetailesViewController.h; sourceTree = "<group>"; };
@@ -377,6 +379,7 @@
 			isa = PBXGroup;
 			children = (
 				830B8C90186D3902007CBF3F /* Supporting Files */,
+				830B8CA2186D3DBF007CBF3F /* AppDelegateTest.m */,
 			);
 			path = CBLiteCRMKiwiTests;
 			sourceTree = "<group>";
@@ -746,6 +749,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				830B8CA3186D3DBF007CBF3F /* AppDelegateTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
