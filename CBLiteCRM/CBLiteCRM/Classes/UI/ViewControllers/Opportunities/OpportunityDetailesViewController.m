@@ -194,8 +194,10 @@
 - (IBAction)saveItem:(id)sender
 {
     if([self.navigationItem.rightBarButtonItem.title isEqualToString:kSaveTitle]){
-        if ([self saveItem])
+        if ([self saveItem]) {
             [self setEditMode:NO];
+            [self loadInfoForOpportunity:self.currentOpport];
+        }
     }else if([self.navigationItem.rightBarButtonItem.title isEqualToString:kEditTitle])
         [self setEditMode:YES];
 }
