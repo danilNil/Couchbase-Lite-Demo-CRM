@@ -367,8 +367,9 @@
 
 - (NSString*) customerTitle
 {
-    if (customer)
+    if (customer.companyName.length > 0) {
         return [NSString stringWithFormat:@"Customer: %@", customer.companyName];
+    }
     return @"Select Customer";
 }
 
