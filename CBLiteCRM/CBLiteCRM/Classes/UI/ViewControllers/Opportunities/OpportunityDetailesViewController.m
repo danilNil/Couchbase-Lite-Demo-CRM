@@ -51,7 +51,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self setCustomer:self.currentOpport.customer];
+    [self setCustomer:customer];
 }
 
 - (void)setupPickers
