@@ -669,7 +669,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fwK-Yb-awM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2101" y="427"/>
+            <point key="canvasLocation" x="2181" y="531"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cuA-kl-VxA">
@@ -685,7 +685,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fF2-nJ-Obm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1711" y="427"/>
+            <point key="canvasLocation" x="1767" y="531"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jTM-kM-nf1">
@@ -701,7 +701,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rJA-cV-xTC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1693" y="1225"/>
+            <point key="canvasLocation" x="1805" y="1213"/>
         </scene>
         <!--Opportunity Detailes View Controller - Opportunity-->
         <scene sceneID="Clk-Zq-gKl">
@@ -967,7 +967,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dzf-aQ-KNO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2118" y="1231"/>
+            <point key="canvasLocation" x="2230" y="1219"/>
         </scene>
         <!--Customer Details View Controller - Customer-->
         <scene sceneID="c5f-lt-CfQ">
@@ -1234,8 +1234,8 @@
                         <outletCollection property="textFields" destination="uxK-2W-Bi7" id="vbf-Kf-ReR"/>
                         <outletCollection property="textFields" destination="Gys-L6-64Q" id="foh-I1-SBo"/>
                         <outletCollection property="textFields" destination="Pm2-ze-lLg" id="NTF-TD-QEa"/>
-                        <segue destination="5ij-MH-fTa" kind="push" identifier="presentOpportunitiesForCustomer" id="3kk-cj-LW4"/>
                         <segue destination="IvW-Dc-sjE" kind="push" identifier="presentContactsForCustomer" id="ah2-tJ-pzp"/>
+                        <segue destination="5db-xf-0gb" kind="push" identifier="presentOpportunitiesForCustomer" id="zjL-lP-LaW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H6L-mK-hTJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1293,7 +1293,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="1284" y="1231"/>
+            <point key="canvasLocation" x="1180" y="1213"/>
         </scene>
         <!--Contacts View Controller - Contacts-->
         <scene sceneID="P8Y-bZ-Adv">
@@ -1308,7 +1308,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <searchBar key="tableHeaderView" contentMode="redraw" id="vkm-r4-6ex">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                    <rect key="frame" x="0.0" y="64" width="320" height="44"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <textInputTraits key="textInputTraits"/>
                                     <connections>
@@ -1349,7 +1349,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="1142" y="427"/>
+            <point key="canvasLocation" x="1198" y="531"/>
         </scene>
         <!--Contacts By Opportunity View Controller - Contacts-->
         <scene sceneID="emB-hk-xRJ">
@@ -1413,7 +1413,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="1394" y="1909"/>
+            <point key="canvasLocation" x="1470" y="1929"/>
         </scene>
         <!--Opportunites By Contact View Controller - Opportunities-->
         <scene sceneID="6Jb-Mf-S3a">
@@ -1463,7 +1463,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="2598" y="427"/>
+            <point key="canvasLocation" x="2654" y="531"/>
         </scene>
         <!--Contacts By Customer View Controller - Contacts-->
         <scene sceneID="yqM-2t-i4o">
@@ -1518,6 +1518,59 @@
             </objects>
             <point key="canvasLocation" x="2715" y="-707"/>
         </scene>
+        <!--Opportunities By Customer View Controller - Opportunities-->
+        <scene sceneID="0jC-R2-HMc">
+            <objects>
+                <viewController id="5db-xf-0gb" customClass="OpportunitiesByCustomerViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Sk4-0g-sJB">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="qao-oy-my3">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <searchBar key="tableHeaderView" contentMode="redraw" id="FFX-La-XZW">
+                                    <rect key="frame" x="0.0" y="64" width="320" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="bjJ-iH-njp" id="5dG-sW-G4F"/>
+                                    </connections>
+                                </searchBar>
+                                <connections>
+                                    <outlet property="dataSource" destination="5db-xf-0gb" id="QFU-rq-Y1o"/>
+                                    <outlet property="delegate" destination="5db-xf-0gb" id="Ldx-wN-7UB"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Opportunities" id="hOf-zl-Yov">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="UeR-lK-5sH">
+                            <connections>
+                                <segue destination="jaT-9R-O01" kind="modal" identifier="opportDetails" id="GWJ-sM-Ccy"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="KfE-4l-gEI" id="pQ7-pl-TcM"/>
+                        <outlet property="tableView" destination="qao-oy-my3" id="OJr-TM-gkG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8hf-kd-j2U" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="KfE-4l-gEI">
+                    <connections>
+                        <outlet property="delegate" destination="5db-xf-0gb" id="HMI-SW-7jM"/>
+                        <outlet property="searchBar" destination="FFX-La-XZW" id="xmf-nn-F5p"/>
+                        <outlet property="searchContentsController" destination="5db-xf-0gb" id="O1I-LX-M1q"/>
+                        <outlet property="searchResultsDataSource" destination="5db-xf-0gb" id="wU1-yX-wes"/>
+                        <outlet property="searchResultsDelegate" destination="5db-xf-0gb" id="cS6-KN-cdZ"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="2700" y="-115"/>
+        </scene>
     </scenes>
     <resources>
         <image name="FacebookButton" width="282" height="66"/>
@@ -1537,11 +1590,10 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="1iO-jg-otn"/>
-        <segue reference="wax-He-xAT"/>
-        <segue reference="bNO-ud-cJF"/>
+        <segue reference="GWJ-sM-Ccy"/>
         <segue reference="LHW-MO-w8p"/>
-        <segue reference="3kk-cj-LW4"/>
+        <segue reference="bNO-ud-cJF"/>
         <segue reference="yjT-5x-rcy"/>
+        <segue reference="rju-Nc-jGo"/>
     </inferredMetricsTieBreakers>
 </document>

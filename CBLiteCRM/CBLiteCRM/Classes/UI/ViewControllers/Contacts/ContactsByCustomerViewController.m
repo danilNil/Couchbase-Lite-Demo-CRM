@@ -19,20 +19,8 @@
 
 - (void)updateQuery
 {
+    [super updateQuery];
     self.dataSource.query = [[(ContactsStore*)self.store queryContactsForCustomer:self.customer] asLiveQuery];
 }
-
-
-//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-//
-//    CBLQueryRow *row = [self.currentSource rowAtIndex:indexPath.row];
-//    self.selectedContact = [Contact modelForDocument: row.document];
-//    if(self.chooser && self.onSelectContact)
-//        [self didChooseContact:self.selectedContact];
-//    else
-//        [self performSegueWithIdentifier:@"presentContactDetails" sender:self];
-//}
 
 @end

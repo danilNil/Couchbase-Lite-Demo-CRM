@@ -35,7 +35,6 @@ CBLUITableDelegate
     self.modelClass = [Opportunity class];
     self.firstLevelSearchableProperty = @"title";
     deleteHelper = [CBLModelDeleteHelper new];
-
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -65,20 +64,13 @@ CBLUITableDelegate
         UINavigationController* navc = (UINavigationController*)segue.destinationViewController;
         OpportunityDetailesViewController* vc = (OpportunityDetailesViewController*)navc.topViewController;
         vc.currentOpport = self.selectedCellData;
-    } else if ([segue.identifier isEqualToString:@"opportDetails"] && self.filteredCustomer) {
-        UINavigationController* navc = (UINavigationController*)segue.destinationViewController;
-        OpportunityDetailesViewController* vc = (OpportunityDetailesViewController*)navc.topViewController;
-        [vc setCustomer:self.filteredCustomer];
     }
 }
 
 - (void) updateQuery
 {
     self.store = [DataStore sharedInstance].opportunitiesStore;
-    if (self.filteredCustomer)
-        self.dataSource.query = [[self.store queryOpportunitiesForCustomer:self.filteredCustomer] asLiveQuery];
-    else
-        self.dataSource.query = [[self.store queryOpportunities] asLiveQuery];
+    self.dataSource.query = [[self.store queryOpportunities] asLiveQuery];
 }
 
 -(UITableViewCell *)couchTableSource:(CBLUITableSource *)source cellForRowAtIndexPath:(NSIndexPath *)indexPath

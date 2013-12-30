@@ -9,6 +9,7 @@
 #import "CustomerDetailsViewController.h"
 #import "OpportunitiesViewController.h"
 #import "ContactsByCustomerViewController.h"
+#import "OpportunitiesByCustomerViewController.h"
 
 //Data
 #import "Customer.h"
@@ -109,9 +110,9 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.destinationViewController isKindOfClass:[OpportunitiesViewController class]]) {
-        OpportunitiesViewController *vc = (OpportunitiesViewController*)segue.destinationViewController;
-        vc.filteredCustomer = self.currentCustomer;
+    if ([segue.destinationViewController isKindOfClass:[OpportunitiesByCustomerViewController class]]) {
+        OpportunitiesByCustomerViewController *vc = (OpportunitiesByCustomerViewController*)segue.destinationViewController;
+        vc.customer = self.currentCustomer;
         vc.navigationItem.rightBarButtonItem = ![self isEditMode] ? nil : vc.navigationItem.rightBarButtonItem;
     } else if ([segue.destinationViewController isKindOfClass:[ContactsViewController class]]) {
         ContactsByCustomerViewController *vc = (ContactsByCustomerViewController*)segue.destinationViewController;

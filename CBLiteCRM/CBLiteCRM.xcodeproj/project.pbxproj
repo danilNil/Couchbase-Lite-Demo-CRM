@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4409AAF2187177D500E80133 /* ContactsByCustomerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4409AAF1187177D500E80133 /* ContactsByCustomerViewController.m */; };
 		4409AAF5187181EC00E80133 /* UIViewController+TableViewReadOnlyOrWriteMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 4409AAF4187181EC00E80133 /* UIViewController+TableViewReadOnlyOrWriteMode.m */; };
+		4409AAF81871830F00E80133 /* OpportunitiesByCustomerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4409AAF71871830F00E80133 /* OpportunitiesByCustomerViewController.m */; };
 		4423292918581F5A00025B31 /* OpportunityForContactStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 4423292818581F5A00025B31 /* OpportunityForContactStore.m */; };
 		444F0555186D4B4D00DF1CDF /* CustomerDeleteHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 444F0554186D4B4D00DF1CDF /* CustomerDeleteHelper.m */; };
 		44726BF51855B9FF00AC88D2 /* ContactOpportunity.m in Sources */ = {isa = PBXBuildFile; fileRef = 44726BF41855B9FF00AC88D2 /* ContactOpportunity.m */; };
@@ -102,6 +103,8 @@
 		4409AAF1187177D500E80133 /* ContactsByCustomerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactsByCustomerViewController.m; sourceTree = "<group>"; };
 		4409AAF3187181EC00E80133 /* UIViewController+TableViewReadOnlyOrWriteMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+TableViewReadOnlyOrWriteMode.h"; sourceTree = "<group>"; };
 		4409AAF4187181EC00E80133 /* UIViewController+TableViewReadOnlyOrWriteMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+TableViewReadOnlyOrWriteMode.m"; sourceTree = "<group>"; };
+		4409AAF61871830F00E80133 /* OpportunitiesByCustomerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpportunitiesByCustomerViewController.h; sourceTree = "<group>"; };
+		4409AAF71871830F00E80133 /* OpportunitiesByCustomerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpportunitiesByCustomerViewController.m; sourceTree = "<group>"; };
 		4423292718581F5A00025B31 /* OpportunityForContactStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OpportunityForContactStore.h; path = ../RelationalModels/OpportunityForContactStore.h; sourceTree = "<group>"; };
 		4423292818581F5A00025B31 /* OpportunityForContactStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OpportunityForContactStore.m; path = ../RelationalModels/OpportunityForContactStore.m; sourceTree = "<group>"; };
 		444F0553186D4B4D00DF1CDF /* CustomerDeleteHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerDeleteHelper.h; sourceTree = "<group>"; };
@@ -344,6 +347,8 @@
 				44B3A6751857132D00CF4BAE /* OpportunitesByContactViewController.m */,
 				830D51B11848973900044A19 /* OpportunityDetailesViewController.h */,
 				830D51B21848973900044A19 /* OpportunityDetailesViewController.m */,
+				4409AAF61871830F00E80133 /* OpportunitiesByCustomerViewController.h */,
+				4409AAF71871830F00E80133 /* OpportunitiesByCustomerViewController.m */,
 			);
 			path = Opportunities;
 			sourceTree = "<group>";
@@ -789,6 +794,7 @@
 				493498CC185A3EC200ADA646 /* UIAlertView+Helper.m in Sources */,
 				4409AAF5187181EC00E80133 /* UIViewController+TableViewReadOnlyOrWriteMode.m in Sources */,
 				44B3A6701856C79700CF4BAE /* ContactOpportunityStore.m in Sources */,
+				4409AAF81871830F00E80133 /* OpportunitiesByCustomerViewController.m in Sources */,
 				831C09A91869A8E7002CB53A /* OpportunityCell.m in Sources */,
 				44726BF51855B9FF00AC88D2 /* ContactOpportunity.m in Sources */,
 				831C09971869A8CC002CB53A /* FilteringViewController.m in Sources */,
