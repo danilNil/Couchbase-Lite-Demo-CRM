@@ -3,9 +3,15 @@
 #import "DataStore.h"
 #import "CBLSyncManager.h"
 
+
+@interface AppDelegate ()
+
+- (void)setupAppearance;
+- (void)setupCBLSync;
+- (void)setupDatabase:(DataStore*)store;
+@end
+
 SPEC_BEGIN(AppDelegateSpec)
-
-
 
 describe(@"initialisation all services", ^{
     
@@ -19,45 +25,15 @@ describe(@"initialisation all services", ^{
             store = [KWMock nullMock];
             cblSync = [KWMock nullMock];
             app.cblSync = cblSync;
+            [app setupDatabase:store];
         });
         
         afterEach(^{
             app = nil;
         });
 
-        context(@"when creating a new App delegate", ^{
-            
-            it(@"the App delegate should exist", ^{
-                
-                [app shouldNotBeNil];
-                
-            });
-            
-        });
-        
-        context(@"data base should be created", ^{
-
-            it(@"should responce to setupDatabase", ^{
-                
-                [[app should] respondToSelector:@selector(setupDatabase:)];
-                
-            });
-        });
-
-        context(@"CBLSyncManager should be created", ^{
-            it(@"has a CBLSyncManager", ^{
-                
-                [[app should] respondToSelector:@selector(cblSync)];
-                
-            });
-            it(@"should responce to setupCBLSync", ^{
-                
-                [[app should] respondToSelector:@selector(setupCBLSync)];
-                
-            });
-        });
-
         context(@"on app didFinishLaunchingWithOptions actions", ^{
+            
             it(@"should setup all nesesary managers and UI appearance", ^{
                 
                 [[app should] receive:@selector(setupAppearance)];
@@ -72,7 +48,7 @@ describe(@"initialisation all services", ^{
         context(@"on logout actions", ^{
             it(@"should call logout for DataStore and CBLSyncManager", ^{
                 
-//                [[[store should] receive] logout]; can'b be tested because of bad design
+                [[[store should] receive] logout];
                 [[[cblSync should] receive] logout];
                 [app logout];
                 

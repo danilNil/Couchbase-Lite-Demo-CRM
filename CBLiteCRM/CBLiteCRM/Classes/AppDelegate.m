@@ -113,7 +113,7 @@
 
 //TODO: should be refactored with CBLSyncManager
 - (void)logout{
-    [[DataStore sharedInstance] logout];
+    [self.dataStore logout];
     [self.cblSync logout];
 }
 
