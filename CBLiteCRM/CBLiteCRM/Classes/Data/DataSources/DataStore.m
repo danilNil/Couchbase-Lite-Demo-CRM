@@ -48,4 +48,8 @@
     _opportunityContactStore = [[OpportunityForContactStore alloc] initWithDatabase:self.database];
 }
 
+- (void) logout{
+    self.salePersonsStore.user = nil;
+}
+
 @end

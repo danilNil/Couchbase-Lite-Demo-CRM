@@ -30,7 +30,7 @@
 {
     [self setupTestflight];
     [self setupAppearance];
-    [self setupDatabase];
+    [self setupDatabase:[DataStore sharedInstance]];
     [self setupCBLSync];
     return YES;
 }
@@ -70,9 +70,9 @@
 
 #pragma mark - Sync
 
-- (void)setupDatabase
+- (void)setupDatabase:(DataStore*)store
 {
-    self.dataStore = [DataStore sharedInstance];
+    self.dataStore = store;
 }
 
 - (void) setupCBLSync {
@@ -87,15 +87,15 @@
     // TODO: removed that variable after CBLSyncManager refactoring
     self.asAdmin = asAdmin;
     
-    if (_cblSync.userID) {
+    if (self.cblSync.userID) {
         [self updateUserWithRole:self.asAdmin];
         complete();
     } else {
-        [_cblSync beforeFirstSync:^(NSString *userID, NSDictionary *userData, NSError **outError) {
+        [self.cblSync beforeFirstSync:^(NSString *userID, NSDictionary *userData, NSError **outError) {
             [self updateUserWithRole:self.asAdmin];
             complete();
         }];
-        [_cblSync start];
+        [self.cblSync start];
     }
 }
 
@@ -113,8 +113,8 @@
 
 //TODO: should be refactored with CBLSyncManager
 - (void)logout{
-    [DataStore sharedInstance].salePersonsStore.user = nil;
-    [_cblSync logout];
+    [self.dataStore logout];
+    [self.cblSync logout];
 }
 
 #pragma -
