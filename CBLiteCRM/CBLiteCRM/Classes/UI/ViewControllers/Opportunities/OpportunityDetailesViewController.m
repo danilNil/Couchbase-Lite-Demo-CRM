@@ -37,7 +37,7 @@
 @end
 
 @implementation OpportunityDetailesViewController
-@synthesize deleteButton, textFields, buttons;
+@synthesize deleteButton, textFields, buttons, enableForEditing;
 
 - (void)viewDidLoad
 {

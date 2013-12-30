@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Couchbase. All rights reserved.
 //
 #import "LogoutProtocol.h"
-#import "UIViewController+ReadOnlyOrWriteMode.h"
+#import "UIViewController+DetailsReadOnlyOrWriteMode.h"
 @class SalesPerson;
 @interface SalesPersonOptionsViewController : UIViewController<LogoutProtocol,EditableViewControllers>
 

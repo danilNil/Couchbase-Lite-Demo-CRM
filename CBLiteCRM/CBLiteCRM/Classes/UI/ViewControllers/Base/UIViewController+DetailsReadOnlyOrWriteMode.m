@@ -6,11 +6,11 @@
 //  Copyright (c) 2013 Couchbase. All rights reserved.
 //
 
-#import "UIViewController+ReadOnlyOrWriteMode.h"
+#import "UIViewController+DetailsReadOnlyOrWriteMode.h"
 #import "TextFieldView.h"
 
-@implementation UIViewController (ReadOnlyOrWriteMode)
-@dynamic deleteButton, textFields, buttons;
+@implementation UIViewController (DetailsReadOnlyOrWriteMode)
+@dynamic deleteButton, textFields, buttons, enableForEditing;
 
 - (void)setEditMode:(BOOL)editMode
 {

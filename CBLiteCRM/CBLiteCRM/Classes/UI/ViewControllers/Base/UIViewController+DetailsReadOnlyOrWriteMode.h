@@ -16,6 +16,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *deleteButton;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *buttons;
 
+@property (nonatomic) BOOL enableForEditing;
+
 - (BOOL)isEditMode;
 - (void)setEditMode:(BOOL)editMode;
 - (void)changeRightButtonTitleForMode:(BOOL)editMode;
@@ -23,7 +25,7 @@
 
 @end
 
-@interface UIViewController(ReadOnlyOrWriteMode)<EditableViewControllers>
+@interface UIViewController(DetailsReadOnlyOrWriteMode)<EditableViewControllers>
 
 
 @end

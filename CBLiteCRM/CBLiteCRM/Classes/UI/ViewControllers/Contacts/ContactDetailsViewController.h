@@ -7,7 +7,7 @@
 //
 
 #import "TextFieldsViewController.h"
-#import "UIViewController+ReadOnlyOrWriteMode.h"
+#import "UIViewController+DetailsReadOnlyOrWriteMode.h"
 
 @class Contact;
 @interface ContactDetailsViewController : TextFieldsViewController<EditableViewControllers>
