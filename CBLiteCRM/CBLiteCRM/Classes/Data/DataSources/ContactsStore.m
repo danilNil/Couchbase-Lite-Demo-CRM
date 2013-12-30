@@ -87,7 +87,7 @@
     return keys;
 }
 
-- (CBLQuery *)queryContactsByCustomer:(Customer *)cust
+- (CBLQuery *)queryContactsForCustomer:(Customer *)cust
 {
     CBLView* view = [self.database viewNamed: @"contactsForCustomer"];
     if (!view.mapBlock) {

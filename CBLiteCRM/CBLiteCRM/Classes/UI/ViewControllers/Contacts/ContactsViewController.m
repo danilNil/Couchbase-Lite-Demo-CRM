@@ -51,7 +51,7 @@ UIAlertViewDelegate
     if (self.filteringOpportunity)
         self.dataSource.query = [[(ContactsStore*)self.store queryContactsForOpportunity:self.filteringOpportunity] asLiveQuery];
     else if(self.filteredCustomer)
-        self.dataSource.query = [[(ContactsStore*)self.store queryContactsByCustomer:self.filteredCustomer] asLiveQuery];
+        self.dataSource.query = [[(ContactsStore*)self.store queryContactsForCustomer:self.filteredCustomer] asLiveQuery];
     else
         self.dataSource.query = [[(ContactsStore*)self.store queryContacts] asLiveQuery];
 }

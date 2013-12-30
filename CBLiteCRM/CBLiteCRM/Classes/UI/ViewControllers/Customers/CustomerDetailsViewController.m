@@ -14,11 +14,11 @@
 #import "Customer.h"
 #import "DataStore.h"
 #import "CustomersStore.h"
-#import "CBLModelDeleteHelper.h"
+#import "CustomerDeleteHelper.h"
 
 @interface CustomerDetailsViewController ()
 {
-    CBLModelDeleteHelper* deleteHelper;
+    CustomerDeleteHelper* deleteHelper;
 }
 @end
 
@@ -29,7 +29,7 @@
 {
     [super viewDidLoad];
     [self setupMode];
-    deleteHelper = [CBLModelDeleteHelper new];
+    deleteHelper = [CustomerDeleteHelper new];
 }
 
 -(void)viewWillAppear:(BOOL)animated

@@ -42,7 +42,7 @@
 - (BOOL)deleteDocument: (NSError**)outError
 {
     ContactsStore *ctStore = [DataStore sharedInstance].contactsStore;
-    CBLQuery *cQ = [ctStore queryContactsByCustomer:self];
+    CBLQuery *cQ = [ctStore queryContactsForCustomer:self];
     NSError *error;
     for (CBLQueryRow *r in [cQ run:&error]) {
         Contact *c = [Contact modelForDocument:r.document];
