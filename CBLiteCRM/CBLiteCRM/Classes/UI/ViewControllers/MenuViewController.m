@@ -11,6 +11,9 @@
 #import "DataStore.h"
 #import "SalePersonsStore.h"
 #import "SalesPerson.h"
+#import "FilteringViewController.h"
+#import "ContactsViewController.h"
+
 @interface MenuViewController ()
 
 @end
@@ -50,4 +53,9 @@
     self.oppButton.enabled = needToShow;
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    [super prepareForSegue:segue sender:sender];
+    ((ContactsViewController*)segue.destinationViewController).enableForEditing = YES;
+}
 @end

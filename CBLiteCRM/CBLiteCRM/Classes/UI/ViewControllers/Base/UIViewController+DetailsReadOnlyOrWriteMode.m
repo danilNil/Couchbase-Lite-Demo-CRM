@@ -36,6 +36,13 @@
         self.navigationItem.rightBarButtonItem.title = kEditTitle;
 }
 
+-(void)setEnableForEditing:(BOOL)enableForEditing
+{
+    if (!enableForEditing) {
+        self.navigationItem.rightBarButtonItem = nil;
+    }
+}
+
 - (void)editModeChanged:(BOOL)editMode{}
 
 @end

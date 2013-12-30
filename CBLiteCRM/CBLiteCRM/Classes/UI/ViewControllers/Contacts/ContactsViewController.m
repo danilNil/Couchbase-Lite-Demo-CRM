@@ -10,7 +10,7 @@
 #import "ContactsViewController.h"
 #import "ContactDetailsViewController.h"
 #import "ContactCell.h"
-
+#import "UIViewController+TableViewReadOnlyOrWriteMode.h"
 //Data
 #import "DataStore.h"
 #import "ContactsStore.h"
@@ -30,6 +30,7 @@ UIAlertViewDelegate
 @end
 
 @implementation ContactsViewController
+@synthesize enableForEditing;
 
 -(void)viewDidLoad
 {
@@ -93,6 +94,7 @@ UIAlertViewDelegate
         UINavigationController* navc = (UINavigationController*)segue.destinationViewController;
         if([navc.topViewController isKindOfClass:[ContactDetailsViewController class]]){
             ContactDetailsViewController* vc = (ContactDetailsViewController*)navc.topViewController;
+            vc.enableForEditing = YES;
             vc.currentContact = self.selectedContact;
         }
     }

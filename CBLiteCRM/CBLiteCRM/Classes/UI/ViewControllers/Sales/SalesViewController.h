@@ -8,7 +8,8 @@
 
 #import "FilteringViewController.h"
 #import "LogoutProtocol.h"
+#import "UIViewController+TableViewReadOnlyOrWriteMode.h"
 
-@interface SalesViewController : FilteringViewController<LogoutProtocol>
+@interface SalesViewController : FilteringViewController<LogoutProtocol, EditableTableViewControllers>
 
 @end

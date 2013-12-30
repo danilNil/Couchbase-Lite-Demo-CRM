@@ -28,6 +28,7 @@ CBLUITableDelegate
 @end
 
 @implementation OpportunitiesViewController
+@synthesize enableForEditing;
 
 -(void)viewDidLoad
 {

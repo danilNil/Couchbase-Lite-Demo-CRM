@@ -7,10 +7,11 @@
 //
 
 #import "FilteringViewController.h"
+#import "UIViewController+TableViewReadOnlyOrWriteMode.h"
 
 @class Opportunity, Contact;
 
-@interface ContactsViewController : FilteringViewController
+@interface ContactsViewController : FilteringViewController <EditableTableViewControllers>
 
 @property (nonatomic) BOOL chooser;
 @property (nonatomic, copy) void (^onSelectContact)(Contact * contact);

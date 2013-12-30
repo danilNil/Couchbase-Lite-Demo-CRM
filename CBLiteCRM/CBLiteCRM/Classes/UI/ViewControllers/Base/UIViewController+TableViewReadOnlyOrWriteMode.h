@@ -6,8 +6,13 @@
 //  Copyright (c) 2013 Couchbase. All rights reserved.
 //
 
-@interface UIViewController (TableViewReadOnlyOrWriteMode)
+
+@protocol EditableTableViewControllers
 
 @property (nonatomic) BOOL enableForEditing;
+
+@end
+
+@interface UIViewController (TableViewReadOnlyOrWriteMode)<EditableTableViewControllers>
 
 @end

@@ -8,7 +8,7 @@
 
 @class BaseStore;
 
-@interface FilteringViewController : UIViewController 
+@interface FilteringViewController : UIViewController  
 <
 UITableViewDelegate,
 UISearchBarDelegate,
