@@ -8,7 +8,7 @@
 
 #import "CustomerDetailsViewController.h"
 #import "OpportunitiesViewController.h"
-#import "ContactsViewController.h"
+#import "ContactsByCustomerViewController.h"
 
 //Data
 #import "Customer.h"
@@ -114,8 +114,8 @@
         vc.filteredCustomer = self.currentCustomer;
         vc.navigationItem.rightBarButtonItem = ![self isEditMode] ? nil : vc.navigationItem.rightBarButtonItem;
     } else if ([segue.destinationViewController isKindOfClass:[ContactsViewController class]]) {
-        ContactsViewController *vc = (ContactsViewController*)segue.destinationViewController;
-        vc.filteredCustomer = self.currentCustomer;
+        ContactsByCustomerViewController *vc = (ContactsByCustomerViewController*)segue.destinationViewController;
+        vc.customer = self.currentCustomer;
         vc.navigationItem.rightBarButtonItem = nil;
     }
 }

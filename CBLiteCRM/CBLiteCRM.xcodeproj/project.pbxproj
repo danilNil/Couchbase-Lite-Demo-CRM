@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4409AAF2187177D500E80133 /* ContactsByCustomerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4409AAF1187177D500E80133 /* ContactsByCustomerViewController.m */; };
 		4423292918581F5A00025B31 /* OpportunityForContactStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 4423292818581F5A00025B31 /* OpportunityForContactStore.m */; };
 		444F0555186D4B4D00DF1CDF /* CustomerDeleteHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 444F0554186D4B4D00DF1CDF /* CustomerDeleteHelper.m */; };
 		44726BF51855B9FF00AC88D2 /* ContactOpportunity.m in Sources */ = {isa = PBXBuildFile; fileRef = 44726BF41855B9FF00AC88D2 /* ContactOpportunity.m */; };
@@ -96,6 +97,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4409AAF0187177D500E80133 /* ContactsByCustomerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactsByCustomerViewController.h; sourceTree = "<group>"; };
+		4409AAF1187177D500E80133 /* ContactsByCustomerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactsByCustomerViewController.m; sourceTree = "<group>"; };
 		4423292718581F5A00025B31 /* OpportunityForContactStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OpportunityForContactStore.h; path = ../RelationalModels/OpportunityForContactStore.h; sourceTree = "<group>"; };
 		4423292818581F5A00025B31 /* OpportunityForContactStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OpportunityForContactStore.m; path = ../RelationalModels/OpportunityForContactStore.m; sourceTree = "<group>"; };
 		444F0553186D4B4D00DF1CDF /* CustomerDeleteHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerDeleteHelper.h; sourceTree = "<group>"; };
@@ -308,6 +311,8 @@
 				447A2C531845D808008786AF /* ContactsViewController.m */,
 				44B3A6711856DC7F00CF4BAE /* ContactsByOpportunityViewController.h */,
 				44B3A6721856DC7F00CF4BAE /* ContactsByOpportunityViewController.m */,
+				4409AAF0187177D500E80133 /* ContactsByCustomerViewController.h */,
+				4409AAF1187177D500E80133 /* ContactsByCustomerViewController.m */,
 				447A2C501845D808008786AF /* ContactDetailsViewController.h */,
 				447A2C511845D808008786AF /* ContactDetailsViewController.m */,
 			);
@@ -786,6 +791,7 @@
 				831FFD3E18446BC300C7CB22 /* Contact.m in Sources */,
 				830D51AC1848570900044A19 /* BaseModel.m in Sources */,
 				447A2C671845D808008786AF /* MenuViewController.m in Sources */,
+				4409AAF2187177D500E80133 /* ContactsByCustomerViewController.m in Sources */,
 				44B3A6761857132D00CF4BAE /* OpportunitesByContactViewController.m in Sources */,
 				831730FD184F21090043F865 /* CustomersStore.m in Sources */,
 				447A2C631845D808008786AF /* TextFieldsViewController.m in Sources */,

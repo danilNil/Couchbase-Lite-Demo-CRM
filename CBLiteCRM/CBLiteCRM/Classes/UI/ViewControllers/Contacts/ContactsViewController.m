@@ -37,6 +37,7 @@ UIAlertViewDelegate
     self.modelClass = [Contact class];
     self.firstLevelSearchableProperty = @"name";
     deleteHelper = [CBLModelDeleteHelper new];
+    self.store = [DataStore sharedInstance].contactsStore;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -47,11 +48,8 @@ UIAlertViewDelegate
 
 - (void) updateQuery
 {
-    self.store = [DataStore sharedInstance].contactsStore;
     if (self.filteringOpportunity)
         self.dataSource.query = [[(ContactsStore*)self.store queryContactsForOpportunity:self.filteringOpportunity] asLiveQuery];
-    else if(self.filteredCustomer)
-        self.dataSource.query = [[(ContactsStore*)self.store queryContactsForCustomer:self.filteredCustomer] asLiveQuery];
     else
         self.dataSource.query = [[(ContactsStore*)self.store queryContacts] asLiveQuery];
 }
