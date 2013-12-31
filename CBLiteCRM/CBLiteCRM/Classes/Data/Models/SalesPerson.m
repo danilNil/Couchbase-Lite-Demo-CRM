@@ -22,7 +22,6 @@
     if (self) {
         self.user_id = mail;
         self.username = username;
-        self.isAdmin = NO;
     }
     NSError* error;
     if (![self save: &error]){
