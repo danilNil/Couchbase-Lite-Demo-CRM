@@ -39,6 +39,12 @@
 		49C103DA1859EB0F00D58426 /* RoundedImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C103D91859EB0F00D58426 /* RoundedImageView.m */; };
 		49C103DD1859F86200D58426 /* Contact+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C103DC1859F86200D58426 /* Contact+Helper.m */; };
 		49EB988618638CA6003A49F3 /* UIImage+Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EB988518638CA6003A49F3 /* UIImage+Tools.m */; };
+		830B8C8C186D3902007CBF3F /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 830B8C82186D34CA007CBF3F /* SenTestingKit.framework */; };
+		830B8C8D186D3902007CBF3F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 831FFCD31844364900C7CB22 /* Foundation.framework */; };
+		830B8C8E186D3902007CBF3F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 831FFCD71844364900C7CB22 /* UIKit.framework */; };
+		830B8C94186D3902007CBF3F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 830B8C92186D3902007CBF3F /* InfoPlist.strings */; };
+		830B8C9F186D3948007CBF3F /* Kiwi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 830B8C7F186D3204007CBF3F /* Kiwi.framework */; };
+		830B8CA3186D3DBF007CBF3F /* AppDelegateSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 830B8CA2186D3DBF007CBF3F /* AppDelegateSpec.m */; };
 		830D51AC1848570900044A19 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 830D51AB1848570900044A19 /* BaseModel.m */; };
 		830D51B31848973900044A19 /* OpportunityDetailesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 830D51B21848973900044A19 /* OpportunityDetailesViewController.m */; };
 		831730FD184F21090043F865 /* CustomersStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 831730FC184F21090043F865 /* CustomersStore.m */; };
@@ -62,11 +68,6 @@
 		831FFCE01844364900C7CB22 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 831FFCDF1844364900C7CB22 /* main.m */; };
 		831FFCE71844364900C7CB22 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 831FFCE51844364900C7CB22 /* Main.storyboard */; };
 		831FFCEC1844364900C7CB22 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 831FFCEB1844364900C7CB22 /* Images.xcassets */; };
-		831FFCF31844364900C7CB22 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 831FFCF21844364900C7CB22 /* XCTest.framework */; };
-		831FFCF41844364900C7CB22 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 831FFCD31844364900C7CB22 /* Foundation.framework */; };
-		831FFCF51844364900C7CB22 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 831FFCD71844364900C7CB22 /* UIKit.framework */; };
-		831FFCFD1844364900C7CB22 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 831FFCFB1844364900C7CB22 /* InfoPlist.strings */; };
-		831FFCFF1844364900C7CB22 /* CBLiteCRMTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 831FFCFE1844364900C7CB22 /* CBLiteCRMTests.m */; };
 		831FFD1018443AA300C7CB22 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 831FFD0A18443AA300C7CB22 /* AppDelegate.m */; };
 		831FFD28184444FC00C7CB22 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 831FFD25184444FC00C7CB22 /* CFNetwork.framework */; };
 		831FFD29184444FC00C7CB22 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 831FFD26184444FC00C7CB22 /* Security.framework */; };
@@ -90,7 +91,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		831FFCF61844364900C7CB22 /* PBXContainerItemProxy */ = {
+		830B8C98186D3902007CBF3F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 831FFCC81844364900C7CB22 /* Project object */;
 			proxyType = 1;
@@ -161,6 +162,13 @@
 		49C103DC1859F86200D58426 /* Contact+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Contact+Helper.m"; sourceTree = "<group>"; };
 		49EB988418638CA6003A49F3 /* UIImage+Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Tools.h"; sourceTree = "<group>"; };
 		49EB988518638CA6003A49F3 /* UIImage+Tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Tools.m"; sourceTree = "<group>"; };
+		830B8C7F186D3204007CBF3F /* Kiwi.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Kiwi.framework; sourceTree = "<group>"; };
+		830B8C82186D34CA007CBF3F /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		830B8C8B186D3902007CBF3F /* CBLiteCRMKiwiTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CBLiteCRMKiwiTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		830B8C91186D3902007CBF3F /* CBLiteCRMKiwiTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CBLiteCRMKiwiTests-Info.plist"; sourceTree = "<group>"; };
+		830B8C93186D3902007CBF3F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		830B8C97186D3902007CBF3F /* CBLiteCRMKiwiTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CBLiteCRMKiwiTests-Prefix.pch"; sourceTree = "<group>"; };
+		830B8CA2186D3DBF007CBF3F /* AppDelegateSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegateSpec.m; sourceTree = "<group>"; };
 		830D51AA1848570900044A19 /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
 		830D51AB1848570900044A19 /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
 		830D51B11848973900044A19 /* OpportunityDetailesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpportunityDetailesViewController.h; sourceTree = "<group>"; };
@@ -201,11 +209,7 @@
 		831FFCE11844364900C7CB22 /* CBLiteCRM-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CBLiteCRM-Prefix.pch"; sourceTree = "<group>"; };
 		831FFCE61844364900C7CB22 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		831FFCEB1844364900C7CB22 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		831FFCF11844364900C7CB22 /* CBLiteCRMTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CBLiteCRMTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		831FFCF21844364900C7CB22 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		831FFCFA1844364900C7CB22 /* CBLiteCRMTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CBLiteCRMTests-Info.plist"; sourceTree = "<group>"; };
-		831FFCFC1844364900C7CB22 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		831FFCFE1844364900C7CB22 /* CBLiteCRMTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBLiteCRMTests.m; sourceTree = "<group>"; };
 		831FFD0918443AA300C7CB22 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		831FFD0A18443AA300C7CB22 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		831FFD25184444FC00C7CB22 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -238,9 +242,21 @@
 		83CEAADC1846EC240002D040 /* ImagePickerAngel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagePickerAngel.m; sourceTree = "<group>"; };
 		83CEAADF1846ECE10002D040 /* ActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheet.h; sourceTree = "<group>"; };
 		83CEAAE01846ECE10002D040 /* ActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheet.m; sourceTree = "<group>"; };
+		83FF88B1186D805D00B3836D /* DataStoreSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataStoreSpec.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		830B8C88186D3902007CBF3F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				830B8C8C186D3902007CBF3F /* SenTestingKit.framework in Frameworks */,
+				830B8C8E186D3902007CBF3F /* UIKit.framework in Frameworks */,
+				830B8C9F186D3948007CBF3F /* Kiwi.framework in Frameworks */,
+				830B8C8D186D3902007CBF3F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		831FFCCD1844364900C7CB22 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -258,16 +274,6 @@
 				831FFCD41844364900C7CB22 /* Foundation.framework in Frameworks */,
 				831FFD29184444FC00C7CB22 /* Security.framework in Frameworks */,
 				831FFD28184444FC00C7CB22 /* CFNetwork.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		831FFCEE1844364900C7CB22 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				831FFCF31844364900C7CB22 /* XCTest.framework in Frameworks */,
-				831FFCF51844364900C7CB22 /* UIKit.framework in Frameworks */,
-				831FFCF41844364900C7CB22 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,6 +399,26 @@
 			name = Relations;
 			sourceTree = "<group>";
 		};
+		830B8C8F186D3902007CBF3F /* CBLiteCRMKiwiTests */ = {
+			isa = PBXGroup;
+			children = (
+				830B8C90186D3902007CBF3F /* Supporting Files */,
+				830B8CA2186D3DBF007CBF3F /* AppDelegateSpec.m */,
+				83FF88B1186D805D00B3836D /* DataStoreSpec.m */,
+			);
+			path = CBLiteCRMKiwiTests;
+			sourceTree = "<group>";
+		};
+		830B8C90186D3902007CBF3F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				830B8C91186D3902007CBF3F /* CBLiteCRMKiwiTests-Info.plist */,
+				830B8C92186D3902007CBF3F /* InfoPlist.strings */,
+				830B8C97186D3902007CBF3F /* CBLiteCRMKiwiTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		831C09981869A8E7002CB53A /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -448,8 +474,8 @@
 			isa = PBXGroup;
 			children = (
 				831FFCD91844364900C7CB22 /* CBLiteCRM */,
-				831FFCF81844364900C7CB22 /* CBLiteCRMTests */,
 				493498CD185A430E00ADA646 /* TestFlightSDK */,
+				830B8C8F186D3902007CBF3F /* CBLiteCRMKiwiTests */,
 				831FFCD21844364900C7CB22 /* Frameworks */,
 				831FFCD11844364900C7CB22 /* Products */,
 			);
@@ -459,7 +485,7 @@
 			isa = PBXGroup;
 			children = (
 				831FFCD01844364900C7CB22 /* CBLiteCRM.app */,
-				831FFCF11844364900C7CB22 /* CBLiteCRMTests.xctest */,
+				830B8C8B186D3902007CBF3F /* CBLiteCRMKiwiTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -467,6 +493,8 @@
 		831FFCD21844364900C7CB22 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				830B8C82186D34CA007CBF3F /* SenTestingKit.framework */,
+				830B8C7F186D3204007CBF3F /* Kiwi.framework */,
 				831C097E1869823D002CB53A /* FacebookSDK.framework */,
 				8328453A185188DF008FBFCD /* Accounts.framework */,
 				832845351851885F008FBFCD /* Social.framework */,
@@ -503,24 +531,6 @@
 				831FFCDC1844364900C7CB22 /* InfoPlist.strings */,
 				831FFCDF1844364900C7CB22 /* main.m */,
 				831FFCE11844364900C7CB22 /* CBLiteCRM-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		831FFCF81844364900C7CB22 /* CBLiteCRMTests */ = {
-			isa = PBXGroup;
-			children = (
-				831FFCFE1844364900C7CB22 /* CBLiteCRMTests.m */,
-				831FFCF91844364900C7CB22 /* Supporting Files */,
-			);
-			path = CBLiteCRMTests;
-			sourceTree = "<group>";
-		};
-		831FFCF91844364900C7CB22 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				831FFCFA1844364900C7CB22 /* CBLiteCRMTests-Info.plist */,
-				831FFCFB1844364900C7CB22 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -661,6 +671,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		830B8C8A186D3902007CBF3F /* CBLiteCRMKiwiTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 830B8C9A186D3902007CBF3F /* Build configuration list for PBXNativeTarget "CBLiteCRMKiwiTests" */;
+			buildPhases = (
+				830B8C87186D3902007CBF3F /* Sources */,
+				830B8C88186D3902007CBF3F /* Frameworks */,
+				830B8C89186D3902007CBF3F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				830B8C99186D3902007CBF3F /* PBXTargetDependency */,
+			);
+			name = CBLiteCRMKiwiTests;
+			productName = CBLiteCRMKiwiTests;
+			productReference = 830B8C8B186D3902007CBF3F /* CBLiteCRMKiwiTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
 		831FFCCF1844364900C7CB22 /* CBLiteCRM */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 831FFD021844364900C7CB22 /* Build configuration list for PBXNativeTarget "CBLiteCRM" */;
@@ -678,24 +706,6 @@
 			productReference = 831FFCD01844364900C7CB22 /* CBLiteCRM.app */;
 			productType = "com.apple.product-type.application";
 		};
-		831FFCF01844364900C7CB22 /* CBLiteCRMTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 831FFD051844364900C7CB22 /* Build configuration list for PBXNativeTarget "CBLiteCRMTests" */;
-			buildPhases = (
-				831FFCED1844364900C7CB22 /* Sources */,
-				831FFCEE1844364900C7CB22 /* Frameworks */,
-				831FFCEF1844364900C7CB22 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				831FFCF71844364900C7CB22 /* PBXTargetDependency */,
-			);
-			name = CBLiteCRMTests;
-			productName = CBLiteCRMTests;
-			productReference = 831FFCF11844364900C7CB22 /* CBLiteCRMTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -705,11 +715,11 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = Couchbase;
 				TargetAttributes = {
+					830B8C8A186D3902007CBF3F = {
+						TestTargetID = 831FFCCF1844364900C7CB22;
+					};
 					831FFCCF1844364900C7CB22 = {
 						DevelopmentTeam = BR4H7E2MQ6;
-					};
-					831FFCF01844364900C7CB22 = {
-						TestTargetID = 831FFCCF1844364900C7CB22;
 					};
 				};
 			};
@@ -727,12 +737,20 @@
 			projectRoot = "";
 			targets = (
 				831FFCCF1844364900C7CB22 /* CBLiteCRM */,
-				831FFCF01844364900C7CB22 /* CBLiteCRMTests */,
+				830B8C8A186D3902007CBF3F /* CBLiteCRMKiwiTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		830B8C89186D3902007CBF3F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				830B8C94186D3902007CBF3F /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		831FFCCE1844364900C7CB22 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -751,17 +769,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		831FFCEF1844364900C7CB22 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				831FFCFD1844364900C7CB22 /* InfoPlist.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		830B8C87186D3902007CBF3F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				830B8CA3186D3DBF007CBF3F /* AppDelegateSpec.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		831FFCCC1844364900C7CB22 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -820,25 +838,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		831FFCED1844364900C7CB22 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				831FFCFF1844364900C7CB22 /* CBLiteCRMTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		831FFCF71844364900C7CB22 /* PBXTargetDependency */ = {
+		830B8C99186D3902007CBF3F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 831FFCCF1844364900C7CB22 /* CBLiteCRM */;
-			targetProxy = 831FFCF61844364900C7CB22 /* PBXContainerItemProxy */;
+			targetProxy = 830B8C98186D3902007CBF3F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		830B8C92186D3902007CBF3F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				830B8C93186D3902007CBF3F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		831FFCDC1844364900C7CB22 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -853,14 +871,6 @@
 				831FFCE61844364900C7CB22 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		831FFCFB1844364900C7CB22 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				831FFCFC1844364900C7CB22 /* en */,
-			);
-			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -913,6 +923,7 @@
 					"$(inherited)",
 					"$(SRCROOT)",
 					"/Users/danil/Documents/Al\\ Digit/Projects/Couchbase\\ project/Couchbase-Lite-Demo-CRM/CBLiteCRM",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CBLiteCRM/CBLiteCRM-Prefix.pch";
@@ -926,6 +937,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/TestFlightSDK",
+					"/Users/danil/Documents/Al\\ Digit/Projects/Couchbase\\ project/Couchbase-Lite-Demo-CRM/CBLiteCRM",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -934,7 +946,7 @@
 			};
 			name = AdHoc;
 		};
-		498396FA185180C9009406F5 /* AdHoc */ = {
+		830B8C9B186D3902007CBF3F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
@@ -943,13 +955,61 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"/Users/danil/Documents/Al\\ Digit/Projects/Couchbase\\ project/Couchbase-Lite-Demo-CRM/CBLiteCRM",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CBLiteCRM/CBLiteCRM-Prefix.pch";
-				INFOPLIST_FILE = "CBLiteCRMTests/CBLiteCRMTests-Info.plist";
+				GCC_PREFIX_HEADER = "CBLiteCRMKiwiTests/CBLiteCRMKiwiTests-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "CBLiteCRMKiwiTests/CBLiteCRMKiwiTests-Info.plist";
+				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		830B8C9C186D3902007CBF3F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CBLiteCRM.app/CBLiteCRM";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"/Users/danil/Documents/Al\\ Digit/Projects/Couchbase\\ project/Couchbase-Lite-Demo-CRM/CBLiteCRM",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CBLiteCRMKiwiTests/CBLiteCRMKiwiTests-Prefix.pch";
+				INFOPLIST_FILE = "CBLiteCRMKiwiTests/CBLiteCRMKiwiTests-Info.plist";
+				OTHER_LDFLAGS = "-all_load";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+		830B8C9D186D3902007CBF3F /* AdHoc */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CBLiteCRM.app/CBLiteCRM";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"/Users/danil/Documents/Al\\ Digit/Projects/Couchbase\\ project/Couchbase-Lite-Demo-CRM/CBLiteCRM",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CBLiteCRMKiwiTests/CBLiteCRMKiwiTests-Prefix.pch";
+				INFOPLIST_FILE = "CBLiteCRMKiwiTests/CBLiteCRMKiwiTests-Info.plist";
+				OTHER_LDFLAGS = "-all_load";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
 			};
 			name = AdHoc;
 		};
@@ -1041,6 +1101,7 @@
 					"$(inherited)",
 					"$(SRCROOT)",
 					"/Users/danil/Documents/Al\\ Digit/Projects/Couchbase\\ project/Couchbase-Lite-Demo-CRM/CBLiteCRM",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CBLiteCRM/CBLiteCRM-Prefix.pch";
@@ -1054,6 +1115,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/TestFlightSDK",
+					"/Users/danil/Documents/Al\\ Digit/Projects/Couchbase\\ project/Couchbase-Lite-Demo-CRM/CBLiteCRM",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1075,6 +1137,7 @@
 					"$(inherited)",
 					"$(SRCROOT)",
 					"/Users/danil/Documents/Al\\ Digit/Projects/Couchbase\\ project/Couchbase-Lite-Demo-CRM/CBLiteCRM",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CBLiteCRM/CBLiteCRM-Prefix.pch";
@@ -1088,6 +1151,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/TestFlightSDK",
+					"/Users/danil/Documents/Al\\ Digit/Projects/Couchbase\\ project/Couchbase-Lite-Demo-CRM/CBLiteCRM",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1097,51 +1161,19 @@
 			};
 			name = Release;
 		};
-		831FFD061844364900C7CB22 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CBLiteCRM.app/CBLiteCRM";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CBLiteCRM/CBLiteCRM-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "CBLiteCRMTests/CBLiteCRMTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		831FFD071844364900C7CB22 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CBLiteCRM.app/CBLiteCRM";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CBLiteCRM/CBLiteCRM-Prefix.pch";
-				INFOPLIST_FILE = "CBLiteCRMTests/CBLiteCRMTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		830B8C9A186D3902007CBF3F /* Build configuration list for PBXNativeTarget "CBLiteCRMKiwiTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				830B8C9B186D3902007CBF3F /* Debug */,
+				830B8C9C186D3902007CBF3F /* Release */,
+				830B8C9D186D3902007CBF3F /* AdHoc */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		831FFCCB1844364900C7CB22 /* Build configuration list for PBXProject "CBLiteCRM" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1158,16 +1190,6 @@
 				831FFD031844364900C7CB22 /* Debug */,
 				831FFD041844364900C7CB22 /* Release */,
 				498396F9185180C9009406F5 /* AdHoc */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		831FFD051844364900C7CB22 /* Build configuration list for PBXNativeTarget "CBLiteCRMTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				831FFD061844364900C7CB22 /* Debug */,
-				831FFD071844364900C7CB22 /* Release */,
-				498396FA185180C9009406F5 /* AdHoc */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
