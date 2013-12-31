@@ -26,13 +26,11 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     [super prepareForSegue:segue sender:sender];
-    if ([segue.identifier isEqualToString:@"opportDetails"] && sender != self.tableView)
-        [self setCustomer:self.customer to:(OpportunityDetailesViewController*)((UINavigationController*)segue.destinationViewController).topViewController];
-}
-
-- (void)setCustomer:(Customer*)customer to:(OpportunityDetailesViewController*)vc
-{
-    vc.preselectedCustomer = customer;
+    if ([segue.identifier isEqualToString:@"opportDetails"] && sender != self.tableView){
+        OpportunityDetailesViewController* vc = (OpportunityDetailesViewController*)((UINavigationController*)segue.destinationViewController).topViewController;
+        vc.enabledForEditing = YES;
+        vc.preselectedCustomer = self.customer;
+    }
 }
 
 @end

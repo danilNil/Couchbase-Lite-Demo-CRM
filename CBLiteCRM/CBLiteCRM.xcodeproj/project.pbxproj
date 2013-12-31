@@ -938,7 +938,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",
-					"/Users/danil/Documents/Al\\ Digit/Projects/Couchbase\\ project/Couchbase-Lite-Demo-CRM/CBLiteCRM",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -953,7 +952,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/TestFlightSDK",
-					"/Users/danil/Documents/Al\\ Digit/Projects/Couchbase\\ project/Couchbase-Lite-Demo-CRM/CBLiteCRM",
+					"$(SRCROOT)",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -970,9 +969,8 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					"$(SRCROOT)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"/Users/danil/Documents/Al\\ Digit/Projects/Couchbase\\ project/Couchbase-Lite-Demo-CRM/CBLiteCRM",
-					"/Users/ruslan/Couchbase-Lite-Demo-CRM/CBLiteCRM",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CBLiteCRMKiwiTests/CBLiteCRMKiwiTests-Prefix.pch";
@@ -996,9 +994,8 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					"$(SRCROOT)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"/Users/danil/Documents/Al\\ Digit/Projects/Couchbase\\ project/Couchbase-Lite-Demo-CRM/CBLiteCRM",
-					"/Users/ruslan/Couchbase-Lite-Demo-CRM/CBLiteCRM",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CBLiteCRMKiwiTests/CBLiteCRMKiwiTests-Prefix.pch";
@@ -1018,9 +1015,8 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					"$(SRCROOT)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"/Users/danil/Documents/Al\\ Digit/Projects/Couchbase\\ project/Couchbase-Lite-Demo-CRM/CBLiteCRM",
-					"/Users/ruslan/Couchbase-Lite-Demo-CRM/CBLiteCRM",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CBLiteCRMKiwiTests/CBLiteCRMKiwiTests-Prefix.pch";
@@ -1119,7 +1115,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",
-					"/Users/danil/Documents/Al\\ Digit/Projects/Couchbase\\ project/Couchbase-Lite-Demo-CRM/CBLiteCRM",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1134,7 +1129,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/TestFlightSDK",
-					"/Users/danil/Documents/Al\\ Digit/Projects/Couchbase\\ project/Couchbase-Lite-Demo-CRM/CBLiteCRM",
+					"$(SRCROOT)",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1155,7 +1150,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",
-					"/Users/danil/Documents/Al\\ Digit/Projects/Couchbase\\ project/Couchbase-Lite-Demo-CRM/CBLiteCRM",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1170,7 +1164,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/TestFlightSDK",
-					"/Users/danil/Documents/Al\\ Digit/Projects/Couchbase\\ project/Couchbase-Lite-Demo-CRM/CBLiteCRM",
+					"$(SRCROOT)",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
