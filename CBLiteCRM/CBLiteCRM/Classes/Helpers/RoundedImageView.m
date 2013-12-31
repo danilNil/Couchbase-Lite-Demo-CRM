@@ -25,10 +25,11 @@
     maskLayer.bounds    = maskBounds;
     maskLayer.path      = CGPathCreateWithEllipseInRect(maskBounds, NULL);
     maskLayer.position  = CGPointMake(maskBounds.size.width/2, maskBounds.size.height/2);
-    
+
+    maskLayer.shouldRasterize    = YES;
+    maskLayer.rasterizationScale = [UIScreen mainScreen].scale;
+
     self.layer.mask = maskLayer;
-    self.layer.shouldRasterize = YES;
-    self.layer.rasterizationScale = [UIScreen mainScreen].scale;
 }
 
 @end
