@@ -6,11 +6,11 @@
 //  Copyright (c) 2013 Couchbase. All rights reserved.
 //
 
-#import "UIViewController+DetailsReadOnlyOrWriteMode.h"
+#import "EditableViewController+DetailsReadOnlyOrWriteMode.h"
 #import "TextFieldView.h"
 
-@implementation UIViewController (DetailsReadOnlyOrWriteMode)
-@dynamic deleteButton, textFields, buttons, enableForEditing;
+@implementation EditableViewController (DetailsReadOnlyOrWriteMode)
+@dynamic deleteButton, textFields, buttons;
 
 - (void)setEditMode:(BOOL)editMode
 {
@@ -34,13 +34,6 @@
         self.navigationItem.rightBarButtonItem.title = kSaveTitle;
     else
         self.navigationItem.rightBarButtonItem.title = kEditTitle;
-}
-
--(void)setEnableForEditing:(BOOL)enableForEditing
-{
-    if (!enableForEditing) {
-        self.navigationItem.rightBarButtonItem = nil;
-    }
 }
 
 - (void)editModeChanged:(BOOL)editMode{}

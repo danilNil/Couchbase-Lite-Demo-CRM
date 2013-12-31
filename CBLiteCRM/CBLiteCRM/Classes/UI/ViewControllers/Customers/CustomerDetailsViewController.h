@@ -7,11 +7,10 @@
 //
 
 #import "TextFieldsViewController.h"
-#import "UIViewController+DetailsReadOnlyOrWriteMode.h"
-
+#import "EditableViewController+DetailsReadOnlyOrWriteMode.h"
 @class Customer;
 
-@interface CustomerDetailsViewController : TextFieldsViewController<EditableViewControllers>
+@interface CustomerDetailsViewController : TextFieldsViewController<EditableDetailsProtocol>
 
 @property (weak, nonatomic) IBOutlet UITextField *companyNameField;
 @property (weak, nonatomic) IBOutlet UITextField *industryField;

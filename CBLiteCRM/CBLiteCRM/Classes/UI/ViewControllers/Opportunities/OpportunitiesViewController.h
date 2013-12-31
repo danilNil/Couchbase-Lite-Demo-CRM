@@ -7,11 +7,10 @@
 //
 
 #import "FilteringViewController.h"
-#import "UIViewController+TableViewReadOnlyOrWriteMode.h"
 
 @class Customer, Opportunity;
 
-@interface OpportunitiesViewController : FilteringViewController <EditableTableViewControllers>
+@interface OpportunitiesViewController : FilteringViewController
 
 @property(nonatomic, strong) Opportunity* selectedCellData;
 

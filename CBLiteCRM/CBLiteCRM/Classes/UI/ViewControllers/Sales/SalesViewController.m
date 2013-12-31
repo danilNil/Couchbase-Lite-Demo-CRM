@@ -23,7 +23,7 @@
 @end
 
 @implementation SalesViewController
-@synthesize needLogout, enableForEditing;
+@synthesize needLogout;
 
 -(void)viewDidLoad
 {

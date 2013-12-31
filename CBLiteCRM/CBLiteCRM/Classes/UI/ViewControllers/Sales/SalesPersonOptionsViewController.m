@@ -18,7 +18,7 @@
 @end
 
 @implementation SalesPersonOptionsViewController
-@synthesize needLogout, textFields, deleteButton, buttons, enableForEditing;
+@synthesize needLogout, textFields, deleteButton, buttons;
 
 - (void)viewDidLoad
 {
@@ -59,9 +59,9 @@
 
 - (IBAction)save:(id)sender
 {
-    if([self.navigationItem.rightBarButtonItem.title isEqualToString:kSaveTitle])
+    if([self isEditMode])
         [self updateInfoForSalesPerson:self.salesPerson];
-    else if([self.navigationItem.rightBarButtonItem.title isEqualToString:kEditTitle])
+    else if(![self isEditMode])
         [self setEditMode:YES];
 }
 

@@ -4,9 +4,9 @@
 //  Created by Danil on 8/7/13.
 //
 
-#import <UIKit/UIKit.h>
+#import "EditableViewController.h"
 
-@interface TextFieldsViewController : UIViewController
+@interface TextFieldsViewController : EditableViewController
 @property(nonatomic, weak) IBOutlet UIScrollView* baseScrollView;
 @property (weak, nonatomic) IBOutlet UIView *contentView;
 

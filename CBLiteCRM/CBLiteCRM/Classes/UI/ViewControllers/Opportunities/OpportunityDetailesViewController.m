@@ -37,7 +37,7 @@
 @end
 
 @implementation OpportunityDetailesViewController
-@synthesize deleteButton, textFields, buttons, enableForEditing;
+@synthesize deleteButton, textFields, buttons;
 
 - (void)viewDidLoad
 {
@@ -194,12 +194,12 @@
 
 - (IBAction)saveItem:(id)sender
 {
-    if([self.navigationItem.rightBarButtonItem.title isEqualToString:kSaveTitle]){
+    if([self isEditMode]){
         if ([self saveItem]) {
             [self setEditMode:NO];
             [self loadInfoForOpportunity:self.currentOpport];
         }
-    }else if([self.navigationItem.rightBarButtonItem.title isEqualToString:kEditTitle])
+    }else if(![self isEditMode])
         [self setEditMode:YES];
 }
 
@@ -238,7 +238,7 @@
     } else if ([segue.destinationViewController isKindOfClass:[ContactsViewController class]]) {
         ContactsByOpportunityViewController* vc = (ContactsByOpportunityViewController*)segue.destinationViewController;
         vc.filteredOpp = self.currentOpport;
-        vc.navigationItem.rightBarButtonItem = ![self isEditMode] ? nil : vc.navigationItem.rightBarButtonItem;
+        vc.enabledForEditing = [self isEditMode];
     }
 }
 

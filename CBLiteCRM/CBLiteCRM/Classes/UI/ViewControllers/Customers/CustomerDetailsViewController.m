@@ -24,7 +24,7 @@
 @end
 
 @implementation CustomerDetailsViewController
-@synthesize deleteButton, textFields, buttons, enableForEditing;
+@synthesize deleteButton, textFields, buttons;
 
 - (void)viewDidLoad
 {
@@ -71,7 +71,7 @@
 }
 
 - (IBAction)saveItem:(id)sender {
-    if([self.navigationItem.rightBarButtonItem.title isEqualToString:kSaveTitle]){
+    if([self isEditMode]){
         if(self.companyNameField.text && ![self.companyNameField.text isEqualToString:@""]) {
             Customer* newCustomer = self.currentCustomer;
             if(!newCustomer)
@@ -80,7 +80,7 @@
             [self setEditMode:NO];
         } else
             [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Please fill Company field" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil] show];
-    }else if([self.navigationItem.rightBarButtonItem.title isEqualToString:kEditTitle])
+    }else if(![self isEditMode])
         [self setEditMode:YES];
 }
 
@@ -113,11 +113,11 @@
     if ([segue.destinationViewController isKindOfClass:[OpportunitiesByCustomerViewController class]]) {
         OpportunitiesByCustomerViewController *vc = (OpportunitiesByCustomerViewController*)segue.destinationViewController;
         vc.customer = self.currentCustomer;
-        vc.navigationItem.rightBarButtonItem = ![self isEditMode] ? nil : vc.navigationItem.rightBarButtonItem;
+        vc.enabledForEditing = [self isEditMode];
     } else if ([segue.destinationViewController isKindOfClass:[ContactsViewController class]]) {
         ContactsByCustomerViewController *vc = (ContactsByCustomerViewController*)segue.destinationViewController;
         vc.customer = self.currentCustomer;
-        vc.navigationItem.rightBarButtonItem = nil;
+        vc.enabledForEditing = [self isEditMode];
     }
 }
 

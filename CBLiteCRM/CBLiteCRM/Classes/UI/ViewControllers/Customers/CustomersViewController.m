@@ -29,7 +29,6 @@ CBLUITableDelegate
 @end
 
 @implementation CustomersViewController
-@synthesize enableForEditing;
 
 -(void)viewDidLoad
 {

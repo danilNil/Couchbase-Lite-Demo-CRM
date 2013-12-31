@@ -12,7 +12,6 @@
 #import "SalePersonsStore.h"
 #import "SalesPerson.h"
 #import "FilteringViewController.h"
-#import "ContactsViewController.h"
 
 @interface MenuViewController ()
 
@@ -56,6 +55,6 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     [super prepareForSegue:segue sender:sender];
-    ((ContactsViewController*)segue.destinationViewController).enableForEditing = YES;
+    ((EditableViewController*)segue.destinationViewController).enabledForEditing = YES;
 }
 @end

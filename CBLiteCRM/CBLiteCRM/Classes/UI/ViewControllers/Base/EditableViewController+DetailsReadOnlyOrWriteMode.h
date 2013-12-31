@@ -6,26 +6,23 @@
 //  Copyright (c) 2013 Couchbase. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
+#import "EditableViewController.h"
 @class TextFieldView;
 
-@protocol EditableViewControllers
+@protocol EditableDetailsProtocol
 
 @property (strong, nonatomic) IBOutletCollection(TextFieldView) NSArray *textFields;
 @property (weak, nonatomic) IBOutlet UIButton *deleteButton;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *buttons;
 
-@property (nonatomic) BOOL enableForEditing;
 
+- (void)changeRightButtonTitleForMode:(BOOL)editMode;
 - (BOOL)isEditMode;
 - (void)setEditMode:(BOOL)editMode;
-- (void)changeRightButtonTitleForMode:(BOOL)editMode;
 - (void)editModeChanged:(BOOL)editMode;
 
 @end
 
-@interface UIViewController(DetailsReadOnlyOrWriteMode)<EditableViewControllers>
-
+@interface EditableViewController(DetailsReadOnlyOrWriteMode)<EditableDetailsProtocol>
 
 @end

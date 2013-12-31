@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4409AAF2187177D500E80133 /* ContactsByCustomerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4409AAF1187177D500E80133 /* ContactsByCustomerViewController.m */; };
-		4409AAF5187181EC00E80133 /* UIViewController+TableViewReadOnlyOrWriteMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 4409AAF4187181EC00E80133 /* UIViewController+TableViewReadOnlyOrWriteMode.m */; };
+		4409AAF5187181EC00E80133 /* EditableViewController+TableViewReadOnlyOrWriteMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 4409AAF4187181EC00E80133 /* EditableViewController+TableViewReadOnlyOrWriteMode.m */; };
 		4409AAF81871830F00E80133 /* OpportunitiesByCustomerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4409AAF71871830F00E80133 /* OpportunitiesByCustomerViewController.m */; };
 		4423292918581F5A00025B31 /* OpportunityForContactStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 4423292818581F5A00025B31 /* OpportunityForContactStore.m */; };
 		444F0555186D4B4D00DF1CDF /* CustomerDeleteHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 444F0554186D4B4D00DF1CDF /* CustomerDeleteHelper.m */; };
@@ -29,6 +29,7 @@
 		44B3A6731856DC7F00CF4BAE /* ContactsByOpportunityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44B3A6721856DC7F00CF4BAE /* ContactsByOpportunityViewController.m */; };
 		44B3A6761857132D00CF4BAE /* OpportunitesByContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44B3A6751857132D00CF4BAE /* OpportunitesByContactViewController.m */; };
 		44D6DAF7184718920097262E /* CustomerDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44D6DAF6184718920097262E /* CustomerDetailsViewController.m */; };
+		44DECD891872864800D89E60 /* EditableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44DECD881872864800D89E60 /* EditableViewController.m */; };
 		493498C8185A20B800ADA646 /* input_field_disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 493498C6185A20B800ADA646 /* input_field_disabled.png */; };
 		493498C9185A20B800ADA646 /* input_field_disabled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 493498C7185A20B800ADA646 /* input_field_disabled@2x.png */; };
 		493498CC185A3EC200ADA646 /* UIAlertView+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 493498CB185A3EC200ADA646 /* UIAlertView+Helper.m */; };
@@ -53,7 +54,7 @@
 		831C09AA1869A8E7002CB53A /* SalesPersonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 831C09A31869A8E7002CB53A /* SalesPersonCell.m */; };
 		831C09AB1869A8E7002CB53A /* SalesPersonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 831C09A41869A8E7002CB53A /* SalesPersonCell.xib */; };
 		831C09AC1869A8E7002CB53A /* DictPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 831C09A61869A8E7002CB53A /* DictPickerView.m */; };
-		831C09B31869ACC9002CB53A /* UIViewController+DetailsReadOnlyOrWriteMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 831C09B21869ACC9002CB53A /* UIViewController+DetailsReadOnlyOrWriteMode.m */; };
+		831C09B31869ACC9002CB53A /* EditableViewController+DetailsReadOnlyOrWriteMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 831C09B21869ACC9002CB53A /* EditableViewController+DetailsReadOnlyOrWriteMode.m */; };
 		831FFCD41844364900C7CB22 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 831FFCD31844364900C7CB22 /* Foundation.framework */; };
 		831FFCD61844364900C7CB22 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 831FFCD51844364900C7CB22 /* CoreGraphics.framework */; };
 		831FFCD81844364900C7CB22 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 831FFCD71844364900C7CB22 /* UIKit.framework */; };
@@ -101,8 +102,8 @@
 /* Begin PBXFileReference section */
 		4409AAF0187177D500E80133 /* ContactsByCustomerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactsByCustomerViewController.h; sourceTree = "<group>"; };
 		4409AAF1187177D500E80133 /* ContactsByCustomerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactsByCustomerViewController.m; sourceTree = "<group>"; };
-		4409AAF3187181EC00E80133 /* UIViewController+TableViewReadOnlyOrWriteMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+TableViewReadOnlyOrWriteMode.h"; sourceTree = "<group>"; };
-		4409AAF4187181EC00E80133 /* UIViewController+TableViewReadOnlyOrWriteMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+TableViewReadOnlyOrWriteMode.m"; sourceTree = "<group>"; };
+		4409AAF3187181EC00E80133 /* EditableViewController+TableViewReadOnlyOrWriteMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EditableViewController+TableViewReadOnlyOrWriteMode.h"; sourceTree = "<group>"; };
+		4409AAF4187181EC00E80133 /* EditableViewController+TableViewReadOnlyOrWriteMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EditableViewController+TableViewReadOnlyOrWriteMode.m"; sourceTree = "<group>"; };
 		4409AAF61871830F00E80133 /* OpportunitiesByCustomerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpportunitiesByCustomerViewController.h; sourceTree = "<group>"; };
 		4409AAF71871830F00E80133 /* OpportunitiesByCustomerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpportunitiesByCustomerViewController.m; sourceTree = "<group>"; };
 		4423292718581F5A00025B31 /* OpportunityForContactStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OpportunityForContactStore.h; path = ../RelationalModels/OpportunityForContactStore.h; sourceTree = "<group>"; };
@@ -142,6 +143,8 @@
 		44B3A6751857132D00CF4BAE /* OpportunitesByContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpportunitesByContactViewController.m; sourceTree = "<group>"; };
 		44D6DAF5184718920097262E /* CustomerDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerDetailsViewController.h; sourceTree = "<group>"; };
 		44D6DAF6184718920097262E /* CustomerDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerDetailsViewController.m; sourceTree = "<group>"; };
+		44DECD871872864800D89E60 /* EditableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditableViewController.h; sourceTree = "<group>"; };
+		44DECD881872864800D89E60 /* EditableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditableViewController.m; sourceTree = "<group>"; };
 		493498C6185A20B800ADA646 /* input_field_disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = input_field_disabled.png; sourceTree = "<group>"; };
 		493498C7185A20B800ADA646 /* input_field_disabled@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "input_field_disabled@2x.png"; sourceTree = "<group>"; };
 		493498CA185A3EC200ADA646 /* UIAlertView+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Helper.h"; sourceTree = "<group>"; };
@@ -186,8 +189,8 @@
 		831C09A51869A8E7002CB53A /* DictPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DictPickerView.h; sourceTree = "<group>"; };
 		831C09A61869A8E7002CB53A /* DictPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DictPickerView.m; sourceTree = "<group>"; };
 		831C09AD1869AA10002CB53A /* LogoutProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LogoutProtocol.h; sourceTree = "<group>"; };
-		831C09B11869ACC9002CB53A /* UIViewController+DetailsReadOnlyOrWriteMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+DetailsReadOnlyOrWriteMode.h"; sourceTree = "<group>"; };
-		831C09B21869ACC9002CB53A /* UIViewController+DetailsReadOnlyOrWriteMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+DetailsReadOnlyOrWriteMode.m"; sourceTree = "<group>"; };
+		831C09B11869ACC9002CB53A /* EditableViewController+DetailsReadOnlyOrWriteMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EditableViewController+DetailsReadOnlyOrWriteMode.h"; sourceTree = "<group>"; };
+		831C09B21869ACC9002CB53A /* EditableViewController+DetailsReadOnlyOrWriteMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EditableViewController+DetailsReadOnlyOrWriteMode.m"; sourceTree = "<group>"; };
 		831FFCD01844364900C7CB22 /* CBLiteCRM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CBLiteCRM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		831FFCD31844364900C7CB22 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		831FFCD51844364900C7CB22 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -300,14 +303,16 @@
 			isa = PBXGroup;
 			children = (
 				831C09AD1869AA10002CB53A /* LogoutProtocol.h */,
-				831C09B11869ACC9002CB53A /* UIViewController+DetailsReadOnlyOrWriteMode.h */,
-				831C09B21869ACC9002CB53A /* UIViewController+DetailsReadOnlyOrWriteMode.m */,
-				4409AAF3187181EC00E80133 /* UIViewController+TableViewReadOnlyOrWriteMode.h */,
-				4409AAF4187181EC00E80133 /* UIViewController+TableViewReadOnlyOrWriteMode.m */,
+				831C09B11869ACC9002CB53A /* EditableViewController+DetailsReadOnlyOrWriteMode.h */,
+				831C09B21869ACC9002CB53A /* EditableViewController+DetailsReadOnlyOrWriteMode.m */,
+				4409AAF3187181EC00E80133 /* EditableViewController+TableViewReadOnlyOrWriteMode.h */,
+				4409AAF4187181EC00E80133 /* EditableViewController+TableViewReadOnlyOrWriteMode.m */,
 				831C09951869A8CC002CB53A /* FilteringViewController.h */,
 				831C09961869A8CC002CB53A /* FilteringViewController.m */,
 				447A2C4D1845D808008786AF /* TextFieldsViewController.h */,
 				447A2C4E1845D808008786AF /* TextFieldsViewController.m */,
+				44DECD871872864800D89E60 /* EditableViewController.h */,
+				44DECD881872864800D89E60 /* EditableViewController.m */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -774,7 +779,7 @@
 				447A2C6A1845D808008786AF /* SalesViewController.m in Sources */,
 				83173109184F238D0043F865 /* BaseStore.m in Sources */,
 				447A2C691845D808008786AF /* SalesPersonOptionsViewController.m in Sources */,
-				831C09B31869ACC9002CB53A /* UIViewController+DetailsReadOnlyOrWriteMode.m in Sources */,
+				831C09B31869ACC9002CB53A /* EditableViewController+DetailsReadOnlyOrWriteMode.m in Sources */,
 				83173100184F211C0043F865 /* OpportunitiesStore.m in Sources */,
 				831FFD1018443AA300C7CB22 /* AppDelegate.m in Sources */,
 				83284539185188D1008FBFCD /* CBLSyncManager.m in Sources */,
@@ -792,7 +797,8 @@
 				831FFD341844542F00C7CB22 /* DataStore.m in Sources */,
 				83CC79C8184F39A600557A9B /* DateHelper.m in Sources */,
 				493498CC185A3EC200ADA646 /* UIAlertView+Helper.m in Sources */,
-				4409AAF5187181EC00E80133 /* UIViewController+TableViewReadOnlyOrWriteMode.m in Sources */,
+				4409AAF5187181EC00E80133 /* EditableViewController+TableViewReadOnlyOrWriteMode.m in Sources */,
+				44DECD891872864800D89E60 /* EditableViewController.m in Sources */,
 				44B3A6701856C79700CF4BAE /* ContactOpportunityStore.m in Sources */,
 				4409AAF81871830F00E80133 /* OpportunitiesByCustomerViewController.m in Sources */,
 				831C09A91869A8E7002CB53A /* OpportunityCell.m in Sources */,

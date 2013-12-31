@@ -7,8 +7,10 @@
 //
 
 @class BaseStore;
+#import "EditableViewController+TableViewReadOnlyOrWriteMode.h"
+#import "EditableViewController.h"
 
-@interface FilteringViewController : UIViewController  
+@interface FilteringViewController : EditableViewController
 <
 UITableViewDelegate,
 UISearchBarDelegate,

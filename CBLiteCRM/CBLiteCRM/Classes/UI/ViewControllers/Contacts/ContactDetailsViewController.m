@@ -40,7 +40,7 @@ typedef void (^ValidationBlock)(BOOL isValid, NSString *msg);
 @end
 
 @implementation ContactDetailsViewController
-@synthesize deleteButton, textFields, buttons, enableForEditing;
+@synthesize deleteButton, textFields, buttons;
 
 - (void)viewDidLoad
 {
@@ -166,9 +166,9 @@ typedef void (^ValidationBlock)(BOOL isValid, NSString *msg);
 }
 
 - (IBAction)saveItem:(id)sender {
-    if([self.navigationItem.rightBarButtonItem.title isEqualToString:kSaveTitle]){
+    if([self isEditMode]){
         [self validateAndSave];
-    }else if([self.navigationItem.rightBarButtonItem.title isEqualToString:kEditTitle])
+    }else if(![self isEditMode])
         [self setEditMode:YES];
 }
 
@@ -215,6 +215,7 @@ typedef void (^ValidationBlock)(BOOL isValid, NSString *msg);
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.destinationViewController isKindOfClass:[CustomersViewController class]]) {
         CustomersViewController* vc = (CustomersViewController*)segue.destinationViewController;
+        vc.enabledForEditing = NO;
         [vc setOnSelectCustomer:^(Customer *cust) {
             selectedCustomer = cust;
             if(self.currentContact){
@@ -228,10 +229,11 @@ typedef void (^ValidationBlock)(BOOL isValid, NSString *msg);
         vc.chooser = YES;
     } else if ([segue.destinationViewController isKindOfClass:[OpportunitesByContactViewController class]]) {
         OpportunitesByContactViewController *vc = (OpportunitesByContactViewController*)segue.destinationViewController;
-        vc.navigationItem.rightBarButtonItem = nil;
+        vc.enabledForEditing = NO;
         vc.filteringContact = self.currentContact;
     } else if([segue.identifier isEqualToString:@"presentMyCustomer"]){
         CustomerDetailsViewController* vc = (CustomerDetailsViewController*)((UINavigationController*)segue.destinationViewController).topViewController;
+        vc.enabledForEditing = NO;
         vc.currentCustomer = [self actualCustomer];
     }
 }
