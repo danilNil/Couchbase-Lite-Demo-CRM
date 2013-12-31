@@ -10,37 +10,25 @@
 
 #import <QuartzCore/QuartzCore.h>
 
-#define kRoundedImageViewDefaultCorderRadius 5.f
-#define kRoundedImageViewDefaultBorderWidth  0.5
-
 @implementation RoundedImageView
 
-- (void)setCornerRadius:(CGFloat)cornerRadius borderWidth:(CGFloat)borderWidth
+- (void)setFrame:(CGRect)frame
 {
-    self.layer.masksToBounds = YES;
-    self.layer.cornerRadius  = cornerRadius;
-    self.layer.borderWidth   = borderWidth;
-    self.layer.borderColor   = kBaseGrayColor.CGColor;
+    [super setFrame:frame];
+    [self  addCircleMaskToBounds:frame];
+}
+
+- (void)addCircleMaskToBounds:(CGRect)maskBounds
+{
+    CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
     
+    maskLayer.bounds    = maskBounds;
+    maskLayer.path      = CGPathCreateWithEllipseInRect(maskBounds, NULL);
+    maskLayer.position  = CGPointMake(maskBounds.size.width/2, maskBounds.size.height/2);
+    
+    self.layer.mask = maskLayer;
     self.layer.shouldRasterize = YES;
     self.layer.rasterizationScale = [UIScreen mainScreen].scale;
-}
-
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if  (self) {
-        [self setCornerRadius:kRoundedImageViewDefaultCorderRadius
-                  borderWidth:kRoundedImageViewDefaultBorderWidth];
-    }
-    return self;
-}
-
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    
-    [self setCornerRadius:kRoundedImageViewDefaultCorderRadius
-              borderWidth:kRoundedImageViewDefaultBorderWidth];
 }
 
 @end

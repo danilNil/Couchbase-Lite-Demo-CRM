@@ -10,6 +10,4 @@
 
 @interface RoundedImageView : UIImageView
 
-- (void)setCornerRadius:(CGFloat)cornerRadius borderWidth:(CGFloat)borderWidth;
-
 @end
