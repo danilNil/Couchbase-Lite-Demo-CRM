@@ -21,11 +21,11 @@
 @property (weak, nonatomic) IBOutlet UIButton *customerButton;
 @property (weak, nonatomic) IBOutlet UIButton *customerDetailsButton;
 @property (weak, nonatomic) IBOutlet UIButton *contactsButton;
+@property (nonatomic, strong) Customer *preselectedCustomer;
 
 - (IBAction)back:(id)sender;
 - (IBAction)saveItem:(id)sender;
 - (IBAction)deleteItem:(id)sender;
 - (IBAction)customerDetails:(id)sender;
-- (void)setCustomer:(Customer*)newCustomer;
 
 @end

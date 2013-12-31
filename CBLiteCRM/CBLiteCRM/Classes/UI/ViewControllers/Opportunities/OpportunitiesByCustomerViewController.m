@@ -27,7 +27,12 @@
 {
     [super prepareForSegue:segue sender:sender];
     if ([segue.identifier isEqualToString:@"opportDetails"] && sender != self.tableView)
-        [((OpportunityDetailesViewController*)((UINavigationController*)segue.destinationViewController).topViewController) setCustomer:self.customer];
+        [self setCustomer:self.customer to:(OpportunityDetailesViewController*)((UINavigationController*)segue.destinationViewController).topViewController];
+}
+
+- (void)setCustomer:(Customer*)customer to:(OpportunityDetailesViewController*)vc
+{
+    vc.preselectedCustomer = customer;
 }
 
 @end

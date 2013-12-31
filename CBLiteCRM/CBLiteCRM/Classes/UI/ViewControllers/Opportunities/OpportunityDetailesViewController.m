@@ -29,7 +29,6 @@
 {
     UIDatePicker *creationDatePicker;
     DictPickerView *stagePicker;
-    Customer *customer;
     UITextField *currentFirstResponder;
     DictPickerView *winProbabilityPicker;
     CBLModelDeleteHelper* deleteHelper;
@@ -46,12 +45,6 @@
     [self setupMode];
     deleteHelper = [CBLModelDeleteHelper new];
     [self loadInfoForOpportunity:self.currentOpport];
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    [self setCustomer:customer];
 }
 
 - (void)setupPickers
@@ -76,7 +69,7 @@
 - (void)loadInfoForOpportunity:(Opportunity*)opp {
     self.buttonsView.hidden = !opp;
     if (opp) {
-        customer = self.currentOpport.customer;
+        self.preselectedCustomer = self.currentOpport.customer;
         self.nameField.text = opp.title;
         if (opp.salesStage) {
             self.stageField.text = opp.salesStage;
@@ -98,7 +91,7 @@
                 winProbabilityPicker.selectedItemName = [NSString stringWithFormat:@"%.0f\%%", opp.winProbability * 100];
             }
         }
-        [self setCustomer:opp.customer];
+        self.preselectedCustomer = opp.customer;
     }else{
         self.stageField.text =@"New";
     }
@@ -204,7 +197,7 @@
 }
 
 - (IBAction)customerDetails:(id)sender{
-    if(customer)
+    if(self.preselectedCustomer)
         [self performSegueWithIdentifier:@"presentMyCustomer" sender:self];
 }
 
@@ -225,7 +218,7 @@
         CustomersViewController* vc = (CustomersViewController*)segue.destinationViewController;
         vc.chooser = YES;
         [vc setOnSelectCustomer:^(Customer * newCustomer) {
-            [self setCustomer:newCustomer];
+            self.preselectedCustomer = newCustomer;
             if (self.currentOpport) {
                 self.currentOpport.customer = newCustomer;
                 NSError *error;
@@ -234,7 +227,7 @@
         }];
     }else if([segue.identifier isEqualToString:@"presentMyCustomer"]){
         CustomerDetailsViewController* vc = (CustomerDetailsViewController*)((UINavigationController*)segue.destinationViewController).topViewController;
-        vc.currentCustomer = customer;
+        vc.currentCustomer = self.preselectedCustomer;
     } else if ([segue.destinationViewController isKindOfClass:[ContactsViewController class]]) {
         ContactsByOpportunityViewController* vc = (ContactsByOpportunityViewController*)segue.destinationViewController;
         vc.filteredOpp = self.currentOpport;
@@ -255,7 +248,7 @@
         [errorMsg appendString:@"Please fill revenue field with numeric value\n"];
     if (![self checkThatWinFieldValueCorrect])
         [errorMsg appendString:@"Please fill win probability field with correct value\n"];
-    if (!customer)
+    if (!self.preselectedCustomer)
         [errorMsg appendString:@"Please select a customer"];
     if (errorMsg.length > 0) {
         [UIAlertView showErrorMessage:errorMsg];
@@ -305,7 +298,7 @@
     opp.revenueSize = [self.revenueField.text longLongValue];
     opp.winProbability = [self.winField.text floatValue] / 100;
     opp.creationDate = creationDatePicker.date;
-    opp.customer = customer;
+    opp.customer = self.preselectedCustomer;
 }
 
 - (BOOL)saveItem {
@@ -368,20 +361,20 @@
 
 - (NSString*) customerTitle
 {
-    if (customer.companyName.length > 0) {
-        return [NSString stringWithFormat:@"Customer: %@", customer.companyName];
+    if (self.preselectedCustomer.companyName.length > 0) {
+        return [NSString stringWithFormat:@"Customer: %@", self.preselectedCustomer.companyName];
     }
     return @"Select Customer";
 }
 
-- (void)setCustomer:(Customer*)newCustomer
+- (void)setPreselectedCustomer:(Customer *)preselectedCustomer
 {
-    customer = newCustomer;
+    _preselectedCustomer = preselectedCustomer;
     
     [self.customerButton setTitle:[self customerTitle]
                          forState:UIControlStateNormal];
-    
-    [self.customerDetailsButton setEnabled:(customer.companyName != nil)];
+
+    [self.customerDetailsButton setEnabled:(_preselectedCustomer.companyName != nil)];
 }
 
 @end

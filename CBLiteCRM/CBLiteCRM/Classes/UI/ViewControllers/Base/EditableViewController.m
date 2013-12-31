@@ -12,7 +12,12 @@
 
 - (void)setEnabledForEditing:(BOOL)enableForEditing
 {
-    self.navigationItem.rightBarButtonItem.enabled = enableForEditing;
+    _enabledForEditing = enableForEditing;
+    [self setRightButtonEnabled:enableForEditing];
+}
+
+- (void)setRightButtonEnabled:(BOOL)enabled{
+    self.navigationItem.rightBarButtonItem.enabled = enabled;
 }
 
 @end
