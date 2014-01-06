@@ -177,9 +177,26 @@ typedef void (^ValidationBlock)(BOOL isValid, NSString *msg);
         [self setEditMode:YES];
 }
 
-- (IBAction)details:(id)sender {
+- (IBAction)customerAction {
+    if ([self isEditMode])
+        [self performSegueWithIdentifier:@"presentCustomers" sender:self];
+    else
     if([self actualCustomer])
         [self performSegueWithIdentifier:@"presentMyCustomer" sender:self];
+}
+
+- (IBAction)callPhone:(UITextField *)sender
+{
+    NSString * callingUrl = [NSString stringWithFormat:@"tel:%@", sender.text];
+    
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:callingUrl]];
+}
+
+- (IBAction)callEmail:(UITextField *)sender
+{
+    NSString * callingUrl = [NSString stringWithFormat:@"mailto:to=%@", [sender.text stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding]];
+    
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:callingUrl]];
 }
 
 - (void)validateAndSave {

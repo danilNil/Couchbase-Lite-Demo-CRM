@@ -26,5 +26,10 @@
 - (IBAction)back:(id)sender;
 - (IBAction)saveItem:(id)sender;
 - (IBAction)deleteItem:(id)sender;
+- (IBAction)customerAction;
+
+- (IBAction)callPhone:(UITextField *)sender;
+- (IBAction)callEmail:(UITextField *)sender;
+
 
 @end
