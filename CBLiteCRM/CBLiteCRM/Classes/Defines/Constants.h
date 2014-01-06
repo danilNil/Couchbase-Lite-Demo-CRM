@@ -24,8 +24,14 @@ static NSString* const kTestFlightID = @"220375198143968";
 static NSString* const kEditTitle = @"Edit";
 static NSString* const kSaveTitle = @"Save";
 
+#define UIColorFromRGB(r,g,b) [UIColor colorWithRed:r/255.0  green:g/255.0 blue:b/255.0 alpha:1.0]
 
-#define kBaseBlueColor [UIColor colorWithRed:39.0/255.0  green:202.0/255.0 blue:255.0/255.0 alpha:1.0]
-#define kBaseGrayColor [UIColor colorWithRed:201.f/255.f green:201.f/255.f blue:206.f/255.f alpha:1.f]
+#define kBaseBlueColor UIColorFromRGB(39,202,255)
+
+#define kDarkBackgroundColor   UIColorFromRGB(58,128,247)
+#define kLightBackgroundColor  UIColorFromRGB(242,242,242)
+#define kTextColor             UIColorFromRGB(38,38,38)
+#define kLabelTextColor        UIColorFromRGB(89,89,89)
+#define kActionTextColor       UIColorFromRGB(58,128,247)
 
 #endif
