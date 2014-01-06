@@ -13,6 +13,7 @@
 #import "OpportunitesByContactViewController.h"
 #import "ContactsByOpportunityViewController.h"
 #import "UIImage+Tools.h"
+#import "UITextField+Accessory.h"
 #import "CustomerDetailsViewController.h"
 
 //Data
@@ -48,6 +49,10 @@ typedef void (^ValidationBlock)(BOOL isValid, NSString *msg);
     [self setupPhotoView];
     [self setupMode];
     deleteHelper = [CBLModelDeleteHelper new];
+    
+    self.phoneField.rightViewImage   = [UIImage imageNamed:@"phone"];
+    self.mailField.rightViewImage    = [UIImage imageNamed:@"email"];
+    self.addressField.rightViewImage = [UIImage imageNamed:@"balloon"];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -297,10 +302,10 @@ typedef void (^ValidationBlock)(BOOL isValid, NSString *msg);
 
 - (NSString*) titleForCustomer:(Customer*)customer
 {
-    if (customer.companyName.length > 0)
-        return [NSString stringWithFormat:@"Company: %@", customer.companyName];
-
-    return @"Select Company";
+    if (customer.companyName.length == 0)
+        return @"Select Company";
+    
+    return customer.companyName;
 }
 
 #pragma mark - UITextFieldDelegate
