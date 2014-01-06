@@ -39,6 +39,11 @@
 - (void)setEditMode:(BOOL)editMode {
     _editMode = editMode;
     self.textField.enabled = editMode;
+    
+    self.textField.textColor = (editMode) ? [UIColor blackColor] : [UIColor blueColor];
+    self.textField.rightViewMode = (editMode) ? UITextFieldViewModeNever : UITextFieldViewModeAlways;
+
+    
     if (editMode)
         [self.background setImage:[UIImage imageNamed:@"input_field.png"]];
     else
