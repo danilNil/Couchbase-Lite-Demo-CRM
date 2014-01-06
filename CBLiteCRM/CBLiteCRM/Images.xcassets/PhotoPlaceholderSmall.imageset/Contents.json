@@ -3,12 +3,12 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "photo_placeholder_small.png"
+      "filename" : "contact-small.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "photo_placeholder_small@2x.png"
+      "filename" : "contact-small@2x.png"
     }
   ],
   "info" : {
