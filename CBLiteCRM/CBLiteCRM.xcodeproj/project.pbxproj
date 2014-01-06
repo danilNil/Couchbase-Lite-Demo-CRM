@@ -32,6 +32,15 @@
 		493498D4185A430E00ADA646 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 493498CE185A430E00ADA646 /* libTestFlight.a */; };
 		493498D5185A430E00ADA646 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 493498CF185A430E00ADA646 /* README.md */; };
 		493498D6185A430E00ADA646 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 493498D0185A430E00ADA646 /* release_notes.md */; };
+		49C00224187A9F15000C3EC7 /* phone.png in Resources */ = {isa = PBXBuildFile; fileRef = 49C00222187A9F15000C3EC7 /* phone.png */; };
+		49C00225187A9F15000C3EC7 /* phone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49C00223187A9F15000C3EC7 /* phone@2x.png */; };
+		49C00228187AAAE7000C3EC7 /* email.png in Resources */ = {isa = PBXBuildFile; fileRef = 49C00226187AAAE7000C3EC7 /* email.png */; };
+		49C00229187AAAE7000C3EC7 /* email@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49C00227187AAAE7000C3EC7 /* email@2x.png */; };
+		49C0022E187AAAEE000C3EC7 /* balloon.png in Resources */ = {isa = PBXBuildFile; fileRef = 49C0022A187AAAEE000C3EC7 /* balloon.png */; };
+		49C0022F187AAAEE000C3EC7 /* balloon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49C0022B187AAAEE000C3EC7 /* balloon@2x.png */; };
+		49C00230187AAAEE000C3EC7 /* chevron.png in Resources */ = {isa = PBXBuildFile; fileRef = 49C0022C187AAAEE000C3EC7 /* chevron.png */; };
+		49C00231187AAAEE000C3EC7 /* chevron@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49C0022D187AAAEE000C3EC7 /* chevron@2x.png */; };
+		49C00237187AAC21000C3EC7 /* UITextField+Accessory.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C00236187AAC21000C3EC7 /* UITextField+Accessory.m */; };
 		49C103DA1859EB0F00D58426 /* RoundedImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C103D91859EB0F00D58426 /* RoundedImageView.m */; };
 		49C103DD1859F86200D58426 /* Contact+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C103DC1859F86200D58426 /* Contact+Helper.m */; };
 		49EB988618638CA6003A49F3 /* UIImage+Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EB988518638CA6003A49F3 /* UIImage+Tools.m */; };
@@ -144,6 +153,16 @@
 		493498D1185A430E00ADA646 /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
 		493498D2185A430E00ADA646 /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
 		493498D3185A430E00ADA646 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
+		49C00222187A9F15000C3EC7 /* phone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = phone.png; sourceTree = "<group>"; };
+		49C00223187A9F15000C3EC7 /* phone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phone@2x.png"; sourceTree = "<group>"; };
+		49C00226187AAAE7000C3EC7 /* email.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = email.png; sourceTree = "<group>"; };
+		49C00227187AAAE7000C3EC7 /* email@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "email@2x.png"; sourceTree = "<group>"; };
+		49C0022A187AAAEE000C3EC7 /* balloon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = balloon.png; sourceTree = "<group>"; };
+		49C0022B187AAAEE000C3EC7 /* balloon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "balloon@2x.png"; sourceTree = "<group>"; };
+		49C0022C187AAAEE000C3EC7 /* chevron.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chevron.png; sourceTree = "<group>"; };
+		49C0022D187AAAEE000C3EC7 /* chevron@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chevron@2x.png"; sourceTree = "<group>"; };
+		49C00235187AAC21000C3EC7 /* UITextField+Accessory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+Accessory.h"; sourceTree = "<group>"; };
+		49C00236187AAC21000C3EC7 /* UITextField+Accessory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+Accessory.m"; sourceTree = "<group>"; };
 		49C103D81859EB0F00D58426 /* RoundedImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundedImageView.h; sourceTree = "<group>"; };
 		49C103D91859EB0F00D58426 /* RoundedImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundedImageView.m; sourceTree = "<group>"; };
 		49C103DB1859F86200D58426 /* Contact+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Contact+Helper.h"; sourceTree = "<group>"; };
@@ -607,6 +626,14 @@
 		831FFD541844B7BE00C7CB22 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				49C0022A187AAAEE000C3EC7 /* balloon.png */,
+				49C0022B187AAAEE000C3EC7 /* balloon@2x.png */,
+				49C0022C187AAAEE000C3EC7 /* chevron.png */,
+				49C0022D187AAAEE000C3EC7 /* chevron@2x.png */,
+				49C00226187AAAE7000C3EC7 /* email.png */,
+				49C00227187AAAE7000C3EC7 /* email@2x.png */,
+				49C00222187A9F15000C3EC7 /* phone.png */,
+				49C00223187A9F15000C3EC7 /* phone@2x.png */,
 				493498C6185A20B800ADA646 /* input_field_disabled.png */,
 				493498C7185A20B800ADA646 /* input_field_disabled@2x.png */,
 				8326BEF718586DF200B605EB /* input_field.png */,
@@ -635,6 +662,8 @@
 				44A20748186A8D4E00A60345 /* CBLModelDeleteHelper.m */,
 				444F0553186D4B4D00DF1CDF /* CustomerDeleteHelper.h */,
 				444F0554186D4B4D00DF1CDF /* CustomerDeleteHelper.m */,
+				49C00235187AAC21000C3EC7 /* UITextField+Accessory.h */,
+				49C00236187AAC21000C3EC7 /* UITextField+Accessory.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -737,15 +766,23 @@
 			files = (
 				493498C9185A20B800ADA646 /* input_field_disabled@2x.png in Resources */,
 				493498D5185A430E00ADA646 /* README.md in Resources */,
+				49C00224187A9F15000C3EC7 /* phone.png in Resources */,
+				49C00231187AAAEE000C3EC7 /* chevron@2x.png in Resources */,
 				831FFCEC1844364900C7CB22 /* Images.xcassets in Resources */,
 				831FFCDE1844364900C7CB22 /* InfoPlist.strings in Resources */,
+				49C0022E187AAAEE000C3EC7 /* balloon.png in Resources */,
 				493498D6185A430E00ADA646 /* release_notes.md in Resources */,
+				49C00228187AAAE7000C3EC7 /* email.png in Resources */,
 				831FFCE71844364900C7CB22 /* Main.storyboard in Resources */,
+				49C00230187AAAEE000C3EC7 /* chevron.png in Resources */,
+				49C00225187A9F15000C3EC7 /* phone@2x.png in Resources */,
 				831C09AB1869A8E7002CB53A /* SalesPersonCell.xib in Resources */,
 				493498C8185A20B800ADA646 /* input_field_disabled.png in Resources */,
+				49C0022F187AAAEE000C3EC7 /* balloon@2x.png in Resources */,
 				831C09A81869A8E7002CB53A /* ContactCell.xib in Resources */,
 				8326BEFA18586DF200B605EB /* input_field@2x.png in Resources */,
 				8326BEF918586DF200B605EB /* input_field.png in Resources */,
+				49C00229187AAAE7000C3EC7 /* email@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -811,6 +848,7 @@
 				831FFD4418446EAC00C7CB22 /* Customer.m in Sources */,
 				49C103DD1859F86200D58426 /* Contact+Helper.m in Sources */,
 				830D51B31848973900044A19 /* OpportunityDetailesViewController.m in Sources */,
+				49C00237187AAC21000C3EC7 /* UITextField+Accessory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
