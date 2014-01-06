@@ -425,29 +425,13 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <state key="normal" title="Company">
-                                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" red="0.22745098039215686" green="0.50196078431372548" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <state key="disabled">
                                                     <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="Dc7-B9-xyB" kind="push" id="yjT-5x-rcy"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="A4Y-Bq-i6s">
-                                                <rect key="frame" x="15" y="453" width="33" height="27"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="18"/>
-                                                <state key="normal" title="Details">
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <state key="disabled">
-                                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="customerDetails:" destination="tN3-ye-q8X" eventType="touchUpInside" id="ldI-aO-bVh"/>
-                                                    <action selector="details:" destination="Xt6-34-7OD" eventType="touchUpInside" id="vJ2-KR-GTv"/>
+                                                    <action selector="customerAction" destination="Xt6-34-7OD" eventType="touchUpInside" id="8ZH-U6-NJK"/>
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" id="HLc-O4-V52" userLabel="email field" customClass="TextFieldView">
@@ -472,6 +456,9 @@
                                                     </label>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="actionField" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" id="rm4-WF-LYs" userLabel="name field" customClass="TextFieldView">
                                                 <rect key="frame" x="135" y="20" width="165" height="37"/>
@@ -527,6 +514,9 @@
                                                     </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="actionField" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" id="eY8-hr-Tv5" userLabel="address field" customClass="TextFieldView">
                                                 <rect key="frame" x="15" y="252" width="290" height="45"/>
@@ -542,7 +532,7 @@
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" disabledBackground="input_field_disabled.png" id="rMJ-AY-OVw">
                                                         <rect key="frame" x="0.0" y="20" width="290" height="25"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="14"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                         <connections>
                                                             <outlet property="delegate" destination="Xt6-34-7OD" id="QXS-vY-xTw"/>
@@ -550,6 +540,9 @@
                                                     </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="actionField" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
                                             </view>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PhotoPlaceholder" id="JdH-AX-qt3" customClass="RoundedImageView">
                                                 <rect key="frame" x="15" y="13" width="112" height="112"/>
@@ -566,7 +559,7 @@
                                                         <inset key="titleEdgeInsets" minX="-24" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                         <inset key="imageEdgeInsets" minX="266" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                         <state key="normal" title="Opportunities" image="chevron.png">
-                                                            <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="titleColor" red="0.2274509804" green="0.50196078430000002" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
                                                         <connections>
@@ -578,7 +571,7 @@
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <state key="normal" title="Delete">
-                                                            <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="titleColor" red="0.2274509804" green="0.50196078430000002" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
                                                         <connections>
@@ -623,7 +616,6 @@
                         <outlet property="companyButton" destination="cLg-rZ-hVq" id="cD5-3E-YMI"/>
                         <outlet property="contentView" destination="NkD-al-MDr" id="61m-0N-OdD"/>
                         <outlet property="deleteButton" destination="2C2-UJ-N4e" id="Cb5-7i-g5z"/>
-                        <outlet property="detailsButton" destination="A4Y-Bq-i6s" id="zC2-rP-V3j"/>
                         <outlet property="mailField" destination="5mM-HQ-Oru" id="TW9-PZ-mMv"/>
                         <outlet property="nameField" destination="KGO-lG-Wez" id="ohX-Wu-5nY"/>
                         <outlet property="phoneField" destination="wdg-R9-28s" id="N6u-HG-cQN"/>
@@ -638,11 +630,12 @@
                         <outletCollection property="buttons" destination="cLg-rZ-hVq" id="SVS-Rs-GfD"/>
                         <segue destination="zWg-jE-NQp" kind="push" identifier="presentOpportunitiesForContact" id="33B-kY-8zX"/>
                         <segue destination="DoK-bY-Hq0" kind="modal" identifier="presentMyCustomer" id="LHW-MO-w8p"/>
+                        <segue destination="Dc7-B9-xyB" kind="push" identifier="presentCustomers" id="EKf-k2-jaE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fwK-Yb-awM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1833" y="427"/>
+            <point key="canvasLocation" x="2249" y="151"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cuA-kl-VxA">
@@ -1436,7 +1429,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="2330" y="427"/>
+            <point key="canvasLocation" x="2664" y="681"/>
         </scene>
     </scenes>
     <resources>
@@ -1458,11 +1451,11 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="wax-He-xAT"/>
+        <segue reference="dLH-wr-6PA"/>
         <segue reference="rju-Nc-jGo"/>
         <segue reference="oD6-Gt-h5e"/>
-        <segue reference="dLH-wr-6PA"/>
-        <segue reference="yjT-5x-rcy"/>
         <segue reference="LHW-MO-w8p"/>
-        <segue reference="wax-He-xAT"/>
+        <segue reference="EKf-k2-jaE"/>
     </inferredMetricsTieBreakers>
 </document>
