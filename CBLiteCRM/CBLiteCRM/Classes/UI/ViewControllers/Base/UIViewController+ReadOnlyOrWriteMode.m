@@ -18,8 +18,6 @@
     self.deleteButton.hidden = !editMode;
     for (TextFieldView* view in self.textFields)
         view.editMode = editMode;
-    for (UIButton* btn in self.buttons)
-        btn.enabled = editMode;
     [self editModeChanged:editMode];
 }
 
