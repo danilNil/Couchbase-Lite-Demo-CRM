@@ -40,14 +40,27 @@
     _editMode = editMode;
     self.textField.enabled = editMode;
     
-    self.textField.textColor = (editMode) ? [UIColor blackColor] : [UIColor blueColor];
-    self.textField.rightViewMode = (editMode) ? UITextFieldViewModeNever : UITextFieldViewModeAlways;
+    self.textField.textColor     = [self textFieldColor];
+    self.textField.rightViewMode = [self textFieldRightViewMode];
 
     
     if (editMode)
         [self.background setImage:[UIImage imageNamed:@"input_field.png"]];
     else
         [self.background setImage:[UIImage imageNamed:@"input_field_disabled.png"]];
+}
+
+- (UIColor*) textFieldColor
+{
+    if (!self.editMode && self.actionField)
+        return kActionTextColor;
+    
+    return kTextColor;
+}
+
+- (UITextFieldViewMode)textFieldRightViewMode
+{
+    return (self.editMode) ? UITextFieldViewModeNever : UITextFieldViewModeAlways;
 }
 
 @end
