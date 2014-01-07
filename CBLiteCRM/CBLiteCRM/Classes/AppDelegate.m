@@ -36,7 +36,7 @@
 }
 
 - (void)setupAppearance {
-    [[UINavigationBar appearance] setBarTintColor:kBaseBlueColor];
+    [[UINavigationBar appearance] setBarTintColor:kNavigationBarColor];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     
     [[UITextField appearance] setTintColor:[UIColor grayColor]];
