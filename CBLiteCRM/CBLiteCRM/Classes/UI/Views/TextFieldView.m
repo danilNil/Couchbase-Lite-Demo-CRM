@@ -71,7 +71,7 @@
         [self updateButtonTitleWithText]; // KVO does not work here
     }
 
-    self.textField.enabled       = editMode;
+    self.textField.enabled = editMode;
     
     if (editMode)
         [self.background setImage:[UIImage imageNamed:@"input_field.png"]];
