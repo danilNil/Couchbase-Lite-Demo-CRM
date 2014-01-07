@@ -29,6 +29,8 @@
         else
         if ([view isUIButton]) {
             self.actionButton = (UIButton*)view;
+            
+            [self addTextFieldObserver];
         }
         else
         if ([view isUIImageView]) {
@@ -39,6 +41,20 @@
     NSAssert(self.textField, @"textField should not be nil");
 }
 
+- (void)dealloc
+{
+    if ([self hasActionButton])
+        [self removeTextFieldObserver];
+}
+
+- (void)updateButtonTitleWithText
+{
+    [self.actionButton setTitle:self.textField.text
+                       forState:UIControlStateNormal];
+}
+
+// TODO: findout if this really necessary
+//
 //-(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 //{
 //    [super touchesEnded:touches withEvent:event];
@@ -52,14 +68,10 @@
         self.textField.hidden    =!editMode;
         self.actionButton.hidden = editMode;
         
-        [self.actionButton setTitle:self.textField.text
-                           forState:UIControlStateNormal];
+        [self updateButtonTitleWithText]; // KVO does not work here
     }
 
     self.textField.enabled       = editMode;
-//    self.textField.textColor     = [self textFieldColor];
-//    self.textField.rightViewMode = [self textFieldRightViewMode];
-
     
     if (editMode)
         [self.background setImage:[UIImage imageNamed:@"input_field.png"]];
@@ -67,21 +79,45 @@
         [self.background setImage:[UIImage imageNamed:@"input_field_disabled.png"]];
 }
 
-//- (UIColor*) textFieldColor
-//{
-//    if (!self.editMode && self.actionField)
-//        return kActionTextColor;
-//    
-//    return kTextColor;
-//}
-
-//- (UITextFieldViewMode)textFieldRightViewMode
-//{
-//    return (self.editMode) ? UITextFieldViewModeNever : UITextFieldViewModeAlways;
-//}
-
-- (BOOL) hasActionButton {
+- (BOOL) hasActionButton
+{
     return self.actionButton != nil;
+}
+
+#pragma Observer Delegate
+
+// TODO: move this somewhere out: something like KV Binder.
+
+#define kTextFieldViewObservableKeyPath @"text"
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if ([keyPath isEqual:kTextFieldViewObservableKeyPath])
+    {
+        [self updateButtonTitleWithText];
+
+        return;
+    }
+    
+    if ([super respondsToSelector:@selector(observeValueForKeyPath:ofObject:change:context:)]) {
+		[super observeValueForKeyPath:keyPath
+                             ofObject:object
+                               change:change
+                              context:context];
+    }
+}
+
+- (void)addTextFieldObserver;
+{
+    [self.textField addObserver:self
+                     forKeyPath:kTextFieldViewObservableKeyPath
+                        options:0 context:NULL];
+}
+
+- (void)removeTextFieldObserver
+{
+    [self.textField removeObserver:self
+                        forKeyPath:kTextFieldViewObservableKeyPath];
 }
 
 @end

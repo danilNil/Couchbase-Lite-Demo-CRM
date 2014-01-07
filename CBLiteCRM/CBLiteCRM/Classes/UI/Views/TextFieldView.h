@@ -10,6 +10,4 @@
 
 @property (nonatomic) BOOL editMode;
 
-@property (nonatomic, assign, getter = isActionField) BOOL actionField;
-
 @end
