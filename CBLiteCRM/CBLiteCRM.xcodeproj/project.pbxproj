@@ -27,6 +27,7 @@
 		44B3A6761857132D00CF4BAE /* OpportunitesByContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44B3A6751857132D00CF4BAE /* OpportunitesByContactViewController.m */; };
 		44D6DAF7184718920097262E /* CustomerDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44D6DAF6184718920097262E /* CustomerDetailsViewController.m */; };
 		49029751187BFF0C001868DD /* UIView+IsA.m in Sources */ = {isa = PBXBuildFile; fileRef = 49029750187BFF0C001868DD /* UIView+IsA.m */; };
+		49029754187C6366001868DD /* OpenUrlHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 49029753187C6366001868DD /* OpenUrlHelper.m */; };
 		493498C8185A20B800ADA646 /* input_field_disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 493498C6185A20B800ADA646 /* input_field_disabled.png */; };
 		493498C9185A20B800ADA646 /* input_field_disabled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 493498C7185A20B800ADA646 /* input_field_disabled@2x.png */; };
 		493498CC185A3EC200ADA646 /* UIAlertView+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 493498CB185A3EC200ADA646 /* UIAlertView+Helper.m */; };
@@ -146,6 +147,8 @@
 		44D6DAF6184718920097262E /* CustomerDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerDetailsViewController.m; sourceTree = "<group>"; };
 		4902974F187BFF0C001868DD /* UIView+IsA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+IsA.h"; sourceTree = "<group>"; };
 		49029750187BFF0C001868DD /* UIView+IsA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+IsA.m"; sourceTree = "<group>"; };
+		49029752187C6366001868DD /* OpenUrlHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenUrlHelper.h; sourceTree = "<group>"; };
+		49029753187C6366001868DD /* OpenUrlHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenUrlHelper.m; sourceTree = "<group>"; };
 		493498C6185A20B800ADA646 /* input_field_disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = input_field_disabled.png; sourceTree = "<group>"; };
 		493498C7185A20B800ADA646 /* input_field_disabled@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "input_field_disabled@2x.png"; sourceTree = "<group>"; };
 		493498CA185A3EC200ADA646 /* UIAlertView+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Helper.h"; sourceTree = "<group>"; };
@@ -669,6 +672,8 @@
 				49C00236187AAC21000C3EC7 /* UITextField+Accessory.m */,
 				4902974F187BFF0C001868DD /* UIView+IsA.h */,
 				49029750187BFF0C001868DD /* UIView+IsA.m */,
+				49029752187C6366001868DD /* OpenUrlHelper.h */,
+				49029753187C6366001868DD /* OpenUrlHelper.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -835,6 +840,7 @@
 				49EB988618638CA6003A49F3 /* UIImage+Tools.m in Sources */,
 				831FFCE01844364900C7CB22 /* main.m in Sources */,
 				831FFD341844542F00C7CB22 /* DataStore.m in Sources */,
+				49029754187C6366001868DD /* OpenUrlHelper.m in Sources */,
 				83CC79C8184F39A600557A9B /* DateHelper.m in Sources */,
 				493498CC185A3EC200ADA646 /* UIAlertView+Helper.m in Sources */,
 				49029751187BFF0C001868DD /* UIView+IsA.m in Sources */,
