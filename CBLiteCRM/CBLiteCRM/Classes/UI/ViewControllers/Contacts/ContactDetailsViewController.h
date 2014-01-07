@@ -28,8 +28,4 @@
 - (IBAction)deleteItem:(id)sender;
 - (IBAction)customerAction;
 
-- (IBAction)callPhone:(UITextField *)sender;
-- (IBAction)callEmail:(UITextField *)sender;
-
-
 @end

@@ -13,7 +13,6 @@
 #import "OpportunitesByContactViewController.h"
 #import "ContactsByOpportunityViewController.h"
 #import "UIImage+Tools.h"
-#import "UITextField+Accessory.h"
 #import "CustomerDetailsViewController.h"
 
 //Data
@@ -49,10 +48,6 @@ typedef void (^ValidationBlock)(BOOL isValid, NSString *msg);
     [self setupPhotoView];
     [self setupMode];
     deleteHelper = [CBLModelDeleteHelper new];
-    
-    self.phoneField.rightViewImage   = [UIImage imageNamed:@"phone"];
-    self.mailField.rightViewImage    = [UIImage imageNamed:@"email"];
-    self.addressField.rightViewImage = [UIImage imageNamed:@"balloon"];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -183,20 +178,6 @@ typedef void (^ValidationBlock)(BOOL isValid, NSString *msg);
     else
     if([self actualCustomer])
         [self performSegueWithIdentifier:@"presentMyCustomer" sender:self];
-}
-
-- (IBAction)callPhone:(UITextField *)sender
-{
-    NSString * callingUrl = [NSString stringWithFormat:@"tel:%@", sender.text];
-    
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:callingUrl]];
-}
-
-- (IBAction)callEmail:(UITextField *)sender
-{
-    NSString * callingUrl = [NSString stringWithFormat:@"mailto:to=%@", [sender.text stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding]];
-    
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:callingUrl]];
 }
 
 - (void)validateAndSave {
