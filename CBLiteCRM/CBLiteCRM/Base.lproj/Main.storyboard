@@ -153,7 +153,7 @@
             </objects>
             <point key="canvasLocation" x="537" y="427"/>
         </scene>
-        <!--Sales View Controller - Sales-->
+        <!--Sales View Controller - Team-->
         <scene sceneID="zQg-tN-zT5">
             <objects>
                 <viewController id="xUM-Pc-30e" customClass="SalesViewController" sceneMemberID="viewController">
@@ -181,7 +181,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Sales" id="BEL-0B-KFB"/>
+                    <navigationItem key="navigationItem" title="Team" id="BEL-0B-KFB"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="cellIdentifier" value="SalesPersonCell"/>
                     </userDefinedRuntimeAttributes>
@@ -204,7 +204,7 @@
             </objects>
             <point key="canvasLocation" x="1066" y="-320"/>
         </scene>
-        <!--Sales Person Options View Controller-->
+        <!--Sales Person Options View Controller - Team Member-->
         <scene sceneID="cKc-Z1-Fuf">
             <objects>
                 <viewController id="thM-Fv-BNK" customClass="SalesPersonOptionsViewController" sceneMemberID="viewController">
@@ -216,98 +216,114 @@
                                 <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" id="sRz-8c-ylA" userLabel="name field" customClass="TextFieldView">
-                                        <rect key="frame" x="15" y="20" width="293" height="37"/>
+                                    <view contentMode="scaleToFill" id="sRz-8c-ylA" userLabel="usernamname field" customClass="TextFieldView">
+                                        <rect key="frame" x="15" y="20" width="290" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="input_field.png" id="Y37-Yc-ch2">
-                                                <rect key="frame" x="0.0" y="0.0" width="290" height="37"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                            </imageView>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ubj-d2-ubk">
-                                                <rect key="frame" x="5" y="0.0" width="78" height="37"/>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ubj-d2-ubk">
+                                                <rect key="frame" x="0.0" y="0.0" width="290" height="25"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="14"/>
-                                                <color key="textColor" red="0.82352948189999997" green="0.82352948189999997" blue="0.83529418710000003" alpha="1" colorSpace="deviceRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <color key="textColor" red="0.34901960780000002" green="0.34901960780000002" blue="0.34901960780000002" alpha="1" colorSpace="deviceRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="2cq-SL-IR2">
-                                                <rect key="frame" x="90" y="0.0" width="200" height="37"/>
+                                                <rect key="frame" x="0.0" y="20" width="290" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="14"/>
+                                                <color key="textColor" red="0.14901960780000001" green="0.14901960780000001" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="thM-Fv-BNK" id="UJH-cR-icM"/>
                                                 </connections>
                                             </textField>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" id="qgo-Zm-GRc" userLabel="phone field" customClass="TextFieldView">
-                                        <rect key="frame" x="15" y="60" width="290" height="37"/>
+                                        <rect key="frame" x="15" y="78" width="290" height="55"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="input_field.png" id="BZL-uj-o77">
-                                                <rect key="frame" x="0.0" y="0.0" width="290" height="37"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                            </imageView>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="omK-QO-G6d">
-                                                <rect key="frame" x="5" y="0.0" width="78" height="37"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="290" height="25"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="14"/>
-                                                <color key="textColor" red="0.82352948189999997" green="0.82352948189999997" blue="0.83529418710000003" alpha="1" colorSpace="deviceRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <color key="textColor" red="0.34901960780000002" green="0.34901960780000002" blue="0.34901960780000002" alpha="1" colorSpace="deviceRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="8Tv-6X-tnh">
-                                                <rect key="frame" x="90" y="0.0" width="200" height="37"/>
+                                                <rect key="frame" x="0.0" y="15" width="290" height="35"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="14"/>
+                                                <color key="textColor" red="0.14901960780000001" green="0.14901960780000001" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="thM-Fv-BNK" id="Su8-IW-Rxl"/>
                                                 </connections>
                                             </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="QaV-Mw-sDS" userLabel="Action Button">
+                                                <rect key="frame" x="0.0" y="15" width="290" height="35"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <inset key="titleEdgeInsets" minX="-24" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <inset key="imageEdgeInsets" minX="266" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <state key="normal" title="Phone" image="phone.png">
+                                                    <color key="titleColor" red="0.2274509804" green="0.50196078430000002" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="callPhone:" destination="eio-Sm-cRS" eventType="touchUpInside" id="k0U-bd-Hoj"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="UWo-3Y-a9U">
-                                        <rect key="frame" x="15" y="155" width="290" height="44"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="UWo-3Y-a9U">
+                                        <rect key="frame" x="15" y="194" width="290" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.96470588239999999" green="0.70196078429999997" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="Delete">
+                                            <color key="titleColor" red="0.2274509804" green="0.50196078430000002" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <action selector="delete:" destination="thM-Fv-BNK" eventType="touchUpInside" id="OYx-RZ-uQn"/>
                                         </connections>
                                     </button>
-                                    <view contentMode="scaleToFill" id="CED-T6-0Pb" userLabel="company field" customClass="TextFieldView">
-                                        <rect key="frame" x="15" y="100" width="290" height="37"/>
+                                    <view contentMode="scaleToFill" id="CED-T6-0Pb" userLabel="email field" customClass="TextFieldView">
+                                        <rect key="frame" x="15" y="136" width="290" height="55"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="input_field.png" id="mbN-4H-Td7">
-                                                <rect key="frame" x="0.0" y="0.0" width="290" height="37"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                            </imageView>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZWW-GN-HG1">
-                                                <rect key="frame" x="5" y="0.0" width="78" height="37"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="290" height="25"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="14"/>
-                                                <color key="textColor" red="0.82352948189999997" green="0.82352948189999997" blue="0.83529418710000003" alpha="1" colorSpace="deviceRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <color key="textColor" red="0.34901960780000002" green="0.34901960780000002" blue="0.34901960780000002" alpha="1" colorSpace="deviceRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="Vce-uM-Vu5">
-                                                <rect key="frame" x="90" y="0.0" width="200" height="37"/>
+                                                <rect key="frame" x="0.0" y="15" width="290" height="35"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="14"/>
+                                                <color key="textColor" red="0.14901960780000001" green="0.14901960780000001" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="thM-Fv-BNK" id="v5Q-BK-Ngy"/>
                                                 </connections>
                                             </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="aaB-jA-l52" userLabel="Action Button">
+                                                <rect key="frame" x="0.0" y="15" width="290" height="35"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <inset key="titleEdgeInsets" minX="-24" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <inset key="imageEdgeInsets" minX="266" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <state key="normal" title="E-mail" image="email.png">
+                                                    <color key="titleColor" red="0.2274509804" green="0.50196078430000002" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="callEmail:" destination="eio-Sm-cRS" eventType="touchUpInside" id="h5L-bF-anD"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
@@ -315,7 +331,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="jVX-LX-Luz">
+                    <navigationItem key="navigationItem" title="Team Member" id="jVX-LX-Luz">
                         <barButtonItem key="rightBarButtonItem" title="Edit" id="VuY-Nq-XnW">
                             <connections>
                                 <action selector="save:" destination="thM-Fv-BNK" id="AD7-gy-LWD"/>
@@ -334,6 +350,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nql-vy-yKY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="eio-Sm-cRS" customClass="OpenUrlHelper"/>
             </objects>
             <point key="canvasLocation" x="1651" y="-313"/>
         </scene>
@@ -480,7 +497,7 @@
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" id="9VK-14-Ve9" userLabel="phone field" customClass="TextFieldView">
-                                                <rect key="frame" x="15" y="146" width="290" height="50"/>
+                                                <rect key="frame" x="15" y="146" width="290" height="55"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PdG-el-hdr">
@@ -491,7 +508,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" disabledBackground="input_field_disabled.png" id="wdg-R9-28s">
-                                                        <rect key="frame" x="0.0" y="20" width="290" height="30"/>
+                                                        <rect key="frame" x="0.0" y="15" width="290" height="35"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <color key="textColor" red="0.14901960780000001" green="0.14901960780000001" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -501,7 +518,7 @@
                                                         </connections>
                                                     </textField>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="qzW-PX-gWb" userLabel="Action Button">
-                                                        <rect key="frame" x="0.0" y="20" width="290" height="30"/>
+                                                        <rect key="frame" x="0.0" y="15" width="290" height="35"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <inset key="titleEdgeInsets" minX="-24" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -518,7 +535,7 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </view>
                                             <view contentMode="scaleToFill" id="HLc-O4-V52" userLabel="email field" customClass="TextFieldView">
-                                                <rect key="frame" x="15" y="199" width="290" height="50"/>
+                                                <rect key="frame" x="15" y="199" width="290" height="55"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ldv-lC-Jsy">
@@ -529,7 +546,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="5mM-HQ-Oru">
-                                                        <rect key="frame" x="0.0" y="20" width="290" height="30"/>
+                                                        <rect key="frame" x="0.0" y="15" width="290" height="35"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <color key="textColor" red="0.14901960780000001" green="0.14901960780000001" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -539,7 +556,7 @@
                                                         </connections>
                                                     </textField>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="YG6-Zh-NzO" userLabel="Action Button">
-                                                        <rect key="frame" x="0.0" y="20" width="290" height="30"/>
+                                                        <rect key="frame" x="0.0" y="15" width="290" height="35"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <inset key="titleEdgeInsets" minX="-24" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -556,7 +573,7 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </view>
                                             <view contentMode="scaleToFill" id="eY8-hr-Tv5" userLabel="address field" customClass="TextFieldView">
-                                                <rect key="frame" x="15" y="252" width="290" height="50"/>
+                                                <rect key="frame" x="15" y="252" width="290" height="55"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GnZ-YP-BAQ">
@@ -567,7 +584,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" disabledBackground="input_field_disabled.png" id="rMJ-AY-OVw">
-                                                        <rect key="frame" x="0.0" y="20" width="290" height="30"/>
+                                                        <rect key="frame" x="0.0" y="15" width="290" height="35"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <color key="textColor" red="0.14901960780000001" green="0.14901960780000001" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -577,7 +594,7 @@
                                                         </connections>
                                                     </textField>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="icp-kw-Wj6" userLabel="Action Button">
-                                                        <rect key="frame" x="0.0" y="20" width="290" height="30"/>
+                                                        <rect key="frame" x="0.0" y="15" width="290" height="35"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <inset key="titleEdgeInsets" minX="-24" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -602,7 +619,7 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="hUv-Oh-E0j">
-                                                        <rect key="frame" x="0.0" y="28" width="290" height="30"/>
+                                                        <rect key="frame" x="0.0" y="20" width="290" height="30"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <inset key="titleEdgeInsets" minX="-24" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -616,7 +633,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="2C2-UJ-N4e">
-                                                        <rect key="frame" x="0.0" y="68" width="290" height="40"/>
+                                                        <rect key="frame" x="0.0" y="60" width="290" height="40"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <state key="normal" title="Delete">
@@ -1530,11 +1547,11 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="uhY-OQ-e3f"/>
-        <segue reference="EKf-k2-jaE"/>
+        <segue reference="LHW-MO-w8p"/>
         <segue reference="wBq-cU-ftI"/>
         <segue reference="dBC-Hg-tSj"/>
         <segue reference="3kk-cj-LW4"/>
         <segue reference="1iO-jg-otn"/>
+        <segue reference="EKf-k2-jaE"/>
     </inferredMetricsTieBreakers>
 </document>

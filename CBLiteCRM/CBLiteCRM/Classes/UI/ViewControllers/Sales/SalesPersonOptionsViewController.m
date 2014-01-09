@@ -42,7 +42,6 @@
 - (void)loadUserData
 {
     if (self.salesPerson) {
-        [self.navigationItem setTitle:self.salesPerson.username];
         self.nameField.text = self.salesPerson.username;
         self.phoneField.text = self.salesPerson.phoneNumber;
         self.mailField.text = self.salesPerson.email;
