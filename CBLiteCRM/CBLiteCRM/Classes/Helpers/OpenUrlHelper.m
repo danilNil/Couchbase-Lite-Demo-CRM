@@ -25,6 +25,11 @@
     [self openUrlForBase:@"http://maps.google.com/maps?q=" andButton:sender];
 }
 
+- (IBAction)callWebsite:(UIButton *)sender
+{
+    [self openUrlForBase:@"http://" andButton:sender];
+}
+
 #pragma mark -
 
 - (void) openUrlForBase:(NSString*)base andButton:(UIButton*)button

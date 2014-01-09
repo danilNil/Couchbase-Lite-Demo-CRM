@@ -14,4 +14,6 @@
 - (IBAction)callEmail:  (UIButton *)sender;
 - (IBAction)callAddress:(UIButton *)sender;
 
+- (IBAction)callWebsite:(UIButton *)sender;
+
 @end
