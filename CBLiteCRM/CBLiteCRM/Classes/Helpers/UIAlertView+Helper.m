@@ -8,14 +8,27 @@
 
 #import "UIAlertView+Helper.h"
 
+#define kUIAlertViewHelperErrorTitle NSLocalizedString(@"Error", @"UIAlertView+Helper::showErrorMessage: (Title)")
+#define kUIAlertViewHelperErrorOk    NSLocalizedString(@"ok",    @"UIAlertView+Helper::showErrorMessage: (cancaleButton)")
+
+
 @implementation UIAlertView (Helper)
 
 + (void) showErrorMessage:(NSString*)message
 {
-    [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", @"UIAlertView+Helper::showErrorMessage: (Title)")
+    [[[UIAlertView alloc] initWithTitle:kUIAlertViewHelperErrorTitle
                                 message:message
                                delegate:nil
-                      cancelButtonTitle:NSLocalizedString(@"ok",  @"UIAlertView+Helper::showErrorMessage: (cancaleButton)")
+                      cancelButtonTitle:kUIAlertViewHelperErrorOk
+                      otherButtonTitles: nil] show];
+}
+
++ (void) showError:(NSError*)error
+{
+    [[[UIAlertView alloc] initWithTitle:kUIAlertViewHelperErrorTitle
+                                message:[error localizedDescription]
+                               delegate:nil
+                      cancelButtonTitle:kUIAlertViewHelperErrorOk
                       otherButtonTitles: nil] show];
 }
 

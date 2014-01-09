@@ -12,4 +12,6 @@
 
 + (void) showErrorMessage:(NSString*)message;
 
++ (void) showError:(NSError*)error;
+
 @end
