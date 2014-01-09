@@ -42,7 +42,7 @@
 - (void)loadUserData
 {
     if (self.salesPerson) {
-        self.nameField.text = self.salesPerson.username;
+        self.nameField.text = self.salesPerson.name;
         self.phoneField.text = self.salesPerson.phoneNumber;
         self.mailField.text = self.salesPerson.email;
     }
@@ -68,7 +68,7 @@
 {
     NSError *error;
     if (![self.salesPerson deleteDocument:&error])
-        [[[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil] show];
+        [UIAlertView showError:error];
     else
         [self logout];
     
@@ -85,11 +85,12 @@
 
 - (void)updateInfoForSalesPerson:(SalesPerson*)sp
 {
-    sp.username = self.nameField.text;
+    sp.name        = self.nameField.text;
     sp.phoneNumber = self.phoneField.text;
+
     NSError *error;
     if (![sp save:&error])
-        [[[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil] show];
+        [UIAlertView showError:error];
     else
         [self setEditMode:NO];
 }
