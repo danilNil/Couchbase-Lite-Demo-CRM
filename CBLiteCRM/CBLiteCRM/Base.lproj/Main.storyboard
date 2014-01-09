@@ -973,201 +973,245 @@
             <objects>
                 <viewController id="TLO-se-8qL" customClass="CustomerDetailsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tu8-9C-AcH">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="HSp-Q5-DoW">
-                                <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <autoresizingMask key="autoresizingMask" heightSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" id="6NZ-5w-naS">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" id="pjq-Zq-vU6" userLabel="company field" customClass="TextFieldView">
-                                                <rect key="frame" x="14" y="7" width="293" height="37"/>
+                                                <rect key="frame" x="15" y="7" width="290" height="37"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="input_field.png" id="z04-Bp-bcG">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Company Name" minimumFontSize="17" id="ZEi-QX-lQV">
                                                         <rect key="frame" x="0.0" y="0.0" width="293" height="37"/>
-                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                    </imageView>
-                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Company" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DGn-55-3mU">
-                                                        <rect key="frame" x="5" y="0.0" width="78" height="37"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="14"/>
-                                                        <color key="textColor" red="0.82352948189999997" green="0.82352948189999997" blue="0.83529418710000003" alpha="1" colorSpace="deviceRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="ZEi-QX-lQV">
-                                                        <rect key="frame" x="89" y="0.0" width="204" height="37"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="14"/>
+                                                        <color key="textColor" red="0.14901960780000001" green="0.14901960780000001" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                                         <connections>
                                                             <outlet property="delegate" destination="TLO-se-8qL" id="1hL-T4-Zf3"/>
                                                         </connections>
                                                     </textField>
                                                 </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                             </view>
                                             <view contentMode="scaleToFill" id="0Qt-Gd-QIi" userLabel="industry field" customClass="TextFieldView">
-                                                <rect key="frame" x="14" y="49" width="293" height="37"/>
+                                                <rect key="frame" x="15" y="42" width="290" height="37"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="input_field.png" id="w0F-Fm-bNp">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Industry" minimumFontSize="17" id="i8t-rW-i8a">
                                                         <rect key="frame" x="0.0" y="0.0" width="293" height="37"/>
-                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                    </imageView>
-                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Industry" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZPh-sV-bek">
-                                                        <rect key="frame" x="5" y="0.0" width="78" height="37"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="14"/>
-                                                        <color key="textColor" red="0.82352948189999997" green="0.82352948189999997" blue="0.83529418710000003" alpha="1" colorSpace="deviceRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="i8t-rW-i8a">
-                                                        <rect key="frame" x="89" y="0.0" width="204" height="37"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="14"/>
+                                                        <color key="textColor" red="0.34901960780000002" green="0.34901960780000002" blue="0.34901960780000002" alpha="1" colorSpace="deviceRGB"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                         <connections>
                                                             <outlet property="delegate" destination="TLO-se-8qL" id="Lcr-7O-ANy"/>
                                                         </connections>
                                                     </textField>
                                                 </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                             </view>
                                             <view contentMode="scaleToFill" id="UE4-kj-D3F" userLabel="phone field" customClass="TextFieldView">
-                                                <rect key="frame" x="14" y="91" width="293" height="37"/>
+                                                <rect key="frame" x="15" y="84" width="290" height="55"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="input_field.png" id="xB9-YL-jTV">
-                                                        <rect key="frame" x="0.0" y="0.0" width="293" height="37"/>
-                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                    </imageView>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Y6V-Jy-rZJ">
-                                                        <rect key="frame" x="5" y="0.0" width="78" height="37"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="290" height="20"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="14"/>
-                                                        <color key="textColor" red="0.82352948189999997" green="0.82352948189999997" blue="0.83529418710000003" alpha="1" colorSpace="deviceRGB"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                        <color key="textColor" red="0.34901960780000002" green="0.34901960780000002" blue="0.34901960780000002" alpha="1" colorSpace="deviceRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="33M-G7-N2v">
-                                                        <rect key="frame" x="89" y="0.0" width="204" height="37"/>
+                                                        <rect key="frame" x="0.0" y="15" width="290" height="40"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="14"/>
+                                                        <color key="textColor" red="0.14901960780000001" green="0.14901960780000001" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                                         <connections>
                                                             <outlet property="delegate" destination="TLO-se-8qL" id="1iX-bj-kjp"/>
                                                         </connections>
                                                     </textField>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="rer-XA-xLJ" userLabel="Action Button">
+                                                        <rect key="frame" x="0.0" y="15" width="290" height="40"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <inset key="titleEdgeInsets" minX="-24" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        <inset key="imageEdgeInsets" minX="266" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        <state key="normal" title="Phone" image="phone.png">
+                                                            <color key="titleColor" red="0.2274509804" green="0.50196078430000002" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="callPhone:" destination="hlq-jy-Axy" eventType="touchUpInside" id="D85-E3-8f1"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                             </view>
                                             <view contentMode="scaleToFill" id="uxK-2W-Bi7" userLabel="email field" customClass="TextFieldView">
-                                                <rect key="frame" x="14" y="133" width="293" height="37"/>
+                                                <rect key="frame" x="15" y="137" width="290" height="55"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="input_field.png" id="dyd-fM-CT9">
-                                                        <rect key="frame" x="0.0" y="0.0" width="293" height="37"/>
-                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                    </imageView>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="J6W-FD-9c2">
-                                                        <rect key="frame" x="5" y="0.0" width="78" height="37"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="290" height="20"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="14"/>
-                                                        <color key="textColor" red="0.82352948189999997" green="0.82352948189999997" blue="0.83529418710000003" alpha="1" colorSpace="deviceRGB"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                        <color key="textColor" red="0.34901960780000002" green="0.34901960780000002" blue="0.34901960780000002" alpha="1" colorSpace="deviceRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="Ogp-Je-lhE">
-                                                        <rect key="frame" x="89" y="0.0" width="204" height="37"/>
+                                                        <rect key="frame" x="0.0" y="15" width="290" height="40"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="14"/>
+                                                        <color key="textColor" red="0.14901960780000001" green="0.14901960780000001" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                                         <connections>
                                                             <outlet property="delegate" destination="TLO-se-8qL" id="bkX-A6-2i3"/>
                                                         </connections>
                                                     </textField>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Pqx-J2-oN2" userLabel="Action Button">
+                                                        <rect key="frame" x="0.0" y="15" width="290" height="40"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <inset key="titleEdgeInsets" minX="-24" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        <inset key="imageEdgeInsets" minX="266" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        <state key="normal" title="E-mail" image="email.png">
+                                                            <color key="titleColor" red="0.2274509804" green="0.50196078430000002" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="callEmail:" destination="hlq-jy-Axy" eventType="touchUpInside" id="PM3-Mw-Um1"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                             </view>
                                             <view contentMode="scaleToFill" id="Gys-L6-64Q" userLabel="url field" customClass="TextFieldView">
-                                                <rect key="frame" x="14" y="175" width="293" height="37"/>
+                                                <rect key="frame" x="15" y="189" width="290" height="55"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="input_field.png" id="qRi-Xo-p2h">
-                                                        <rect key="frame" x="0.0" y="0.0" width="293" height="37"/>
-                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                    </imageView>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="URL" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="goh-Pq-7LB">
-                                                        <rect key="frame" x="5" y="0.0" width="78" height="37"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="290" height="20"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="14"/>
-                                                        <color key="textColor" red="0.82352948189999997" green="0.82352948189999997" blue="0.83529418710000003" alpha="1" colorSpace="deviceRGB"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                        <color key="textColor" red="0.34901960780000002" green="0.34901960780000002" blue="0.34901960780000002" alpha="1" colorSpace="deviceRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="Cdn-Rp-SO3">
-                                                        <rect key="frame" x="89" y="0.0" width="204" height="37"/>
+                                                        <rect key="frame" x="0.0" y="15" width="290" height="40"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="14"/>
+                                                        <color key="textColor" red="0.14901960780000001" green="0.14901960780000001" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="URL"/>
                                                         <connections>
                                                             <outlet property="delegate" destination="TLO-se-8qL" id="bPs-NI-jnd"/>
                                                         </connections>
                                                     </textField>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="EX3-4I-YdH" userLabel="Action Button">
+                                                        <rect key="frame" x="0.0" y="15" width="290" height="40"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <inset key="titleEdgeInsets" minX="-24" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        <inset key="imageEdgeInsets" minX="266" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        <state key="normal" title="URL" image="balloon.png">
+                                                            <color key="titleColor" red="0.2274509804" green="0.50196078430000002" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="callWebsite:" destination="hlq-jy-Axy" eventType="touchUpInside" id="V6g-sw-7tU"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                             </view>
                                             <view contentMode="scaleToFill" id="Pm2-ze-lLg" userLabel="address field" customClass="TextFieldView">
-                                                <rect key="frame" x="14" y="218" width="293" height="37"/>
+                                                <rect key="frame" x="15" y="244" width="290" height="55"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="input_field.png" id="jrP-RH-ETZ">
-                                                        <rect key="frame" x="0.0" y="0.0" width="293" height="37"/>
-                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                    </imageView>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2a9-FI-63M">
-                                                        <rect key="frame" x="5" y="0.0" width="78" height="37"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="290" height="20"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="14"/>
-                                                        <color key="textColor" red="0.82352948189999997" green="0.82352948189999997" blue="0.83529418710000003" alpha="1" colorSpace="deviceRGB"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                        <color key="textColor" red="0.34901960780000002" green="0.34901960780000002" blue="0.34901960780000002" alpha="1" colorSpace="deviceRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="SD8-B9-1C5">
-                                                        <rect key="frame" x="89" y="0.0" width="204" height="37"/>
+                                                        <rect key="frame" x="0.0" y="15" width="290" height="40"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="14"/>
+                                                        <color key="textColor" red="0.14901960780000001" green="0.14901960780000001" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                         <connections>
                                                             <outlet property="delegate" destination="TLO-se-8qL" id="7dw-nl-YXo"/>
                                                         </connections>
                                                     </textField>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Gq5-C6-waV" userLabel="Action Button">
+                                                        <rect key="frame" x="0.0" y="15" width="290" height="40"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <inset key="titleEdgeInsets" minX="-24" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        <inset key="imageEdgeInsets" minX="266" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        <state key="normal" title="Address" image="balloon.png">
+                                                            <color key="titleColor" red="0.2274509804" green="0.50196078430000002" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="callAddress:" destination="hlq-jy-Axy" eventType="touchUpInside" id="v9B-ho-Jel"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                             </view>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Related" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="r90-Nt-qfI">
+                                                <rect key="frame" x="15" y="303" width="290" height="20"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <color key="textColor" red="0.34901960780000002" green="0.34901960780000002" blue="0.34901960780000002" alpha="1" colorSpace="deviceRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="EGh-NO-uxC">
+                                                <rect key="frame" x="15" y="317" width="290" height="40"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <inset key="titleEdgeInsets" minX="-24" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <inset key="imageEdgeInsets" minX="266" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <state key="normal" title="Opportunities" image="chevron.png">
+                                                    <color key="titleColor" red="0.2274509804" green="0.50196078430000002" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <state key="disabled">
+                                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="opportunities:" destination="TLO-se-8qL" eventType="touchUpInside" id="G2e-f4-ti0"/>
+                                                </connections>
+                                            </button>
                                             <view contentMode="scaleToFill" id="fwk-r8-4kq" userLabel="buttons View">
-                                                <rect key="frame" x="0.0" y="315" width="320" height="106"/>
+                                                <rect key="frame" x="15" y="363" width="290" height="200"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="c3T-bE-FLg">
-                                                        <rect key="frame" x="15" y="52" width="293" height="44"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="c3T-bE-FLg">
+                                                        <rect key="frame" x="0.0" y="45" width="290" height="44"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <color key="backgroundColor" red="0.96470588239999999" green="0.70196078429999997" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="18"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <state key="normal" title="Delete">
+                                                            <color key="titleColor" red="0.2274509804" green="0.50196078430000002" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="deleteItem:" destination="TLO-se-8qL" eventType="touchUpInside" id="mde-R2-SeO"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Fjy-H7-u5b">
-                                                        <rect key="frame" x="15" y="0.0" width="293" height="44"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Fjy-H7-u5b">
+                                                        <rect key="frame" x="0.0" y="0.0" width="290" height="44"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <color key="backgroundColor" red="0.35686274509999999" green="0.83921568629999999" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="18"/>
-                                                        <state key="normal" title="Show contacts">
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <inset key="titleEdgeInsets" minX="-24" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        <inset key="imageEdgeInsets" minX="266" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        <state key="normal" title="Show contacts" image="chevron.png">
+                                                            <color key="titleColor" red="0.2274509804" green="0.50196078430000002" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
                                                         <state key="disabled">
@@ -1178,27 +1222,12 @@
                                                         </connections>
                                                     </button>
                                                 </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="EGh-NO-uxC">
-                                                <rect key="frame" x="15" y="263" width="293" height="44"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="18"/>
-                                                <state key="normal" title="Opportunities">
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <state key="disabled">
-                                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="opportunities:" destination="TLO-se-8qL" eventType="touchUpInside" id="G2e-f4-ti0"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
                                 </subviews>
+                                <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -1215,6 +1244,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="URLField" destination="Cdn-Rp-SO3" id="LLE-G3-nOa"/>
                         <outlet property="addressField" destination="SD8-B9-1C5" id="w2m-v5-b9v"/>
@@ -1238,6 +1268,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H6L-mK-hTJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="hlq-jy-Axy" customClass="OpenUrlHelper"/>
             </objects>
             <point key="canvasLocation" x="2204" y="-1115"/>
         </scene>
@@ -1332,7 +1363,7 @@
                             <tableView opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="64" sectionHeaderHeight="22" sectionFooterHeight="22" id="7sA-pP-vLf">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <searchBar key="tableHeaderView" contentMode="redraw" id="vkm-r4-6ex">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -1385,12 +1416,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Et0-7c-YhJ">
+                            <tableView opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="64" sectionHeaderHeight="22" sectionFooterHeight="22" id="Et0-7c-YhJ">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <searchBar key="tableHeaderView" contentMode="redraw" id="oYI-iZ-EUk">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                    <rect key="frame" x="0.0" y="64" width="320" height="44"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <textInputTraits key="textInputTraits"/>
                                     <connections>
@@ -1452,7 +1483,7 @@
                             <tableView opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="2tM-I0-4kq">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <searchBar key="tableHeaderView" contentMode="redraw" id="zQg-mi-DH4">
                                     <rect key="frame" x="0.0" y="64" width="320" height="44"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -1503,7 +1534,6 @@
         <image name="balloon.png" width="24" height="24"/>
         <image name="chevron.png" width="24" height="24"/>
         <image name="email.png" width="24" height="24"/>
-        <image name="input_field.png" width="293" height="37"/>
         <image name="input_field_disabled.png" width="293" height="37"/>
         <image name="phone.png" width="24" height="24"/>
     </resources>
@@ -1514,11 +1544,11 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="sb8-08-2KH"/>
-        <segue reference="dBC-Hg-tSj"/>
+        <segue reference="LHW-MO-w8p"/>
+        <segue reference="dLH-wr-6PA"/>
+        <segue reference="I7d-Ci-gP9"/>
+        <segue reference="EKf-k2-jaE"/>
+        <segue reference="wax-He-xAT"/>
         <segue reference="3kk-cj-LW4"/>
-        <segue reference="LwS-p8-ke9"/>
-        <segue reference="wBq-cU-ftI"/>
-        <segue reference="1iO-jg-otn"/>
     </inferredMetricsTieBreakers>
 </document>
