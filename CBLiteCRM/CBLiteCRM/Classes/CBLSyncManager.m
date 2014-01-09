@@ -94,6 +94,9 @@
     }else{
         [self.authenticator logoutUser:self.userID];
         [[NSUserDefaults standardUserDefaults] setObject:nil forKey:kCBLPrefKeyUserID];
+        [[NSUserDefaults standardUserDefaults] setObject:nil forKey:kCBLPrefKeyEmail];
+        [[NSUserDefaults standardUserDefaults] setObject:nil forKey:kCBLPrefKeyHumanName];
+        
         _userID = nil;
         [[NSUserDefaults standardUserDefaults] synchronize];
         
@@ -233,16 +236,26 @@
              [request startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *me_error) {
                  if(!me_error){
                      NSDictionary* userData = result;
-                     NSString *userID = userData[@"email"];
+                     
+                     NSString * email  = userData[@"email"];
+                     NSString * userID = email;
+                     
                      if(!session.accessTokenData){
                          NSLog(@"ERROR: here is should be token");
                          block(nil, nil);
                      }else{
+                         NSString * humanName = userData[@"name"];
+                         
                          if(!userID)
-                             userID = [userData[@"name"] stringByReplacingOccurrencesOfString:@" " withString:@""].lowercaseString;
+                             userID = [humanName stringByReplacingOccurrencesOfString:@" " withString:@""].lowercaseString;
+
                          // Store the access_token for later.
-                         [[NSUserDefaults standardUserDefaults] setObject: userID forKey: kCBLPrefKeyUserID];
+                         [[NSUserDefaults standardUserDefaults] setObject: userID    forKey: kCBLPrefKeyUserID];
+                         [[NSUserDefaults standardUserDefaults] setObject: email     forKey: kCBLPrefKeyEmail];
+                         [[NSUserDefaults standardUserDefaults] setObject: humanName forKey: kCBLPrefKeyHumanName];
                          [[NSUserDefaults standardUserDefaults] setObject: session.accessTokenData.accessToken forKey: [self accessTokenKeyForUserID:userID]];
+                         [[NSUserDefaults standardUserDefaults] synchronize];
+                         
                          block(userID, userData);
                      }
                  }else {
