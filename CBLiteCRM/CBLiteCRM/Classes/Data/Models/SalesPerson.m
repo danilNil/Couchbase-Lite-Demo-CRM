@@ -11,17 +11,28 @@
 @implementation SalesPerson
 @dynamic username, phoneNumber, email, approved, user_id, type, isAdmin;
 
-- (instancetype) initInDatabase: (CBLDatabase*)database
-                   withUserName: (NSString*)username
-                      andMail: (NSString*)mail
+- (NSString*) personName
 {
-    NSParameterAssert(username);
-    NSParameterAssert(mail);
+    if        (self.name)
+        return self.name;
+    return self.username;
+}
+
+- (instancetype) initInDatabase: (CBLDatabase*)database
+                     withUserId: (NSString*)userId
+                        andName: (NSString*)name
+
+{
+    NSParameterAssert(userId);
     
-    self = [self initInDatabase:database withEmail:mail];
+    if(!name)
+        name = userId;
+    
+    self = [self initInDatabase:database withEmail:userId];
     if (self) {
-        self.user_id = mail;
-        self.username = username;
+        self.user_id  = userId;
+        self.username = userId;
+        self.name     = name;
     }
     NSError* error;
     if (![self save: &error]){

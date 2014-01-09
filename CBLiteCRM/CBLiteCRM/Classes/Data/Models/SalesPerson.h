@@ -16,13 +16,15 @@
 @property (strong) NSString* username;
 @property (strong) NSString* type;
 @property (strong) NSString* email;
+@property (strong) NSString* name;
 @property (strong) NSString* phoneNumber;
 @property bool approved;
 @property bool isAdmin;
 
+@property (readonly) NSString* personName;
 
 - (instancetype) initInDatabase: (CBLDatabase*)database
-                   withUserName: (NSString*)username
-                        andMail: (NSString*)mail;
+                     withUserId: (NSString*)userId
+                        andName: (NSString*)name;
 
 @end

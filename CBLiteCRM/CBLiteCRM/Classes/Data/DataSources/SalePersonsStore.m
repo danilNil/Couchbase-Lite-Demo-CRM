@@ -61,14 +61,21 @@
         return _user;
     if (![self userID])
         return nil;
-    _user = [[SalesPerson alloc] initInDatabase: self.database
-                                                 withUserName:[self userID] andMail:[self userID]];
+    
+    _user = [self createSalesPerson];
+    
     if (!_user) {
         _user = [self profileWithUsername: [self userID]];
     }
     return _user;
 }
 
+- (SalesPerson*) createSalesPerson
+{
+    return  [[SalesPerson alloc] initInDatabase: self.database
+                                     withUserId:[self userID]
+                                        andName:[self userHumanName]];
+}
 
 - (SalesPerson*) profileWithUsername: (NSString*)username {
     CBLDocument* doc = [self.database createDocument];
@@ -89,9 +96,9 @@
         NSLog(@"Setting username to '%@'", userID);
         [self storeUserId:userID];
         SalesPerson* myProfile = [self profileWithUsername: [self userID]];
-        if (!myProfile) {
-            myProfile = [[SalesPerson  alloc] initInDatabase: self.database
-                                            withUserName:[self userID] andMail:[self userID]];
+        if(!myProfile) {
+            myProfile = [self createSalesPerson];
+            
             NSLog(@"Created user profile %@", myProfile);
         }
     }
@@ -140,5 +147,15 @@
     return users;
 }
 
+
+- (NSString *) userHumanName
+{
+    return [[NSUserDefaults standardUserDefaults] objectForKey:kCBLPrefKeyHumanName];
+}
+
+- (NSString *) userEmail
+{
+    return [[NSUserDefaults standardUserDefaults] objectForKey:kCBLPrefKeyEmail];
+}
 
 @end
