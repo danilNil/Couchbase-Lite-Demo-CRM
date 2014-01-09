@@ -15,7 +15,9 @@ static NSString* const kContactDocType = @"contact";
 static NSString* const kCustomerDocType = @"customer";
 static NSString* const kContactOpportunityDocType = @"contactOpportunity";
 
-static NSString *kCBLPrefKeyUserID = @"CBLFBUserID";
+static NSString *kCBLPrefKeyUserID    = @"CBLFBUserID";
+static NSString *kCBLPrefKeyHumanName = @"CBLFBHumanName";
+static NSString *kCBLPrefKeyEmail     = @"CBLFBHumanMail";
 
 static NSString* const kSyncUrl = @"http://sync.couchbasecloud.com:4984/cbl_crm_sg8";
 static NSString* const kFBAppId = @"220375198143968";
