@@ -204,6 +204,11 @@
 }
 
 - (IBAction)customerDetails:(id)sender{
+    
+    if ([self isEditMode])
+        [self performSegueWithIdentifier:@"presentCustomers" sender:self];
+    
+    else
     if(customer)
         [self performSegueWithIdentifier:@"presentMyCustomer" sender:self];
 }
@@ -368,10 +373,11 @@
 
 - (NSString*) customerTitle
 {
-    if (customer.companyName.length > 0) {
-        return [NSString stringWithFormat:@"Customer: %@", customer.companyName];
+    if (customer.companyName.length == 0) {
+        return @"Select Customer";
     }
-    return @"Select Customer";
+    
+    return customer.companyName;
 }
 
 - (void)setCustomer:(Customer*)newCustomer
