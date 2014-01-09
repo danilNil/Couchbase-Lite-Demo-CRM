@@ -44,6 +44,7 @@
     } else if ([segue.identifier isEqualToString:@"presentContactDetails"]) {
         ContactDetailsViewController* vc = (ContactDetailsViewController*)((UINavigationController*)segue.destinationViewController).topViewController;
         vc.currentContact = selectedContact;
+        vc.enabledForEditing = NO;
     }
 }
 

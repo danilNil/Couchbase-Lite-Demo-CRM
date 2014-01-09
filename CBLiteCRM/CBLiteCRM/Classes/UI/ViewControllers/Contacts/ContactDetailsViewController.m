@@ -10,7 +10,7 @@
 #import "ContactDetailsViewController.h"
 #import "ImagePickerAngel.h"
 #import "CustomersViewController.h"
-#import "OpportunitesByContactViewController.h"
+#import "OpportunitiesByContactViewController.h"
 #import "ContactsByOpportunityViewController.h"
 #import "UIImage+Tools.h"
 #import "CustomerDetailsViewController.h"
@@ -227,8 +227,8 @@ typedef void (^ValidationBlock)(BOOL isValid, NSString *msg);
             self.detailsButton.enabled = selectedCustomer != nil;
         }];
         vc.chooser = YES;
-    } else if ([segue.destinationViewController isKindOfClass:[OpportunitesByContactViewController class]]) {
-        OpportunitesByContactViewController *vc = (OpportunitesByContactViewController*)segue.destinationViewController;
+    } else if ([segue.destinationViewController isKindOfClass:[OpportunitiesByContactViewController class]]) {
+        OpportunitiesByContactViewController *vc = (OpportunitiesByContactViewController*)segue.destinationViewController;
         vc.enabledForEditing = NO;
         vc.filteringContact = self.currentContact;
     } else if([segue.identifier isEqualToString:@"presentMyCustomer"]){

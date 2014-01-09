@@ -1415,10 +1415,10 @@
             </objects>
             <point key="canvasLocation" x="1470" y="1929"/>
         </scene>
-        <!--Opportunites By Contact View Controller - Opportunities-->
+        <!--Opportunities By Contact View Controller - Opportunities-->
         <scene sceneID="6Jb-Mf-S3a">
             <objects>
-                <viewController id="zWg-jE-NQp" customClass="OpportunitesByContactViewController" sceneMemberID="viewController">
+                <viewController id="zWg-jE-NQp" customClass="OpportunitiesByContactViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8Oo-iW-SMn">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

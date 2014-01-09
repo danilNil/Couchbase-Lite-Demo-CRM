@@ -6,7 +6,8 @@
 //  Copyright (c) 2013 Couchbase. All rights reserved.
 //
 
-#import "OpportunitesByContactViewController.h"
+#import "OpportunitiesByContactViewController.h"
+#import "OpportunityDetailesViewController.h"
 
 #import "DataStore.h"
 #import "ContactOpportunity.h"
@@ -14,11 +15,11 @@
 #import "Opportunity.h"
 #import "Customer.h"
 
-@interface OpportunitesByContactViewController ()
+@interface OpportunitiesByContactViewController ()
 @property (nonatomic, weak) OpportunityForContactStore *store;
 @end
 
-@implementation OpportunitesByContactViewController
+@implementation OpportunitiesByContactViewController
 
 - (void) updateQuery
 {
@@ -71,4 +72,14 @@
     self.filteredDataSource.query = [query asLiveQuery];
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    [super prepareForSegue:segue sender:sender];
+    if([segue.destinationViewController isKindOfClass:[UINavigationController class]] && [sender isKindOfClass:[UITableView class]]){
+        UINavigationController* navc = (UINavigationController*)segue.destinationViewController;
+        OpportunityDetailesViewController* vc = (OpportunityDetailesViewController*)navc.topViewController;
+        vc.currentOpport = self.selectedCellData;
+        vc.enabledForEditing = NO;
+    }
+}
 @end

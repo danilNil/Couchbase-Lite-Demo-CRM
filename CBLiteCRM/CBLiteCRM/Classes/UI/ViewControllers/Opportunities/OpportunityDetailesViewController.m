@@ -228,10 +228,13 @@
     }else if([segue.identifier isEqualToString:@"presentMyCustomer"]){
         CustomerDetailsViewController* vc = (CustomerDetailsViewController*)((UINavigationController*)segue.destinationViewController).topViewController;
         vc.currentCustomer = self.preselectedCustomer;
+        vc.enabledForEditing = NO;
     } else if ([segue.destinationViewController isKindOfClass:[ContactsViewController class]]) {
         ContactsByOpportunityViewController* vc = (ContactsByOpportunityViewController*)segue.destinationViewController;
         vc.filteredOpp = self.currentOpport;
-        vc.enabledForEditing = [self isEditMode];
+        vc.enabledForEditing = NO;
+    } else {
+        NSAssert(YES == NO, @"We should not be here");
     }
 }
 

@@ -10,7 +10,7 @@
 
 @class Contact;
 
-@interface OpportunitesByContactViewController : OpportunitiesViewController
+@interface OpportunitiesByContactViewController : OpportunitiesViewController
 
 @property (nonatomic, strong) Contact* filteringContact;
 

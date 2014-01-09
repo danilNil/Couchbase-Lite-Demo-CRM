@@ -25,8 +25,6 @@ UIAlertViewDelegate
     CBLModelDeleteHelper* deleteHelper;
 }
 
-@property(nonatomic, strong) Contact* selectedContact;
-
 @end
 
 @implementation ContactsViewController

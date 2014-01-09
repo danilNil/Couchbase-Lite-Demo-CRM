@@ -27,7 +27,7 @@
 		44A2074C186AC38100A60345 /* TextFieldView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A2074B186AC38100A60345 /* TextFieldView.m */; };
 		44B3A6701856C79700CF4BAE /* ContactOpportunityStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 44B3A66F1856C79700CF4BAE /* ContactOpportunityStore.m */; };
 		44B3A6731856DC7F00CF4BAE /* ContactsByOpportunityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44B3A6721856DC7F00CF4BAE /* ContactsByOpportunityViewController.m */; };
-		44B3A6761857132D00CF4BAE /* OpportunitesByContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44B3A6751857132D00CF4BAE /* OpportunitesByContactViewController.m */; };
+		44B3A6761857132D00CF4BAE /* OpportunitiesByContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44B3A6751857132D00CF4BAE /* OpportunitiesByContactViewController.m */; };
 		44D6DAF7184718920097262E /* CustomerDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44D6DAF6184718920097262E /* CustomerDetailsViewController.m */; };
 		44DECD891872864800D89E60 /* EditableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44DECD881872864800D89E60 /* EditableViewController.m */; };
 		44DECD8B18728FBA00D89E60 /* OpportunitiesByCustomerViewControllerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 44DECD8A18728FBA00D89E60 /* OpportunitiesByCustomerViewControllerSpec.m */; };
@@ -147,8 +147,8 @@
 		44B3A66F1856C79700CF4BAE /* ContactOpportunityStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContactOpportunityStore.m; path = ../RelationalModels/ContactOpportunityStore.m; sourceTree = "<group>"; };
 		44B3A6711856DC7F00CF4BAE /* ContactsByOpportunityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactsByOpportunityViewController.h; sourceTree = "<group>"; };
 		44B3A6721856DC7F00CF4BAE /* ContactsByOpportunityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactsByOpportunityViewController.m; sourceTree = "<group>"; };
-		44B3A6741857132D00CF4BAE /* OpportunitesByContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpportunitesByContactViewController.h; sourceTree = "<group>"; };
-		44B3A6751857132D00CF4BAE /* OpportunitesByContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpportunitesByContactViewController.m; sourceTree = "<group>"; };
+		44B3A6741857132D00CF4BAE /* OpportunitiesByContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpportunitiesByContactViewController.h; sourceTree = "<group>"; };
+		44B3A6751857132D00CF4BAE /* OpportunitiesByContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpportunitiesByContactViewController.m; sourceTree = "<group>"; };
 		44D6DAF5184718920097262E /* CustomerDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerDetailsViewController.h; sourceTree = "<group>"; };
 		44D6DAF6184718920097262E /* CustomerDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerDetailsViewController.m; sourceTree = "<group>"; };
 		44DECD871872864800D89E60 /* EditableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditableViewController.h; sourceTree = "<group>"; };
@@ -180,7 +180,7 @@
 		830D51AA1848570900044A19 /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
 		830D51AB1848570900044A19 /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
 		830D51B11848973900044A19 /* OpportunityDetailesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpportunityDetailesViewController.h; sourceTree = "<group>"; };
-		830D51B21848973900044A19 /* OpportunityDetailesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpportunityDetailesViewController.m; sourceTree = "<group>"; };
+		830D51B21848973900044A19 /* OpportunityDetailesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = OpportunityDetailesViewController.m; sourceTree = "<group>"; };
 		831730FB184F21090043F865 /* CustomersStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomersStore.h; sourceTree = "<group>"; };
 		831730FC184F21090043F865 /* CustomersStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomersStore.m; sourceTree = "<group>"; };
 		831730FE184F211C0043F865 /* OpportunitiesStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpportunitiesStore.h; sourceTree = "<group>"; };
@@ -368,8 +368,8 @@
 			children = (
 				447A2C5A1845D808008786AF /* OpportunitiesViewController.h */,
 				447A2C5B1845D808008786AF /* OpportunitiesViewController.m */,
-				44B3A6741857132D00CF4BAE /* OpportunitesByContactViewController.h */,
-				44B3A6751857132D00CF4BAE /* OpportunitesByContactViewController.m */,
+				44B3A6741857132D00CF4BAE /* OpportunitiesByContactViewController.h */,
+				44B3A6751857132D00CF4BAE /* OpportunitiesByContactViewController.m */,
 				830D51B11848973900044A19 /* OpportunityDetailesViewController.h */,
 				830D51B21848973900044A19 /* OpportunityDetailesViewController.m */,
 				4409AAF61871830F00E80133 /* OpportunitiesByCustomerViewController.h */,
@@ -844,7 +844,7 @@
 				830D51AC1848570900044A19 /* BaseModel.m in Sources */,
 				447A2C671845D808008786AF /* MenuViewController.m in Sources */,
 				4409AAF2187177D500E80133 /* ContactsByCustomerViewController.m in Sources */,
-				44B3A6761857132D00CF4BAE /* OpportunitesByContactViewController.m in Sources */,
+				44B3A6761857132D00CF4BAE /* OpportunitiesByContactViewController.m in Sources */,
 				831730FD184F21090043F865 /* CustomersStore.m in Sources */,
 				447A2C631845D808008786AF /* TextFieldsViewController.m in Sources */,
 				44D6DAF7184718920097262E /* CustomerDetailsViewController.m in Sources */,

@@ -60,6 +60,7 @@ CBLUITableDelegate
 
 #pragma mark - Segue
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    [super prepareForSegue:segue sender:sender];
     if([segue.destinationViewController isKindOfClass:[UINavigationController class]] && [sender isKindOfClass:[UITableView class]]){
         UINavigationController* navc = (UINavigationController*)segue.destinationViewController;
         OpportunityDetailesViewController* vc = (OpportunityDetailesViewController*)navc.topViewController;

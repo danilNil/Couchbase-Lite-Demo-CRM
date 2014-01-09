@@ -15,5 +15,6 @@
 @property (nonatomic) BOOL chooser;
 @property (nonatomic, copy) void (^onSelectContact)(Contact * contact);
 @property (nonatomic, strong) Opportunity *filteringOpportunity;
+@property(nonatomic, strong) Contact* selectedContact;
 
 @end

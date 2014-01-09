@@ -1,5 +1,5 @@
 //
-//  EnableForEditingViewController.h
+//  EditableViewController.h
 //  CBLiteCRM
 //
 //  Created by Ruslan on 12/31/13.
