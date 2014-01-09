@@ -39,7 +39,6 @@ NSString *kSalesPersonCell = @"SalesPersonCell";
     _salesPerson = salesPerson;
 
     self.name.text  = salesPerson.username;
-    self.email.text = salesPerson.email;
     self.checked    = salesPerson.approved;
 }
 
