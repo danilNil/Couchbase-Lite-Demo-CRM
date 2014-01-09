@@ -202,7 +202,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="1066" y="-196"/>
+            <point key="canvasLocation" x="1066" y="-320"/>
         </scene>
         <!--Sales Person Options View Controller-->
         <scene sceneID="cKc-Z1-Fuf">
@@ -335,7 +335,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nql-vy-yKY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1483" y="-201"/>
+            <point key="canvasLocation" x="1651" y="-313"/>
         </scene>
         <!--Customers View Controller - Customers-->
         <scene sceneID="5Vl-uH-AH0">
@@ -387,7 +387,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="1066" y="-723"/>
+            <point key="canvasLocation" x="1066" y="-1159"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="NMm-OM-D9U">
@@ -402,7 +402,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3AB-f3-rgh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1507" y="-723"/>
+            <point key="canvasLocation" x="1651" y="-1115"/>
         </scene>
         <!--Contact Details View Controller - Contact-->
         <scene sceneID="XBv-Uk-B3a">
@@ -673,7 +673,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fwK-Yb-awM" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="3Lt-fO-Eva" customClass="OpenUrlHelper"/>
             </objects>
-            <point key="canvasLocation" x="2249" y="151"/>
+            <point key="canvasLocation" x="2204" y="383"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cuA-kl-VxA">
@@ -689,7 +689,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fF2-nJ-Obm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1443" y="427"/>
+            <point key="canvasLocation" x="1651" y="427"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jTM-kM-nf1">
@@ -705,7 +705,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rJA-cV-xTC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1429" y="1209"/>
+            <point key="canvasLocation" x="1635" y="1215"/>
         </scene>
         <!--Opportunity Detailes View Controller - Opportunity-->
         <scene sceneID="Clk-Zq-gKl">
@@ -971,7 +971,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dzf-aQ-KNO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1854" y="1215"/>
+            <point key="canvasLocation" x="2204" y="1215"/>
         </scene>
         <!--Customer Details View Controller - Customer-->
         <scene sceneID="c5f-lt-CfQ">
@@ -1244,7 +1244,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H6L-mK-hTJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1906" y="-723"/>
+            <point key="canvasLocation" x="2204" y="-1115"/>
         </scene>
         <!--Opportunities View Controller - Opportunities-->
         <scene sceneID="5kX-lH-IT9">
@@ -1297,7 +1297,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="1020" y="1215"/>
+            <point key="canvasLocation" x="1066" y="1215"/>
         </scene>
         <!--Contacts View Controller - Contacts-->
         <scene sceneID="P8Y-bZ-Adv">
@@ -1312,7 +1312,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <searchBar key="tableHeaderView" contentMode="redraw" id="vkm-r4-6ex">
-                                    <rect key="frame" x="0.0" y="64" width="320" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <textInputTraits key="textInputTraits"/>
                                     <connections>
@@ -1417,7 +1417,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="1394" y="1909"/>
+            <point key="canvasLocation" x="1635" y="1995"/>
         </scene>
         <!--Opportunites By Contact View Controller - Opportunities-->
         <scene sceneID="6Jb-Mf-S3a">
@@ -1467,7 +1467,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="2664" y="681"/>
+            <point key="canvasLocation" x="3376" y="901"/>
         </scene>
     </scenes>
     <resources>
@@ -1492,11 +1492,11 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="rju-Nc-jGo"/>
-        <segue reference="oD6-Gt-h5e"/>
-        <segue reference="dLH-wr-6PA"/>
+        <segue reference="uhY-OQ-e3f"/>
         <segue reference="EKf-k2-jaE"/>
-        <segue reference="LHW-MO-w8p"/>
+        <segue reference="wBq-cU-ftI"/>
         <segue reference="wax-He-xAT"/>
+        <segue reference="1iO-jg-otn"/>
+        <segue reference="3kk-cj-LW4"/>
     </inferredMetricsTieBreakers>
 </document>
