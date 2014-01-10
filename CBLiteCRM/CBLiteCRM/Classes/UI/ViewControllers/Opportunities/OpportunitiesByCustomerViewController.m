@@ -30,6 +30,10 @@
         OpportunityDetailesViewController* vc = (OpportunityDetailesViewController*)((UINavigationController*)segue.destinationViewController).topViewController;
         vc.enabledForEditing = YES;
         vc.preselectedCustomer = self.customer;
+    } else if ([segue.identifier isEqualToString:@"opportDetails"] && sender == self.tableView) {
+        OpportunityDetailesViewController* vc = (OpportunityDetailesViewController*)((UINavigationController*)segue.destinationViewController).topViewController;
+        vc.enabledForEditing = NO;
+        vc.preselectedCustomer = self.customer;
     }
 }
 

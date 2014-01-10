@@ -68,8 +68,8 @@
 
 - (void)loadInfoForOpportunity:(Opportunity*)opp {
     self.buttonsView.hidden = !opp;
+    [self setCustomerButton];
     if (opp) {
-        self.preselectedCustomer = self.currentOpport.customer;
         self.nameField.text = opp.title;
         if (opp.salesStage) {
             self.stageField.text = opp.salesStage;
@@ -197,7 +197,7 @@
 }
 
 - (IBAction)customerDetails:(id)sender{
-    if(self.preselectedCustomer)
+    if(self.preselectedCustomer.companyName.length > 0)
         [self performSegueWithIdentifier:@"presentMyCustomer" sender:self];
 }
 
@@ -225,14 +225,14 @@
                 [self.currentOpport save:&error];
             }
         }];
-    }else if([segue.identifier isEqualToString:@"presentMyCustomer"]){
+    } else if([segue.identifier isEqualToString:@"presentMyCustomer"]){
         CustomerDetailsViewController* vc = (CustomerDetailsViewController*)((UINavigationController*)segue.destinationViewController).topViewController;
         vc.currentCustomer = self.preselectedCustomer;
         vc.enabledForEditing = NO;
     } else if ([segue.destinationViewController isKindOfClass:[ContactsViewController class]]) {
         ContactsByOpportunityViewController* vc = (ContactsByOpportunityViewController*)segue.destinationViewController;
         vc.filteredOpp = self.currentOpport;
-        vc.enabledForEditing = NO;
+        vc.enabledForEditing = self.enabledForEditing & [self isEditMode];
     } else {
         NSAssert(YES == NO, @"We should not be here");
     }
@@ -370,10 +370,8 @@
     return @"Select Customer";
 }
 
-- (void)setPreselectedCustomer:(Customer *)preselectedCustomer
+- (void)setCustomerButton
 {
-    _preselectedCustomer = preselectedCustomer;
-    
     [self.customerButton setTitle:[self customerTitle]
                          forState:UIControlStateNormal];
 

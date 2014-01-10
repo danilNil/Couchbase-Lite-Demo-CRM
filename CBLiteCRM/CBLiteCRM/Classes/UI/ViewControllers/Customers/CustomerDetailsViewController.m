@@ -117,7 +117,7 @@
     } else if ([segue.destinationViewController isKindOfClass:[ContactsViewController class]]) {
         ContactsByCustomerViewController *vc = (ContactsByCustomerViewController*)segue.destinationViewController;
         vc.customer = self.currentCustomer;
-        vc.enabledForEditing = [self isEditMode];
+        vc.enabledForEditing = [self isEditMode] & self.enabledForEditing;
     }
 }
 

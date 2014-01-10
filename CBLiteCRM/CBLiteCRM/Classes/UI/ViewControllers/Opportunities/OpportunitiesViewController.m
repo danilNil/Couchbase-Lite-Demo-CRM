@@ -65,6 +65,7 @@ CBLUITableDelegate
         UINavigationController* navc = (UINavigationController*)segue.destinationViewController;
         OpportunityDetailesViewController* vc = (OpportunityDetailesViewController*)navc.topViewController;
         vc.currentOpport = self.selectedCellData;
+        vc.enabledForEditing = YES;
     }
 }
 
