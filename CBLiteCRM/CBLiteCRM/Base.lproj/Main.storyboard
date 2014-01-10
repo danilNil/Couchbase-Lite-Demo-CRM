@@ -514,9 +514,9 @@
                                                         <rect key="frame" x="0.0" y="15" width="290" height="35"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <inset key="titleEdgeInsets" minX="-24" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        <inset key="titleEdgeInsets" minX="-24" minY="0.0" maxX="24" maxY="0.0"/>
                                                         <inset key="imageEdgeInsets" minX="266" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                        <state key="normal" title="Phone" image="phone.png">
+                                                        <state key="normal" title="Phone Address some long long long text could be here" image="phone.png">
                                                             <color key="titleColor" red="0.2274509804" green="0.50196078430000002" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
@@ -548,11 +548,11 @@
                                                             <outlet property="delegate" destination="Xt6-34-7OD" id="yNd-N1-uyH"/>
                                                         </connections>
                                                     </textField>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="YG6-Zh-NzO" userLabel="Action Button">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="tailTruncation" id="YG6-Zh-NzO" userLabel="Action Button">
                                                         <rect key="frame" x="0.0" y="15" width="290" height="35"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <inset key="titleEdgeInsets" minX="-24" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        <inset key="titleEdgeInsets" minX="-24" minY="0.0" maxX="24" maxY="0.0"/>
                                                         <inset key="imageEdgeInsets" minX="266" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                         <state key="normal" title="E-mail" image="email.png">
                                                             <color key="titleColor" red="0.2274509804" green="0.50196078430000002" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -586,11 +586,11 @@
                                                             <outlet property="delegate" destination="Xt6-34-7OD" id="QXS-vY-xTw"/>
                                                         </connections>
                                                     </textField>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="icp-kw-Wj6" userLabel="Action Button">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="tailTruncation" id="icp-kw-Wj6" userLabel="Action Button">
                                                         <rect key="frame" x="0.0" y="15" width="290" height="35"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <inset key="titleEdgeInsets" minX="-24" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        <inset key="titleEdgeInsets" minX="-24" minY="0.0" maxX="24" maxY="0.0"/>
                                                         <inset key="imageEdgeInsets" minX="266" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                         <state key="normal" title="Address" image="balloon.png">
                                                             <color key="titleColor" red="0.2274509804" green="0.50196078430000002" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -1489,7 +1489,7 @@
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="OpportunityCell" textLabel="DEp-S0-tVs" detailTextLabel="TIe-VI-vUm" style="IBUITableViewCellStyleSubtitle" id="eQt-U0-JRa">
                                         <rect key="frame" x="0.0" y="130" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eQt-U0-JRa">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eQt-U0-JRa" id="Tne-h4-JiW">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
