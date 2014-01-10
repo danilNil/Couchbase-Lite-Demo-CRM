@@ -153,7 +153,7 @@
             </objects>
             <point key="canvasLocation" x="537" y="427"/>
         </scene>
-        <!--Sales View Controller - Team-->
+        <!--Sales View Controller - Sales Team-->
         <scene sceneID="zQg-tN-zT5">
             <objects>
                 <viewController id="xUM-Pc-30e" customClass="SalesViewController" sceneMemberID="viewController">
@@ -181,7 +181,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Team" id="BEL-0B-KFB"/>
+                    <navigationItem key="navigationItem" title="Sales Team" id="BEL-0B-KFB"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="cellIdentifier" value="SalesPersonCell"/>
                     </userDefinedRuntimeAttributes>
@@ -1358,7 +1358,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <searchBar key="tableHeaderView" contentMode="redraw" id="vkm-r4-6ex">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                    <rect key="frame" x="0.0" y="64" width="320" height="44"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <textInputTraits key="textInputTraits"/>
                                     <connections>
