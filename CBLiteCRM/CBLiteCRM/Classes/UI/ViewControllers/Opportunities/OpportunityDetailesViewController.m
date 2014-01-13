@@ -330,7 +330,7 @@
     if (editMode)
         [self.contactsButton setTitle:@"Edit Contacts" forState:UIControlStateNormal];
     else
-        [self.contactsButton setTitle:@"Show Contacts" forState:UIControlStateNormal];
+        [self.contactsButton setTitle:@"Contacts" forState:UIControlStateNormal];
 }
 
 #pragma mark - UITextFieldDelegate
