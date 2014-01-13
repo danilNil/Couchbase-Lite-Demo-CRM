@@ -204,7 +204,7 @@
             </objects>
             <point key="canvasLocation" x="1066" y="-320"/>
         </scene>
-        <!--Sales Person Options View Controller - Team Member-->
+        <!--Sales Person Options View Controller - Member-->
         <scene sceneID="cKc-Z1-Fuf">
             <objects>
                 <viewController id="thM-Fv-BNK" customClass="SalesPersonOptionsViewController" sceneMemberID="viewController">
@@ -324,7 +324,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Team Member" id="jVX-LX-Luz">
+                    <navigationItem key="navigationItem" title="Member" id="jVX-LX-Luz">
                         <barButtonItem key="rightBarButtonItem" title="Edit" id="VuY-Nq-XnW">
                             <connections>
                                 <action selector="save:" destination="thM-Fv-BNK" id="AD7-gy-LWD"/>
