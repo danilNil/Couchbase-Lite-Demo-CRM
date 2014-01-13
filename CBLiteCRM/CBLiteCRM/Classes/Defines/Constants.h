@@ -28,7 +28,7 @@ static NSString* const kSaveTitle = @"Done";
 
 #define UIColorFromRGB(r,g,b) [UIColor colorWithRed:r/255.0  green:g/255.0 blue:b/255.0 alpha:1.0]
 
-#define kNavigationBarColor    UIColorFromRGB(45,103,245)
+#define kNavigationBarColor    UIColorFromRGB(58,128,247)
 
 #define kDarkBackgroundColor   UIColorFromRGB(58,128,247)
 #define kLightBackgroundColor  UIColorFromRGB(242,242,242)
