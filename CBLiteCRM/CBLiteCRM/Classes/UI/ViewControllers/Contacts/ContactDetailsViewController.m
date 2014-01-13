@@ -187,7 +187,7 @@ typedef void (^ValidationBlock)(BOOL isValid, NSString *msg);
             [weakSelf saveContact];
             [weakSelf setEditMode:NO];
         } else {
-            [[[UIAlertView alloc] initWithTitle:@"Error" message:msg delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil] show];
+            [UIAlertView showErrorMessage:msg];
         }
     }];
 }
@@ -242,14 +242,12 @@ typedef void (^ValidationBlock)(BOOL isValid, NSString *msg);
 #pragma mark - Fields Validation
 
 - (void)isAllRequiredFieldsValid:(ValidationBlock)result {
-    if (![self.nameField.text isEqualToString:@""] && [self actualCustomer])
+    if (![self.nameField.text isEqualToString:@""])
         result(YES, @"");
     else {
         NSMutableString *msg = [NSMutableString new];
         if ([self.nameField.text isEqualToString:@""])
             [msg appendString:@"Please fill Name field\n"];
-        if (![self actualCustomer])
-            [msg appendString:@"Please select Company"];
 
         result(NO, msg);
     }
