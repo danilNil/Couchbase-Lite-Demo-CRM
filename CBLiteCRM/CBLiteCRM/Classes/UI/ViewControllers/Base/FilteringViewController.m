@@ -31,7 +31,7 @@
     if (self.cellIdentifier) {
         [self.searchDisplayController.searchResultsTableView registerNib:[UINib nibWithNibName:self.cellIdentifier bundle:[NSBundle mainBundle]]  forCellReuseIdentifier:self.cellIdentifier];
         [self.tableView registerNib:[UINib nibWithNibName:self.cellIdentifier bundle:[NSBundle mainBundle]]  forCellReuseIdentifier:self.cellIdentifier];
-    }
+    } 
 
     self.dataSource = [CBLUITableSource new];
     self.dataSource.tableView = self.tableView;
@@ -41,7 +41,10 @@
     self.filteredDataSource = [CBLUITableSource new];
     self.filteredDataSource.tableView = self.searchDisplayController.searchResultsTableView;
     self.searchDisplayController.searchResultsTableView.dataSource = self.filteredDataSource;
-    self.searchDisplayController.searchResultsTableView.delegate = self;
+    self.searchDisplayController.searchResultsTableView.delegate   = self;
+    
+    self.searchDisplayController.searchResultsTableView.rowHeight       = self.tableView.rowHeight;
+    self.searchDisplayController.searchResultsTableView.backgroundColor = self.tableView.backgroundColor;
 
     [self updateQuery];
 }
