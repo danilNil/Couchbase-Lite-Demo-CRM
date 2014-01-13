@@ -213,13 +213,6 @@
         [self performSegueWithIdentifier:@"presentMyCustomer" sender:self];
 }
 
-- (IBAction)deleteItem:(id)sender
-{
-    deleteHelper.item = self.currentOpport;
-    deleteHelper.deleteAlertBlock = [self createOnDeleteBlock];
-    [deleteHelper showDeletionAlert];
-}
-
 - (IBAction)showContacts:(id)sender
 {
     [self performSegueWithIdentifier:@"presentContactsForOpportunity" sender:self];

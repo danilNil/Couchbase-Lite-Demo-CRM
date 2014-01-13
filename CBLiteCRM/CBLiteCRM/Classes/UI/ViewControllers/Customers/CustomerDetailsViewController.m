@@ -91,12 +91,6 @@
     };
 }
 
-- (IBAction)deleteItem:(id)sender {
-    deleteHelper.item = self.currentCustomer;
-    deleteHelper.deleteAlertBlock = [self createOnDeleteBlock];
-    [deleteHelper showDeletionAlert];
-}
-
 - (IBAction)opportunities:(id)sender
 {
     [self performSegueWithIdentifier:@"presentOpportunitiesForCustomer" sender:self];

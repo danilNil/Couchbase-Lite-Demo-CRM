@@ -25,7 +25,6 @@
 
 - (IBAction)back:(id)sender;
 - (IBAction)saveItem:(id)sender;
-- (IBAction)deleteItem:(id)sender;
 - (IBAction)customerDetails:(id)sender;
 - (void)setCustomer:(Customer*)newCustomer;
 

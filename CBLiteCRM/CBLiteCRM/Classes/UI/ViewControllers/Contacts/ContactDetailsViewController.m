@@ -199,13 +199,6 @@ typedef void (^ValidationBlock)(BOOL isValid, NSString *msg);
     [self updateInfoForContact:newContact];
 }
 
-- (IBAction)deleteItem:(id)sender
-{
-    deleteHelper.item = self.currentContact;
-    deleteHelper.deleteAlertBlock = [self createOnDeleteBlock];
-    [deleteHelper showDeletionAlert];
-}
-
 - (DeleteBlock) createOnDeleteBlock {
     __weak typeof(self) weakSelf = self;
     return ^(BOOL shouldDelete){
