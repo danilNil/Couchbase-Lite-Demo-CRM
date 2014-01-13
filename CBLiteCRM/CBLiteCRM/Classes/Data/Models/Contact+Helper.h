@@ -12,6 +12,4 @@
 
 - (NSString*)customerCompanyName;
 
-- (NSString*)positionAtCompanyForSize:(CGSize)size font:(UIFont*)font;
-
 @end
