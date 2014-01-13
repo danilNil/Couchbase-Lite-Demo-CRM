@@ -9,7 +9,7 @@
 #import "UIAlertView+Helper.h"
 
 #define kUIAlertViewHelperErrorTitle NSLocalizedString(@"Error", @"UIAlertView+Helper::showErrorMessage: (Title)")
-#define kUIAlertViewHelperErrorOk    NSLocalizedString(@"ok",    @"UIAlertView+Helper::showErrorMessage: (cancaleButton)")
+#define kUIAlertViewHelperErrorOk    NSLocalizedString(@"OK",    @"UIAlertView+Helper::showErrorMessage: (cancaleButton)")
 
 
 @implementation UIAlertView (Helper)

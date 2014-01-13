@@ -31,7 +31,7 @@
         if ([self.item deleteDocument:&error])
             self.deleteAlertBlock(YES);
         else {
-            [[[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil] show];
+            [UIAlertView showError:error];
             self.deleteAlertBlock(NO);
         }
     }

@@ -78,7 +78,7 @@
             [self updateInfoForCustomer:newCustomer];
             [self setEditMode:NO];
         } else
-            [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Please fill Company field" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil] show];
+            [UIAlertView showErrorMessage:@"Please fill Company field"];
     }else if([self.navigationItem.rightBarButtonItem.title isEqualToString:kEditTitle])
         [self setEditMode:YES];
 }

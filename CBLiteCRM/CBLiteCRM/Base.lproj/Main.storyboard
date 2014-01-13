@@ -608,7 +608,7 @@
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             </imageView>
                                             <view contentMode="scaleToFill" id="7rv-hO-51B" userLabel="buttonsView">
-                                                <rect key="frame" x="15" y="305" width="290" height="118"/>
+                                                <rect key="frame" x="15" y="305" width="290" height="70"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="hUv-Oh-E0j">
@@ -623,18 +623,6 @@
                                                         </state>
                                                         <connections>
                                                             <action selector="opportunities:" destination="Xt6-34-7OD" eventType="touchUpInside" id="BEB-SH-boh"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="2C2-UJ-N4e">
-                                                        <rect key="frame" x="0.0" y="60" width="290" height="40"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <state key="normal" title="Delete">
-                                                            <color key="titleColor" red="0.2274509804" green="0.50196078430000002" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="deleteItem:" destination="Xt6-34-7OD" eventType="touchUpInside" id="DL4-bY-DBD"/>
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Related" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="I30-a3-da5">
@@ -655,12 +643,12 @@
                         </subviews>
                     </view>
                     <navigationItem key="navigationItem" title="Contact" id="3qe-Px-orA">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="8NG-H0-efG">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="8NG-H0-efG">
                             <connections>
                                 <action selector="back:" destination="Xt6-34-7OD" id="SlQ-52-Vtt"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="g8c-r5-U0P">
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="g8c-r5-U0P">
                             <connections>
                                 <action selector="saveItem:" destination="Xt6-34-7OD" id="kvR-bB-nQb"/>
                             </connections>
@@ -673,7 +661,6 @@
                         <outlet property="buttonsView" destination="7rv-hO-51B" id="XdY-oG-LMn"/>
                         <outlet property="companyButton" destination="cLg-rZ-hVq" id="cD5-3E-YMI"/>
                         <outlet property="contentView" destination="NkD-al-MDr" id="61m-0N-OdD"/>
-                        <outlet property="deleteButton" destination="2C2-UJ-N4e" id="Cb5-7i-g5z"/>
                         <outlet property="mailField" destination="5mM-HQ-Oru" id="TW9-PZ-mMv"/>
                         <outlet property="nameField" destination="KGO-lG-Wez" id="ohX-Wu-5nY"/>
                         <outlet property="phoneField" destination="wdg-R9-28s" id="N6u-HG-cQN"/>
