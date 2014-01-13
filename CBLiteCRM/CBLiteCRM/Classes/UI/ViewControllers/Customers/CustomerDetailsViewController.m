@@ -57,8 +57,6 @@
         self.mailField.text = cm.email;
         self.addressField.text = cm.address;
         self.URLField.text = cm.websiteUrl;
-    }else{
-        self.navigationItem.title = @"Add New Customer";
     }
 }
 
@@ -78,7 +76,8 @@
             [self updateInfoForCustomer:newCustomer];
             [self setEditMode:NO];
         } else
-            [UIAlertView showErrorMessage:@"Please fill Company field"];
+            [UIAlertView showErrorMessage:@"Company Name is required"];
+        
     }else if([self.navigationItem.rightBarButtonItem.title isEqualToString:kEditTitle])
         [self setEditMode:YES];
 }
@@ -124,10 +123,11 @@
 {
     self.buttonsView.hidden = !self.currentCustomer;
     self.opportunitiesButton.hidden = !self.currentCustomer;
+
     if (editMode)
         [self.opportunitiesButton setTitle:@"Edit Opportunities" forState:UIControlStateNormal];
     else
-        [self.opportunitiesButton setTitle:@"Show Opportunities" forState:UIControlStateNormal];
+        [self.opportunitiesButton setTitle:@"Opportunities" forState:UIControlStateNormal];
 }
 
 #pragma mark -
