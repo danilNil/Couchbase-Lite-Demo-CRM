@@ -241,16 +241,12 @@ typedef void (^ValidationBlock)(BOOL isValid, NSString *msg);
 
 #pragma mark - Fields Validation
 
-- (void)isAllRequiredFieldsValid:(ValidationBlock)result {
-    if (![self.nameField.text isEqualToString:@""])
+- (void)isAllRequiredFieldsValid:(ValidationBlock)result
+{
+    if ([self.nameField.text isEqualToString:@""])
+        result(NO,  @"Name is required\n");
+    else
         result(YES, @"");
-    else {
-        NSMutableString *msg = [NSMutableString new];
-        if ([self.nameField.text isEqualToString:@""])
-            [msg appendString:@"Please fill Name field\n"];
-
-        result(NO, msg);
-    }
 }
 
 #pragma mark - helpers methods
