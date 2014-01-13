@@ -49,8 +49,12 @@
 
 - (void)updateButtonTitleWithText
 {
-    [self.actionButton setTitle:self.textField.text
+    NSString * title = self.textField.text;
+    
+    [self.actionButton setTitle:title
                        forState:UIControlStateNormal];
+    
+    [self hideActionButtonIfContentIsBlank];
 }
 
 // TODO: findout if this really necessary
@@ -65,6 +69,7 @@
     _editMode = editMode;
     
     if([self hasActionButton]) {
+        
         self.textField.hidden    =!editMode;
         self.actionButton.hidden = editMode;
         
@@ -82,6 +87,22 @@
 - (BOOL) hasActionButton
 {
     return self.actionButton != nil;
+}
+
+- (BOOL) isEmptyTextInField
+{
+    return [self.textField.text isEqualToString:@""];
+}
+
+- (void)hideActionButtonIfContentIsBlank
+{
+    if([self isEmptyTextInField]) {
+        self.actionButton.hidden = YES;
+    }
+    else
+    if(![self editMode]) {
+         self.actionButton.hidden = NO;
+    }
 }
 
 #pragma Observer Delegate
