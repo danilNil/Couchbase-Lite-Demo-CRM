@@ -28,7 +28,7 @@
 {
     [super viewDidLoad];
     self.modelClass = [SalesPerson class];
-    self.firstLevelSearchableProperty = @"email";
+    self.firstLevelSearchableProperty = @"name";
 }
 - (void) updateQuery
 {

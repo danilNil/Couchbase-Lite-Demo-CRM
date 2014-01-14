@@ -9,13 +9,20 @@
 #import "SalesPerson.h"
 
 @implementation SalesPerson
-@dynamic username, phoneNumber, email, approved, user_id, type, isAdmin, editableWorkaroundEmail;
+@dynamic username, phoneNumber, email, approved, user_id, type, isAdmin, editableWorkaroundEmail, name;
 
 - (NSString*) personName
 {
     if        (self.name)
         return self.name;
     return self.username;
+}
+
+- (NSString*) personEmail
+{
+    if(!self.editableWorkaroundEmail)
+        self.editableWorkaroundEmail = self.email;
+    return self.email;
 }
 
 - (instancetype) initInDatabase: (CBLDatabase*)database

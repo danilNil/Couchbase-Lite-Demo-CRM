@@ -41,9 +41,9 @@
 - (void)loadUserData
 {
     if (self.salesPerson) {
-        self.nameField.text = self.salesPerson.name;
+        self.nameField.text = self.salesPerson.personName;
         self.phoneField.text = self.salesPerson.phoneNumber;
-        self.mailField.text = self.salesPerson.editableWorkaroundEmail;
+        self.mailField.text = self.salesPerson.personEmail;
     }
 }
 

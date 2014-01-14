@@ -24,6 +24,7 @@
 @property bool isAdmin;
 
 @property (readonly) NSString* personName;
+@property (readonly) NSString* personEmail;
 
 - (instancetype) initInDatabase: (CBLDatabase*)database
                      withUserId: (NSString*)userId
