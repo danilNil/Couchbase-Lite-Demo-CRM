@@ -1349,6 +1349,7 @@
                     <connections>
                         <outlet property="searchDisplayController" destination="Lbo-1f-2Cz" id="n5t-8H-9lo"/>
                         <outlet property="tableView" destination="7sA-pP-vLf" id="I1a-Gg-VDq"/>
+                        <segue destination="Xt6-34-7OD" kind="push" identifier="pushContactDetails" id="x53-0L-fbY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JQ3-BF-pyg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1369,11 +1370,11 @@
             <objects>
                 <viewController id="1hK-A1-uop" customClass="ContactsByOpportunityViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QuJ-97-dbJ">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="64" sectionHeaderHeight="22" sectionFooterHeight="22" id="Et0-7c-YhJ">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <searchBar key="tableHeaderView" contentMode="redraw" id="oYI-iZ-EUk">
@@ -1527,11 +1528,12 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="x53-0L-fbY"/>
         <segue reference="I7d-Ci-gP9"/>
-        <segue reference="sb8-08-2KH"/>
-        <segue reference="wax-He-xAT"/>
-        <segue reference="wBq-cU-ftI"/>
+        <segue reference="LHW-MO-w8p"/>
         <segue reference="3kk-cj-LW4"/>
-        <segue reference="HKR-Id-rJ9"/>
+        <segue reference="dLH-wr-6PA"/>
+        <segue reference="EKf-k2-jaE"/>
+        <segue reference="wax-He-xAT"/>
     </inferredMetricsTieBreakers>
 </document>

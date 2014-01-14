@@ -70,7 +70,7 @@ UIAlertViewDelegate
     if(self.chooser && self.onSelectContact)
         [self didChooseContact:self.selectedContact];
     else
-        [self performSegueWithIdentifier:@"presentContactDetails" sender:self];
+        [self performSegueWithIdentifier:@"pushContactDetails" sender:self];
 }
 
 - (UITableViewCell *)couchTableSource:(CBLUITableSource *)source cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -91,12 +91,9 @@ UIAlertViewDelegate
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if([segue.destinationViewController isKindOfClass:[UINavigationController class]] && sender == self){
-        UINavigationController* navc = (UINavigationController*)segue.destinationViewController;
-        if([navc.topViewController isKindOfClass:[ContactDetailsViewController class]]){
-            ContactDetailsViewController* vc = (ContactDetailsViewController*)navc.topViewController;
-            vc.currentContact = self.selectedContact;
-        }
+    if([segue.identifier isEqualToString:@"pushContactDetails"]){
+        ContactDetailsViewController* vc = segue.destinationViewController;
+        vc.currentContact = self.selectedContact;
     }
 }
 

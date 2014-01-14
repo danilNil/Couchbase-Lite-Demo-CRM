@@ -154,10 +154,15 @@ typedef void (^ValidationBlock)(BOOL isValid, NSString *msg);
 
 - (IBAction)back:(id)sender {
     self.currentContact = nil;
-    if ([[((UINavigationController*)self.presentingViewController).viewControllers lastObject] isKindOfClass:[ContactsViewController class]])
-        [self dismissViewControllerAnimated:YES completion:NULL];
-    else if ([[((UINavigationController*)self.presentingViewController).viewControllers lastObject] isKindOfClass:[OpportunitiesViewController class]])
+    if([self.presentingViewController isKindOfClass:[UINavigationController class]]){
+        if ([[((UINavigationController*)self.presentingViewController).viewControllers lastObject] isKindOfClass:[ContactsViewController class]])
+            [self dismissViewControllerAnimated:YES completion:NULL];
+        else{
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+    }else{
         [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 - (IBAction)opportunities:(id)sender
