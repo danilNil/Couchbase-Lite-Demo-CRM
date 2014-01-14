@@ -43,7 +43,7 @@ CBLUITableDelegate
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     self.selectedCellData = [self opportForPath:indexPath];
-    [self performSegueWithIdentifier:@"opportDetails" sender:tableView];
+    [self performSegueWithIdentifier:@"pushOpportDetailes" sender:tableView];
 }
 
 - (Opportunity*)opportForPath:(NSIndexPath*)indexPath
@@ -61,9 +61,8 @@ CBLUITableDelegate
 
 #pragma mark - Segue
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if([segue.destinationViewController isKindOfClass:[UINavigationController class]] && [sender isKindOfClass:[UITableView class]]){
-        UINavigationController* navc = (UINavigationController*)segue.destinationViewController;
-        OpportunityDetailesViewController* vc = (OpportunityDetailesViewController*)navc.topViewController;
+    if([segue.identifier isEqualToString:@"pushOpportDetailes"]){
+        OpportunityDetailesViewController* vc = (OpportunityDetailesViewController*)segue.destinationViewController;
         vc.currentOpport = self.selectedCellData;
     } else if ([segue.identifier isEqualToString:@"opportDetails"] && self.filteredCustomer) {
         UINavigationController* navc = (UINavigationController*)segue.destinationViewController;

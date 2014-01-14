@@ -7,6 +7,7 @@
 //
 
 #import "OpportunityDetailesViewController.h"
+#import "OpportunitiesViewController.h"
 #import "ContactsViewController.h"
 #import "ContactsByOpportunityViewController.h"
 #import "CustomersViewController.h"
@@ -189,7 +190,11 @@
 
 - (IBAction)back:(id)sender {
     self.currentOpport = nil;
-    [self dismissViewControllerAnimated:YES completion:NULL];
+    if([self.presentingViewController isKindOfClass:[UINavigationController class]]){
+        if ([[((UINavigationController*)self.presentingViewController).viewControllers lastObject] isKindOfClass:[OpportunitiesViewController class]])
+            [self dismissViewControllerAnimated:YES completion:NULL];
+    }else
+        [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (IBAction)saveItem:(id)sender

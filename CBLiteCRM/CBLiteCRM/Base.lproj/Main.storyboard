@@ -1293,6 +1293,7 @@
                     <connections>
                         <outlet property="searchDisplayController" destination="7Yo-Im-PNS" id="g7f-9z-f9z"/>
                         <outlet property="tableView" destination="gjX-Dh-tYu" id="vqD-w8-We0"/>
+                        <segue destination="tN3-ye-q8X" kind="push" identifier="pushOpportDetailes" id="wED-il-lOy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ikc-FO-AhF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1532,8 +1533,9 @@
         <segue reference="I7d-Ci-gP9"/>
         <segue reference="LHW-MO-w8p"/>
         <segue reference="3kk-cj-LW4"/>
+        <segue reference="dBC-Hg-tSj"/>
+        <segue reference="wED-il-lOy"/>
         <segue reference="dLH-wr-6PA"/>
         <segue reference="EKf-k2-jaE"/>
-        <segue reference="wax-He-xAT"/>
     </inferredMetricsTieBreakers>
 </document>
