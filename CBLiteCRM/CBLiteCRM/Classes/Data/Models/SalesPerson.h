@@ -16,7 +16,7 @@
 @property (strong) NSString* username;
 @property (strong) NSString* type;
 @property (strong) NSString* email;
-@property (strong) NSString* editableWorkaroundEmail;
+@property (strong) NSString* editableWorkaroundEmail; // need to removed after SyncManager refactoring and login process simplified
 @property (strong) NSString* name;
 @property (strong) NSString* phoneNumber;
 

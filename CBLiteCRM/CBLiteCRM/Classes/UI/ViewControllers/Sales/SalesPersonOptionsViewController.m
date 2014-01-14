@@ -23,7 +23,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.mailField.enabled = NO;
     [self loadUserData];
     [self blockItemForEditing:[self isMe:self.salesPerson]];
     [self setupMode];
@@ -44,7 +43,7 @@
     if (self.salesPerson) {
         self.nameField.text = self.salesPerson.name;
         self.phoneField.text = self.salesPerson.phoneNumber;
-        self.mailField.text = self.salesPerson.email;
+        self.mailField.text = self.salesPerson.editableWorkaroundEmail;
     }
 }
 
@@ -87,7 +86,7 @@
 {
     sp.name        = self.nameField.text;
     sp.phoneNumber = self.phoneField.text;
-
+    sp.editableWorkaroundEmail = self.mailField.text;
     NSError *error;
     if (![sp save:&error])
         [UIAlertView showError:error];
