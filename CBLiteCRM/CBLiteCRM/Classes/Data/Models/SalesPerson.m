@@ -9,7 +9,7 @@
 #import "SalesPerson.h"
 
 @implementation SalesPerson
-@dynamic username, phoneNumber, email, approved, user_id, type, isAdmin;
+@dynamic username, phoneNumber, email, approved, user_id, type, isAdmin, editableWorkaroundEmail;
 
 - (NSString*) personName
 {
@@ -60,6 +60,7 @@
         NSLog(@"[[self class] type]: %@",[[self class] type]);
         self.type = [[self class] type];
         self.email = mail;
+        self.editableWorkaroundEmail = mail;
     }
     return self;
 }

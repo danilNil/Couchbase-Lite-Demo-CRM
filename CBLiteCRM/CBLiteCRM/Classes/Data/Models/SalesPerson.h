@@ -16,8 +16,10 @@
 @property (strong) NSString* username;
 @property (strong) NSString* type;
 @property (strong) NSString* email;
+@property (strong) NSString* editableWorkaroundEmail;
 @property (strong) NSString* name;
 @property (strong) NSString* phoneNumber;
+
 @property bool approved;
 @property bool isAdmin;
 
