@@ -7,6 +7,7 @@
 //
 
 #import "CustomerDetailsViewController.h"
+#import "CustomersViewController.h"
 #import "OpportunitiesViewController.h"
 #import "ContactsViewController.h"
 
@@ -64,7 +65,11 @@
 
 - (IBAction)back:(id)sender {
     self.currentCustomer = nil;
-    [self dismissViewControllerAnimated:YES completion:NULL];
+    if([self.presentingViewController isKindOfClass:[UINavigationController class]]){
+        if ([[((UINavigationController*)self.presentingViewController).viewControllers lastObject] isKindOfClass:[CustomersViewController class]])
+            [self dismissViewControllerAnimated:YES completion:NULL];
+    }else
+        [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (IBAction)saveItem:(id)sender {

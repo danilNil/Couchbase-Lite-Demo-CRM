@@ -58,7 +58,7 @@ CBLUITableDelegate
     if(self.chooser && self.onSelectCustomer)
         [self didChooseCustomer:self.selectedCellData];
     else
-        [self performSegueWithIdentifier:@"presentCustomerDetails" sender:self];
+        [self performSegueWithIdentifier:@"pushCustomerDetailes" sender:self];
 }
 
 - (Customer*)customerForPath:(NSIndexPath*)indexPath
@@ -68,8 +68,8 @@ CBLUITableDelegate
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if([segue.destinationViewController isKindOfClass:[UINavigationController class]] && sender == self){
-        CustomerDetailsViewController* vc = (CustomerDetailsViewController*)((UINavigationController*)segue.destinationViewController).topViewController;
+    if([segue.identifier isEqualToString:@"pushCustomerDetailes"]){
+        CustomerDetailsViewController* vc = (CustomerDetailsViewController*)segue.destinationViewController;
         vc.currentCustomer = self.selectedCellData;
     }
 }
