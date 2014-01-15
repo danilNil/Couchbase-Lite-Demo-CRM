@@ -21,10 +21,9 @@
     if(!name)
         name = userId;
     
-    self = [self initInDatabase:database withEmail:userId];
+    self = [self initInDatabase:database withEmail:userId andName:name];
     if (self) {
         self.user_id  = userId;
-        self.name     = name;
     }
     NSError* error;
     if (![self save: &error]){
@@ -36,11 +35,14 @@
 
 - (instancetype) initInDatabase: (CBLDatabase*)database
                       withEmail: (NSString*)mail
+                      andName: (NSString*)name
 {
     NSParameterAssert(mail);
+    BOOL userExist = YES;
     NSString* docID = [[self class] docIDForUserId:mail];
     CBLDocument* doc = [database existingDocumentWithID:docID];
     if(!doc){
+        userExist = NO;
         doc = [database documentWithID: docID];
     }
     self = doc.modelObject;
@@ -48,10 +50,11 @@
     if(!self)
         self = [SalesPerson modelForDocument:doc];
 
-    if (self) {
+    if (!userExist) {
         NSLog(@"[[self class] type]: %@",[[self class] type]);
         self.type = [[self class] type];
         self.email = mail;
+        self.name = name;
     }
     return self;
 }
