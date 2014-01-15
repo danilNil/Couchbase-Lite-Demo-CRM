@@ -9,14 +9,7 @@
 #import "SalesPerson.h"
 
 @implementation SalesPerson
-@dynamic username, phoneNumber, email, approved, user_id, type, isAdmin, editableWorkaroundEmail, name;
-
-- (NSString*) personName
-{
-    if        (self.name)
-        return self.name;
-    return self.username;
-}
+@dynamic phoneNumber, email, approved, user_id, type, isAdmin, editableWorkaroundEmail, name;
 
 - (NSString*) personEmail
 {
@@ -38,7 +31,6 @@
     self = [self initInDatabase:database withEmail:userId];
     if (self) {
         self.user_id  = userId;
-        self.username = userId;
         self.name     = name;
     }
     NSError* error;

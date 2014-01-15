@@ -141,7 +141,7 @@
     NSMutableArray* users = [NSMutableArray array];
     for (CBLQueryRow* row in [self.allUsersQuery run:nil].allObjects) {
         SalesPerson* user = [SalesPerson modelForDocument: row.document];
-        if (![user.username isEqualToString: [self userID]])
+        if (![user.user_id isEqualToString: [self userID]])
             [users addObject: user];
     }
     return users;

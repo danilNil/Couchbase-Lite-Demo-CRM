@@ -13,7 +13,6 @@
 /** The user_id is usually an email address. */
 @property (strong) NSString* user_id;
 
-@property (strong) NSString* username;
 @property (strong) NSString* type;
 @property (strong) NSString* email;
 @property (strong) NSString* editableWorkaroundEmail; // need to removed after SyncManager refactoring and login process simplified
