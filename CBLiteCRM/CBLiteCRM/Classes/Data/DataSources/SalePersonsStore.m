@@ -64,7 +64,7 @@
     
     _user = [self createSalesPerson];
     
-    if (!_user) {
+    if (!_user) {// seems this code is never called
         _user = [self profileWithUsername: [self userID]];
     }
     return _user;
@@ -77,7 +77,7 @@
                                         andName:[self userHumanName]];
 }
 
-- (SalesPerson*) profileWithUsername: (NSString*)username {
+- (SalesPerson*) profileWithUsername: (NSString*)username {// seems this code is never called
     CBLDocument* doc = [self.database createDocument];
     if (!doc.currentRevisionID)
         return nil;

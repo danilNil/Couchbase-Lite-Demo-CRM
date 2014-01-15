@@ -153,7 +153,7 @@
         }
     }
     
-    if (error != _error && error.code == 401) {
+    if (error != _error && error.code == 401) {//seems we need to delete this code
         // Auth needed (or auth is incorrect), ask the _authenticator to get new credentials.
         [_authenticator getCredentials:^(NSString *newUserID, NSDictionary *userData) {
             //            todo this should call our onSyncAuthError callback
@@ -161,7 +161,7 @@
         }];
     }
     [self updateActuvityForStatus:status];
-    //TODO: need to be removed after 'status' will be fixed.
+    //TODO: need to be removed after 'CBLReplicationStatus' in CBL SDK will be fixed.
     if(total == completed){
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     }else{
