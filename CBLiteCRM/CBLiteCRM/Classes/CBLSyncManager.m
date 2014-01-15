@@ -242,20 +242,17 @@
              FBRequest* request =[FBRequest requestForMe];
              [request startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *me_error) {
                  if(!me_error){
-                     NSDictionary* userData = result;
-                     
-                     NSString * email  = userData[@"email"];
-                     NSString * userID = email;
-                     
                      if(!session.accessTokenData){
                          NSLog(@"ERROR: here is should be token");
                          block(nil, nil);
                      }else{
+                         NSDictionary* userData = result;
+                         
+                         NSString * email  = userData[@"email"];
+                         NSString * userID = [self generateUserIdFromUserData:userData];
+                         
                          NSString * humanName = userData[@"name"];
                          
-                         if(!userID)
-                             userID = [humanName stringByReplacingOccurrencesOfString:@" " withString:@""].lowercaseString;
-
                          // Store the access_token for later.
                          [[NSUserDefaults standardUserDefaults] setObject: userID    forKey: kCBLPrefKeyUserID];
                          [[NSUserDefaults standardUserDefaults] setObject: email     forKey: kCBLPrefKeyEmail];
@@ -272,6 +269,16 @@
              }];
          }
      }];
+}
+
+- (NSString*)generateUserIdFromUserData:(NSDictionary*)userData{
+    NSString * email  = userData[@"email"];
+    NSString * userID = email;
+    if(!userID){
+        NSString * humanName = userData[@"name"];
+        userID = [humanName stringByReplacingOccurrencesOfString:@" " withString:@""].lowercaseString;
+    }
+    return userID;
 }
 
 -(void) registerCredentialsWithReplications: (NSArray *)repls {
