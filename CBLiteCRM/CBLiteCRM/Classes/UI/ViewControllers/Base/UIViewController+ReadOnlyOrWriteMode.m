@@ -15,6 +15,7 @@
 - (void)setEditMode:(BOOL)editMode
 {
     [self changeRightButtonTitleForMode:editMode];
+    [self changeLeftButtonTitleForMode:editMode];
     self.deleteButton.hidden = !editMode;
     for (TextFieldView* view in self.textFields)
         view.editMode = editMode;
@@ -33,6 +34,15 @@
     else
         self.navigationItem.rightBarButtonItem.title = kEditTitle;
 }
+
+- (void)changeLeftButtonTitleForMode:(BOOL)editMode
+{
+    if(editMode)
+        self.navigationItem.leftBarButtonItem.title = kCancelTitle;
+    else
+        self.navigationItem.leftBarButtonItem.title = kBackTitle;
+}
+
 
 - (void)editModeChanged:(BOOL)editMode{}
 

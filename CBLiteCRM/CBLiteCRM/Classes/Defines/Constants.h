@@ -26,6 +26,9 @@ static NSString* const kTestFlightID = @"220375198143968";
 static NSString* const kEditTitle = @"Edit";
 static NSString* const kSaveTitle = @"Done";
 
+static NSString* const kBackTitle = @"Back";
+static NSString* const kCancelTitle = @"Cancel";
+
 #define UIColorFromRGB(r,g,b) [UIColor colorWithRed:r/255.0  green:g/255.0 blue:b/255.0 alpha:1.0]
 
 #define kNavigationBarColor    UIColorFromRGB(58,128,247)
