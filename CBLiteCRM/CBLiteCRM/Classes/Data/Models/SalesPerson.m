@@ -9,14 +9,7 @@
 #import "SalesPerson.h"
 
 @implementation SalesPerson
-@dynamic phoneNumber, email, approved, user_id, type, isAdmin, editableWorkaroundEmail, name;
-
-- (NSString*) personEmail
-{
-    if(!self.editableWorkaroundEmail)
-        self.editableWorkaroundEmail = self.email;
-    return self.email;
-}
+@dynamic phoneNumber, email, approved, user_id, type, isAdmin, name;
 
 - (instancetype) initInDatabase: (CBLDatabase*)database
                      withUserId: (NSString*)userId
@@ -59,7 +52,6 @@
         NSLog(@"[[self class] type]: %@",[[self class] type]);
         self.type = [[self class] type];
         self.email = mail;
-        self.editableWorkaroundEmail = mail;
     }
     return self;
 }

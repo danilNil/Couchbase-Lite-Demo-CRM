@@ -41,9 +41,9 @@
 - (void)loadUserData
 {
     if (self.salesPerson) {
-        self.nameField.text = self.salesPerson.personName;
+        self.nameField.text = self.salesPerson.name;
         self.phoneField.text = self.salesPerson.phoneNumber;
-        self.mailField.text = self.salesPerson.personEmail;
+        self.mailField.text = self.salesPerson.email;
     }
 }
 
@@ -86,7 +86,7 @@
 {
     sp.name        = self.nameField.text;
     sp.phoneNumber = self.phoneField.text;
-    sp.editableWorkaroundEmail = self.mailField.text;
+    sp.email = self.mailField.text;
     NSError *error;
     if (![sp save:&error])
         [UIAlertView showError:error];

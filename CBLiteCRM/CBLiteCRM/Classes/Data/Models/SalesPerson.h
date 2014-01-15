@@ -15,15 +15,11 @@
 
 @property (strong) NSString* type;
 @property (strong) NSString* email;
-@property (strong) NSString* editableWorkaroundEmail; // need to removed after SyncManager refactoring and login process simplified
 @property (strong) NSString* name;
 @property (strong) NSString* phoneNumber;
 
 @property bool approved;
 @property bool isAdmin;
-
-@property (readonly) NSString* personName;
-@property (readonly) NSString* personEmail;
 
 - (instancetype) initInDatabase: (CBLDatabase*)database
                      withUserId: (NSString*)userId
