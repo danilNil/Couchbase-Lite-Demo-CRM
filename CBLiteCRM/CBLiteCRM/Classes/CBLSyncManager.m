@@ -7,6 +7,7 @@
 //
 
 #import "CBLSyncManager.h"
+#import "NSError+Tools.h"
 #import <FacebookSDK/FacebookSDK.h>
 #import <Accounts/Accounts.h>
 #import <Social/Social.h>
@@ -52,8 +53,11 @@
 
 - (void) start {
     if (!_userID) {
-        [self setupNewUser: ^(){
-            [self launchSync];
+        [self setupNewUser: ^(NSError* error){
+            if(error)
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"authentication.fail" object:nil];
+            else
+                [self launchSync];
         }];
     } else {
         [self launchSync];
@@ -195,17 +199,17 @@
 
 #pragma mark - User ID related
 
-- (void) setupNewUser:(void (^)())complete {
+- (void) setupNewUser:(void (^)(NSError* error))complete {
     if (_userID) return;
     [_authenticator getCredentials: ^(NSString *userID, NSDictionary *userData){
-        if (_userID) return;
+        if (_userID) complete([NSError errorWithDomain:@"User auth" message:@"auth error"]);
         // Give the app a chance to tag documents with userID before sync starts
         NSError *error = [self runBeforeSyncStartWithUserID: userID andUserData: userData];
         if (error) {
             NSLog(@"error preparing for sync %@", error);
         } else {
             _userID = userID;
-            complete();
+            complete(nil);
         }
     }];
 }
@@ -260,6 +264,7 @@
                      }
                  }else {
                      NSLog(@"error: %@", me_error);
+                     block(nil, nil);
                  }
              }];
          }

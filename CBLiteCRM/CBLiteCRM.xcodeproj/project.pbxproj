@@ -92,6 +92,7 @@
 		832845361851885F008FBFCD /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 832845351851885F008FBFCD /* Social.framework */; };
 		83284539185188D1008FBFCD /* CBLSyncManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 83284538185188D1008FBFCD /* CBLSyncManager.m */; };
 		8328453B185188DF008FBFCD /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8328453A185188DF008FBFCD /* Accounts.framework */; };
+		839E261318868741002B74C4 /* NSError+Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 839E261218868741002B74C4 /* NSError+Tools.m */; };
 		83CC79C8184F39A600557A9B /* DateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 83CC79C7184F39A600557A9B /* DateHelper.m */; };
 		83CEAADD1846EC240002D040 /* ImagePickerAngel.m in Sources */ = {isa = PBXBuildFile; fileRef = 83CEAADC1846EC240002D040 /* ImagePickerAngel.m */; };
 		83CEAAE31846ECE10002D040 /* ActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 83CEAAE01846ECE10002D040 /* ActionSheet.m */; };
@@ -249,6 +250,8 @@
 		83284537185188D1008FBFCD /* CBLSyncManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBLSyncManager.h; sourceTree = "<group>"; };
 		83284538185188D1008FBFCD /* CBLSyncManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBLSyncManager.m; sourceTree = "<group>"; };
 		8328453A185188DF008FBFCD /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		839E261118868741002B74C4 /* NSError+Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+Tools.h"; sourceTree = "<group>"; };
+		839E261218868741002B74C4 /* NSError+Tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+Tools.m"; sourceTree = "<group>"; };
 		83CC79C6184F39A600557A9B /* DateHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateHelper.h; sourceTree = "<group>"; };
 		83CC79C7184F39A600557A9B /* DateHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateHelper.m; sourceTree = "<group>"; };
 		83CEAADB1846EC240002D040 /* ImagePickerAngel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagePickerAngel.h; sourceTree = "<group>"; };
@@ -651,6 +654,8 @@
 		83CEAADA1846EC240002D040 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				839E261118868741002B74C4 /* NSError+Tools.h */,
+				839E261218868741002B74C4 /* NSError+Tools.m */,
 				49EB988418638CA6003A49F3 /* UIImage+Tools.h */,
 				49EB988518638CA6003A49F3 /* UIImage+Tools.m */,
 				832845321851882F008FBFCD /* UIView+Activity.h */,
@@ -815,6 +820,7 @@
 				444F0555186D4B4D00DF1CDF /* CustomerDeleteHelper.m in Sources */,
 				832845341851882F008FBFCD /* UIView+Activity.m in Sources */,
 				44A20749186A8D4E00A60345 /* CBLModelDeleteHelper.m in Sources */,
+				839E261318868741002B74C4 /* NSError+Tools.m in Sources */,
 				831C09AA1869A8E7002CB53A /* SalesPersonCell.m in Sources */,
 				447A2C641845D808008786AF /* ContactDetailsViewController.m in Sources */,
 				831C09AC1869A8E7002CB53A /* DictPickerView.m in Sources */,
