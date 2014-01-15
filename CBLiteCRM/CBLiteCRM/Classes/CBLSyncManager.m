@@ -202,7 +202,7 @@
 - (void) setupNewUser:(void (^)(NSError* error))complete {
     if (_userID) return;
     [_authenticator getCredentials: ^(NSString *userID, NSDictionary *userData){
-        if (!_userID){
+        if (!userID){
             complete([NSError errorWithDomain:@"User auth" message:@"auth error"]);
         }else{
             // Give the app a chance to tag documents with userID before sync starts
