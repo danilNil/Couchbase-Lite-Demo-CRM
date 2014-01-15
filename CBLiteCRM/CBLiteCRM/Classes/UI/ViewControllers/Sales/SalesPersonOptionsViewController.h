@@ -16,5 +16,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
 @property (weak, nonatomic) IBOutlet UITextField *phoneField;
 @property (weak, nonatomic) IBOutlet UITextField *mailField;
+- (IBAction)back:(id)sender;
 
 @end

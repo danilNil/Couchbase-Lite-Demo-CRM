@@ -326,7 +326,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Member" id="jVX-LX-Luz">
-                        <barButtonItem key="rightBarButtonItem" title="Edit" id="VuY-Nq-XnW">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="Lyq-zz-AbI">
+                            <connections>
+                                <action selector="back:" destination="thM-Fv-BNK" id="vgw-9O-ljT"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="VuY-Nq-XnW">
                             <connections>
                                 <action selector="save:" destination="thM-Fv-BNK" id="AD7-gy-LWD"/>
                             </connections>
@@ -353,11 +358,11 @@
             <objects>
                 <viewController id="Dc7-B9-xyB" customClass="CustomersViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Nvm-ZJ-Hly">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="02H-qr-bZC">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <searchBar key="tableHeaderView" contentMode="redraw" id="JEN-lx-y2A">
@@ -433,11 +438,11 @@
             <objects>
                 <viewController id="Xt6-34-7OD" customClass="ContactDetailsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pHb-wM-tne">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Eqz-fr-KN8">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" heightSizable="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" id="NkD-al-MDr">
@@ -727,11 +732,11 @@
             <objects>
                 <viewController id="tN3-ye-q8X" customClass="OpportunityDetailesViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2h2-ke-Ape">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3Tq-TI-Tm3">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" id="qKj-wr-JUC">
@@ -944,11 +949,11 @@
             <objects>
                 <viewController id="TLO-se-8qL" customClass="CustomerDetailsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tu8-9C-AcH">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="HSp-Q5-DoW">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" heightSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" id="6NZ-5w-naS">
@@ -1234,11 +1239,11 @@
             <objects>
                 <viewController id="5ij-MH-fTa" customClass="OpportunitiesViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QVE-ke-xLM">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="gjX-Dh-tYu">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <searchBar key="tableHeaderView" contentMode="redraw" id="Sgb-jp-9VB">
@@ -1315,11 +1320,11 @@
             <objects>
                 <viewController id="hp4-NH-ICy" customClass="ContactsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="J7L-OQ-RIA">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="64" sectionHeaderHeight="22" sectionFooterHeight="22" id="7sA-pP-vLf">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <searchBar key="tableHeaderView" contentMode="redraw" id="vkm-r4-6ex">
@@ -1436,11 +1441,11 @@
             <objects>
                 <viewController id="zWg-jE-NQp" customClass="OpportunitesByContactViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8Oo-iW-SMn">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="2tM-I0-4kq">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <searchBar key="tableHeaderView" contentMode="redraw" id="zQg-mi-DH4">
@@ -1530,14 +1535,14 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="x53-0L-fbY"/>
-        <segue reference="I7d-Ci-gP9"/>
+        <segue reference="dBC-Hg-tSj"/>
+        <segue reference="3kk-cj-LW4"/>
         <segue reference="g11-QP-5gQ"/>
         <segue reference="EKf-k2-jaE"/>
-        <segue reference="uhY-OQ-e3f"/>
-        <segue reference="3kk-cj-LW4"/>
-        <segue reference="dBC-Hg-tSj"/>
-        <segue reference="wED-il-lOy"/>
+        <segue reference="x53-0L-fbY"/>
+        <segue reference="I7d-Ci-gP9"/>
         <segue reference="dLH-wr-6PA"/>
+        <segue reference="LHW-MO-w8p"/>
+        <segue reference="wED-il-lOy"/>
     </inferredMetricsTieBreakers>
 </document>
