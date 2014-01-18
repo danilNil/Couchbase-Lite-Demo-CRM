@@ -62,7 +62,7 @@
         CBLQueryRow* row = [enumer rowAtIndex:i];
         CBLModel* model = [self.modelClass modelForDocument:row.document];
         NSString* searchableString = [model getValueOfProperty:self.firstLevelSearchableProperty];
-        if ([searchableString rangeOfString:searchText options:NSCaseInsensitiveSearch].location != NSNotFound)
+        if ([searchableString rangeOfString:searchText options:NSCaseInsensitiveSearch].location != NSNotFound && searchableString)
             [matches addObject:searchableString];
     }
     query.keys = matches;
