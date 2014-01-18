@@ -38,8 +38,14 @@ NSString *kSalesPersonCell = @"SalesPersonCell";
 {
     _salesPerson = salesPerson;
 
-    self.name.text  = salesPerson.name;
+    self.name.text  = [self nameToShow:salesPerson];
     self.checked    = salesPerson.approved;
 }
 
+- (NSString*)nameToShow:(SalesPerson*)sp{
+    NSString* nameToShow = sp.name;
+    if(!nameToShow)
+        nameToShow = sp.email;
+    return nameToShow;
+}
 @end
