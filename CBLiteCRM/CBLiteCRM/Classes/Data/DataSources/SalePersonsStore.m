@@ -13,6 +13,7 @@
 @interface SalePersonsStore()
 {
     CBLView* salesPersonsView;
+    CBLView* searchView;
     CBLView* approvedSalesPersonsView;
 }
 
@@ -37,11 +38,19 @@
 
 -(void)createView
 {
-    salesPersonsView = [self.database viewNamed: @"salesPersonsByName"];
+    salesPersonsView = [self.database viewNamed: @"salesPersonsByEmail"];
     [salesPersonsView setMapBlock: MAPBLOCK({
         if ([doc[@"type"] isEqualToString: kSalesPersonDocType]) {
             if (doc[@"email"])
                 emit(doc[@"email"], doc[@"email"]);
+        }
+    }) version: @"1"];
+    
+    searchView = [self.database viewNamed: @"salesPersonsByName1"];
+    [searchView setMapBlock: MAPBLOCK({
+        if ([doc[@"type"] isEqualToString: kSalesPersonDocType]) {
+            if (doc[@"name"])
+                emit(doc[@"name"], doc);
         }
     }) version: @"1"];
 
@@ -134,7 +143,7 @@
 }
 
 - (CBLQuery*) filteredQuery {
-    return [salesPersonsView createQuery];
+    return [searchView createQuery];
 }
 
 - (NSArray*) allOtherUsers {

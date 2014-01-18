@@ -29,7 +29,6 @@
     [super viewDidLoad];
     self.modelClass = [SalesPerson class];
     self.firstLevelSearchableProperty = @"name";
-    [self.tableView reloadData];
 }
 - (void) updateQuery
 {
@@ -47,6 +46,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [self.tableView reloadData];
     [self.searchDisplayController.searchResultsTableView reloadData];
 }
 
