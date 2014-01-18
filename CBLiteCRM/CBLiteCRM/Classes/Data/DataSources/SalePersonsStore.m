@@ -15,6 +15,7 @@
     CBLView* salesPersonsView;
     CBLView* searchView;
     CBLView* approvedSalesPersonsView;
+    CBLView* salesPersonsByIdView;
 }
 
 @end
@@ -38,6 +39,16 @@
 
 -(void)createView
 {
+
+    salesPersonsByIdView = [self.database viewNamed: @"salesPersonsById"];
+    [salesPersonsByIdView setMapBlock: MAPBLOCK({
+        if ([doc[@"type"] isEqualToString: kSalesPersonDocType]) {
+            if (doc[@"user_id"])
+                emit(doc[@"user_id"], doc);
+        }
+    }) version: @"1"];
+
+
     salesPersonsView = [self.database viewNamed: @"salesPersonsByEmail"];
     [salesPersonsView setMapBlock: MAPBLOCK({
         if ([doc[@"type"] isEqualToString: kSalesPersonDocType]) {
@@ -63,7 +74,7 @@
     }) version: @"2"];
 }
 
-//TODO: need to refactor. for more clearly logic of login adn logout. we need to init this class with database after we already logged in so username and current user should be already created and provided fron outside
+//TODO: need to refactor. for more clearly logic of login and logout. we need to init this class with database after we already logged in so username and current user should be already created and provided from outside
 
 - (SalesPerson*) user {
     if(_user)
@@ -135,10 +146,10 @@
     return q;
 }
 
-- (CBLQuery*) nonAdminNonApprovedUsersQuery:(NSString*)userEmail
+- (CBLQuery*) nonAdminNonApprovedUsersQuery:(NSString*)userId
 {
-    CBLQuery* q = [salesPersonsView createQuery];
-    q.keys = @[userEmail];
+    CBLQuery* q = [salesPersonsByIdView createQuery];
+    q.keys = @[userId];
     return q;
 }
 

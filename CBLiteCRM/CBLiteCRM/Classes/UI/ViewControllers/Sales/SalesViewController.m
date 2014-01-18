@@ -37,7 +37,7 @@
     if (user.approved && !user.isAdmin) {
         self.dataSource.query = [[self.store approvedUsersQuery] asLiveQuery];
     } else if (!user.approved && !user.isAdmin) {
-        self.dataSource.query = [[self.store nonAdminNonApprovedUsersQuery:user.email] asLiveQuery];
+        self.dataSource.query = [[self.store nonAdminNonApprovedUsersQuery:user.user_id] asLiveQuery];
     } else if (user.isAdmin){
         self.dataSource.query = [[self.store allUsersQuery] asLiveQuery];
     }

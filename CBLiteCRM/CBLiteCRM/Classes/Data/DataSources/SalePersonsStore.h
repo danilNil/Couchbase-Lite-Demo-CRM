@@ -20,6 +20,6 @@
 @property (readonly) NSArray* allOtherUsers;    /**< UserProfile objects of other users */
 @property (readonly) CBLQuery* approvedUsersQuery;
 
-- (CBLQuery*) nonAdminNonApprovedUsersQuery:(NSString*)userEmail;
+- (CBLQuery*) nonAdminNonApprovedUsersQuery:(NSString*)userId;
 
 @end
