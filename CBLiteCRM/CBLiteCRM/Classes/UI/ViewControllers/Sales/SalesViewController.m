@@ -29,6 +29,7 @@
     [super viewDidLoad];
     self.modelClass = [SalesPerson class];
     self.firstLevelSearchableProperty = @"name";
+    [self.tableView reloadData];
 }
 - (void) updateQuery
 {
@@ -46,9 +47,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self.tableView reloadData];
     [self.searchDisplayController.searchResultsTableView reloadData];
-
 }
 
 - (UITableViewCell *)couchTableSource:(CBLUITableSource*)source cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -63,8 +62,10 @@
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath{
     CBLQueryRow *row = [self.dataSource rowAtIndex:indexPath.row];
-    BOOL isMe = [self isRowMe:row];
-    return isMe;
+    UITableViewCellEditingStyle style = UITableViewCellEditingStyleNone;
+    if([self isRowMe:row])
+        style = UITableViewCellEditingStyleDelete;
+    return style;
 }
 
 - (bool)couchTableSource:(CBLUITableSource*)source
