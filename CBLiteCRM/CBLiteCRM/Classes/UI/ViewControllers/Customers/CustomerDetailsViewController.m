@@ -10,6 +10,7 @@
 #import "CustomersViewController.h"
 #import "OpportunitiesViewController.h"
 #import "ContactsViewController.h"
+#import "ContactDetailsViewController.h"
 
 //Data
 #import "Customer.h"
@@ -66,7 +67,8 @@
 - (IBAction)back:(id)sender {
     self.currentCustomer = nil;
     if([self.presentingViewController isKindOfClass:[UINavigationController class]]){
-        if ([[((UINavigationController*)self.presentingViewController).viewControllers lastObject] isKindOfClass:[CustomersViewController class]])
+        UIViewController* baseController = [((UINavigationController*)self.presentingViewController).viewControllers lastObject];
+        if ([baseController isKindOfClass:[CustomersViewController class]] || [baseController isKindOfClass:[ContactDetailsViewController class]])
             [self dismissViewControllerAnimated:YES completion:NULL];
     }else
         [self.navigationController popViewControllerAnimated:YES];
