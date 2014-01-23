@@ -45,7 +45,7 @@
 
 - (NSURL*) createURLUsingBase:(NSString*)base parmeter:(NSString*)parameter
 {
-    NSString * encodedParameter = [parameter stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
+    NSString * encodedParameter = [parameter stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSString *        urlString = [base stringByAppendingString:encodedParameter];
     
     NSLog(@"Will Open URL: %@", urlString);
