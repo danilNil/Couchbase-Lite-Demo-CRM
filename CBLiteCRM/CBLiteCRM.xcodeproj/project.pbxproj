@@ -28,6 +28,7 @@
 		44D6DAF7184718920097262E /* CustomerDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44D6DAF6184718920097262E /* CustomerDetailsViewController.m */; };
 		49029751187BFF0C001868DD /* UIView+IsA.m in Sources */ = {isa = PBXBuildFile; fileRef = 49029750187BFF0C001868DD /* UIView+IsA.m */; };
 		49029754187C6366001868DD /* OpenUrlHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 49029753187C6366001868DD /* OpenUrlHelper.m */; };
+		4904065518911E5000B964FA /* Alert.m in Sources */ = {isa = PBXBuildFile; fileRef = 4904065418911E5000B964FA /* Alert.m */; };
 		493498C8185A20B800ADA646 /* input_field_disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 493498C6185A20B800ADA646 /* input_field_disabled.png */; };
 		493498C9185A20B800ADA646 /* input_field_disabled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 493498C7185A20B800ADA646 /* input_field_disabled@2x.png */; };
 		493498CC185A3EC200ADA646 /* UIAlertView+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 493498CB185A3EC200ADA646 /* UIAlertView+Helper.m */; };
@@ -150,6 +151,8 @@
 		49029750187BFF0C001868DD /* UIView+IsA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+IsA.m"; sourceTree = "<group>"; };
 		49029752187C6366001868DD /* OpenUrlHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenUrlHelper.h; sourceTree = "<group>"; };
 		49029753187C6366001868DD /* OpenUrlHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenUrlHelper.m; sourceTree = "<group>"; };
+		4904065318911E5000B964FA /* Alert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Alert.h; sourceTree = "<group>"; };
+		4904065418911E5000B964FA /* Alert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Alert.m; sourceTree = "<group>"; };
 		493498C6185A20B800ADA646 /* input_field_disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = input_field_disabled.png; sourceTree = "<group>"; };
 		493498C7185A20B800ADA646 /* input_field_disabled@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "input_field_disabled@2x.png"; sourceTree = "<group>"; };
 		493498CA185A3EC200ADA646 /* UIAlertView+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Helper.h"; sourceTree = "<group>"; };
@@ -686,6 +689,8 @@
 		83CEAADE1846ECE10002D040 /* AlertBuilder */ = {
 			isa = PBXGroup;
 			children = (
+				4904065318911E5000B964FA /* Alert.h */,
+				4904065418911E5000B964FA /* Alert.m */,
 				83CEAADF1846ECE10002D040 /* ActionSheet.h */,
 				83CEAAE01846ECE10002D040 /* ActionSheet.m */,
 			);
@@ -854,6 +859,7 @@
 				831C09A91869A8E7002CB53A /* OpportunityCell.m in Sources */,
 				44726BF51855B9FF00AC88D2 /* ContactOpportunity.m in Sources */,
 				831C09971869A8CC002CB53A /* FilteringViewController.m in Sources */,
+				4904065518911E5000B964FA /* Alert.m in Sources */,
 				83173106184F21890043F865 /* ContactsStore.m in Sources */,
 				4423292918581F5A00025B31 /* OpportunityForContactStore.m in Sources */,
 				831FFD3E18446BC300C7CB22 /* Contact.m in Sources */,
