@@ -188,13 +188,32 @@
 
 #pragma mark - Actions
 
-- (IBAction)back:(id)sender {
+- (BOOL) isPresentingControllerKindOfNavigationController
+{
+    return [self.presentingViewController isKindOfClass:[UINavigationController class]];
+}
+
+- (BOOL) isPresentingControllerHasOpportunitiesViewControllerOnTop
+{
+    if ([self isPresentingControllerKindOfNavigationController]) {
+        UINavigationController * navigationController = (UINavigationController*)self.presentingViewController;
+        UIViewController       *   lastViewController = [navigationController.viewControllers lastObject];
+        
+        return [lastViewController isKindOfClass:[OpportunitiesViewController class]];
+    }
+    
+    return NO;
+}
+
+- (IBAction)back:(id)sender
+{
     self.currentOpport = nil;
-    if([self.presentingViewController isKindOfClass:[UINavigationController class]]){
-        if ([[((UINavigationController*)self.presentingViewController).viewControllers lastObject] isKindOfClass:[OpportunitiesViewController class]])
-            [self dismissViewControllerAnimated:YES completion:NULL];
-    }else
+
+    if ([self isPresentingControllerHasOpportunitiesViewControllerOnTop])
+        [self dismissViewControllerAnimated:YES completion:NULL];
+    else
         [self.navigationController popViewControllerAnimated:YES];
+
 }
 
 - (IBAction)saveItem:(id)sender
