@@ -10,10 +10,12 @@
 #import "ContactsStore.h"
 #import "OpportunitiesStore.h"
 #import "DataStore.h"
+#import "Alert.h"
 
 @interface CustomerDeleteHelper ()
 {
-    UIAlertView* deletionAlertView;
+    Alert        * alertBuilder;
+    
     ContactsStore* contactsStore;
     OpportunitiesStore* opportunitiesStore;
     CBLQuery* relatedContactsQuery;
@@ -43,11 +45,29 @@
     return self;
 }
 
+- (void)setupAlertBuilder
+{
+    __block id _self = self;
+    
+    alertBuilder = [Alert alertWithTitle:@"Delete item"
+                                 message:@"Are you sure you want to remove item"];
+    [alertBuilder addButton:@"NO"];
+    [alertBuilder addButton:@"YES" withBlock:^{ [_self deleteSelectedItem]; }];
+    
+    [Alert alertWithTitle:@"Some Title"
+                  message:@"Some Message" withYesBlock:^{
+                      // call method for YES
+                  } withNoBlock:^{
+                      // call method for NO
+                  }];
+}
+
 - (void)initialize
 {
     contactsStore = [DataStore sharedInstance].contactsStore;
     opportunitiesStore = [DataStore sharedInstance].opportunitiesStore;
-    deletionAlertView = [[UIAlertView alloc] initWithTitle:@"Delete item" message:@"Are you sure you want to remove item" delegate:self cancelButtonTitle:@"NO" otherButtonTitles:@"YES", nil];
+    
+    [self setupAlertBuilder];
 }
 
 - (void)setItem:(CBLModel *)item
@@ -79,14 +99,14 @@
         [msg appendFormat:@"%u opportunities", oppCount];
 
     if (oppCount + ctCount > 0)
-        deletionAlertView.message = [NSString stringWithFormat:@"Are you sure you want to remove item.\nAlso %@ will be deleted", msg];
+        alertBuilder.message = [NSString stringWithFormat:@"Are you sure you want to remove item.\nAlso %@ will be deleted", msg];
     else
-        deletionAlertView.message = @"Are you sure you want to remove item";
+        alertBuilder.message = @"Are you sure you want to remove item";
 }
 
 - (void)showDeletionAlert
 {
-    [deletionAlertView show];
+    [alertBuilder show];
 }
 
 - (void)deleteRelatedObjects
@@ -109,14 +129,12 @@
         [row.document deleteDocument:&error];
 }
 
--(void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+- (void) deleteSelectedItem
 {
-    if (buttonIndex == 1) {
-        NSError *error;
-        [self deleteRelatedObjects];
-        [self.item deleteDocument:&error];
-        self.deleteAlertBlock(YES);
-    }
+    NSError *error;
+    [self deleteRelatedObjects];
+    [self.item deleteDocument:&error];
+    self.deleteAlertBlock(YES);
 }
 
 @end
