@@ -136,11 +136,7 @@
 - (void)setupWinProbabilityPicker
 {
     winProbabilityPicker = [DictPickerView new];
-    NSMutableArray *values = [NSMutableArray new];
-    for (NSUInteger i = 0; i <= 100; i++) {
-        [values addObject:[NSString stringWithFormat:@"%u\%%", i]];
-    }
-    winProbabilityPicker.itemNames = values;
+    winProbabilityPicker.itemNames = [self createArrayOfWinProbabilityValues];
     winProbabilityPicker.pickerDelegate = self;
     [winProbabilityPicker setSelectedItemName:stagePicker.itemNames.firstObject];
     self.winField.inputView = winProbabilityPicker;
@@ -396,6 +392,18 @@
                          forState:UIControlStateNormal];
     
     [self.customerDetailsButton setEnabled:(customer.companyName != nil)];
+}
+
+
+#pragma mark -
+
+- (NSArray *)createArrayOfWinProbabilityValues
+{
+    NSMutableArray *values = [NSMutableArray new];
+    for (NSInteger i = 100; i >= 0; i=i-5) {
+        [values addObject:[NSString stringWithFormat:@"%u\%%", i]];
+    }
+    return values;
 }
 
 @end
