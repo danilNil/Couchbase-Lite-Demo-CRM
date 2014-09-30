@@ -19,7 +19,8 @@ static NSString *kCBLPrefKeyUserID    = @"CBLFBUserID";
 static NSString *kCBLPrefKeyHumanName = @"CBLFBHumanName";
 static NSString *kCBLPrefKeyEmail     = @"CBLFBHumanMail";
 
-static NSString* const kSyncUrl = @"http://sync.couchbasecloud.com:4984/cbl_crm_sg8"; //db for final demo url: http://sync.couchbasecloud.com:4984/cbl_crm_final_demo
+/*Replace kSyncUrl below with your sync server.*/
+static NSString* const kSyncUrl => @"http://yourgateway.com:4984/sync_gateway";
 
 static NSString* const kFBAppId = @"220375198143968";
 static NSString* const kTestFlightID = @"220375198143968";
