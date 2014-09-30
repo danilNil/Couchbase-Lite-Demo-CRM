@@ -19,7 +19,6 @@
 		447A2C691845D808008786AF /* SalesPersonOptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 447A2C5E1845D808008786AF /* SalesPersonOptionsViewController.m */; };
 		447A2C6A1845D808008786AF /* SalesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 447A2C601845D808008786AF /* SalesViewController.m */; };
 		447A2C6B1845D808008786AF /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 447A2C621845D808008786AF /* WelcomeViewController.m */; };
-		449204CF18445EB30036D3A9 /* CouchbaseLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 449204CE18445EB30036D3A9 /* CouchbaseLite.framework */; };
 		44A20749186A8D4E00A60345 /* CBLModelDeleteHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A20748186A8D4E00A60345 /* CBLModelDeleteHelper.m */; };
 		44A2074C186AC38100A60345 /* TextFieldView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A2074B186AC38100A60345 /* TextFieldView.m */; };
 		44B3A6701856C79700CF4BAE /* ContactOpportunityStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 44B3A66F1856C79700CF4BAE /* ContactOpportunityStore.m */; };
@@ -47,6 +46,8 @@
 		49C103DA1859EB0F00D58426 /* RoundedImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C103D91859EB0F00D58426 /* RoundedImageView.m */; };
 		49C103DD1859F86200D58426 /* Contact+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C103DC1859F86200D58426 /* Contact+Helper.m */; };
 		49EB988618638CA6003A49F3 /* UIImage+Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EB988518638CA6003A49F3 /* UIImage+Tools.m */; };
+		4BA4684E19DAF41100C6CF7D /* CouchbaseLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BA4684D19DAF41100C6CF7D /* CouchbaseLite.framework */; };
+		4BA4685019DAF4A600C6CF7D /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BA4684F19DAF4A600C6CF7D /* FacebookSDK.framework */; };
 		830B8C8C186D3902007CBF3F /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 830B8C82186D34CA007CBF3F /* SenTestingKit.framework */; };
 		830B8C8D186D3902007CBF3F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 831FFCD31844364900C7CB22 /* Foundation.framework */; };
 		830B8C8E186D3902007CBF3F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 831FFCD71844364900C7CB22 /* UIKit.framework */; };
@@ -60,7 +61,6 @@
 		83173103184F21650043F865 /* SalePersonsStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 83173102184F21650043F865 /* SalePersonsStore.m */; };
 		83173106184F21890043F865 /* ContactsStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 83173105184F21890043F865 /* ContactsStore.m */; };
 		83173109184F238D0043F865 /* BaseStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 83173108184F238D0043F865 /* BaseStore.m */; };
-		831C097F1869823D002CB53A /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 831C097E1869823D002CB53A /* FacebookSDK.framework */; };
 		831C09971869A8CC002CB53A /* FilteringViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 831C09961869A8CC002CB53A /* FilteringViewController.m */; };
 		831C09A71869A8E7002CB53A /* ContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 831C099C1869A8E7002CB53A /* ContactCell.m */; };
 		831C09A81869A8E7002CB53A /* ContactCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 831C099D1869A8E7002CB53A /* ContactCell.xib */; };
@@ -134,7 +134,6 @@
 		447A2C601845D808008786AF /* SalesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SalesViewController.m; sourceTree = "<group>"; };
 		447A2C611845D808008786AF /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
 		447A2C621845D808008786AF /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
-		449204CE18445EB30036D3A9 /* CouchbaseLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CouchbaseLite.framework; sourceTree = "<group>"; };
 		44A20747186A8D4E00A60345 /* CBLModelDeleteHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBLModelDeleteHelper.h; sourceTree = "<group>"; };
 		44A20748186A8D4E00A60345 /* CBLModelDeleteHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBLModelDeleteHelper.m; sourceTree = "<group>"; };
 		44A2074A186AC38100A60345 /* TextFieldView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFieldView.h; sourceTree = "<group>"; };
@@ -179,6 +178,8 @@
 		49C103DC1859F86200D58426 /* Contact+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Contact+Helper.m"; sourceTree = "<group>"; };
 		49EB988418638CA6003A49F3 /* UIImage+Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Tools.h"; sourceTree = "<group>"; };
 		49EB988518638CA6003A49F3 /* UIImage+Tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Tools.m"; sourceTree = "<group>"; };
+		4BA4684D19DAF41100C6CF7D /* CouchbaseLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CouchbaseLite.framework; sourceTree = "<group>"; };
+		4BA4684F19DAF4A600C6CF7D /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		830B8C7F186D3204007CBF3F /* Kiwi.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Kiwi.framework; sourceTree = "<group>"; };
 		830B8C82186D34CA007CBF3F /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		830B8C8B186D3902007CBF3F /* CBLiteCRMKiwiTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CBLiteCRMKiwiTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -200,7 +201,6 @@
 		83173105184F21890043F865 /* ContactsStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactsStore.m; sourceTree = "<group>"; };
 		83173107184F238D0043F865 /* BaseStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseStore.h; sourceTree = "<group>"; };
 		83173108184F238D0043F865 /* BaseStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseStore.m; sourceTree = "<group>"; };
-		831C097E1869823D002CB53A /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		831C09951869A8CC002CB53A /* FilteringViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilteringViewController.h; sourceTree = "<group>"; };
 		831C09961869A8CC002CB53A /* FilteringViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilteringViewController.m; sourceTree = "<group>"; };
 		831C099B1869A8E7002CB53A /* ContactCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactCell.h; sourceTree = "<group>"; };
@@ -280,15 +280,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				449204CF18445EB30036D3A9 /* CouchbaseLite.framework in Frameworks */,
 				832845361851885F008FBFCD /* Social.framework in Frameworks */,
 				831FFD2E1844451F00C7CB22 /* libz.dylib in Frameworks */,
 				493498D4185A430E00ADA646 /* libTestFlight.a in Frameworks */,
 				831FFD2C1844451500C7CB22 /* libsqlite3.dylib in Frameworks */,
 				8328453B185188DF008FBFCD /* Accounts.framework in Frameworks */,
+				4BA4684E19DAF41100C6CF7D /* CouchbaseLite.framework in Frameworks */,
 				831FFCD61844364900C7CB22 /* CoreGraphics.framework in Frameworks */,
 				831FFD2A184444FC00C7CB22 /* SystemConfiguration.framework in Frameworks */,
-				831C097F1869823D002CB53A /* FacebookSDK.framework in Frameworks */,
+				4BA4685019DAF4A600C6CF7D /* FacebookSDK.framework in Frameworks */,
 				831FFCD81844364900C7CB22 /* UIKit.framework in Frameworks */,
 				831FFCD41844364900C7CB22 /* Foundation.framework in Frameworks */,
 				831FFD29184444FC00C7CB22 /* Security.framework in Frameworks */,
@@ -504,12 +504,12 @@
 		831FFCD21844364900C7CB22 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4BA4684F19DAF4A600C6CF7D /* FacebookSDK.framework */,
+				4BA4684D19DAF41100C6CF7D /* CouchbaseLite.framework */,
 				830B8C82186D34CA007CBF3F /* SenTestingKit.framework */,
 				830B8C7F186D3204007CBF3F /* Kiwi.framework */,
-				831C097E1869823D002CB53A /* FacebookSDK.framework */,
 				8328453A185188DF008FBFCD /* Accounts.framework */,
 				832845351851885F008FBFCD /* Social.framework */,
-				449204CE18445EB30036D3A9 /* CouchbaseLite.framework */,
 				831FFD2D1844451F00C7CB22 /* libz.dylib */,
 				831FFD2B1844451500C7CB22 /* libsqlite3.dylib */,
 				831FFD25184444FC00C7CB22 /* CFNetwork.framework */,
@@ -716,7 +716,7 @@
 			name = CBLiteCRMKiwiTests;
 			productName = CBLiteCRMKiwiTests;
 			productReference = 830B8C8B186D3902007CBF3F /* CBLiteCRMKiwiTests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productType = "com.apple.product-type.bundle.ocunit-test";
 		};
 		831FFCCF1844364900C7CB22 /* CBLiteCRM */ = {
 			isa = PBXNativeTarget;
@@ -957,10 +957,12 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CBLiteCRM/CBLiteCRM-Prefix.pch";
@@ -978,6 +980,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "7E73E076-D223-40B7-94A0-B71439FB50B5";
+				VALID_ARCHS = "armv7 armv7s i386";
 				WRAPPER_EXTENSION = app;
 			};
 			name = AdHoc;
@@ -1133,10 +1136,12 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CBLiteCRM/CBLiteCRM-Prefix.pch";
@@ -1151,10 +1156,11 @@
 					"$(inherited)",
 					"$(SRCROOT)/TestFlightSDK",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				VALID_ARCHS = "armv7 armv7s";
+				VALID_ARCHS = "armv7 armv7s i386";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1167,10 +1173,12 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CBLiteCRM/CBLiteCRM-Prefix.pch";
@@ -1188,7 +1196,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "7E73E076-D223-40B7-94A0-B71439FB50B5";
-				VALID_ARCHS = "armv7 armv7s";
+				VALID_ARCHS = "armv7 armv7s i386";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

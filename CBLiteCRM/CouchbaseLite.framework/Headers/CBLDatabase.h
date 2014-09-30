@@ -193,29 +193,13 @@ typedef BOOL (^CBLFilterBlock) (CBLSavedRevision* revision, NSDictionary* params
 /** Creates a replication that will 'push' this database to a remote database at the given URL.
     This always creates a new replication, even if there is already one to the given URL.
     You must call -start on the replication to start it. */
-- (CBLReplication*) replicationToURL: (NSURL*)url;
+- (CBLReplication*) createPushReplication: (NSURL*)url;
 
 /** Creates a replication that will 'pull' from a remote database at the given URL to this database.
     This always creates a new replication, even if there is already one from the given URL.
     You must call -start on the replication to start it. */
-- (CBLReplication*) replicationFromURL: (NSURL*)url;
+- (CBLReplication*) createPullReplication: (NSURL*)url;
 
-
-#ifdef CBL_DEPRECATED
-- (CBLDocument*) untitledDocument __attribute__((deprecated("renamed -createDocument")));
-- (CBLDocument*) cachedDocumentWithID: (NSString*)docID __attribute__((deprecated("you shouldn't need to use this")));
-- (void) clearDocumentCache __attribute__((deprecated("you shouldn't need to use this")));
-- (NSDictionary*) getLocalDocumentWithID: (NSString*)localDocID __attribute__((deprecated("renamed -existingLocalDocumentWithID:")));
-- (CBLQuery*) queryAllDocuments __attribute__((deprecated("renamed -createAllDocumentsQuery")));
-- (void) defineFilter: (NSString*)filterName asBlock: (CBLFilterBlock)filterBlock __attribute__((deprecated("renamed -setFilterNamed:asBlock:")));
-- (void) defineValidation: (NSString*)validationName asBlock: (CBLValidationBlock)validationBlock __attribute__((deprecated("renamed -setValidationNamed:asBlock:")));
-- (CBLReplication*) pushToURL: (NSURL*)url
-        __attribute__((deprecated("use replicationToURL, then call -start")));
-- (CBLReplication*) pullFromURL: (NSURL*)url
-        __attribute__((deprecated("use replicationFromURL, then call -start")));
-- (NSArray*) replicationsWithURL: (NSURL*)otherDbURL exclusively: (bool)exclusively
-        __attribute__((deprecated("call replicationToURL: and replicationFromURL:")));
-#endif
 
 @end
 
@@ -260,9 +244,4 @@ typedef BOOL (^CBLChangeEnumeratorBlock) (NSString* key, id oldValue, id newValu
     NO; else the method returns YES. */
 - (BOOL) validateChanges: (CBLChangeEnumeratorBlock)enumerator;
 
-#ifdef CBL_DEPRECATED
-- (BOOL) allowChangesOnlyTo: (NSArray*)allowedKeys __attribute__((deprecated()));
-- (BOOL) disallowChangesTo: (NSArray*)disallowedKeys __attribute__((deprecated()));
-- (BOOL) enumerateChanges: (CBLChangeEnumeratorBlock)enumerator __attribute__((deprecated("renamed validateChanges:")));
-#endif
 @end
