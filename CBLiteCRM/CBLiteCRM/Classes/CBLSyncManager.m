@@ -114,11 +114,11 @@
 
 - (void)defineSync
 {
-    pull = [_database replicationFromURL:_remoteURL];
+    pull = [_database createPullReplication:_remoteURL];
     pull.continuous = YES;
     //    pull.persistent = YES;
     
-    push = [_database replicationToURL:_remoteURL];
+    push = [_database createPushReplication:_remoteURL];
     push.continuous = YES;
     //    push.persistent = YES;
     
@@ -234,7 +234,7 @@
 
 -(void) getCredentials: (void (^)(NSString *userID, NSDictionary *userData))block {
     
-    [FBSession openActiveSessionWithReadPermissions:@[@"basic_info"]
+    [FBSession openActiveSessionWithReadPermissions:@[@"public_profile"]
                                        allowLoginUI:YES
                                   completionHandler:
      ^(FBSession *session, FBSessionState state, NSError *error) {
@@ -287,8 +287,7 @@
     if (!userID) return;
     for (CBLReplication * repl in repls) {
         NSLog(@"repl %@", repl);
-        [repl setFacebookEmailAddress:userID];
-        [repl registerFacebookToken:accessToken forEmailAddress:userID];
+        repl.authenticator = [CBLAuthenticator facebookAuthenticatorWithToken:accessToken];
     }
 }
 
